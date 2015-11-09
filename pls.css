@@ -5,6 +5,7 @@ Stylesheet for PhiLhoSoft's GitHub pages.
 
 body
 {
+	margin: 1pc;
 	font-size: 1pc;
 	background-color: #FFF;
 	line-height: 1.4;
@@ -15,7 +16,6 @@ body
 h1
 {
 	font-size: 30px;
-	text-transform: uppercase;
 	border-bottom: 1px solid #DDD;
 }
 
@@ -70,7 +70,7 @@ a:active, a:hover
 
 a:focus, a:hover
 {
-	color: #004a5e;
+	color: #005060;
 	text-decoration: underline;
 }
 
@@ -79,28 +79,12 @@ p
 	margin-bottom: 10px;
 }
 
-ul
-{
-	display: block;
-	list-style-type: disc;
-	-webkit-margin-before: 1em;
-	-webkit-margin-after: 1em;
-	-webkit-margin-start: 0;
-	-webkit-margin-end: 0;
-	-webkit-padding-start: 40px;
-}
-
-ol
-{
-	list-style-type: decimal;
-}
-
 ol li
 {
 	margin-left: 35px;
 }
 
-ol,ul
+ol, ul
 {
 	margin-top: 0;
 	margin-bottom: 10px;
@@ -110,6 +94,12 @@ li
 {
 	display: list-item;
 	text-align: -webkit-match-parent;
+}
+
+code
+{
+	font-family: Source Code Pro, DejaVu Sans Mono, Courier New, monospace;
+	font-size: 15px;
 }
 
 code, pre
@@ -122,7 +112,6 @@ code, pre
 code
 {
 	padding: 2px 4px;
-	font-size: 90%;
 	white-space: nowrap;
 }
 
@@ -131,7 +120,6 @@ pre
 	display: block;
 	padding: 9.5px;
 	margin: 0 0 10px;
-	font-size: 15px;
 	word-break: break-all;
 	word-wrap: break-word;
 	border: 1px solid #CCF;
@@ -145,11 +133,6 @@ pre code
 	white-space: pre-wrap;
 	background-color: transparent;
 	border-radius: 0;
-}
-
-code
-{
-	font-family: Source Code Pro, DejaVu Sans Mono, Courier New, monospace;
 }
 
 strong

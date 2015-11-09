@@ -28,6 +28,38 @@
 
 <p>So far, only some <a href="./Slides">technical slides</a>.</p>
 <p>More to come...</p>
+<pre><code>// Testing some code
+
+String defaultAsString&lt;Element>(Element? e) => e?.string else "";
+
+shared String formatAsNewick&lt;Element, ActualTreeNode>(ActualTreeNode root,
+		String(Element?) asString = defaultAsString&lt;Element>)
+		given ActualTreeNode satisfies TreeNode&lt;Element, ActualTreeNode>
+{
+	// We need a custom iterator as we do a specific action on each step.
+	class PostOrderIteration(ActualTreeNode root)
+	{
+		function wrap(ActualTreeNode node)
+		{
+			return [ node, node.children.iterator() ];
+		}
+
+		Stack&lt;[ ActualTreeNode, Iterator&lt;ActualTreeNode> ]> stack = LinkedList&lt;[ ActualTreeNode, Iterator&lt;ActualTreeNode> ]>();
+		stack.push(wrap(root));
+
+		shared void iterate(StringBuilder sb)
+		{
+			// Cut for shortness...
+		}
+	}
+
+	value ppi = PostOrderIteration(root);
+	value sb = StringBuilder();
+	ppi.iterate(sb);
+
+	return sb.string;
+}
+</code></pre>
 
 	</body>
 
