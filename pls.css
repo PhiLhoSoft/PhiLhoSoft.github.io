@@ -1,0 +1,202 @@
+/*
+Stylesheet for PhiLhoSoft's GitHub pages.
+*/
+
+
+body
+{
+	font-size: 1pc;
+	background-color: #FFF;
+	line-height: 1.4;
+	color: #333;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+h1
+{
+	font-size: 30px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #DDD;
+}
+
+h2
+{
+	font-size: 24px;
+	font-weight: 700;
+}
+
+h3
+{
+	font-size: 22px;
+	font-weight: 400;
+}
+
+h4
+{
+	font-size: 18px;
+}
+
+h1, h2, h3
+{
+	margin-top: 20px;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	margin-bottom: 10px;
+}
+
+h4, h5, h6
+{
+	margin-top: 10px;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+a
+{
+	color: #007090;
+	text-decoration: none;
+}
+
+a:active, a:hover
+{
+	outline: 0;
+}
+
+a:focus, a:hover
+{
+	color: #004a5e;
+	text-decoration: underline;
+}
+
+p
+{
+	margin-bottom: 10px;
+}
+
+ul
+{
+	display: block;
+	list-style-type: disc;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
+	-webkit-padding-start: 40px;
+}
+
+ol
+{
+	list-style-type: decimal;
+}
+
+ol li
+{
+	margin-left: 35px;
+}
+
+ol,ul
+{
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+li
+{
+	display: list-item;
+	text-align: -webkit-match-parent;
+}
+
+code, pre
+{
+	color: #333;
+	background-color: #F9F5F5;
+	border-radius: 4px;
+}
+
+code
+{
+	padding: 2px 4px;
+	font-size: 90%;
+	white-space: nowrap;
+}
+
+pre
+{
+	display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 15px;
+	word-break: break-all;
+	word-wrap: break-word;
+	border: 1px solid #CCF;
+}
+
+pre code
+{
+	padding: 0;
+	font-size: inherit;
+	color: inherit;
+	white-space: pre-wrap;
+	background-color: transparent;
+	border-radius: 0;
+}
+
+code
+{
+	font-family: Source Code Pro, DejaVu Sans Mono, Courier New, monospace;
+}
+
+strong
+{
+	font-weight: 700;
+}
+
+table
+{
+	border: 1px solid #DDD;
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+
+thead > tr > th
+{
+	border-bottom-width: 2px;
+	border-bottom: 2px solid #DDD;
+	font-weight: 700
+	background-color: #F8F8F8;
+}
+
+tbody > tr > td,
+thead > tr > th
+{
+	border: 1px solid #DDD;
+	vertical-align: bottom;
+	padding: 8px;
+	border-top: 0;
+}
+
+tbody > tr:nth-child(odd) > td,
+blockquote
+{
+	background-color: #FAFAFA;
+}
+
+blockquote
+{
+	padding: 5px 20px;
+	margin: 0.5em 0 1em;
+	border-left: 5px solid #DDD;
+	font-style: italic;
+}
+
+p > img
+{
+	max-width: 100%;
+}
