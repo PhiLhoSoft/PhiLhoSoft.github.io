@@ -15,8 +15,9 @@ body
 
 h1
 {
-	font-size: 30px;
-	border-bottom: 1px solid #DDD;
+	font-size: 32px;
+	font-weight: 800;
+	border-bottom: 1px solid #DDF;
 }
 
 h2
@@ -36,14 +37,15 @@ h4
 	font-size: 18px;
 }
 
+h4, h5, h6
+{
+	font-weight: 500;
+	line-height: 1.1;
+}
+
 h1, h2, h3
 {
 	margin-top: 20px;
-}
-
-h1, h2, h3, h4, h5, h6
-{
-	margin-bottom: 10px;
 }
 
 h4, h5, h6
@@ -53,8 +55,7 @@ h4, h5, h6
 
 h1, h2, h3, h4, h5, h6
 {
-	font-weight: 500;
-	line-height: 1.1;
+	margin-bottom: 10px;
 }
 
 a
@@ -74,14 +75,14 @@ a:focus, a:hover
 	text-decoration: underline;
 }
 
+section
+{
+	margin-bottom: 20px;
+}
+
 p
 {
 	margin-bottom: 10px;
-}
-
-ol li
-{
-	margin-left: 35px;
 }
 
 ol, ul
@@ -92,6 +93,7 @@ ol, ul
 
 li
 {
+	margin-left: 32px;
 	display: list-item;
 	text-align: -webkit-match-parent;
 }
@@ -100,19 +102,9 @@ code
 {
 	font-family: Source Code Pro, DejaVu Sans Mono, Courier New, monospace;
 	font-size: 15px;
-}
-
-code, pre
-{
-	color: #333;
-	background-color: #F9F5F5;
-	border-radius: 4px;
-}
-
-code
-{
 	padding: 2px 4px;
 	white-space: nowrap;
+	border: 1px dotted #DDF;
 }
 
 pre
@@ -122,10 +114,17 @@ pre
 	margin: 0 0 10px;
 	word-break: break-all;
 	word-wrap: break-word;
-	border: 1px solid #CCF;
+	border: 1px solid #DDF;
 }
 
-pre code
+code, pre
+{
+	color: #333;
+	background-color: #F5F9FF;
+	border-radius: 8px;
+}
+
+pre > code
 {
 	padding: 0;
 	font-size: inherit;
@@ -133,6 +132,7 @@ pre code
 	white-space: pre-wrap;
 	background-color: transparent;
 	border-radius: 0;
+	border: none;
 }
 
 strong
@@ -142,7 +142,7 @@ strong
 
 table
 {
-	border: 1px solid #DDD;
+	border: 1px solid #DDF;
 	width: 100%;
 	max-width: 100%;
 	margin-bottom: 20px;
@@ -151,32 +151,43 @@ table
 thead > tr > th
 {
 	border-bottom-width: 2px;
-	border-bottom: 2px solid #DDD;
-	font-weight: 700
-	background-color: #F8F8F8;
+	border-bottom: 2px solid #DDF;
+	font-weight: 700;
+	background-color: #F0F8FF;
+}
+
+tfoot > tr > td
+{
+	font-size: 0.9em;
 }
 
 tbody > tr > td,
-thead > tr > th
+thead > tr > th,
+tfoot > tr > td
 {
-	border: 1px solid #DDD;
+	border: 1px solid #DDF;
 	vertical-align: bottom;
 	padding: 8px;
 	border-top: 0;
 }
 
-tbody > tr:nth-child(odd) > td,
-blockquote
+tbody > tr:nth-child(odd) > td
 {
-	background-color: #FAFAFA;
+	background-color: #F8FCFF;
+}
+
+caption
+{
+	text-align: center;
 }
 
 blockquote
 {
 	padding: 5px 20px;
 	margin: 0.5em 0 1em;
-	border-left: 5px solid #DDD;
+	border-left: 8px solid #DDF;
 	font-style: italic;
+	background-color: #F0F8FF;
 }
 
 p > img
