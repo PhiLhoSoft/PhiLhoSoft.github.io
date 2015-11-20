@@ -1,7 +1,9 @@
 title: "About"
 layout: "page"
 ---
-<img src="css/images/logo.png" title="PhiLho's logo" alt="PhiLho"/>
+<img src="/css/images/logo.png" title="PhiLho's logo" alt="PhiLho"/>
+
+<!-- toc -->
 
 # PhiLhoSoft
 
@@ -44,22 +46,39 @@ shared String formatAsNewick<Element, ActualTreeNode>(ActualTreeNode root,
 }
 ```
 
-# Typography
+## Typography
 
 <section>
-<p>A simple paragraph. Followed by an ordered list (<abbr title="ordered list">OL</abbr>).</p>
-<ol><li>One</li><li>Two</li><li>Three<p>Can have <strong>paragraph</strong> inside, too.</p></li></ol>
-<p>Then an unordered list. (<abbr title="unordered list">UL</abbr>)</p>
-<ul><li>One</li><li>Two</li><li>Three<p>Here too, can have <em>paragraph</em> inside.</p></li></ul>
-<p>And a simple regular paragraph to conclude.</p>
+
+### Paragraphs and lists
+A simple paragraph. Followed by an ordered list (<abbr title="ordered list">OL</abbr>).
+
+1. One
+1. Two
+1. Three
+   Can have **paragraph** inside, too.
+
+Then an unordered list. (<abbr title="unordered list">UL</abbr>)
+
+- One
+- Two
+- Three
+   Here too, can have _paragraph_ inside, too.
+
+And a simple regular paragraph to conclude.
 </section>
 
 <section>
-<p>We can have code in a paragraph: <code>var p = _.find(persons, { name: Bond', surname: 'James' });</code></p>
+
+### Inline code
+
+We can have code in a paragraph: `var p = _.find(persons, { name: Bond', surname: 'James' });` and even more.
 </section>
 
 <section>
-<p>Let's try a quote:</p>
+
+### Quote
+Let's try a quote:
 <blockquote cite="http://ceylon-lang.org/documentation/1.2/spec/html_single/#d0e15">
 Java is a simple language to learn and Java code is easy to read and understand.
 Java provides a level of typesafety that is appropriate for business computing and
@@ -71,7 +90,9 @@ and improving upon Java's facilities for creating abstractions and writing gener
 </section>
 
 <section>
-<p>Now, with tables (thead, tfoot, and tbody)</p>
+
+### Tables
+Now, with tables (thead, tfoot, and tbody)
 <table>
 	<caption>Caption of the table</caption>
 	<thead>
@@ -106,4 +127,5 @@ and improving upon Java's facilities for creating abstractions and writing gener
 		</tr>
 	</tbody>
 </table>
+That's all for now.
 </section>
