@@ -1,5 +1,6 @@
 title: "About"
 layout: "page"
+description: "Not about me, just a discrete (?) place to experiment..."
 ---
 <img src="/css/images/logo.png" title="PhiLho's logo" alt="PhiLho"/>
 
