@@ -1,7 +1,7 @@
 title: "About"
 layout: "page"
 ---
-<img src="images/KM100.png" title="KnotMan" alt="KnotMan, PhiLho's logo"/>
+<img src="css/images/logo.png" title="PhiLho's logo" alt="PhiLho"/>
 
 # PhiLhoSoft
 

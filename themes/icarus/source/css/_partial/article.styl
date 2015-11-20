@@ -60,10 +60,13 @@
   line-height: line-height
   p, table
     line-height: line-height
+  table
     margin: line-height 0
+  p
+    margin-bottom: 10px
   h1, h2, h3, h4, h5, h6
+    color: color-header
     font-weight: bold
-  h1, h2, h3, h4, h5, h6
     line-height: line-height-title
     margin: line-height-title 0
   a
@@ -98,8 +101,9 @@
     font-size: 1.1em
     margin: 0 -20px
     padding: 10px 20px 10px 54px
-    background: #fcfcfc
-    border-left: 4px solid #eee
+    color: color-header
+    background: color-quote
+    border-left: 8px solid #DDF;
     &:before
       top: 20px
       left: 10px
@@ -357,10 +361,10 @@ ol.toc
   font-size 0.8em
   float right
   .toc
-    padding 0 
+    padding 0
     li
       list-style-type none
-  .toc-child 
+  .toc-child
     padding-left 0em
 #toc.toc-aside
   display none
