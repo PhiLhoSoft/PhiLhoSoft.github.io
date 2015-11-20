@@ -1,20 +1,23 @@
 title: "About"
 layout: "page"
 ---
-<h1><img src="assets/images/KM100.png" title="KnotMan" alt="KnotMan, PhiLho's logo"/>PhiLhoSoft</h1>
+<img src="images/KM100.png" title="KnotMan" alt="KnotMan, PhiLho's logo"/>
 
-<p>So far, only some <a href="./Slides">technical slides</a>.</p>
-<p>More to come...</p>
-<p>This page is ugly on purpose... (almost)</p>
+# PhiLhoSoft
 
-<h2>Technical</h2>
-<pre><code>// Testing some code display. To be highlighted later.
+So far, only some [technical slides](./Slides).
+More to come...
+This page is ugly on purpose... (almost).
 
-String defaultAsString&lt;Element>(Element? e) => e?.string else "";
+## Technical
+``` ceylon
+// Testing some code display. To be highlighted later.
 
-shared String formatAsNewick&lt;Element, ActualTreeNode>(ActualTreeNode root,
-		String(Element?) asString = defaultAsString&lt;Element>)
-		given ActualTreeNode satisfies TreeNode&lt;Element, ActualTreeNode>
+String defaultAsString<Element>(Element? e) => e?.string else "";
+
+shared String formatAsNewick<Element, ActualTreeNode>(ActualTreeNode root,
+		String(Element?) asString = defaultAsString<Element>)
+		given ActualTreeNode satisfies TreeNode<Element, ActualTreeNode>
 {
 	// We need a custom iterator as we do a specific action on each step.
 	class PostOrderIteration(ActualTreeNode root)
@@ -24,7 +27,7 @@ shared String formatAsNewick&lt;Element, ActualTreeNode>(ActualTreeNode root,
 			return [ node, node.children.iterator() ];
 		}
 
-		Stack&lt;[ ActualTreeNode, Iterator&lt;ActualTreeNode> ]> stack = LinkedList&lt;[ ActualTreeNode, Iterator&lt;ActualTreeNode> ]>();
+		Stack<[ ActualTreeNode, Iterator<ActualTreeNode> ]> stack = LinkedList<[ ActualTreeNode, Iterator<ActualTreeNode> ]>();
 		stack.push(wrap(root));
 
 		shared void iterate(StringBuilder sb)
@@ -39,9 +42,9 @@ shared String formatAsNewick&lt;Element, ActualTreeNode>(ActualTreeNode root,
 
 	return sb.string;
 }
-</code></pre>
+```
 
-<h2>Typography</h2>
+# Typography
 
 <section>
 <p>A simple paragraph. Followed by an ordered list (<abbr title="ordered list">OL</abbr>).</p>
