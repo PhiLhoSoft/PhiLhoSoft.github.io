@@ -1,0 +1,38 @@
+{
+	"name": "PhiLhoSoft_GH-Pages",
+	"description": "Playground Web Application: playing with JS frameworks / libraries",
+	"author": "PhiLho <PhiLho(a)GMX.net>",
+	"version": "0.1.0",
+	"private": true,
+	"license": "Zlib",
+	"repository":
+	{
+		"type": "git",
+		"url": "https://github.com/PhiLhoSoft/PhiLhoSoft.github.io.git"
+	},
+	"hexo":
+	{
+		"version": "3.1.1"
+	},
+	"dependencies":
+	{
+		"hexo": "latest",
+		"hexo-server": "latest",
+		"hexo-renderer-ejs": "latest",
+		"hexo-renderer-stylus": "latest",
+		"hexo-generator-archive": "latest",
+		"hexo-generator-category": "latest",
+		"hexo-generator-feed": "latest",
+		"hexo-generator-index": "latest",
+		"hexo-generator-sitemap": "latest",
+		"hexo-generator-tag": "latest",
+		"hexo-deployer-git": "latest",
+
+		"hexo-generator-search": "latest",
+		"hexo-renderer-markdown-it": "latest",
+		"hexo-renderer-bourbon": "latest",
+		"hexo-autoprefixer": "latest",
+		"hexo-tag-bootstrap": "latest",
+		"hexo-toc": "latest"
+	}
+}
