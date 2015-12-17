@@ -8,6 +8,7 @@ tags:
 - Site generation
 - Software
 - Tool
+- Blog
 date: 2015-11-15
 ---
 

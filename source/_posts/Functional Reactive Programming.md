@@ -1,5 +1,5 @@
-title: Using Lodash for fun and profit
-description: "Presenting the JavaScript library Lodash"
+title: Functional Reactive Programming
+description: "Tutorial about the functional reactive programming paradigm, using RxJS as illustration"
 categories:
 - Tutorial
 - Programming
