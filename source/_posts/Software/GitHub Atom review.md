@@ -1,5 +1,12 @@
 title: GitHub Atom review
 description: a review of the GitHub Atom editor (IDE), at version 0.10
+categories:
+- Software
+- IDE
+tags:
+- Software
+- Tool
+- IDE
 date: 2015-12-15 10:40:00
 ---
 

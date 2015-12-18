@@ -1,5 +1,12 @@
 title: Adobe Brackets revew
 description: a review of the Brackets IDE for the Web, at version 1.5
+categories:
+- Software
+- IDE
+tags:
+- Software
+- Tool
+- IDE
 date: 2015-09-25 13:24:00
 ---
 

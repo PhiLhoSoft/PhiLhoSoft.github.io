@@ -1,8 +1,8 @@
-title: Functional Programming: a Brief, Pragmatic Overview
+title: "Functional Programming: a Brief, Pragmatic Overview"
 description: "Tutorial about functional programming, short and practical"
 categories:
-- Tutorial
 - Programming
+- General
 tags:
 - Tutorial
 - Programming

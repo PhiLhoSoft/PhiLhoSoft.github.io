@@ -1,5 +1,12 @@
 title: Microsoft Visual Studio Code review
 description: a review of the Visual Studio Code IDE, at version 0.10
+categories:
+- Software
+- IDE
+tags:
+- Software
+- Tool
+- IDE
 date: 2015-07-12 11:06:00
 ---
 

@@ -1,5 +1,12 @@
 title: JetBrains WebStorm review
 description: a review of the WebStorm IDE for Web applications, at version 9
+categories:
+- Software
+- IDE
+tags:
+- Software
+- Tool
+- IDE
 date: 2015-03-02 11:42:00
 ---
 

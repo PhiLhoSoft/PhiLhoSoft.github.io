@@ -1,7 +1,6 @@
 title: How to test if a variable or property is defined in JavaScript
 description: "Shows various ways to test if a variable or a property is defined in JavaScript"
 categories:
-- Tutorial
 - Programming
 - JavaScript
 tags:

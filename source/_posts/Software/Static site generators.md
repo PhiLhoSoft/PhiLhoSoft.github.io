@@ -1,8 +1,8 @@
 title: Static Site Generators
 description: "Making of this site"
 categories:
-- Web
 - Software
+- Web tools
 tags:
 - Web
 - Site generation
@@ -16,6 +16,11 @@ date: 2015-11-15
 
 So I want to write some new technical articles (like this one...) on my latest discoveries.
 My previous host keeps [my old site](http://Phi.Lho.free.fr) but has cut my FTP access, so I cannot update or add new stuff.
+
+<aside class="article-wip">
+<img class="no-fancybox" src="/images/Work-in-Progress.svg" width=240 height=110 title="Work in Progress" alt="Work in Progress"/>
+This is a work in progress: this article is unfinished and will be updated.
+</aside>
 
 ## Static
 

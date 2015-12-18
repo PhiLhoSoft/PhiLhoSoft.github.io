@@ -1,15 +1,13 @@
 title: Using Lodash for fun and profit
 description: "Presenting the JavaScript library Lodash"
 categories:
-- Tutorial
 - Programming
-- Library
 - JavaScript
 tags:
 - Tutorial
 - Programming
-- Library
 - JavaScript
+- Library
 - Functional programming
 - Lodash
 date: 2015-10-01
@@ -23,6 +21,10 @@ More importantly, it has functions to manipulate collections. Collections is a g
 
 This allows to replace most `for` loops with powerful and succint function calls, showing clearly the intent of the operation without having to analyze complex code.
 
+<aside class="article-wip">
+<img class="no-fancybox" src="/images/Work-in-Progress.svg" width=240 height=110 title="Work in Progress" alt="Work in Progress"/>
+This is a work in progress: this article is unfinished and will be updated.
+</aside>
 
 ## History
 

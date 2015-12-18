@@ -1,18 +1,16 @@
 title: Functional Reactive Programming
 description: "Tutorial about the functional reactive programming paradigm, using RxJS as illustration"
 categories:
-- Tutorial
 - Programming
-- Reactive
-- Library
-- JavaScript
+- General
 tags:
 - Tutorial
 - Programming
-- JavaScript
-- Library
 - Functional programming
 - Reactive
+- JavaScript
+- Library
+- RxJS
 date: 2015-11-10
 ---
 
@@ -20,6 +18,11 @@ date: 2015-11-10
 
 FRP is a way to deal with events and asynchronous data in a functional style.
 Basically, it is an implementation of the Observer design pattern, dealing with streams of data coming on a timeline.
+
+<aside class="article-wip">
+<img class="no-fancybox" src="/images/Work-in-Progress.svg" width=240 height=110 title="Work in Progress" alt="Work in Progress"/>
+This is a work in progress: this article is unfinished and will be updated.
+</aside>
 
 ## Concept
 
