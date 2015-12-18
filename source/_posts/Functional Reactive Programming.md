@@ -3,14 +3,16 @@ description: "Tutorial about the functional reactive programming paradigm, using
 categories:
 - Tutorial
 - Programming
-- JavaScript
+- Reactive
 - Library
+- JavaScript
 tags:
 - Tutorial
 - Programming
 - JavaScript
 - Library
 - Functional programming
+- Reactive
 date: 2015-11-10
 ---
 
