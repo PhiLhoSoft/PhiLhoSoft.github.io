@@ -59,6 +59,7 @@
   $('.article-entry').each(function(i){
     $(this).find('img').each(function(){
       if ($(this).parent().hasClass('fancybox')) return;
+      if ($(this).hasClass('no-fancybox')) return;
 
       var alt = this.alt;
 

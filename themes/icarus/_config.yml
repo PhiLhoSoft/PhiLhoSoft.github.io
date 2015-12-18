@@ -10,7 +10,7 @@ menu:
   About: about
 
 # Content
-excerpt_link: Read More
+excerpt_link: Read more
 fancybox: true
 
 # Profile
@@ -29,11 +29,11 @@ thumbnail: true
 
 # Contacts
 contacts:
-  github: http://github.com/ppoffice/hexo-theme-icarus
-  twitter: '#'
-  facebook: '#'
-  dribbble: '#'
+  github: http://github.com/PhiLhoSoft
+  twitter: https://twitter.com/PhiLhoSoft
   rss: atom.xml
+
+about: A blog where I share my technical (programming) findings, insights, experiences, tutorials, etc.
 
 # Links
 links:
@@ -48,7 +48,7 @@ cdn: # You can choose "useso" instead of "google apis"(default).
 # Miscellaneous
 google_site_verification:
 google_analytics:
-favicon: favicon.png
+favicon: /favicon.ico
 twitter:
 google_plus:
 fb_admins:

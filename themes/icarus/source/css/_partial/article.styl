@@ -4,10 +4,19 @@
 .article-inner
   @extend $block
   overflow: hidden
+  position: relative;
 
 .article-banner
   width:100%
   height:auto
+
+.article-wip
+  color: #CC0;
+  font-style: italic;
+  width: 240px;
+  position: absolute;
+  top: 4px;
+  right: 4px;
 
 .article-meta
   clearfix()
@@ -245,7 +254,6 @@
   line-height: 1em
   font-weight: bold
   color: color-default
-  text-transform: uppercase
   #article-nav-newer &
     margin-right: -2px
 
