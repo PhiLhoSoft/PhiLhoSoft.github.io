@@ -19,11 +19,6 @@ date: 2015-11-10
 FRP is a way to deal with events and asynchronous data in a functional style.
 Basically, it is an implementation of the Observer design pattern, dealing with streams of data coming on a timeline.
 
-<aside class="article-wip">
-<img class="no-fancybox" src="/images/Work-in-Progress.svg" width=240 height=110 title="Work in Progress" alt="Work in Progress"/>
-This is a work in progress: this article is unfinished and will be updated.
-</aside>
-
 ## Concept
 
 We saw, in the article about [functional programming](), powerful ways to process iterable data, by composing functions, with lazy evaluation able to deal with infinite data, etc.
@@ -33,6 +28,13 @@ Data might come from user interaction: a keyboard key is pressed or released, th
 Data can also come from a server, after an asynchronous request. File system requests (asynchronous reading of file in Node.js, for example) are similar.
 It can also be a timer, delivering a timeout once or regularly.
 It can even come from static data (eg. content of an array): in this case, time is "now".
+
+<!-- more -->
+
+<aside class="article-wip">
+<img class="no-fancybox" src="/images/Work-in-Progress.svg" width=240 height=110 title="Work in Progress" alt="Work in Progress"/>
+This is a work in progress: this article is unfinished and will be updated.
+</aside>
 
 In his seminal article [The introduction to Reactive Programming you've been missing](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), Andre Staltz wrote the 'mantra': "Everything is a stream".
 It looks like a golden hammer seeing the world as nails to hit... I prefer the less slogan-like "Everything can be seen as a stream", or perhaps even more accurately, "Everything can be put in a stream".
@@ -88,6 +90,3 @@ You can create a new instance of the `Rx.Observable` object.
 By subscribing to a stream, you create an Observer, which is, most of the time, a Disposable, which can clean up the observed resource automatically or on demand.
 
 ### Hot and cold
-
-
-

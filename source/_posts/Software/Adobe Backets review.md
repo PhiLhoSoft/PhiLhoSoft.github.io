@@ -30,6 +30,8 @@ There are not much settings either: you have to edit Json files to customize thi
 After a few weeks of using Brackets, I appreciate it a lot: it is much less memory hungry than WebStorm or Eclipse, it is flexible and easy to use.
 I recommend it.
 
+<!-- more -->
+
 Still, I regret some base editor features are missing and must be fixed with extensions. Among them:
 
 - Jump to matching brace (bracket / parenthesis);
@@ -49,150 +51,150 @@ I give the links to the GitHub projects, but the best way to install these exten
 ### General improvement
 
 - **File Tree Exclude**
- - Jon Wolfe (https://github.com/JonathanWolfe/) - 0.6.3
- - Excludes folders (eg. containing generated stuff) from the file tree (less noise), find in files and quick open.
- - https://github.com/JonathanWolfe/file-tree-exclude
+	- Jon Wolfe (https://github.com/JonathanWolfe/) - 0.6.3
+	- Excludes folders (eg. containing generated stuff) from the file tree (less noise), find in files and quick open.
+	- https://github.com/JonathanWolfe/file-tree-exclude
 
 - **Brackets Outline List**
- - Jan Pilzer (https://github.com/Hirse) - 0.7.0
- - Display a list of the functions or definitions in the currently opened document.
- - https://github.com/Hirse/brackets-outline-list
+	- Jan Pilzer (https://github.com/Hirse) - 0.7.0
+	- Display a list of the functions or definitions in the currently opened document.
+	- https://github.com/Hirse/brackets-outline-list
 
 - **White Space Sanitizer**
- - Miguel Castillo (https://github.com/MiguelCastillo) - 1.2.1
- - Help keep white spaces and tabs consistent. Also trims trailing whitespaces and ensures newline at end of file.
- - https://github.com/MiguelCastillo/Brackets-wsSanitizer
- - See also https://github.com/adobe/brackets/wiki/How-to-Use-Brackets#preferences to set up tab preferences per language
+	- Miguel Castillo (https://github.com/MiguelCastillo) - 1.2.1
+	- Help keep white spaces and tabs consistent. Also trims trailing whitespaces and ensures newline at end of file.
+	- https://github.com/MiguelCastillo/Brackets-wsSanitizer
+	- See also https://github.com/adobe/brackets/wiki/How-to-Use-Brackets#preferences to set up tab preferences per language
 
 - **Show Whitespace**
- - Dennis Kehrig (https://github.com/DennisKehrig) - 2.0.1
- - Show indentation. Useful with the previous one...
- - https://github.com/DennisKehrig/brackets-show-whitespace
+	- Dennis Kehrig (https://github.com/DennisKehrig) - 2.0.1
+	- Show indentation. Useful with the previous one...
+	- https://github.com/DennisKehrig/brackets-show-whitespace
 
 - **Select Lines**
- - Travis Almand (https://github.com/talmand) - 1.3.0
- - Select lines by clicking / dragging in the gutter.
- - https://github.com/talmand/Brackets-Select-Lines
+	- Travis Almand (https://github.com/talmand) - 1.3.0
+	- Select lines by clicking / dragging in the gutter.
+	- https://github.com/talmand/Brackets-Select-Lines
 
 - **Display Shortcuts**
- - Randy Edmunds (https://github.com/redmunds) - 1.3.5
- - Display current keyboard shortcuts in a bottom panel that can be sorted and filtered.
- - https://github.com/redmunds/brackets-display-shortcuts
- - See also https://github.com/adobe/brackets/wiki/User-Key-Bindings and https://github.com/adobe/brackets/blob/master/src/command/Commands.js to define (or change) your shortcuts.
+	- Randy Edmunds (https://github.com/redmunds) - 1.3.5
+	- Display current keyboard shortcuts in a bottom panel that can be sorted and filtered.
+	- https://github.com/redmunds/brackets-display-shortcuts
+	- See also https://github.com/adobe/brackets/wiki/User-Key-Bindings and https://github.com/adobe/brackets/blob/master/src/command/Commands.js to define (or change) your shortcuts.
 
 - **Go to Matching Bracket**
- - David Waterston (https://github.com/davidwaterston) - 2.1.0
- - Instantly locate and place the cursor on the matching bracket to the one under the cursor.
- - Shortcut: Ctrl+Alt+Right Arrow
- - https://github.com/davidwaterston/goto-matching-bracket
+	- David Waterston (https://github.com/davidwaterston) - 2.1.0
+	- Instantly locate and place the cursor on the matching bracket to the one under the cursor.
+	- Shortcut: Ctrl+Alt+Right Arrow
+	- https://github.com/davidwaterston/goto-matching-bracket
 
 - **Rename JavaScript Identifier**
- - Asger Feldthaus (https://github.com/asgerf) - 0.2.9
- - Intelligent renaming of JS variables.
- - Shortcut: Ctrl+R
- - https://github.com/asgerf/bracket-rename
+	- Asger Feldthaus (https://github.com/asgerf) - 0.2.9
+	- Intelligent renaming of JS variables.
+	- Shortcut: Ctrl+R
+	- https://github.com/asgerf/bracket-rename
 
 - **BracketstoIX**
- - ApptoIX Limited (https://github.com/apptoix) - 3.2.0
- - Swiss knife toolset... Useful: to upper or to lower case, single to double quote and back, RGB to hex colors and back, etc.
- - Shortcuts: use the Command Mapper to define them as you want. Use Display Shortcuts to see what is available or overridable.
- - https://github.com/apptoix/bracketstoix - http://www.apptoix.com/fr/bracketstoix.html
+	- ApptoIX Limited (https://github.com/apptoix) - 3.2.0
+	- Swiss knife toolset... Useful: to upper or to lower case, single to double quote and back, RGB to hex colors and back, etc.
+	- Shortcuts: use the Command Mapper to define them as you want. Use Display Shortcuts to see what is available or overridable.
+	- https://github.com/apptoix/bracketstoix - http://www.apptoix.com/fr/bracketstoix.html
 
 ### Support of auto-completion, hinting & linting
 
 - **Interactive Linter**
- - Miguel Castillo (https://github.com/MiguelCastillo) - 1.0.5
- - Brings realtime JSHint/JSLint/CoffeeLint reports into Brackets as you work on your code, in form of margin indicators.
- - https://github.com/MiguelCastillo/Brackets-InteractiveLinter
+	- Miguel Castillo (https://github.com/MiguelCastillo) - 1.0.5
+	- Brings realtime JSHint/JSLint/CoffeeLint reports into Brackets as you work on your code, in form of margin indicators.
+	- https://github.com/MiguelCastillo/Brackets-InteractiveLinter
 
 - **SCSS Lint**
- - chimo (https://github.com/chimo) -  0.2.0
- - SCSS lint support.
- - https://github.com/chimo/brackets-scss-lint
+	- chimo (https://github.com/chimo) -  0.2.0
+	- SCSS lint support.
+	- https://github.com/chimo/brackets-scss-lint
 
 - **SASSHints**
- - Konstantin Kobs (https://github.com/konstantinkobs) - 1.1.0
- - Auto-completion for SASS/SCSS variables.
- - https://github.com/konstantinkobs/brackets-SASShints
+	- Konstantin Kobs (https://github.com/konstantinkobs) - 1.1.0
+	- Auto-completion for SASS/SCSS variables.
+	- https://github.com/konstantinkobs/brackets-SASShints
 
 - **Emmet**
- - Sergey Chikuyonok (https://github.com/sergeche) - 1.2.2
- - Facilitates typing of HTML: div>(header>ul>li*2>a)+footer>p + Tab key procures a div with a header and a footer, the former with a list inside.
- - https://github.com/emmetio/brackets-emmet
+	- Sergey Chikuyonok (https://github.com/sergeche) - 1.2.2
+	- Facilitates typing of HTML: div>(header>ul>li*2>a)+footer>p + Tab key procures a div with a header and a footer, the former with a list inside.
+	- https://github.com/emmetio/brackets-emmet
 
 - **Brackets Snippets**
- - Edward Chu (https://github.com/chuyik) - 1.8.1
- - Imitate Sublime Text's behavior of snippets: insert snippets of code by typing an abbreviation and a shortcut key.
- - https://github.com/chuyik/brackets-snippets
+	- Edward Chu (https://github.com/chuyik) - 1.8.1
+	- Imitate Sublime Text's behavior of snippets: insert snippets of code by typing an abbreviation and a shortcut key.
+	- https://github.com/chuyik/brackets-snippets
 
 - **Ternific**
- - Miguel Castillo (https://github.com/MiguelCastillo) - 0.8.0
- - JavaScript hinting and refactoring powered by Tern.
- - https://github.com/MiguelCastillo/Brackets-Ternific
+	- Miguel Castillo (https://github.com/MiguelCastillo) - 0.8.0
+	- JavaScript hinting and refactoring powered by Tern.
+	- https://github.com/MiguelCastillo/Brackets-Ternific
 
 - **QuickDocsJS**
- - Ole Kröger (https://github.com/Wikunia) - 1.6.7
- - Inline short documentation for JavaScript functions, including a summary,syntax and parameters.
- - Shortcut: Ctrl+K
- - https://github.com/Wikunia/brackets-QuickDocsJS
+	- Ole KrÃ¶ger (https://github.com/Wikunia) - 1.6.7
+	- Inline short documentation for JavaScript functions, including a summary,syntax and parameters.
+	- Shortcut: Ctrl+K
+	- https://github.com/Wikunia/brackets-QuickDocsJS
 
 - **FuncDocr**
- - Ole Kröger (https://github.com/Wikunia) - 0.8.26
- - Generates JS/PHPDoc annotations for your functions.
- - Shortcut: Ctrl+Alt+D
- - https://github.com/Wikunia/brackets-FuncDocr
+	- Ole KrÃ¶ger (https://github.com/Wikunia) - 0.8.26
+	- Generates JS/PHPDoc annotations for your functions.
+	- Shortcut: Ctrl+Alt+D
+	- https://github.com/Wikunia/brackets-FuncDocr
 
 #### Removed because Interactive Linter supports them anyway
 
 - **JSHint**
- - Enable JSHint support, which can (should) supercedes JSLint. The latter is a bit too strict about "rules". The former is very flexible.
- - https://github.com/cfjedimaster/brackets-jshint
+	- Enable JSHint support, which can (should) supercedes JSLint. The latter is a bit too strict about "rules". The former is very flexible.
+	- https://github.com/cfjedimaster/brackets-jshint
 
 - **JSCS**
- - JSCS <http://jscs.info/> support: JSHint supports some code style rules, but they are deprecated in favor of JSCS.
- - https://github.com/globexdesigns/brackets-jscs
+	- JSCS <http://jscs.info/> support: JSHint supports some code style rules, but they are deprecated in favor of JSCS.
+	- https://github.com/globexdesigns/brackets-jscs
 
 - **CSSLint**
- - https://github.com/cfjedimaster/brackets-csslint
+	- https://github.com/cfjedimaster/brackets-csslint
 
 ### Other tools
 
 - **Brackets SASS**
- - Jason San Jose (https://github.com/jasonsanjose) - 2.0.3-132
- - Enable Live Preview and compile SASS files.
- - https://github.com/jasonsanjose/brackets-sass
+	- Jason San Jose (https://github.com/jasonsanjose) - 2.0.3-132
+	- Enable Live Preview and compile SASS files.
+	- https://github.com/jasonsanjose/brackets-sass
 
 - **Markdown Preview**
- - Glenn Ruehle (http://github.com/gruehle) - 1.0.10
- - As the name implies...
- - https://github.com/gruehle/MarkdownPreview
+	- Glenn Ruehle (http://github.com/gruehle) - 1.0.10
+	- As the name implies...
+	- https://github.com/gruehle/MarkdownPreview
 
 - **Spell-check**
-Jochen Hagentröm (https://github.com/couzteau) - 0.5.8
-As the name implies... Not real time.
- - https://github.com/couzteau/SpellCheck
+	- Jochen HagentrÃ¶m (https://github.com/couzteau) - 0.5.8
+	- As the name implies... Not real time.
+	- https://github.com/couzteau/SpellCheck
 
 - **Perforce**
- - Joshua Galvin (https://github.com/JoshGalvin) - 1.0.1
- - Enables Perforce source control integration (no GUI, just check out / add / delete files when dirty).
- - https://github.com/JoshGalvin/brackets-perforce
+	- Joshua Galvin (https://github.com/JoshGalvin) - 1.0.1
+	- Enables Perforce source control integration (no GUI, just check out / add / delete files when dirty).
+	- https://github.com/JoshGalvin/brackets-perforce
 
 - **SVG Preview**
- - Peter Flynn (https://github.com/peterflynn) - 1.3.0
- - Live preview SVG files inline as you edit them
- - https://github.com/peterflynn/svg-preview
+	- Peter Flynn (https://github.com/peterflynn) - 1.3.0
+	- Live preview SVG files inline as you edit them
+	- https://github.com/peterflynn/svg-preview
 
 ### Extensions that might be installed someday
 
 - **Beautify**
- - Format JavaScript, HTML, and CSS files
- - https://github.com/drewhamlett/brackets-beautify
+	- Format JavaScript, HTML, and CSS files
+	- https://github.com/drewhamlett/brackets-beautify
 
 - **Git**
- - https://github.com/zaggino/brackets-git
+	- https://github.com/zaggino/brackets-git
 
 #### Removed
 
 - **Various Improvements**
- - Add more information in the status bar, lowercase and uppercase converter, super clipboard, button close all folders in file tree, files search.
- - https://github.com/Dammmien/brackets-various-improvements
+	- Add more information in the status bar, lowercase and uppercase converter, super clipboard, button close all folders in file tree, files search.
+	- https://github.com/Dammmien/brackets-various-improvements

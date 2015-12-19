@@ -8,6 +8,7 @@ tags:
 - Tool
 - IDE
 date: 2015-12-15 10:40:00
+updated: 2015-12-19 09:16:00
 ---
 
 # GitHub Atom review
@@ -15,6 +16,16 @@ date: 2015-12-15 10:40:00
 "A hackable text editor for the 21st Century"
 
 https://atom.io/
+
+## Disclaimer
+
+I came to Atom with a prejudice...
+The long closed-source / beta period, the fact the "hackable" editor isn't coded in JavaScript but in CoffeeScript, the need for plugins for everything (according to some reviews), the reported slowness and memory hungriness, made me to hesitate to try it... I was also a happy user of Adobe Brackets, with no compeling need to change.
+But, Brackets accumulated a number of little annoyances, making me to try other editors.
+The test of Visual Studio Code was brief, as it didn't have the base (semi-advanced if you want) features I use all the time: drag'n'drop of code, and column selection.
+So I tested Atom, with a critical eye. Spoiler: I was seducted, and it becomes my favorite Web IDE...
+
+<!-- more -->
 
 ## Quick review
 
@@ -36,12 +47,12 @@ I opened it, it starts quickly (at least as second load, after the initial one a
 It has a dark UI, which I don't like, but I quickly found where to change this to the default light theme. Good point than several themes are bundled by default: no need to hunt for them. The default light UI theme is rather nice. I also chose the One Light syntax theme among four. A bit too pale (low contrast) for my taste, I will eventually see if I can tweak it.
 
 As I feared (I searched a bit before, given the Visual Studio Code deception), drag'n'drop of code isn't available out of the box. Actually, I saw several plugins activating it. That's one of the problems with this editor: there is a plethora of plugins, which can be nice, but it is confusing to choose one... And I still think such feature should be built-in in the editor.
-Same for column (rectangular) selections!
+Same for column (rectangular) selections! Later, I found out Atom supports out of the box column selection (Alt+Up / Down, extend only, allows rectangular selection with Shift+Left / Right) and multiple carets (Ctrl+click).
 I find a bit unsettling to have to install lot of plugins to get base editor features. I have the same issue with Brackets, but it has at least these two features built-in (but D'n'D must be activated by a setting).
 That said, I found several features out of the box for which I had to install a plugin in Brackets:
 - Jump to matching brace / bracket
 - Gutter selection
-
+And finally, Atom has more base features out of the box.
 
 I expected to find a feature not present in Brackets: click on a word, hit Ctrl+F to find the word under caret. Nope, not better, I have to select the word (double-click as usual; Ctrl+D does it as well, but I assign it to duplicate line instead) to have it picked up by default. At least, it memorizes the last search. But unlike SciTE (my all-purpose lightweight text editor of choice), it doesn't keep an history of searches.
 Good point: it allows to change text in selection only (a feature I miss in Brackets), and to limit searches to word only (something I rarely use but which is sometime useful).
@@ -70,6 +81,7 @@ Minor quibble: title and closing cross in inactive tabs are one or two pixels to
 Good point: once a plugin / package is installed, no need to restart Atom to get it working.
 
 - Sublime Style Column Selection
+Allow column selection with mouse.
 1.3.0 by bigfive
 https://atom.io/packages/Sublime-Style-Column-Selection
 https://github.com/bigfive/atom-sublime-select
@@ -78,6 +90,18 @@ https://github.com/bigfive/atom-sublime-select
 0.3.0 by mark-hahn
 https://atom.io/packages/simple-drag-drop-text
 https://github.com/mark-hahn/simple-drag-drop-text
+
+- minimap
+Visual miniature representation of the content of the editor. Allows quick navigation.
+4.18.0 by atom-minimap
+https://atom.io/packages/minimap
+https://github.com/atom-minimap/minimap
+
+- markdown-mindmap
+Shows headings of a Markdown text as a mindmap, allows to navigate.
+0.2.4 by dundalek
+https://atom.io/packages/markdown-mindmap
+https://github.com/dundalek/atom-markdown-mindmap
 
 - highlight-selected
 0.11.1 by richrace
@@ -90,70 +114,71 @@ https://atom.io/packages/minimap-highlight-selected
 https://github.com/atom-minimap/minimap-highlight-selected
 
 - autocomplete-paths
+Autocompletion for paths in the project, according to file system.
 1.0.2 by atom-community
 https://atom.io/packages/autocomplete-paths
 https://github.com/atom-community/autocomplete-paths
 With patch https://github.com/atom-community/autocomplete-paths/pull/51/files applied manually...
 
 - autoclose-html
+Automatically close HTML tags.
 0.19.0 by mattberkowitz
 https://atom.io/packages/autoclose-html
 https://github.com/mattberkowitz/autoclose-html
 
-- rest-client
-0.5.0 by ddavison
-https://atom.io/packages/rest-client
-https://github.com/ddavison/rest-client
-
-- minimap
-4.18.0 by atom-minimap
-https://atom.io/packages/minimap
-https://github.com/atom-minimap/minimap
-
-- markdown-mindmap
-0.2.4 by dundalek
-https://atom.io/packages/markdown-mindmap
-https://github.com/dundalek/atom-markdown-mindmap
-
 - linter
+Engine allowing to display lint information in real time in the editor. Need plugins for various languages.
 1.11.3 by atom-community
 https://atom.io/packages/linter
 https://github.com/atom-community/linter
 
 - linter-eslint
+Linter for JavaScript.
 5.2.6  by AtomLinter
 https://atom.io/packages/linter-eslint
 https://github.com/AtomLinter/linter-eslint
 
 - linter-htmlhint
+Linter for HTML.
 0.2.1 by AtomLinter
 https://atom.io/packages/linter-htmlhint
 https://github.com/AtomLinter/linter-htmlhint
 
 - linter-csslint
+Linter for CSS.
 1.1.0 by AtomLinter
 https://atom.io/packages/linter-csslint
 https://github.com/AtomLinter/linter-csslint
 
 - linter-sass-lint
+Linter for Sass.
 0.4.3 by DanPurdy
 https://atom.io/packages/linter-sass-lint
 https://github.com/DanPurdy/linter-sass-lint
 
 - pigments
+Shows colors from various CSS notations (including named colors). I prefer to display them as circles after the color definition.
 0.19.3 by abe33
 https://atom.io/packages/pigments
 https://github.com/abe33/atom-pigments
 
 - atom-beautify
+Beaufity code, according to given rules. Not for my code (I always format as I want) but for foreign code pasted in mine...
 0.28.19 by Glavin001
 https://atom.io/packages/atom-beautify
 https://github.com/Glavin001/atom-beautify
 
 - file-icons
+Add icons (depending on file type) in the tree view on the left.
 1.6.13 by DanBrooker
 https://atom.io/packages/file-icons
 https://github.com/DanBrooker/file-icons
+
+- rest-client
+Simple Rest client to generate requests to servers.  Complement of RestClient on Firefox, Postman in Chrome.
+0.5.0 by ddavison
+https://atom.io/packages/rest-client
+https://github.com/ddavison/rest-client
 
 - tree-ignore
 0.2.6 by leny

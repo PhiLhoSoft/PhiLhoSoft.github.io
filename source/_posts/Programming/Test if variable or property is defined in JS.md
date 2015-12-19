@@ -36,6 +36,8 @@ That's the most common case. It can be used against global objects (eg. to see i
 A function expecting a number of parameters can be called with only part of them, or even none.
 In this case, the missing parameters (at the end of the list) are declared but have the value `undefined`.
 
+<!-- more -->
+
 ## The possible checks
 
 JavaScript offers several ways to do this check. What is the "best" one?
@@ -122,4 +124,3 @@ jQuery also has checks:
 - jquery.isXMLDoc
 
 And so on.
-

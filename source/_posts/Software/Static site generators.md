@@ -17,6 +17,8 @@ date: 2015-11-15
 So I want to write some new technical articles (like this one...) on my latest discoveries.
 My previous host keeps [my old site](http://Phi.Lho.free.fr) but has cut my FTP access, so I cannot update or add new stuff.
 
+<!-- more -->
+
 <aside class="article-wip">
 <img class="no-fancybox" src="/images/Work-in-Progress.svg" width=240 height=110 title="Work in Progress" alt="Work in Progress"/>
 This is a work in progress: this article is unfinished and will be updated.
@@ -86,4 +88,3 @@ These were the initial choices of Hexo. Since v.3, they moved EJS and Less (Styl
 
 I chose the [Icarus](http://blog.zhangruipeng.me/hexo-theme-icarus/) theme, responsive, clean and nice, supporting Disqus and Google Analytics out of the box.
 I made some minor changes, mostly on the CSS side, to personalize it a bit.
-

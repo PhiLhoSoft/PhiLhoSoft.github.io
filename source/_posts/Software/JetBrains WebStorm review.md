@@ -18,6 +18,8 @@ A colleague advised to try WebStorm.
 At first, I was a bit reluctant. First, it is a payware, something I usually avoid. Of course, there is chance my company finally pays for the software, if it was a real productivity tool. But then, that's something that I would use at work, and couldn't use at home (I have zero software budget...).
 Secondly, I tried IntelliJ IDEA some years ago, and wasn't convinced. Perhaps it was less mature than now, or perhaps I didn't try hard enough, but I went back to my Eclipse quite quickly.
 
+<!-- more -->
+
 Well, I installed it (v. 9.0.3 on Windows 7 with 8 GB of memory) and, as usual in a first contact, I went to the settings, to get a first feel of the capabilities of the application. They are quite complete, yet not overwhelming.
 I first chose the Eclipse keyboard configuration, allowing me to find back a familiar interface. And I customized some that I also customize on Eclipse (to find back shortcuts I use in my favorite source code editor, SciTE). It went well and fast.
 
@@ -57,6 +59,3 @@ I find myself loosing lot of time on this. A little pro thought: it is easy to m
 I hadn't time to test how to debug JavaScript within WS, but it also something it can do.
 
 Overall, I am quite impressed by this IDE, which has a deep knowledge of the Web environment, offers good editing facilities and is very pleasant to use.
-
-
-

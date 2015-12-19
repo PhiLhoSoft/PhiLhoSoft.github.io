@@ -21,6 +21,8 @@ More importantly, it has functions to manipulate collections. Collections is a g
 
 This allows to replace most `for` loops with powerful and succint function calls, showing clearly the intent of the operation without having to analyze complex code.
 
+<!-- more -->
+
 <aside class="article-wip">
 <img class="no-fancybox" src="/images/Work-in-Progress.svg" width=240 height=110 title="Work in Progress" alt="Work in Progress"/>
 This is a work in progress: this article is unfinished and will be updated.
@@ -342,4 +344,3 @@ They a particularly useful to ensure an argument has been passed to a function.
 `_.isMatch` does a deep comparison to determine if the given object includes all the properties of the source object. Also accepts a customizer function.
 
 `_.clone` and `_.cloneDeep` create respectively a shallow and a deep clone of the given value. Accepts a customizer.
-

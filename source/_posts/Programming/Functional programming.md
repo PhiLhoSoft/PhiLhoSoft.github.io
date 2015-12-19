@@ -7,7 +7,7 @@ tags:
 - Tutorial
 - Programming
 - Functional programming
-date: 2015-10-20
+date: 2015-09-20
 ---
 
 # Functional Programming: a Brief, Pragmatic Overview
@@ -28,6 +28,8 @@ Very popular languages like C++ or Java are based on OOP, which is easy to grasp
 On the other hand, FP comes from lambda calculus, a "formal system in mathematical logic". Ie. it has strong mathematical roots, thus some of its concepts can be quite abstract, and it shows when most people explain its concepts. Combined with strong typing, based on type theory, like in Haskell, we quickly end with abstract concepts with specialized jargon. Plus Haskell, one of the most popular FP languages, has a syntax not intuitive for the uninitiated.
 
 Fortunately, as said, some people extracted some core ideas from FP, and exposed them in easier to understand languages and libraries (see above). This helped in spreading these practices in mainstream programming.
+
+<!-- more -->
 
 ## Brief? Pragmatic?
 
