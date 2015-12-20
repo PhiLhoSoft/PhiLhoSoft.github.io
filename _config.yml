@@ -20,7 +20,7 @@ since: 2015 # The start year showing in your copyright section.
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://PhiLhoSoft.github.io
 root: /
-permalink: :year-:month-:day/:title/
+permalink: :title/
 permalink_defaults:
 
 # Directory
@@ -38,7 +38,7 @@ new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: false # Open external links in new tab
-filename_case: 0
+filename_case: 1
 render_drafts: false
 post_asset_folder: false
 relative_link: false
@@ -145,4 +145,3 @@ bourbon:
 autoprefixer:
   exclude:
   - '*.min.js'
-

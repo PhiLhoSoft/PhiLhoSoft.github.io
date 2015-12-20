@@ -2,12 +2,12 @@ title: Static Site Generators
 description: "Making of this site"
 categories:
 - Software
-- Web tools
+- Tools
 tags:
-- Web
 - Site generation
 - Software
 - Tool
+- Web
 - Blog
 date: 2015-11-15
 ---
@@ -77,6 +77,7 @@ Plus it uses Less to generate CSS, while I prefer Sass.
 Again, I can replace these parts if I want, the author explains how to change a renderer, but again I wanted something faster to use.
 
 I skip over other generators I saw, like [Waffel](http://moonwave99.github.io/waffel/) (based on Brunch), which seems promising, or [Gatsby](https://github.com/gatsbyjs/gatsby) also interesting, based also on React.js, but written in CoffeeScript.
+
 ## Hexo
 
 Finally, I came back to [Hexo](https://hexo.io/), which I looked at several times before...
@@ -84,7 +85,7 @@ That's one of the tools with a nice site, good tutorials, and lot of support: it
 
 Alas, lot (if not all) of these themes are written in EJS (why is it so popular?) and Less...
 
-These were the initial choices of Hexo. Since v.3, they moved EJS and Less (Stylus?) renderers to external plugins, and there are other plugins, but unless you are willing to make your own theme from scratch, you are stuck with these technologies.
+These were the initial choices of Hexo. Since v.3, they moved EJS and Stylus renderers to external plugins, and there are other plugins, but unless you are willing to make your own theme from scratch, you are stuck with these technologies.
 
 I chose the [Icarus](http://blog.zhangruipeng.me/hexo-theme-icarus/) theme, responsive, clean and nice, supporting Disqus and Google Analytics out of the box.
 I made some minor changes, mostly on the CSS side, to personalize it a bit.

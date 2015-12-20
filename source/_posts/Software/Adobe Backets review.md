@@ -1,4 +1,4 @@
-title: Adobe Brackets revew
+title: Adobe Brackets review
 description: a review of the Brackets IDE for the Web, at version 1.5
 categories:
 - Software

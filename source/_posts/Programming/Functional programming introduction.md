@@ -43,7 +43,7 @@ It is **pragmatic** because I use several FP techniques, as popularized by some 
 So, what functional programming is about?
 As the name implies, like OOP is all about objects, FP is all about functions.
 These are first-class citizens: they can be stored in variables and collections, they can be passed as arguments to functions which can return a function. You get the idea...
-Note: functions manipulating functions are called _higher-order functions_. I will spray a bit of FP jargon here, for your information; for something more complete, see (Functional programming jargon)[https://github.com/hemanth/functional-programming-jargon], an accessible, work-in-progress glossary.
+Note: functions manipulating functions are called _higher-order functions_. I will spray a bit of FP jargon here, for your information; for something more complete, see [Functional programming jargon](https://github.com/hemanth/functional-programming-jargon), an accessible, work-in-progress glossary.
 
 A central idea behind FP is to use _pure_ functions: they must not change the world outside of them. A pure function will always return the same output for a given input. It is called _idempotency_ and _referential transparency_. The later means that if a pure function is called with a constant, it can be replaced with the value it returns.
 Of course, a real program has to alter its environment: to take some data, to output some results, perhaps to react to user input.
