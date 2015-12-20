@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Functional Programming: a Brief, Pragmatic Overview ~|~ PhiLhoSoft Technical Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Tutorial about functional programming, short and practical">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Functional Programming: a Brief, Pragmatic Overview">
+<meta property="og:url" content="http://PhiLhoSoft.github.io/Programming/Functional programming introduction/index.html">
+<meta property="og:site_name" content="PhiLhoSoft Technical Blog">
+<meta property="og:description" content="Tutorial about functional programming, short and practical">
+<meta property="og:updated_time" content="2015-12-20T23:24:07.752Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Functional Programming: a Brief, Pragmatic Overview">
+<meta name="twitter:description" content="Tutorial about functional programming, short and practical">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+
+  
+
+  
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/images/logo.png)"></i><span class="site-title">PhiLhoSoft Technical Blog</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://PhiLhoSoft.github.io"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+        <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://PhiLhoSoft.github.io"></form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/images/avatar.png">
+      <h2 id="name">Philippe Lhoste (PhiLho)</h2>
+      <h3 id="title">Senior Software Engineer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Paris, France</span>
+      <a id="follow" href="https://github.com/PhiLhoSoft/">FOLLOW</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        9
+        <span>posts</span>
+      </div>
+      <div class="article-info-block">
+        14
+        <span>tags</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/PhiLhoSoft" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="https://twitter.com/PhiLhoSoft" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+          
+          <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+    <div class="article-info profile-block bio">
+      <h2>About</h2>
+      <p>A blog where I share my technical (programming) findings, insights, experiences, tutorials, etc.</p>
+    </div>
+    
+    <div class="article-info profile-block license">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+      </a><br>
+      This work by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">PhiLho</span>
+      is licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </div>
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-Programming/Functional programming introduction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Functional Programming: a Brief, Pragmatic Overview
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/Programming/Functional programming introduction/">
+      <time datetime="2015-09-19T22:00:00.000Z" itemprop="datePublished">2015-09-20</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h1 id="functional-programming-a-brief-pragmatic-overview">Functional Programming: a Brief, Pragmatic Overview</h1>
+<p>Functional Programming (FP) is a programming paradigm, like imperative (procedural) programming or object-oriented programming (OOP).<br>
+Some people oppose these paradigms, but actually they are not exclusive of each other: we do imperative programming inside OOP&#x2019;s methods, and we can mix OOP and FP: that&#x2019;s even a trend in modern languages (Scala, Ceylon, &#x2026;) and in older ones (JavaScript, Java 8&#x2026;).</p>
+<h2 id="why-functional-programming">Why functional programming?</h2>
+<p>FP exists for years, but it was rather confined to niche languages. It started to infuse in the mainstream coding practices via the above mentioned languages or libraries like Guava (Java) or Underscore / Lodash (JavaScript).<br>
+By promoting stateless functions and immutable data, it proved to be very efficient and easy to control in concurrent programming, leading to efficient processing of big data.<br>
+It is also easy to test. Its rather declarative style is also easy to read.<br>
+And reactive functional programming (FRP) is a powerful paradigm to process asynchronously big streams of data as well as user input.</p>
+<p>Given all these qualities, why isn&#x2019;t more popular?</p>
+<p>Very popular languages like C++ or Java are based on OOP, which is easy to grasp: we can relate objects to the real world. So there were a generalization of OOP thinking.<br>
+On the other hand, FP comes from lambda calculus, a &#x201C;formal system in mathematical logic&#x201D;. Ie. it has strong mathematical roots, thus some of its concepts can be quite abstract, and it shows when most people explain its concepts. Combined with strong typing, based on type theory, like in Haskell, we quickly end with abstract concepts with specialized jargon. Plus Haskell, one of the most popular FP languages, has a syntax not intuitive for the uninitiated.</p>
+<p>Fortunately, as said, some people extracted some core ideas from FP, and exposed them in easier to understand languages and libraries (see above). This helped in spreading these practices in mainstream programming.</p>
+<a id="more"></a>
+<h2 id="brief-pragmatic">Brief? Pragmatic?</h2>
+<p>This article is rather long, but only scratches the surface. One can write a <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/">whole book</a> on the topic.<br>
+So it is only a <strong>brief overview</strong>. Masters and purists of FP will frown upon many omissions and perhaps inaccuracies. I am not a master and certainly not a purist, and don&#x2019;t plan to be one of the latter. I probably won&#x2019;t complete the article with finer points of FP (monads, etc.) but I will try and fix any inaccuracies that I spot or that are reported.</p>
+<p>It is <strong>pragmatic</strong> because I use several FP techniques, as popularized by some libraries or languages, but I don&#x2019;t use the full spectrum of FP possibilities.</p>
+<h2 id="core-concepts">Core concepts</h2>
+<p>So, what functional programming is about?<br>
+As the name implies, like OOP is all about objects, FP is all about functions.<br>
+These are first-class citizens: they can be stored in variables and collections, they can be passed as arguments to functions which can return a function. You get the idea&#x2026;<br>
+Note: functions manipulating functions are called <em>higher-order functions</em>. I will spray a bit of FP jargon here, for your information; for something more complete, see <a href="https://github.com/hemanth/functional-programming-jargon">Functional programming jargon</a>, an accessible, work-in-progress glossary.</p>
+<p>A central idea behind FP is to use <em>pure</em> functions: they must not change the world outside of them. A pure function will always return the same output for a given input. It is called <em>idempotency</em> and <em>referential transparency</em>. The later means that if a pure function is called with a constant, it can be replaced with the value it returns.<br>
+Of course, a real program has to alter its environment: to take some data, to output some results, perhaps to react to user input.<br>
+Pure FP isolates these <em>side-effects</em> in a special concept: <em>monads</em>. Which I won&#x2019;t attempt to explain here!<br>
+Choosing the pragmatic approach, I tolerate functions with side-effects, but avoid them as much as possible, documenting these side-effects and, ideally, isolating them in specific modules. Which is a good practice for unit tests&#x2026;</p>
+<p>As a consequence, FP favors <em>immutable</em> data. Functions avoid to mutate the data given as input (that would introduce side-effects), but return new data instead.<br>
+It might seem inefficient but there are techniques to optimize this practice. Among them, <em>lazy evaluation</em> defers processing until the result is really needed. This is particularly effective when chaining several operations, which is a very common practice in FP, as we will see.</p>
+<p>FP doesn&#x2019;t like loops (those made with <code>for</code>, <code>while</code>, <code>repeat</code>, etc. keywords). These are stateful constructs, with one or more loop variables. FP often uses recursion instead, thus purely relying on functions. But to be effective, the language must support <em>tail-call recursion</em> to avoid bloating the call stack. This means that a function returning the result of calling itself can avoid to push a call reference (to return to the calling point) and can instead jump directly into the new call. Yes, that&#x2019;s a kind of goto&#x2026;<br>
+Recursion can be hard to get right, and some languages like Java or JavaScript (up to ES6) don&#x2019;t support tail-call recursion, so it is rarely used outside of specialized usages like iterating on tree or graph nodes.<br>
+Fortunately FP offers a wide range of functions to process (or create) collections, which are the most common use case for loops. We will extend on this topic later.</p>
+<p>Another important concept in FP is <em>closures</em>. When a function returns another function, the inner one can use outer variables in its scope. In general, it is limited to the immediate scope, ie. variables and parameters of the enclosing function. It is a capture of the state of these variables at the time the function is returned. We say the inner function <em>closes</em> over these values, hence the closure name.<br>
+It is a double edged sword, as these captured variables might be mutated, introducing state in the function, something that FP avoids&#x2026;<br>
+Let&#x2019;s make an example for this rather abstract concept. I use JavaScript (ES6) here. I make a generic function that can return specialized variants:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> adder = (step) =&gt;</span><br><span class="line">{</span><br><span class="line">  <span class="keyword">return</span> (v) =&gt; v + step;</span><br><span class="line">};</span><br><span class="line"><span class="comment">// The above is verbose for clarity.</span></span><br><span class="line"><span class="comment">// It can be written:</span></span><br><span class="line"><span class="comment">// adder = step =&gt; v =&gt; v + step</span></span><br><span class="line"><span class="keyword">const</span> plusplus = adder(<span class="number">1</span>);</span><br><span class="line">plusplus(<span class="number">5</span>); <span class="comment">// -&gt; 6</span></span><br><span class="line"><span class="keyword">const</span> decr = adder(-<span class="number">1</span>);</span><br><span class="line">decr(<span class="number">43</span>); <span class="comment">// -&gt; 42</span></span><br></pre></td></tr></table></figure>
+<p>Note that a function can have state that doesn&#x2019;t affect its idempotency. A common example in FP is <em>memoization</em>. A function with a long computation time (Fibonacci, is prime, etc.) can keep previous results. Thus, if asked again with a previously computed argument, it can just return the previous result. It is particularly effective with functions whose computing of a value is based on results for lower values. The given recursive functions above are good examples.</p>
+<h2 id="avoiding-loops">Avoiding loops</h2>
+<p>Since I started to use the FP style of coding in a JavaScript project, using the Lodash library, I no longer use the for loop. Or other forms of loops, which are rarely used anyway.<br>
+If you look at the loops in your code, you will see some very common patterns of usage.<br>
+<code>for</code> loops can be used to iterate an arbitrary number of times to perform an action. Eg. creating objects to put in a collection (or the Dom, etc.).<br>
+But most of the time, they are used to iterate on a collection: entries of an array or a list, characters of a string, values of a map or set, etc. &#x201C;Collection&#x201D; is used here in the widest sense, data structure that can hold several items in variable number. Tree or graphs are more often explored with recursive functions, but the language / library can offer iterators flattening them with various strategies.</p>
+<p>So why do we iterate on these collections?<br>
+Sometime, it is to find an item. It can be also to compute a value (sum, average&#x2026;). Or to process each item, perhaps to transform them into something else. We might want to remove some items, or to process only some items, based on some criteria. Or to process (or extract / remove) only the n first or last items of the list, n being arbitrary on depending on a condition. Other common usage is sorting, removing duplicates, etc.</p>
+<p>FP got us covered for all these cases, and more.<br>
+The philosophy is similar to the Unix one, which offers lot of small utilities focused on a simple task. They have all a similar interface: accept data on standard input, spit out processed data on standard output, and they are chained via pipes.<br>
+FP offers lot of small functions focused on a simple task. They generally take a collection and a function to process each item.<br>
+These small functions can be used alone, but they shine when they are chained together. For example, you can take a list, filter out some elements, keep only the unique items and transform the remaining ones, in one operation.<br>
+That leads to a rather declarative style of programming (a bit like SQL) which is generally more readable than a bunch of conditions, intermediary variables, sub-loops, etc. that re-implement the same old algorithms&#x2026;</p>
+<p>Contrived example: given an array of numbers, eliminate those below 10, keep only the first five, and sum them.<br>
+In a C-like language, that would be something like:</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var i, v, r, c; <span class="comment">// assume they start at zero</span></span><br><span class="line">for <span class="comment">(i = 0; i &lt; values.length; i++)</span></span><br><span class="line">{</span><br><span class="line">  v = values[i];</span><br><span class="line">  <span class="keyword">if</span> <span class="comment">(v &gt;= 10)</span></span><br><span class="line">  {</span><br><span class="line">    <span class="keyword">if</span> <span class="comment">(c++ &lt; 5)</span> <span class="comment">// beware of off-by-one errors!</span></span><br><span class="line">    {</span><br><span class="line">      r += v;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// I forgot else break, a too common error!</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>In functional style:</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> r = chainOn(values)</span><br><span class="line">  <span class="built_in">.</span>filter(v =&gt; v &gt;= <span class="number">10</span>)</span><br><span class="line">  <span class="built_in">.</span><span class="keyword">take</span>(<span class="number">5</span>)</span><br><span class="line">  <span class="built_in">.</span><span class="keyword">sum</span>();</span><br></pre></td></tr></table></figure>
+<p>A nearly literal transcription of the requirement! Much more readable: the intent appears immediately.</p>
+<p>As said, each function returns a new collection, but a good library does lazy evaluation, deferring process until the end of the chain, building a complex function out of the bricks, generating only one final collection (or none in this example).</p>
+<h2 id="commonly-used-functions">Commonly used functions</h2>
+<p>Let&#x2019;s take a look at the most common functions (also called <em>operations</em> or even <em>operators</em>). For clarity, I give a name to each, but these names can vary, depending on language / library. For example, <code>reduce</code> can be named <code>reduceLeft</code>, <code>fold</code>, <code>foldLeft</code>, etc. But their base idea is the same everywhere.<br>
+Note that the order of parameters can change, depending on language / library.<br>
+Nearly all these operations take a collection as input, and most of them also take a function called on each iteration on the collection, thus named <em>iteratee</em>. Or <em>predicate</em> if it returns a boolean.<br>
+The parameters given to iteratees vary, but always include the current item. They can also include the index in the array or the key in the map, sometime a reference to the collection itself, etc.<br>
+Note: I will use either the term list or array to talk about ordered collections. In some languages they are the same, in others not, but the differences are not relevant for that article.</p>
+<p><code>forEach</code> (or <code>for</code>, <code>forAll</code>, <code>each</code>, etc.) is just a functional version of our old <code>for</code> loop. It has a <code>forEachRight</code> (or <code>eachRight</code>, etc.) variant iterating on reverse order.<br>
+The advantage of this function is that it can be used at the end of a filter / transform / etc. chain.<br>
+It is (should be) used only to produce side-effects for each item: create elements in the Dom, serialize the item, issue a Rest request, etc.<br>
+There is a variant, called <code>tap</code> or <code>do</code>, that can be put in the middle of the chain: it doesn&#x2019;t alter the data but can do side-effects at this point of the processing.</p>
+<p><code>reduce</code> (synomyms above) is a fundamental operation: it can be used to do all the other ones. As such, it should be used only in special cases, as more expressive and terser (simpler) operations should be preferred.<br>
+It takes three parameters: the collection, the processing function and an initial value.<br>
+The iteratee is called with a parameter (named <em>accumulator</em>) holding first the initial value, then the value returned in the previous iteration.<br>
+The second parameter is the item itself.<br>
+The function processes the item and alters the accumulator, then returns the latter.<br>
+The initial value / accumulator can be a number, a collection (often empty), etc.<br>
+For a number, the function can sum up the values in the accumulator, or store the min or max, etc. It can push or add values in a collection accumulator. Etc.<br>
+The <code>reduce</code> function returns the final value of the accumulator. It is called thusly because it <em>reduces</em> (or <em>folds</em>) the items of a collection to a single value.</p>
+<p><code>range</code> allows to create a list of numbers (or characters) between two bounds. This list can be used as an entry point for other functions, thus effectively replacing the numerical <code>for</code> loop.</p>
+<p><code>find</code> searches the collection and returns the found item, if any (behavior if not found varies with language). The iteratee is a predicate, inspecting the item and telling if that&#x2019;s the right one. If so, it stops there and returns the found item.<br>
+A variant for ordered collections, <code>findIndex</code>, returns the position of the item instead.<br>
+On ordered collections, we can use <code>findLast</code> or <code>findRight</code>, iterating on the items in reverse order. These suffixes can be found on other operations for lists or similar.</p>
+<p><code>filter</code> returns a reduced version of the collection, keeping the items for which the predicate returns true. It has a variant, <code>reject</code>, dropping items whose predicate is true.<br>
+You might wonder why we have two functions when you just have to invert the condition in the predicate. Actually, we have a number of predefined predicates like <code>isNumber</code> or <code>isEmpty</code>. So if you want to remove empty arrays (or strings) out of a collection, you can just use <code>reject(coll, isEmpty)</code>.<br>
+You can also do <code>filter(coll, negate(isEmpty))</code>, but the intent is less clear. Still it is a good first example of a function altering the behavior of another function. We will see more later.</p>
+<p>Variants on ordered collections allow to keep the first (or last) items, based on a predicate: <code>takeUntil</code> keeps items until the predicate is true, <code>takeWhile</code> keeps them while the predicate is true. <code>take</code> keeps the number of items given as argument.<br>
+The <code>Last</code> (or <code>Right</code>) suffix is applicable. And you can replace <code>take</code> with <code>drop</code> to keep the other part of the list.<br>
+There are specialized variants for one item, a common operation: <code>first</code>, <code>last</code>, <code>rest</code>, <code>initial</code> keep or drop the first or last item of a list.</p>
+<p><code>zip</code> takes a number of arrays / lists, and returns an array of arrays, where the first one groups the first items of the arrays, the second one holds the second items, etc.<br>
+For example, you can make an array of <code>[ x, y ]</code> coordinates from an array of <code>x</code>s and one of <code>y</code>s. Or you can associate items with values of a range.<br>
+There is an <code>unzip</code> operator doing the reverse operation.</p>
+<p><code>map</code> transforms the items of a collection into something else collected in a new collection of same kind. It can be used to transform objects of some type to another type, to extract a value from objects, etc.</p>
+<p><code>every</code> or <code>all</code> returns true if the iteratee returns true for all the items of the collection.<br>
+<code>some</code> or <code>any</code> returns true if the iteratee returns true for at least one item.</p>
+<p>There are lot of other functions, to sort or shuffle an array, to randomly sample some values, to eliminate duplicates, etc.<br>
+Explore your library, get familiar with its capacities, to know the palette of tools at your disposal; you can dig more on their usage when you need them.</p>
+<h2 id="function-processing">Function processing</h2>
+<p>As we saw, there are functions to alter functions, to alter their signature to something expected.<br>
+It eases reusability: you have lot of simple functions, from libraries or your own. You can <em>compose</em> (combine) these functions into more powerful functions.<br>
+But sometime, the signature of a function of your palette doesn&#x2019;t fit what is expected in the composition.<br>
+You can wrap manually the function to adapt it:<br>
+<code>filter(numbers, function (n) { return !isPrime(n); }</code><br>
+But it is verbose and tiresome.<br>
+Or you can use a higher-order function automatically transforming (wrapping) the function:<br>
+<code>filter(numbers, negate(isPrime));</code><br>
+This <code>negate(isPrime)</code> way of providing a function is called <em>point-free style</em> (or <em>tacit programming</em>). This is because the parameters (<em>points</em>) are not visible, they are tacit, implicit.<br>
+More on this later, but let see other examples first.</p>
+<p>Let say we have a <code>toNumber</code> function taking a base (2, 10, 16&#x2026;) and a string to convert. If the base is omitted, it default to 10. We need to convert an array of strings.<br>
+We can use <code>map</code> for that. If the numbers are hexadecimal, we can write in JS:</p>
+<p>numbers = map(hexaStrings, function (s) { return toNumber(16, s); });</p>
+<p>A bit verbose (can be better with arrow notation), not very readable.<br>
+But we have a JS method named <code>bind</code>, or a (simpler) Lodash method named <code>partial</code>, that can preset the first parameters of a function.</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numbers = map<span class="list">(<span class="keyword">hexaStrings</span>, partial<span class="list">(<span class="keyword">toNumber</span>, <span class="number">16</span>)</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>It takes a function with n parameters, and returns a function with less parameters, some of the original parameters being preset.<br>
+Such operation is called <em>partial application</em>. Or, if only one parameter remains, <em>currying</em>. The latter has a special name because it is an important process to help in <em>function composition</em>, combining functions to make a complex one.</p>
+<p>If the array had decimal numbers in strings, we could use the default value of the base parameter. But the base being the first parameter, we cannot pass it directly to <code>map</code>. No problem, we have a function able to reorder the parameters of a function:</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numbers = map<span class="list">(<span class="keyword">decimalStrings</span>, rearg<span class="list">(<span class="keyword">toNumber</span>, [ <span class="number">1</span>, <span class="number">0</span> ])</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>The second parameter (index 1) becomes the first one, while the first one goes to the second place.<br>
+<code>partial</code> is better there, but this contrived example aims to show a semi-realistic use case of <code>rearg</code>&#x2026;<br>
+But actually, <code>map</code> calls the function with two parameters: the value and its index! So we convert the strings to bases 0, 1, 2, etc. Not what it was intended!<br>
+Fortunately, there is a function for that&#x2122;&#x2026; A function that reduces the number of parameters of a function. This number, BTW, is called <em>arity</em>. The function (in Lodash) is called <code>ary</code>:</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numbers = map<span class="list">(<span class="keyword">decimalStrings</span>, ary<span class="list">(<span class="keyword">rearg</span><span class="list">(<span class="keyword">toNumber</span>, [ <span class="number">1</span>, <span class="number">0</span> ])</span>, <span class="number">1</span>)</span><span class="comment">;</span></span></span><br></pre></td></tr></table></figure>
+<p>Now, it is really less readable but the point was to show we can manipulate functions like we process collections.</p>
+<p>Somehow, we can often describe a process with a list of functions / operations: filter, map, sort, uniqueItems, map, take, for example. We could put these in an array, and apply these functions successively. Some languages make an heavy usage of this scheme and have a syntax for these chains of functions.<br>
+For this kind of chaining, it is easier if all these functions take only one parameter: the result of one function is fed as argument to the next function. That&#x2019;s why currying is so important.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>As said, I only scratched the surface of the topic, yet I introduced lot of concepts that are useful and practical in daily tasks of your favorite language. Although I admit in some languages like pre-8 Java, the syntax (with anonymous classes) can be a bit heavy.</p>
+<p>FP techniques proved to be useful enough that some languages (Java 8 again, JavaScript at ES6 / ES2015) evolved to ease their usage. And lot of new ones integrated them from the start.</p>
+<p>I hope this article will give you the will to use (more) these techniques, and perhaps to dig more into it.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Functional programming introduction/" data-id="ciif40i2l0028dkt1ninxy0lp" class="article-share-link">Share</a>
+      
+        <a href="http://PhiLhoSoft.github.io/Programming/Functional programming introduction/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">Functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tutorial/">Tutorial</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Software/Adobe Backets review/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Adobe Brackets review
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Software/Microsoft Visual Studio Code review/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Microsoft Visual Studio Code review</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recents</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/GitHub Atom review/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
+              <p class="item-title"><a href="/Software/GitHub Atom review/" class="title">GitHub Atom review</a></p>
+              <p class="item-date"><time datetime="2015-12-15T09:40:00.000Z" itemprop="datePublished">2015-12-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/Static site generators/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Work-in-Progress.svg
+)" alt="Static Site Generators" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/tools/">Tools</a></p>
+              <p class="item-title"><a href="/Software/Static site generators/" class="title">Static Site Generators</a></p>
+              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/Functional Reactive Programming/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Work-in-Progress.svg
+)" alt="Functional Reactive Programming" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
+              <p class="item-title"><a href="/Programming/Functional Reactive Programming/" class="title">Functional Reactive Programming</a></p>
+              <p class="item-date"><time datetime="2015-11-09T23:00:00.000Z" itemprop="datePublished">2015-11-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/Using Lodash for fun and profit/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Work-in-Progress.svg
+)" alt="Using Lodash for fun and profit" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/javascript/">JavaScript</a></p>
+              <p class="item-title"><a href="/Programming/Using Lodash for fun and profit/" class="title">Using Lodash for fun and profit</a></p>
+              <p class="item-date"><time datetime="2015-09-30T22:00:00.000Z" itemprop="datePublished">2015-10-01</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/Adobe Backets review/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
+              <p class="item-title"><a href="/Software/Adobe Backets review/" class="title">Adobe Brackets review</a></p>
+              <p class="item-date"><time datetime="2015-09-25T11:24:00.000Z" itemprop="datePublished">2015-09-25</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tag cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 15px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 17.5px;">IDE</a> <a href="/tags/javascript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/library/" style="font-size: 12.5px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 17.5px;">Programming</a> <a href="/tags/reactive/" style="font-size: 10px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 10px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 20px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 17.5px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Philippe Lhoste (PhiLho)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script>
+  var disqus_shortname = 'philhosoft';
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>GitHub Atom review ~|~ PhiLhoSoft Technical Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="a review of the GitHub Atom editor (IDE), at version 0.10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub Atom review">
+<meta property="og:url" content="http://PhiLhoSoft.github.io/Software/GitHub Atom review/index.html">
+<meta property="og:site_name" content="PhiLhoSoft Technical Blog">
+<meta property="og:description" content="a review of the GitHub Atom editor (IDE), at version 0.10">
+<meta property="og:updated_time" content="2015-12-19T08:16:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub Atom review">
+<meta name="twitter:description" content="a review of the GitHub Atom editor (IDE), at version 0.10">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+
+  
+
+  
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/images/logo.png)"></i><span class="site-title">PhiLhoSoft Technical Blog</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://PhiLhoSoft.github.io"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+        <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://PhiLhoSoft.github.io"></form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/images/avatar.png">
+      <h2 id="name">Philippe Lhoste (PhiLho)</h2>
+      <h3 id="title">Senior Software Engineer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Paris, France</span>
+      <a id="follow" href="https://github.com/PhiLhoSoft/">FOLLOW</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        9
+        <span>posts</span>
+      </div>
+      <div class="article-info-block">
+        14
+        <span>tags</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/PhiLhoSoft" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="https://twitter.com/PhiLhoSoft" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+          
+          <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+    <div class="article-info profile-block bio">
+      <h2>About</h2>
+      <p>A blog where I share my technical (programming) findings, insights, experiences, tutorials, etc.</p>
+    </div>
+    
+    <div class="article-info profile-block license">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+      </a><br>
+      This work by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">PhiLho</span>
+      is licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </div>
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-Software/GitHub Atom review" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      GitHub Atom review
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/Software/GitHub Atom review/">
+      <time datetime="2015-12-15T09:40:00.000Z" itemprop="datePublished">2015-12-15</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h1 id="github-atom-review">GitHub Atom review</h1>
+<p>&#x201C;A hackable text editor for the 21st Century&#x201D;</p>
+<p><a href="https://atom.io/">https://atom.io/</a></p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>I came to Atom with a prejudice&#x2026;<br>
+The long closed-source / beta period, the fact the &#x201C;hackable&#x201D; editor isn&#x2019;t coded in JavaScript but in CoffeeScript, the need for plugins for everything (according to some reviews), the reported slowness and memory hungriness, made me to hesitate to try it&#x2026; I was also a happy user of Adobe Brackets, with no compeling need to change.<br>
+But, Brackets accumulated a number of little annoyances, making me to try other editors.<br>
+The test of Visual Studio Code was brief, as it didn&#x2019;t have the base (semi-advanced if you want) features I use all the time: drag&#x2019;n&#x2019;drop of code, and column selection.<br>
+So I tested Atom, with a critical eye. Spoiler: I was seducted, and it becomes my favorite Web IDE&#x2026;</p>
+<a id="more"></a>
+<h2 id="quick-review">Quick review</h2>
+<p>I downloaded the installer. It is big! Of the IDEs I tried, it is among the biggest:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Version</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brackets</td>
+<td>1.5</td>
+<td>37 MB</td>
+</tr>
+<tr>
+<td>Visual Studio Code</td>
+<td>0.10.3</td>
+<td>43 MB</td>
+</tr>
+<tr>
+<td>Light Table</td>
+<td>0.7.2</td>
+<td>48 MB</td>
+</tr>
+<tr>
+<td>Atom</td>
+<td>1.3.1</td>
+<td>88 MB</td>
+</tr>
+<tr>
+<td>WebStorm</td>
+<td>9</td>
+<td>140MB</td>
+</tr>
+</tbody>
+</table>
+<p>I installed Atom (v. 1.3.1 on Windows 7 with 8 GB of memory).<br>
+It doesn&#x2019;t ask where to install, it goes arbitrarily at C:\Users&lt;user name&gt;\AppData\Local\atom. I would prefer to install it beside my other programs, to locale it easily. And I would appreciate it asks me before installing something on the desktop (I have no icons there!) or on the start menu (I no longer care about this one, but still&#x2026;).<br>
+It is a bit &#x201C;all over the place&#x201D;, as it also has a C:\Users&lt;user name&gt;C:\Users\plhoste.atom\AppData\Roaming\Atom folder (for cache?), and a C:\Users&lt;user name&gt;.atom folder (settings, packages&#x2026;).</p>
+<p>I opened it, it starts quickly (at least as second load, after the initial one after install).<br>
+It has a dark UI, which I don&#x2019;t like, but I quickly found where to change this to the default light theme. Good point than several themes are bundled by default: no need to hunt for them. The default light UI theme is rather nice. I also chose the One Light syntax theme among four. A bit too pale (low contrast) for my taste, I will eventually see if I can tweak it.</p>
+<p>As I feared (I searched a bit before, given the Visual Studio Code deception), drag&#x2019;n&#x2019;drop of code isn&#x2019;t available out of the box. Actually, I saw several plugins activating it. That&#x2019;s one of the problems with this editor: there is a plethora of plugins, which can be nice, but it is confusing to choose one&#x2026; And I still think such feature should be built-in in the editor.<br>
+Same for column (rectangular) selections! Later, I found out Atom supports out of the box column selection (Alt+Up / Down, extend only, allows rectangular selection with Shift+Left / Right) and multiple carets (Ctrl+click).<br>
+I find a bit unsettling to have to install lot of plugins to get base editor features. I have the same issue with Brackets, but it has at least these two features built-in (but D&#x2019;n&#x2019;D must be activated by a setting).<br>
+That said, I found several features out of the box for which I had to install a plugin in Brackets:</p>
+<ul>
+<li>Jump to matching brace / bracket</li>
+<li>Gutter selection<br>
+And finally, Atom has more base features out of the box.</li>
+</ul>
+<p>I expected to find a feature not present in Brackets: click on a word, hit Ctrl+F to find the word under caret. Nope, not better, I have to select the word (double-click as usual; Ctrl+D does it as well, but I assign it to duplicate line instead) to have it picked up by default. At least, it memorizes the last search. But unlike SciTE (my all-purpose lightweight text editor of choice), it doesn&#x2019;t keep an history of searches.<br>
+Good point: it allows to change text in selection only (a feature I miss in Brackets), and to limit searches to word only (something I rarely use but which is sometime useful).</p>
+<p>OK, I switched to Atom to type this text (in Markdown format). Good surprise: it has spell checking enabled out of the box. And it can suggest words, although I am not sure of the logic of suggestions (scanning existing buffers, apparently; nice point: it is not obtrusive). Little bug (or unwanted feature ;-) &#x2013; I see a misspelled word in the text (red underline), I right-click directly on it, and choose Correct spelling. It does nothing&#x2026; I found out I have to left-click first on the word to get spelling suggestions.<br>
+I see no way to add words to a user dictionary.</p>
+<p>The Welcome Guide is nice, I just saw a way to customize the styling. Although it lacks concrete examples: eg. how do I change the color of titles in Markdown? (I avoid reddish colors, reserved to mark errors). Ah, I suppose I have to study an existing style, like <a href="https://github.com/atom/atom-light-syntax/blob/master/index.less">https://github.com/atom/atom-light-syntax/blob/master/index.less</a><br>
+And I can see the actual styles by showing the developer tools (View &gt; Developer &gt; Toggle Developer Tools) and using it like Chrome DevTools.<br>
+Also a bug: I have <em>Choose a Theme</em> and <em>Customize the Styling</em> opened, I can&#x2019;t scroll back above <em>Install a Package</em>. I have to close one to see the top!</p>
+<p>Another bug or unwanted feature: it ensures there is an empty line at the end of a file when saving it, which can be nice (I generally want that), but if I have several lines, it removes the extra ones (which is annoying in a text file, because I want to keep my future paragraph empty lines). Will see if I can disable that.</p>
+<p>Undo coalescing is a bit strange: when I type a word, then undo, it removes parts of the word, successively, instead of whole word.</p>
+<p>Atom lacks a nice feature of Brackets: in an HTML file, Brackets can auto-complete the path of a resource (script, CSS file, etc.). Found a plugin for that, of course&#x2026; Although it is slightly less convenient.</p>
+<p>Annoyance: I can hit Ctrl+F in the Settings &gt; Package page (for example), but it doesn&#x2019;t find anything there (can be convenient to find a given package by something else than its name).</p>
+<p>Command palette: good idea to highlight searched terms, but on light theme, I get light gray highlight, nearly unreadable on very light gray background&#x2026;</p>
+<p>Minor quibble: title and closing cross in inactive tabs are one or two pixels too low (one pixel lower than the active tab, at least). It &#x201C;hurts&#x201D; my sense of tidiness&#x2026; :-)</p>
+<h2 id="installed-packages">Installed packages</h2>
+<p>Good point: once a plugin / package is installed, no need to restart Atom to get it working.</p>
+<ul>
+<li>
+<p>Sublime Style Column Selection<br>
+Allow column selection with mouse.<br>
+1.3.0 by bigfive<br>
+<a href="https://atom.io/packages/Sublime-Style-Column-Selection">https://atom.io/packages/Sublime-Style-Column-Selection</a><br>
+<a href="https://github.com/bigfive/atom-sublime-select">https://github.com/bigfive/atom-sublime-select</a></p>
+</li>
+<li>
+<p>simple-drag-drop-text<br>
+0.3.0 by mark-hahn<br>
+<a href="https://atom.io/packages/simple-drag-drop-text">https://atom.io/packages/simple-drag-drop-text</a><br>
+<a href="https://github.com/mark-hahn/simple-drag-drop-text">https://github.com/mark-hahn/simple-drag-drop-text</a></p>
+</li>
+<li>
+<p>minimap<br>
+Visual miniature representation of the content of the editor. Allows quick navigation.<br>
+4.18.0 by atom-minimap<br>
+<a href="https://atom.io/packages/minimap">https://atom.io/packages/minimap</a><br>
+<a href="https://github.com/atom-minimap/minimap">https://github.com/atom-minimap/minimap</a></p>
+</li>
+<li>
+<p>markdown-mindmap<br>
+Shows headings of a Markdown text as a mindmap, allows to navigate.<br>
+0.2.4 by dundalek<br>
+<a href="https://atom.io/packages/markdown-mindmap">https://atom.io/packages/markdown-mindmap</a><br>
+<a href="https://github.com/dundalek/atom-markdown-mindmap">https://github.com/dundalek/atom-markdown-mindmap</a></p>
+</li>
+<li>
+<p>highlight-selected<br>
+0.11.1 by richrace<br>
+<a href="https://atom.io/packages/highlight-selected">https://atom.io/packages/highlight-selected</a><br>
+<a href="https://github.com/richrace/highlight-selected">https://github.com/richrace/highlight-selected</a></p>
+</li>
+<li>
+<p>minimap-highlight-selected<br>
+4.3.1 by atom-minimap<br>
+<a href="https://atom.io/packages/minimap-highlight-selected">https://atom.io/packages/minimap-highlight-selected</a><br>
+<a href="https://github.com/atom-minimap/minimap-highlight-selected">https://github.com/atom-minimap/minimap-highlight-selected</a></p>
+</li>
+<li>
+<p>autocomplete-paths<br>
+Autocompletion for paths in the project, according to file system.<br>
+1.0.2 by atom-community<br>
+<a href="https://atom.io/packages/autocomplete-paths">https://atom.io/packages/autocomplete-paths</a><br>
+<a href="https://github.com/atom-community/autocomplete-paths">https://github.com/atom-community/autocomplete-paths</a><br>
+With patch <a href="https://github.com/atom-community/autocomplete-paths/pull/51/files">https://github.com/atom-community/autocomplete-paths/pull/51/files</a> applied manually&#x2026;</p>
+</li>
+<li>
+<p>autoclose-html<br>
+Automatically close HTML tags.<br>
+0.19.0 by mattberkowitz<br>
+<a href="https://atom.io/packages/autoclose-html">https://atom.io/packages/autoclose-html</a><br>
+<a href="https://github.com/mattberkowitz/autoclose-html">https://github.com/mattberkowitz/autoclose-html</a></p>
+</li>
+<li>
+<p>linter<br>
+Engine allowing to display lint information in real time in the editor. Need plugins for various languages.<br>
+1.11.3 by atom-community<br>
+<a href="https://atom.io/packages/linter">https://atom.io/packages/linter</a><br>
+<a href="https://github.com/atom-community/linter">https://github.com/atom-community/linter</a></p>
+</li>
+<li>
+<p>linter-eslint<br>
+Linter for JavaScript.<br>
+5.2.6  by AtomLinter<br>
+<a href="https://atom.io/packages/linter-eslint">https://atom.io/packages/linter-eslint</a><br>
+<a href="https://github.com/AtomLinter/linter-eslint">https://github.com/AtomLinter/linter-eslint</a></p>
+</li>
+<li>
+<p>linter-htmlhint<br>
+Linter for HTML.<br>
+0.2.1 by AtomLinter<br>
+<a href="https://atom.io/packages/linter-htmlhint">https://atom.io/packages/linter-htmlhint</a><br>
+<a href="https://github.com/AtomLinter/linter-htmlhint">https://github.com/AtomLinter/linter-htmlhint</a></p>
+</li>
+<li>
+<p>linter-csslint<br>
+Linter for CSS.<br>
+1.1.0 by AtomLinter<br>
+<a href="https://atom.io/packages/linter-csslint">https://atom.io/packages/linter-csslint</a><br>
+<a href="https://github.com/AtomLinter/linter-csslint">https://github.com/AtomLinter/linter-csslint</a></p>
+</li>
+<li>
+<p>linter-sass-lint<br>
+Linter for Sass.<br>
+0.4.3 by DanPurdy<br>
+<a href="https://atom.io/packages/linter-sass-lint">https://atom.io/packages/linter-sass-lint</a><br>
+<a href="https://github.com/DanPurdy/linter-sass-lint">https://github.com/DanPurdy/linter-sass-lint</a></p>
+</li>
+<li>
+<p>pigments<br>
+Shows colors from various CSS notations (including named colors). I prefer to display them as circles after the color definition.<br>
+0.19.3 by abe33<br>
+<a href="https://atom.io/packages/pigments">https://atom.io/packages/pigments</a><br>
+<a href="https://github.com/abe33/atom-pigments">https://github.com/abe33/atom-pigments</a></p>
+</li>
+<li>
+<p>atom-beautify<br>
+Beaufity code, according to given rules. Not for my code (I always format as I want) but for foreign code pasted in mine&#x2026;<br>
+0.28.19 by Glavin001<br>
+<a href="https://atom.io/packages/atom-beautify">https://atom.io/packages/atom-beautify</a><br>
+<a href="https://github.com/Glavin001/atom-beautify">https://github.com/Glavin001/atom-beautify</a></p>
+</li>
+<li>
+<p>file-icons<br>
+Add icons (depending on file type) in the tree view on the left.<br>
+1.6.13 by DanBrooker<br>
+<a href="https://atom.io/packages/file-icons">https://atom.io/packages/file-icons</a><br>
+<a href="https://github.com/DanBrooker/file-icons">https://github.com/DanBrooker/file-icons</a></p>
+</li>
+<li>
+<p>rest-client<br>
+Simple Rest client to generate requests to servers.  Complement of RestClient on Firefox, Postman in Chrome.<br>
+0.5.0 by ddavison<br>
+<a href="https://atom.io/packages/rest-client">https://atom.io/packages/rest-client</a><br>
+<a href="https://github.com/ddavison/rest-client">https://github.com/ddavison/rest-client</a></p>
+</li>
+<li>
+<p>tree-ignore<br>
+0.2.6 by leny<br>
+<a href="https://github.com/leny/atom-tree-ignore">https://github.com/leny/atom-tree-ignore</a><br>
+Installation failed silently (not mentioning an error; I see the error when going to <em>Packages</em>), I had to go to the console of the DevTools to see the errors. Apparently, an issue with node-gyp on Windows.</p>
+</li>
+</ul>
+<h1 id="themes">Themes</h1>
+<ul>
+<li>
+<p>gl-light-syntax<br>
+2.1.1 by gouvinb<br>
+<a href="https://atom.io/themes/gl-light-syntax">https://atom.io/themes/gl-light-syntax</a><br>
+<a href="https://github.com/gouvinb/gl-light-syntax/tree/master/styles/languages">https://github.com/gouvinb/gl-light-syntax/tree/master/styles/languages</a></p>
+</li>
+<li>
+<p>naturerainbow-light-syntax<br>
+0.1.0 by fthiagogv<br>
+<a href="https://atom.io/themes/naturerainbow-light-syntax">https://atom.io/themes/naturerainbow-light-syntax</a><br>
+<a href="https://github.com/fthiagogv/naturerainbow-light-syntax">https://github.com/fthiagogv/naturerainbow-light-syntax</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://PhiLhoSoft.github.io/Software/GitHub Atom review/" data-id="ciif40i1d001fdkt12i4dvdpo" class="article-share-link">Share</a>
+      
+        <a href="http://PhiLhoSoft.github.io/Software/GitHub Atom review/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ide/">IDE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/software/">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/">Tool</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/Software/Static site generators/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Static Site Generators</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recents</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/GitHub Atom review/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
+              <p class="item-title"><a href="/Software/GitHub Atom review/" class="title">GitHub Atom review</a></p>
+              <p class="item-date"><time datetime="2015-12-15T09:40:00.000Z" itemprop="datePublished">2015-12-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/Static site generators/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Work-in-Progress.svg
+)" alt="Static Site Generators" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/tools/">Tools</a></p>
+              <p class="item-title"><a href="/Software/Static site generators/" class="title">Static Site Generators</a></p>
+              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/Functional Reactive Programming/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Work-in-Progress.svg
+)" alt="Functional Reactive Programming" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
+              <p class="item-title"><a href="/Programming/Functional Reactive Programming/" class="title">Functional Reactive Programming</a></p>
+              <p class="item-date"><time datetime="2015-11-09T23:00:00.000Z" itemprop="datePublished">2015-11-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/Using Lodash for fun and profit/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Work-in-Progress.svg
+)" alt="Using Lodash for fun and profit" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/javascript/">JavaScript</a></p>
+              <p class="item-title"><a href="/Programming/Using Lodash for fun and profit/" class="title">Using Lodash for fun and profit</a></p>
+              <p class="item-date"><time datetime="2015-09-30T22:00:00.000Z" itemprop="datePublished">2015-10-01</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/Adobe Backets review/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
+              <p class="item-title"><a href="/Software/Adobe Backets review/" class="title">Adobe Brackets review</a></p>
+              <p class="item-date"><time datetime="2015-09-25T11:24:00.000Z" itemprop="datePublished">2015-09-25</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tag cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 15px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 17.5px;">IDE</a> <a href="/tags/javascript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/library/" style="font-size: 12.5px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 17.5px;">Programming</a> <a href="/tags/reactive/" style="font-size: 10px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 10px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 20px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 17.5px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Philippe Lhoste (PhiLho)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script>
+  var disqus_shortname = 'philhosoft';
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
