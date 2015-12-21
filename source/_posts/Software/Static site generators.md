@@ -51,7 +51,7 @@ There are also PHP generators: it feels odd to use this language for off-line ge
 
 I can hack a Java-based generator, but I feared some heaviness.
 
-I finally chose to explorate JavaScript-based generators (via Node.js): I know well the language, and I know there is a rich ecosystem of Web-oriented tools.
+I finally chose to explore JavaScript-based generators (via Node.js): I know well the language, and I know there is a rich ecosystem of Web-oriented tools.
 
 ## Metalsmith
 
@@ -89,3 +89,7 @@ These were the initial choices of Hexo. Since v.3, they moved EJS and Stylus ren
 
 I chose the [Icarus](http://blog.zhangruipeng.me/hexo-theme-icarus/) theme, responsive, clean and nice, supporting Disqus and Google Analytics out of the box.
 I made some minor changes, mostly on the CSS side, to personalize it a bit.
+
+### Remarks
+
+I installed Hexo-cli, then Hexo itself, globally (`npm i -g`), so that the big footprint of Hexo isn't repeated on each project. Therefore, I removed the `hexo` dependency from `package.json`.

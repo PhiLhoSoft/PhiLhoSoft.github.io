@@ -11,9 +11,21 @@ tags:
 - Library
 - RxJS
 date: 2015-11-15
+update: 2015-12-21
 ---
 # RxJS distributions
-https://github.com/Reactive-Extensions/RxJS/tree/master/doc
+
+## Introduction
+
+RxJS has several distributions:
+- The Core distribution, with two sub-modules, is a minimal implementation;
+- The Main distribution is broken down between a main module and several sub-modules;
+- The Lite distribution is similar to the Main one, but with different assignments: it includes a big part of the binding library, and part of the async one, so it is more usable without including other modules;
+- The All distribution includes nearly everything, as the name implies.
+
+As this is a bit confusing, I made a table out of the [official doc](https://github.com/Reactive-Extensions/RxJS/tree/master/doc), including all mistakes found in this manually generated doc, some of which I point out here, to help tracking them down.
+
+## The distributions
 
 Numbers are size in KB of .min.js as of 4.0.6 around October 2015. To be used only as comparison between versions.
 The file names with + are not in the documentation, I found them after installing RxJS. I guess they come from v.4, and that the doc is still about v.3.
@@ -22,27 +34,12 @@ The complete library:
 
     rx.all.js	A	139
 
-Main Libraries:
-
-    rx.js	R	72
-    rx.aggregates.js	RAg	16
-    rx.async.js	RAs (needs RBi)	7
-  + rx.backpressure.js		8
-    rx.binding.js	RBi	7
-    rx.coincidence.js	RCo	7
-    rx.experimental.js	RXp	8
-    rx.joinpatterns.js	RJp	5
-  + rx.sorting.js		3
-    rx.testing.js	RTe (needs RVt)	7
-    rx.time.js	RTi	16
-    rx.virtualtime.js	RVt	4
-
 Lite Libraries:
 
     rx.lite.js	L	81
     rx.lite.aggregates.js	LAg	17
     rx.lite.async.js	LAs	4
-  + rx.lite.backpressure.js		4
+    rx.lite.backpressure.js +		4
     rx.lite.coincidence.js	LCo	7
     rx.lite.experimental.js	LXp	8
     rx.lite.extras.js	LEx	10
@@ -51,245 +48,261 @@ Lite Libraries:
     rx.lite.time.js	LTi	9
     rx.lite.virtualtime.js	LVt	4
 
+Main Libraries:
+
+    rx.js	R	72
+    rx.aggregates.js	RAg	16
+    rx.async.js	RAs (needs RBi)	7
+    rx.backpressure.js +		8
+    rx.binding.js	RBi	7
+    rx.coincidence.js	RCo	7
+    rx.experimental.js	RXp	8
+    rx.joinpatterns.js	RJp	5
+    rx.sorting.js +		3
+    rx.testing.js	RTe (needs RVt)	7
+    rx.time.js	RTi	16
+    rx.virtualtime.js	RVt	4
+
 Core Libraries:
 
     rx.core.js	C	15
     rx.core.binding.js	CBi	10
     rx.core.testing.js	CTe	14
 
-
 ## Included Observable Operators
+
 ### Observable Methods
 
-    amb	A	R	LEx
-    case	A	RXp	LXp
-    catch	A	R	L
-    concat	A	R	L
-    create	A	R	L	C
-    defer	A	R	L
-    empty	A	R	L
-    for	A	RXp	LXp
-    forkJoin	A	RXp	LXp
-    from	A	R	L
-    fromArray	A	R	L
-    fromCallback	A	RAs	L
-    fromEvent	A	RAs	L
-    fromEventPattern	A	RAs	L
-    fromNodeCallback	A	RAs	L
-    fromPromise	A	RAs (4)	L
-    generate	A	R	LEx
-    generateWithAbsoluteTime	A	RTi	LTi
-    generateWithRelativeTime	A	RTi	LTi
-    if	A	RXp	LXp
-    interval	A	RTi	L
-    just	A	R	L
-    merge	A	R	L
-    mergeDelayError	A	R	L
-    never	A	R	L
-    of	A	R	L
+    amb	A	LEx	R
+    case	A	LXp                                     RXp
+    catch	A	L                                       R
+    concat	A	L                                       R
+    create	A	L	R	C
+    defer	A	L                                       R
+    empty	A	L                                       R
+    for	A	LXp                                     RXp
+    forkJoin	A	LXp                                     RXp
+    from	A	L                                       R
+    fromArray	A	L                                       R
+    fromCallback	A	L                                       RAs
+    fromEvent	A	L                                       RAs
+    fromEventPattern	A	L                                       RAs
+    fromNodeCallback	A	L                                       RAs
+    fromPromise	A	L                                       RAs (4)
+    generate	A	LEx                                     R
+    generateWithAbsoluteTime	A	LTi                                     RTi
+    generateWithRelativeTime	A	LTi                                     RTi
+    if	A	LXp                                     RXp
+    interval	A	L                                       RTi
+    just	A	L                                       R
+    merge	A	L                                       R
+    mergeDelayError	A	L                                       R
+    never	A	L                                       R
+    of	A	L                                       R
     ofArrayChanges	A
-    ofWithScheduler	A	R	L
-    onErrorResumeNext	A	R	LEx
-    pairs	A	R	L
-    range	A	R	L
-    repeat	A	R	L
-    return	A	R	L
-    spawn	A	RAs	LAs
-    start	A	RAs	LAs
-    startAsync	A	RAs	LAs
-    throw	A	R	L
-    timer	A	RTi	L
-    toAsync	A	RAs	LAs
-    toPromise		RAs
-    using	A		LEx
-    when	A	RJp	LJp
-    while	A	RXp	LXp
-    wrap	A	RAs
-    zip	A	R	L
+    ofWithScheduler	A	L                                       R
+    onErrorResumeNext	A	LEx                                     R
+    pairs	A	L                                       R
+    range	A	L                                       R
+    repeat	A	L                                       R
+    return	A	L                                       R
+    spawn	A	LAs                                     RAs
+    start	A	LAs                                     RAs
+    startAsync	A	LAs                                     RAs
+    throw	A	L                                       R
+    timer	A	L                                       RTi
+    toAsync	A	LAs                                     RAs
+    toPromise		                                        RAs
+    using	A	LEx
+    when	A	LJp                                     RJp
+    while	A	LXp                                     RXp
+    wrap	A	                                        RAs
+    zip	A	L                                       R
 
 ### Observable Instance Methods (prototype) (! marks functions also on object)
 
-    aggregate	A	RAg	LAg
-    all	A	RAg	LAg
-  ! amb	A	R	LEx
-    and	A	RJp	LJp
-    any	A	RAg	LAg
-    asObservable	A	R	L
-    average	A	RAg	LAg
-    buffer	A	RCo	LCo
-    bufferWithCount	A	R	LEx
-    bufferWithTime	A	RTi	LTi
-    bufferWithTimeOrCount	A	RTi	LTi
-  ! catch	A	R	L
-    combineLatest	A	R	L
-  ! concat	A	R	L
-    concatAll	A	R
-    concatMap	A	R	L
-    connect	A	RBi	L	CBi
+    aggregate	A	LAg	RAg
+    all	A	LAg                                     RAg
+  ! amb	A	LEx                                     R
+    and	A	LJp                                     RJp
+    any	A	LAg                                     RAg
+    asObservable	A	L                                       R
+    average	A	LAg                                     RAg
+    buffer	A	LCo                                     RCo
+    bufferWithCount	A	LEx                                     R
+    bufferWithTime	A	LTi                                     RTi
+    bufferWithTimeOrCount	A	LTi                                     RTi
+    catch !	A	L                                       R
+    combineLatest	A	L                                       R
+    concat !	A	L                                       R
+    concatAll	A	                                        R
+    concatMap	A	L                                       R
+    connect	A	L	RBi	CBi
     controlled	A
-    count	A	RAg	LAg
-    debounce	A	RTi	L
-    defaultIfEmpty	A	R	L
-    delay	A	RTi	L
-    delaySubscription	A	RTi	LTi
-    dematerialize	A		L
-    distinct	A	R	LEx
-    distinctUntilChanged	A	R	L
-    do	A	R	L
-    doOnNext	A	R	L
-    doOnError	A	R	L
-    doOnCompleted	A	R	L
-    doWhile	A	RXp	LXp
-    elementAt	A	RAg	LAg
-    every	A	RAg	LAg
-    expand	A	RXp	LXp
-    extend	A	RXp	LXp
-    filter	A	R	L
-    finally | ensure	A	R	L
-    find	A	RAg	LAg
-    findIndex	A	RAg	LAg
-    first	A	RAg	LAg
-    flatMap	A	R	L
-    flatMapFirst	A	RXp	LXp
-    flatMapLatest	A	R	L
-    flatMapObserver	A	R
-    flatMapWithMaxConcurrent	A	RXp	LXp
-  ! forkJoin	A	RXp	LXp
-    groupBy	A	RCo	LCo
-    groupByUntil	A	RCo	LCo
-    groupJoin	A	RCo	LCo
-    ignoreElements	A	R	L
-    includes	A	RAg (3)	LAg (5)
-    indexOf		RAg	LAg
-    isEmpty	A	RAg	LAg
-    join	A	RCo	LCo
-    last	A	RAg	LAg
-    lastIndexOf	A	RAg	LAg
-    let	A	RXp	LXp
-    manySelect	A	RXp	LXp
-    map	A	R	L
-    max	A	RAg	LAg
-    maxBy	A	RAg	LAg
-  ! merge	A	R	L
-    mergeAll	A	R	L
-    min	A	RAg	LAg
-    minBy	A	RAg	LAg
-    multicast	A		L
-    observeOn	A	R	LEx
-    onErrorResumeNext	A	R	LEx
-    pairwise	A	RCo	LCo
-    partition	A	RCo	LCo
-    pausable	A		(L)
+    count	A	LAg                                     RAg
+    debounce	A	L                                       RTi
+    defaultIfEmpty	A	L                                       R
+    delay	A	L                                       RTi
+    delaySubscription	A	LTi                                     RTi
+    dematerialize	A	L
+    distinct	A	LEx                                     R
+    distinctUntilChanged	A	L                                       R
+    do	A	L                                       R
+    doOnNext	A	L                                       R
+    doOnError	A	L                                       R
+    doOnCompleted	A	L                                       R
+    doWhile	A	LXp                                     RXp
+    elementAt	A	LAg                                     RAg
+    every	A	LAg                                     RAg
+    expand	A	LXp                                     RXp
+    extend	A	LXp                                     RXp
+    filter	A	L                                       R
+    finally | ensure	A	L                                       R
+    find	A	LAg                                     RAg
+    findIndex	A	LAg                                     RAg
+    first	A	LAg                                     RAg
+    flatMap	A	L                                       R
+    flatMapFirst	A	LXp                                     RXp
+    flatMapLatest	A	L                                       R
+    flatMapObserver	A	                                        R
+    flatMapWithMaxConcurrent	A	LXp                                     RXp
+    forkJoin !	A	LXp                                     RXp
+    groupBy	A	LCo                                     RCo
+    groupByUntil	A	LCo                                     RCo
+    groupJoin	A	LCo                                     RCo
+    ignoreElements	A	L                                       R
+    includes	A	LAg (5)                                 RAg (3)
+    indexOf		LAg                                     RAg
+    isEmpty	A	LAg                                     RAg
+    join	A	LCo                                     RCo
+    last	A	LAg                                     RAg
+    lastIndexOf	A	LAg                                     RAg
+    let	A	LXp                                     RXp
+    manySelect	A	LXp                                     RXp
+    map	A	L                                       R
+    max	A	LAg                                     RAg
+    maxBy	A	LAg                                     RAg
+    merge !	A	L                                       R
+    mergeAll	A	L                                       R
+    min	A	LAg                                     RAg
+    minBy	A	LAg                                     RAg
+    multicast	A	L
+    observeOn	A	LEx                                     R
+    onErrorResumeNext	A	LEx                                     R
+    pairwise	A	LCo                                     RCo
+    partition	A	LCo                                     RCo
+    pausable	A	(L)
     pausableBuffered	A
     pluck	A
-    publish	A	RBi	L	CBi
-    publishLast	A	RBi	L	CBi
-    publishValue	A	RBi	L	CBi
-    refCount	A	RBi	L	CBi
-    reduce	A	RAg	LAg
-    repeat	A	R	L
-    replay	A	RBi	L	CBi
-    retry	A	R	L
-    retryWhen	A	R	L
-    sample	A	RTi	L & LTi
-    scan	A	R	L
-    select	A	R	L
-    selectConcat	A	R	L
-    selectMany	A	R	L
+    publish	A	L	RBi	CBi
+    publishLast	A	L	RBi	CBi
+    publishValue	A	L	RBi	CBi
+    refCount	A	L	RBi	CBi
+    reduce	A	LAg                                     RAg
+    repeat	A	L                                       R
+    replay	A	L	RBi	CBi
+    retry	A	L                                       R
+    retryWhen	A	L                                       R
+    sample	A	L & LTi                                 RTi
+    scan	A	L                                       R
+    select	A	L                                       R
+    selectConcat	A	L                                       R
+    selectMany	A	L                                       R
     selectManyObserver	A
-    sequenceEqual	A	RAg	LAg
-    selectSwitch		R	L
-    selectSwitchFirst		RXp	LXp
-    selectWithMaxConcurrent		RXp	LXp
-    share	A (1)	RBi		CBi
-    shareLast		RBi		CBi
-    shareReplay	A (1)	RBi		CBi
-    shareValue	A (1)	RBi		CBi
-    single	A	R & RAg	LAg
-    singleInstance	A	RBi	L	CBi
-    skip	A	R	L
-    skipLast	A	R	L
-    skipLastWithTime	A	RTi	LTi
-    skipUntil	A	R	L
+    sequenceEqual	A	LAg                                     RAg
+    selectSwitch		L                                       R
+    selectSwitchFirst		LXp                                     RXp
+    selectWithMaxConcurrent		LXp                                     RXp
+    share	A (1)		RBi	CBi
+    shareLast			RBi	CBi
+    shareReplay	A (1)		RBi	CBi
+    shareValue	A (1)		RBi	CBi
+    single	A	LAg                                     R & RAg
+    singleInstance	A	L	RBi	CBi
+    skip	A	L                                       R
+    skipLast	A	L                                       R
+    skipLastWithTime	A	LTi                                     RTi
+    skipUntil	A	L                                       R
     skipUntilWithTime	A
-    skipWhile	A	R	L
-    slice	A	RAg	LAg
-    some	A	RAg	LAg
-    startWith	A	R	L
-    subscribe | forEach	A	R	L
-    subscribeOn	A	R (2)	LEx
-    subscribeOnNext		R	L
-    subscribeOnError		R	L
-    subscribeOnCompleted		R	L
-    sum	A	RAg	LAg
-    switch | switchLatest	A	R	L
+    skipWhile	A	L                                       R
+    slice	A	LAg                                     RAg
+    some	A	LAg                                     RAg
+    startWith	A	L                                       R
+    subscribe | forEach	A	L                                       R
+    subscribeOn	A	LEx                                     R (2)
+    subscribeOnNext		L                                       R
+    subscribeOnError		L                                       R
+    subscribeOnCompleted		L                                       R
+    sum	A	LAg                                     RAg
+    switch | switchLatest	A	L                                       R
     switchFirst	A
-    take	A	R	L
-    takeLast	A	R	L
-    takeLastBuffer	A		LEx
-    takeLastBufferWithTime	A	RTi	LTi
-    takeLastWithTime	A	RTi	LTi
-    takeUntil	A	R	L
+    take	A	L                                       R
+    takeLast	A	L                                       R
+    takeLastBuffer	A	LEx
+    takeLastBufferWithTime	A	LTi                                     RTi
+    takeLastWithTime	A	LTi                                     RTi
+    takeUntil	A	L                                       R
     takeUntilWithTime	A
-    takeWhile	A	R	L
-    tap	A		L
-    tapOnNext	A		L
-    tapOnError	A		L
-    tapOnCompleted	A		L
-    thenDo		RJp	LJp
-    throttle	A	RTi	L
-    timeInterval	A	RTi	LTi
-    timeout	A	RTi	L & LTi
-    timeoutWithSelector			LTi
-    timestamp	A	RTi	L & LTi
-    toArray	A	R	L
-    toMap		RAg	LAg
-  ? toPromise			L
-    toSet		RAg	LAg
-    transduce		R	L
-    where	A	R	L
-    window	A	RCo	LCo
-    windowWithCount	A	R	LEx
-    windowWithTime	A	RTi	LTi
-    windowWithTimeOrCount	A	RTi	LTi
-    withLatestFrom	A	R	L
-  ! zip	A	R	L
-    zipIterable	A	R	L
+    takeWhile	A	L                                       R
+    tap	A	L
+    tapOnNext	A	L
+    tapOnError	A	L
+    tapOnCompleted	A	L
+    thenDo		LJp                                     RJp
+    throttle	A	L                                       RTi
+    timeInterval	A	LTi                                     RTi
+    timeout	A	L & LTi                                 RTi
+    timeoutWithSelector		LTi
+    timestamp	A	L & LTi                                 RTi
+    toArray	A	L                                       R
+    toMap		LAg                                     RAg
+    toPromise ?		L
+    toSet		LAg                                     RAg
+    transduce		L                                       R
+    where	A	L                                       R
+    window	A	LCo                                     RCo
+    windowWithCount	A	LEx                                     R
+    windowWithTime	A	LTi                                     RTi
+    windowWithTimeOrCount	A	LTi                                     RTi
+    withLatestFrom	A	L                                       R
+    zip !	A	L                                       R
+    zipIterable	A	L                                       R
 
 ## Included Classes
+
 ### Core Objects
 
-    Rx.Observer	A	R	L	C
-    Rx.Observable		R		C
-    Rx.Notification	A	R	L	CTe
+    Rx.Observer	A	L	R	C
+    Rx.Observable			R	C
+    Rx.Notification	A	L	R	CTe
 
 ### Subjects
 
-    Rx.AsyncSubject	A	R	L	CBi
-    Rx.BehaviorSubject		RBi	L	CBi
-    Rx.ReplaySubject		RBi	L	CBi
-    Rx.Subject	A	R	L	CBi
+    Rx.AsyncSubject	A	L	R	CBi
+    Rx.BehaviorSubject		L	RBi	CBi
+    Rx.ReplaySubject		L	RBi	CBi
+    Rx.Subject	A	L	R	CBi
 
 ### Schedulers
 
-    Rx.Scheduler	A	R	L	C
-    Rx.TestScheduler		RTe	LTe	CTe
-    Rx.VirtualTimeScheduler		RVt	LVt	CTe
-    Rx.HistoricalScheduler		RVt	LVt
+    Rx.Scheduler	A	L	R	C
+    Rx.TestScheduler		LTe	RTe	CTe
+    Rx.VirtualTimeScheduler		LVt	RVt	CTe
+    Rx.HistoricalScheduler		LVt	RVt
 
 ### Disposables
 
-    Rx.CompositeDisposable	A	R	L	C
-    Rx.Disposable	A	R	L	C
-    Rx.RefCountDisposable	A	R	L
-    Rx.SerialDisposable	A	R	L	C
-    Rx.SingleAssignmentDisposable	A	R	L	C
+    Rx.CompositeDisposable	A	L	R	C
+    Rx.Disposable	A	L	R	C
+    Rx.RefCountDisposable	A	L	R
+    Rx.SerialDisposable	A	L	R	C
+    Rx.SingleAssignmentDisposable	A	L	R	C
 
 ### Testing classes
 
-    Rx.ReactiveTest		RTe	LTe	CTe
-    Rx.Recorded		RTe	LTe	CTe
-    Rx.Subscription		RTe	LTe	CTe
+    Rx.ReactiveTest		LTe	RTe	CTe
+    Rx.Recorded		LTe	RTe	CTe
+    Rx.Subscription		LTe	RTe	CTe
     Rx.TestScheduler (see Schedulers above)
 
 
@@ -301,4 +314,4 @@ Also some methods / classes are not in All?
 (4): Not in https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.async.md
 (5): Out of order in the list at https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/lite/rx.lite.aggregates.md
 
-?ts=40
+?ts=40 if fixed width, ?ts=64 otherwise

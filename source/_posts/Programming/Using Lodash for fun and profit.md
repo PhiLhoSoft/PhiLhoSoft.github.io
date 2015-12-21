@@ -19,7 +19,7 @@ Lodash is a JavaScript utility library enabling a functional programming coding 
 Lodash has general purpose functions, for type checking, string utilities, even functions to manipulate functions.
 More importantly, it has functions to manipulate collections. Collections is a general term covering arrays, objects (seen as maps) and even strings (seen as arrays of characters).
 
-This allows to replace most `for` loops with powerful and succint function calls, showing clearly the intent of the operation without having to analyze complex code.
+This allows to replace most `for` loops with powerful and succinct function calls, showing clearly the intent of the operation without having to analyze complex code.
 
 <!-- more -->
 
@@ -31,7 +31,7 @@ This is a work in progress: this article is unfinished and will be updated.
 ## History
 
 In the days of JavaScript before EcmaScript 5 (which added methods like map or filter), JS was mostly used as an imperative language.
-The Underscore library (created by Jeremy Ashkenas) changed that by introducing (in 2009) functions like map, filter or reduce to ease processing of arrays. Similarly to jQuery, which adds a global variable named `$` to be reacheable from everywhere, Underscore adds a global variable named... `_` to provide its functions.
+The Underscore library (created by Jeremy Ashkenas) changed that by introducing (in 2009) functions like map, filter or reduce to ease processing of arrays. Similarly to jQuery, which adds a global variable named `$` to be reachable from everywhere, Underscore adds a global variable named... `_` to provide its functions.
 An Underscore contributer, John-David Dalton, tired of some limitations and inconsistencies of the library, forked it (in 2012) and named the project Lo-Dash (pun on "low dash", ie. an underscore). Later, it just took the name Lodash. The library kept the `_` symbol, as it is intended to be a drop-in replacement of Underscore: replace one with the other, no other code change, and benefit from higher speed, more functions, more consistency and better documentation.
 Today, Lodash diverges from the Underscore API but maintains a compatibility build.
 Out of the box, Lodash is bigger than Underscore. Unless you start adding extensions to the latter to get functionalities available in Lodash... And Lodash has a tool to create a build having only the functions you want. And if you use `require` on your functions, it will build automatically with only them.
@@ -126,7 +126,7 @@ Notice the call to `value()`.
 It is necessary because this chain is open-ended: you can add other functions after it. Eg. you can end it after the `take()`, and have two different values by ending the chain with two different `map`s.
 `value()` tells to end the chain and to evaluate it.
 This shows that this chaining is _lazy_: no processing is done until it is requested by `value()`. Moreover, this chaining is optimized, Lodash practices function fusion with shortcut: it doesn't create an intermediary result on each function call, but rather creates a compound function processing the whole input at once. And, of course, it will not map the data beyond the 10 selected by `take()`.
-There is a slighly shorter variant:
+There is a slightly shorter variant:
 ```
 var r = _(numbers).filter(...)...value();
 ```
@@ -282,18 +282,18 @@ and sentence styles:
 
 Lodash offers a number of functions to convert from any style to one of these.
 
-_.camelCase: foo--bar-, __foo_bar, Foo Bar => fooBar
-_.capitalize: foo bar => Foo bar
-_.kebabCase: FooBar, _foo__bar_, foo Bar => foo-bar
-_.snakeCase: foo bar, fooBar, Foo-Bar => foo_bar
-_.startCase: foo bar, --Foo-bar, _foo_bar => Foo Bar
+- _.camelCase: foo--bar-, __foo_bar, Foo Bar => fooBar
+- _.capitalize: foo bar => Foo bar
+- _.kebabCase: FooBar, _foo__bar_, foo Bar => foo-bar
+- _.snakeCase: foo bar, fooBar, Foo-Bar => foo_bar
+- _.startCase: foo bar, --Foo-bar, _foo_bar => Foo Bar
 
 ### Additional functions:
 
-_.deburr("ça déjà tôt") => ca deja tot
-_.startsWith("aaron", "aa") -> true
-_.endsWith("file.txt", ".txt") => true
-_.repeat("=-", 3) => =-=-=-
+- _.deburr("ça déjà tôt") => ca deja tot
+- _.startsWith("aaron", "aa") -> true
+- _.endsWith("file.txt", ".txt") => true
+- _.repeat("=-", 3) => =-=-=-
 
 Plus some other functions too long to detail: see doc for more.
 A `template` function allowing string interpolation.

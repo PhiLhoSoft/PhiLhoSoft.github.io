@@ -9,6 +9,7 @@ This is a place to experiment with the theme, and Markdown rendering.
 This page is ugly on purpose... (almost).
 
 ## Technical
+
 ``` ceylon
 // Testing some code display. To be highlighted later.
 

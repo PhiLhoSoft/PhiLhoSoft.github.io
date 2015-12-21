@@ -49,7 +49,7 @@ So streams are a way to model "the world" from the point of view of moments in t
 
 Purists of the FRP concept, those having coined the term, claim that the implementations I talk about here are not really FRP.
 
-Let's agree on that and say that what we call FRP here is just a bastadized, simplified, with pragmatic compromizes, that happens to use the same term, because it is just convenient...
+Let's agree on that and say that what we call FRP here is just a bastardized, simplified, with pragmatic compromises, that happens to use the same term, because it is just convenient...
 
 ### JavaScript
 
@@ -63,11 +63,11 @@ The principles explained here can be applied to different languages and librarie
 ### RxJS
 
 I briefly explored some of the JS libraries, but finally settled on RxJS: it is one of the most complete implementation, it is backed by a corporation instead of being an experiment from an individual, it has good docs and good tutorials.
-Another advantage: its API has been defined by the [ReactiveX](http://reactivex.io/) project, and it has been implemented in lot of languages: Java, C#, C++, Ruby, Python, Swift, and many JVM languages (often via RxJava). Plus some independently developped implementations, like Rx.PHP.
+Another advantage: its API has been defined by the [ReactiveX](http://reactivex.io/) project, and it has been implemented in lot of languages: Java, C#, C++, Ruby, Python, Swift, and many JVM languages (often via RxJava). Plus some independently developed implementations, like Rx.PHP.
 So once you know the API for a language, using it in another language is rather trivial, needing mostly minor adaptations.
 One downside of RxJS is its size: it is a large API, so there is lot to learn, and the library is quite big, which can be annoying if you want a lean application (eg. for using on mobile devices).
 That said, a large part of the API can be ignored at first, a beginner needs to know only a few functions (called _operators_ in RxJS).
-Moreover, the API has been split in various packages: the Core libraries contains only the vital minimum for Rx. The Lite libraries and the Main libraries have a base file with the objects and the essential operators, and other files splitted by theme: aggregates, async, time, etc. The difference between Main and Lite resides in the way the operators are grouped.
+Moreover, the API has been split in various packages: the Core libraries contains only the vital minimum for Rx. The Lite libraries and the Main libraries have a base file with the objects and the essential operators, and other files split by theme: aggregates, async, time, etc. The difference between Main and Lite resides in the way the operators are grouped.
 The point is that a project can include only a base file, and add additional ones if a specific operator is needed. This can reduce the amount of code to include in a page.
 Or, for experimentations and convenience, just include the `rx.all.js` file and be done.
 
@@ -75,7 +75,7 @@ RxJS calls stream "sequences", and since the point is to observe them and to rea
 
 ## Creating a stream
 
-You can create an Observable from scratch, but in most case, you just use one of the adaptors wrapping common JavaScript entities in an observable sequence.
+You can create an Observable from scratch, but in most case, you just use one of the adapters wrapping common JavaScript entities in an observable sequence.
 
 ### Wrapping in a stream
 
