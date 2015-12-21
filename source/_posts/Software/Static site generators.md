@@ -64,7 +64,7 @@ I know web tools, I know how to transform Markdown to HTML, Sass to CSS, etc. I 
 
 ### AntWar
 
-I first tried [AntWar](http://antwarjs.github.io/) which is based on Webpack and React.
+I first tried [Antwar](http://antwarjs.github.io/) which is based on Webpack and React.
 It has a good site with a tutorial, and an interesting flexibility.
 But I ran into some issues, like a rigid Markdown parser, so I looked elsewhere.
 
