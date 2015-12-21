@@ -2,6 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://PhiLhoSoft.github.io/Programming/RxJS-operators/</loc>
+    <lastmod>2015-12-21T07:40:18.151Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://PhiLhoSoft.github.io/about/index.html</loc>
+    <lastmod>2015-12-21T07:36:57.697Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://PhiLhoSoft.github.io/Software/Static%20site%20generators/</loc>
+    <lastmod>2015-12-21T07:25:51.119Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://PhiLhoSoft.github.io/playground/index.html</loc>
+    <lastmod>2015-12-21T07:04:30.438Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://PhiLhoSoft.github.io/Programming/Using%20Lodash%20for%20fun%20and%20profit/</loc>
     <lastmod>2015-12-20T23:26:42.649Z</lastmod>
   </url>
@@ -22,22 +42,12 @@
   </url>
   
   <url>
-    <loc>http://PhiLhoSoft.github.io/Software/Static%20site%20generators/</loc>
-    <lastmod>2015-12-20T14:39:20.937Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://PhiLhoSoft.github.io/tags/index.html</loc>
     <lastmod>2015-12-19T11:00:15.790Z</lastmod>
   </url>
   
   <url>
     <loc>http://PhiLhoSoft.github.io/categories/index.html</loc>
-    <lastmod>2015-12-19T11:00:15.789Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://PhiLhoSoft.github.io/about/index.html</loc>
     <lastmod>2015-12-19T11:00:15.789Z</lastmod>
   </url>
   

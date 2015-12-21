@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JetBrains WebStorm review ~|~ PhiLhoSoft Technical Blog</title>
+  <title>RxJS distributions ~|~ PhiLhoSoft Technical Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="a review of the WebStorm IDE for Web applications, at version 9">
+  <meta name="description" content="RxJS distributions and their operators">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JetBrains WebStorm review">
-<meta property="og:url" content="http://PhiLhoSoft.github.io/Software/JetBrains WebStorm review/index.html">
+<meta property="og:title" content="RxJS distributions">
+<meta property="og:url" content="http://PhiLhoSoft.github.io/Programming/RxJS-operators/index.html">
 <meta property="og:site_name" content="PhiLhoSoft Technical Blog">
-<meta property="og:description" content="a review of the WebStorm IDE for Web applications, at version 9">
-<meta property="og:updated_time" content="2015-12-19T11:00:15.346Z">
+<meta property="og:description" content="RxJS distributions and their operators">
+<meta property="og:updated_time" content="2015-12-21T07:40:18.151Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JetBrains WebStorm review">
-<meta name="twitter:description" content="a review of the WebStorm IDE for Web applications, at version 9">
+<meta name="twitter:title" content="RxJS distributions">
+<meta name="twitter:description" content="RxJS distributions and their operators">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -140,7 +140,7 @@
 </aside>
 
       
-      <section id="main"><article id="post-Software/JetBrains WebStorm review" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-Programming/RxJS-operators" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -149,7 +149,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JetBrains WebStorm review
+      RxJS distributions
     </h1>
   
 
@@ -157,8 +157,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/Software/JetBrains WebStorm review/">
-      <time datetime="2015-03-02T10:42:00.000Z" itemprop="datePublished">2015-03-02</time>
+    <a href="/Programming/RxJS-operators/">
+      <time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time>
     </a>
   </div>
 
@@ -166,7 +166,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a>
+    <a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a>
   </div>
 
         </div>
@@ -175,57 +175,294 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <h1 id="jetbrains-webstorm-review">JetBrains WebStorm review</h1>
-<p>For Java coding, I elected Eclipse as my main IDE. I tried NetBeans, and appreciated it, but at the time, it was Java-centric so I went back to Eclipse instead, more polyglot. Now, NetBeans is more versatile, but now I know Eclipse well, with its quirks, warts and all, so I remain there.<br>
-When I had to code JavaScript (with AngularJS, how original!) at work, for a new project, I naturally tried to use Eclipse, with an Angular plugin. It wasn&#x2019;t so bad, but still a bit frustrating, with no renaming of local variables, loosing the capability to drag&#x2019;n&#x2019;drop code in CSS or HTML editors (a long-standing bug&#x2026;), and some other frustrations.<br>
-A colleague advised to try WebStorm.<br>
-At first, I was a bit reluctant. First, it is a payware, something I usually avoid. Of course, there is chance my company finally pays for the software, if it was a real productivity tool. But then, that&#x2019;s something that I would use at work, and couldn&#x2019;t use at home (I have zero software budget&#x2026;).<br>
-Secondly, I tried IntelliJ IDEA some years ago, and wasn&#x2019;t convinced. Perhaps it was less mature than now, or perhaps I didn&#x2019;t try hard enough, but I went back to my Eclipse quite quickly.</p>
-<a id="more"></a>
-<p>Well, I installed it (v. 9.0.3 on Windows 7 with 8 GB of memory) and, as usual in a first contact, I went to the settings, to get a first feel of the capabilities of the application. They are quite complete, yet not overwhelming.<br>
-I first chose the Eclipse keyboard configuration, allowing me to find back a familiar interface. And I customized some that I also customize on Eclipse (to find back shortcuts I use in my favorite source code editor, SciTE). It went well and fast.</p>
-<p>I also customized the color settings. IIRC, it defaults to a dark theme, which I dislike. I chose a clear theme, and customized the colors to my taste. It is quite flexible, too.<br>
-Lastly, I changed the JavaScript formatting to follow the rules we use at work. Also easy and flexible, with still some quirks that have corresponding open issues in their backlog.</p>
-<p>One surprise: I imported our project, I selected Perforce (the VCS we use at work) as VCS for it (or it even proposed it, perhaps because it found a .p4ignore file), and it went forward without asking any question (except my password), finding settings in the environment variables. The VCS integration is rather well made.</p>
-<p>I have collected a little list of pros and cons:</p>
-<p>PROS</p>
+        <h1 id="rxjs-distributions">RxJS distributions</h1>
+<p><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc">https://github.com/Reactive-Extensions/RxJS/tree/master/doc</a></p>
+<p>Numbers are size in KB of .min.js as of 4.0.6 around October 2015. To be used only as comparison between versions.<br>
+The file names with + are not in the documentation, I found them after installing RxJS. I guess they come from v.4, and that the doc is still about v.3.</p>
+<p>The complete library:</p>
+<pre><code>rx.all.js	A	139
+</code></pre>
+<p>Main Libraries:</p>
+<pre><code>rx.js	R	72
+rx.aggregates.js	RAg	16
+rx.async.js	RAs (needs RBi)	7
+</code></pre>
 <ul>
-<li>Good auto-completion. It first propose local occurrences, then some more distant ones. See a cons for this feature, though.</li>
-<li>It is aware of file paths in code (in script tags): if I delete a JS file, it can warn it is still used in some source code.</li>
-<li>Good renaming facility, powerful, but because of the inherent nature of JavaScript, can be too wide (see the cons).</li>
-<li>Smart HTML, CSS (and SCSS) editing, with good auto-completion and formatting.</li>
-<li>Good editing capabilities, including column (rectangular) selection mode and drag&#x2019;n&#x2019;drop of text.</li>
-<li>Good, fast open resource (Ctrl+Shift+R) facility with real-time list of matching names, and pre-selection of recently / frequently used files. Compensates a bit the issue with tabs (see below).</li>
-<li>Good, clear project management: you just import a directory, and mark some folders as excluded (generated files like target), or resource. They are marked with colors in the project tree.<br>
-Colors are also used by the VCS to mark new files, changed files, etc.</li>
-<li>Natively knows lot of Web languages (JS, Dart, Typescript, Coffeescript), markup (CSS, HTML, XML, Json, Yaml&#x2026;) and tools (Gherkin, HAML, LESS, SASS, SCSS, etc.).</li>
-<li>Good analysis of code, with hints, eg. when we forget a semi-colon, or errors (sometime too discrete).</li>
-<li>Support of Emmet in HTML and CSS. For example, if we type, in an HTML editor, table&gt;thead&gt;tr&gt;th<em>8^^^tbody&gt;tr</em>5&gt;td*8 then Tab, we get a full HTML table with headers (8 columns) and body (5 rows).</li>
-<li>Shortcut to view the current HTML file in any main browser.</li>
+<li>rx.backpressure.js		8<br>
+rx.binding.js	RBi	7<br>
+rx.coincidence.js	RCo	7<br>
+rx.experimental.js	RXp	8<br>
+rx.joinpatterns.js	RJp	5</li>
+<li>rx.sorting.js		3<br>
+rx.testing.js	RTe (needs RVt)	7<br>
+rx.time.js	RTi	16<br>
+rx.virtualtime.js	RVt	4</li>
 </ul>
-<p>CONS</p>
+<p>Lite Libraries:</p>
+<pre><code>rx.lite.js	L	81
+rx.lite.aggregates.js	LAg	17
+rx.lite.async.js	LAs	4
+</code></pre>
 <ul>
-<li>I am often confused with Tab management. Perhaps I am too used to Eclipse, where I can have lot of open tabs: I have a drop-down list of these tabs, where I can type the first letter to quickly find the editor I want. WS has the same drop-down, but only shows there non-displayed tabs (instead of all of them), and isn&#x2019;t searchable (apparently). The concept of non-displayed is fuzzy too, as some tabs are out of view and I have to scroll them (with the mouse wheel) to see them.<br>
-So I don&#x2019;t know if a tab is out of view or non-displayed. I find myself relying on the Project view (hierarchical) to switch between two related files (eg. controller and template), but they are relatively far spaced there, so I scroll a lot, and have to double-click on a file name (even if already opened) to switch to it.<br>
-PS.: I just found out I can have tabs on several rows, I will try this disposition.<br>
-I find myself loosing lot of time on this. A little pro thought: it is easy to move a tab to put it close to the related one. At least when both are visible!</li>
-<li>auto-completion sometime kicks in automatically in the middle of typing an identifier, and sometime it can be annoying as it might freeze completely WebStorm: I get a spinning cursor and I have to wait for several dozens of seconds before being able to resume the typing. I think there is an open bug on this topic.</li>
-<li>Lot of operations like auto-completion rely on Node.js for parsing JavaScript and providing a database of identifiers. The Node.js instance can grow enormous (near a gigabyte of memory) and is likely the culprit for the freezing described above.</li>
-<li>Renaming a non-local identifier is greedy: it will find all occurrences of this string in the project (can include strings and comments) and will propose all of them. It can be slow (see above) and we have to examine each occurrence. This encourages to use unique names: if we have to data stores, for example, instead of naming the Crud methods with generic names (create, update, delete, etc.), it is better to name them to the specific objects they operate on (createFoo, updateFoo, deleteFoo&#x2026;). This eases auto-completion and renaming by narrowing the possible occurrences.</li>
-<li>Bad management of Azerty keyboard: commenting code can be made with Ctrl+/ where / is shifted on my keyboard. I can&#x2019;t get it to work&#x2026; I just mapped the command to one I use in SciTE, anyway.</li>
+<li>rx.lite.backpressure.js		4<br>
+rx.lite.coincidence.js	LCo	7<br>
+rx.lite.experimental.js	LXp	8<br>
+rx.lite.extras.js	LEx	10<br>
+rx.lite.joinpatterns.js	LJp	5<br>
+rx.lite.testing.js	LTe	7<br>
+rx.lite.time.js	LTi	9<br>
+rx.lite.virtualtime.js	LVt	4</li>
 </ul>
-<p>I hadn&#x2019;t time to test how to debug JavaScript within WS, but it also something it can do.</p>
-<p>Overall, I am quite impressed by this IDE, which has a deep knowledge of the Web environment, offers good editing facilities and is very pleasant to use.</p>
+<p>Core Libraries:</p>
+<pre><code>rx.core.js	C	15
+rx.core.binding.js	CBi	10
+rx.core.testing.js	CTe	14
+</code></pre>
+<h2 id="included-observable-operators">Included Observable Operators</h2>
+<h3 id="observable-methods">Observable Methods</h3>
+<pre><code>amb	A	R	LEx
+case	A	RXp	LXp
+catch	A	R	L
+concat	A	R	L
+create	A	R	L	C
+defer	A	R	L
+empty	A	R	L
+for	A	RXp	LXp
+forkJoin	A	RXp	LXp
+from	A	R	L
+fromArray	A	R	L
+fromCallback	A	RAs	L
+fromEvent	A	RAs	L
+fromEventPattern	A	RAs	L
+fromNodeCallback	A	RAs	L
+fromPromise	A	RAs (4)	L
+generate	A	R	LEx
+generateWithAbsoluteTime	A	RTi	LTi
+generateWithRelativeTime	A	RTi	LTi
+if	A	RXp	LXp
+interval	A	RTi	L
+just	A	R	L
+merge	A	R	L
+mergeDelayError	A	R	L
+never	A	R	L
+of	A	R	L
+ofArrayChanges	A
+ofWithScheduler	A	R	L
+onErrorResumeNext	A	R	LEx
+pairs	A	R	L
+range	A	R	L
+repeat	A	R	L
+return	A	R	L
+spawn	A	RAs	LAs
+start	A	RAs	LAs
+startAsync	A	RAs	LAs
+throw	A	R	L
+timer	A	RTi	L
+toAsync	A	RAs	LAs
+toPromise		RAs
+using	A		LEx
+when	A	RJp	LJp
+while	A	RXp	LXp
+wrap	A	RAs
+zip	A	R	L
+</code></pre>
+<h3 id="observable-instance-methods-prototype-marks-functions-also-on-object">Observable Instance Methods (prototype) (! marks functions also on object)</h3>
+<pre><code>aggregate	A	RAg	LAg
+all	A	RAg	LAg
+</code></pre>
+<p>! amb	A	R	LEx<br>
+and	A	RJp	LJp<br>
+any	A	RAg	LAg<br>
+asObservable	A	R	L<br>
+average	A	RAg	LAg<br>
+buffer	A	RCo	LCo<br>
+bufferWithCount	A	R	LEx<br>
+bufferWithTime	A	RTi	LTi<br>
+bufferWithTimeOrCount	A	RTi	LTi<br>
+! catch	A	R	L<br>
+combineLatest	A	R	L<br>
+! concat	A	R	L<br>
+concatAll	A	R<br>
+concatMap	A	R	L<br>
+connect	A	RBi	L	CBi<br>
+controlled	A<br>
+count	A	RAg	LAg<br>
+debounce	A	RTi	L<br>
+defaultIfEmpty	A	R	L<br>
+delay	A	RTi	L<br>
+delaySubscription	A	RTi	LTi<br>
+dematerialize	A		L<br>
+distinct	A	R	LEx<br>
+distinctUntilChanged	A	R	L<br>
+do	A	R	L<br>
+doOnNext	A	R	L<br>
+doOnError	A	R	L<br>
+doOnCompleted	A	R	L<br>
+doWhile	A	RXp	LXp<br>
+elementAt	A	RAg	LAg<br>
+every	A	RAg	LAg<br>
+expand	A	RXp	LXp<br>
+extend	A	RXp	LXp<br>
+filter	A	R	L<br>
+finally | ensure	A	R	L<br>
+find	A	RAg	LAg<br>
+findIndex	A	RAg	LAg<br>
+first	A	RAg	LAg<br>
+flatMap	A	R	L<br>
+flatMapFirst	A	RXp	LXp<br>
+flatMapLatest	A	R	L<br>
+flatMapObserver	A	R<br>
+flatMapWithMaxConcurrent	A	RXp	LXp<br>
+! forkJoin	A	RXp	LXp<br>
+groupBy	A	RCo	LCo<br>
+groupByUntil	A	RCo	LCo<br>
+groupJoin	A	RCo	LCo<br>
+ignoreElements	A	R	L<br>
+includes	A	RAg (3)	LAg (5)<br>
+indexOf		RAg	LAg<br>
+isEmpty	A	RAg	LAg<br>
+join	A	RCo	LCo<br>
+last	A	RAg	LAg<br>
+lastIndexOf	A	RAg	LAg<br>
+let	A	RXp	LXp<br>
+manySelect	A	RXp	LXp<br>
+map	A	R	L<br>
+max	A	RAg	LAg<br>
+maxBy	A	RAg	LAg<br>
+! merge	A	R	L<br>
+mergeAll	A	R	L<br>
+min	A	RAg	LAg<br>
+minBy	A	RAg	LAg<br>
+multicast	A		L<br>
+observeOn	A	R	LEx<br>
+onErrorResumeNext	A	R	LEx<br>
+pairwise	A	RCo	LCo<br>
+partition	A	RCo	LCo<br>
+pausable	A		(L)<br>
+pausableBuffered	A<br>
+pluck	A<br>
+publish	A	RBi	L	CBi<br>
+publishLast	A	RBi	L	CBi<br>
+publishValue	A	RBi	L	CBi<br>
+refCount	A	RBi	L	CBi<br>
+reduce	A	RAg	LAg<br>
+repeat	A	R	L<br>
+replay	A	RBi	L	CBi<br>
+retry	A	R	L<br>
+retryWhen	A	R	L<br>
+sample	A	RTi	L &amp; LTi<br>
+scan	A	R	L<br>
+select	A	R	L<br>
+selectConcat	A	R	L<br>
+selectMany	A	R	L<br>
+selectManyObserver	A<br>
+sequenceEqual	A	RAg	LAg<br>
+selectSwitch		R	L<br>
+selectSwitchFirst		RXp	LXp<br>
+selectWithMaxConcurrent		RXp	LXp<br>
+share	A (1)	RBi		CBi<br>
+shareLast		RBi		CBi<br>
+shareReplay	A (1)	RBi		CBi<br>
+shareValue	A (1)	RBi		CBi<br>
+single	A	R &amp; RAg	LAg<br>
+singleInstance	A	RBi	L	CBi<br>
+skip	A	R	L<br>
+skipLast	A	R	L<br>
+skipLastWithTime	A	RTi	LTi<br>
+skipUntil	A	R	L<br>
+skipUntilWithTime	A<br>
+skipWhile	A	R	L<br>
+slice	A	RAg	LAg<br>
+some	A	RAg	LAg<br>
+startWith	A	R	L<br>
+subscribe | forEach	A	R	L<br>
+subscribeOn	A	R (2)	LEx<br>
+subscribeOnNext		R	L<br>
+subscribeOnError		R	L<br>
+subscribeOnCompleted		R	L<br>
+sum	A	RAg	LAg<br>
+switch | switchLatest	A	R	L<br>
+switchFirst	A<br>
+take	A	R	L<br>
+takeLast	A	R	L<br>
+takeLastBuffer	A		LEx<br>
+takeLastBufferWithTime	A	RTi	LTi<br>
+takeLastWithTime	A	RTi	LTi<br>
+takeUntil	A	R	L<br>
+takeUntilWithTime	A<br>
+takeWhile	A	R	L<br>
+tap	A		L<br>
+tapOnNext	A		L<br>
+tapOnError	A		L<br>
+tapOnCompleted	A		L<br>
+thenDo		RJp	LJp<br>
+throttle	A	RTi	L<br>
+timeInterval	A	RTi	LTi<br>
+timeout	A	RTi	L &amp; LTi<br>
+timeoutWithSelector			LTi<br>
+timestamp	A	RTi	L &amp; LTi<br>
+toArray	A	R	L<br>
+toMap		RAg	LAg<br>
+? toPromise			L<br>
+toSet		RAg	LAg<br>
+transduce		R	L<br>
+where	A	R	L<br>
+window	A	RCo	LCo<br>
+windowWithCount	A	R	LEx<br>
+windowWithTime	A	RTi	LTi<br>
+windowWithTimeOrCount	A	RTi	LTi<br>
+withLatestFrom	A	R	L<br>
+! zip	A	R	L<br>
+zipIterable	A	R	L</p>
+<h2 id="included-classes">Included Classes</h2>
+<h3 id="core-objects">Core Objects</h3>
+<pre><code>Rx.Observer	A	R	L	C
+Rx.Observable		R		C
+Rx.Notification	A	R	L	CTe
+</code></pre>
+<h3 id="subjects">Subjects</h3>
+<pre><code>Rx.AsyncSubject	A	R	L	CBi
+Rx.BehaviorSubject		RBi	L	CBi
+Rx.ReplaySubject		RBi	L	CBi
+Rx.Subject	A	R	L	CBi
+</code></pre>
+<h3 id="schedulers">Schedulers</h3>
+<pre><code>Rx.Scheduler	A	R	L	C
+Rx.TestScheduler		RTe	LTe	CTe
+Rx.VirtualTimeScheduler		RVt	LVt	CTe
+Rx.HistoricalScheduler		RVt	LVt
+</code></pre>
+<h3 id="disposables">Disposables</h3>
+<pre><code>Rx.CompositeDisposable	A	R	L	C
+Rx.Disposable	A	R	L	C
+Rx.RefCountDisposable	A	R	L
+Rx.SerialDisposable	A	R	L	C
+Rx.SingleAssignmentDisposable	A	R	L	C
+</code></pre>
+<h3 id="testing-classes">Testing classes</h3>
+<pre><code>Rx.ReactiveTest		RTe	LTe	CTe
+Rx.Recorded		RTe	LTe	CTe
+Rx.Subscription		RTe	LTe	CTe
+Rx.TestScheduler (see Schedulers above)
+</code></pre>
+<p>(XYz): not in the lists, but found in the description of the operator.<br>
+(1): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.complete.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.complete.md</a><br>
+Also some methods / classes are not in All?<br>
+(2): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.md</a><br>
+(3): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.aggregates.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.aggregates.md</a><br>
+(4): Not in <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.async.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.async.md</a><br>
+(5): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/lite/rx.lite.aggregates.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/lite/rx.lite.aggregates.md</a></p>
+<p>?ts=40</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Software/JetBrains WebStorm review/" data-id="ciifngumq001ae8t1e5a374lb" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Programming/RxJS-operators/" data-id="ciifnguo60029e8t168iiiiyf" class="article-share-link">Share</a>
       
-        <a href="http://PhiLhoSoft.github.io/Software/JetBrains WebStorm review/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://PhiLhoSoft.github.io/Programming/RxJS-operators/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ide/">IDE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/software/">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/">Tool</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">Functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/library/">Library</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactive/">Reactive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rxjs/">RxJS</a></li></ul>
 
     </footer>
   </div>
@@ -233,15 +470,20 @@ I find myself loosing lot of time on this. A little pro thought: it is easy to m
     
 <nav id="article-nav">
   
-    <a href="/Programming/Test if variable or property is defined in JS/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Software/Static site generators/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          How to test if a variable or property is defined in JavaScript
+          Static Site Generators
         
       </div>
     </a>
   
+  
+    <a href="/Programming/Functional Reactive Programming/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Functional Reactive Programming</div>
+    </a>
   
 </nav>
 

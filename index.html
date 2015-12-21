@@ -98,7 +98,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        9
+        10
         <span>posts</span>
       </div>
       <div class="article-info-block">
@@ -191,7 +191,7 @@ So I tested Atom, with a critical eye. Spoiler: I was seducted, and it becomes m
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Software/GitHub Atom review/" data-id="ciif40i1d001fdkt12i4dvdpo" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Software/GitHub Atom review/" data-id="ciifngun0001ge8t1fcipl5jf" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Software/GitHub Atom review/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -251,12 +251,344 @@ My previous host keeps <a href="http://Phi.Lho.free.fr">my old site</a> but has 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Software/Static site generators/" data-id="ciif40i0i000mdkt19z7qbfid" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Software/Static site generators/" data-id="ciifngum2000ne8t1yh368thd" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Software/Static site generators/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/site-generation/">Site generation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/software/">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/">Tool</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">Web</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-Programming/RxJS-operators" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Programming/RxJS-operators/">RxJS distributions</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/Programming/RxJS-operators/">
+      <time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h1 id="rxjs-distributions">RxJS distributions</h1>
+<p><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc">https://github.com/Reactive-Extensions/RxJS/tree/master/doc</a></p>
+<p>Numbers are size in KB of .min.js as of 4.0.6 around October 2015. To be used only as comparison between versions.<br>
+The file names with + are not in the documentation, I found them after installing RxJS. I guess they come from v.4, and that the doc is still about v.3.</p>
+<p>The complete library:</p>
+<pre><code>rx.all.js	A	139
+</code></pre>
+<p>Main Libraries:</p>
+<pre><code>rx.js	R	72
+rx.aggregates.js	RAg	16
+rx.async.js	RAs (needs RBi)	7
+</code></pre>
+<ul>
+<li>rx.backpressure.js		8<br>
+rx.binding.js	RBi	7<br>
+rx.coincidence.js	RCo	7<br>
+rx.experimental.js	RXp	8<br>
+rx.joinpatterns.js	RJp	5</li>
+<li>rx.sorting.js		3<br>
+rx.testing.js	RTe (needs RVt)	7<br>
+rx.time.js	RTi	16<br>
+rx.virtualtime.js	RVt	4</li>
+</ul>
+<p>Lite Libraries:</p>
+<pre><code>rx.lite.js	L	81
+rx.lite.aggregates.js	LAg	17
+rx.lite.async.js	LAs	4
+</code></pre>
+<ul>
+<li>rx.lite.backpressure.js		4<br>
+rx.lite.coincidence.js	LCo	7<br>
+rx.lite.experimental.js	LXp	8<br>
+rx.lite.extras.js	LEx	10<br>
+rx.lite.joinpatterns.js	LJp	5<br>
+rx.lite.testing.js	LTe	7<br>
+rx.lite.time.js	LTi	9<br>
+rx.lite.virtualtime.js	LVt	4</li>
+</ul>
+<p>Core Libraries:</p>
+<pre><code>rx.core.js	C	15
+rx.core.binding.js	CBi	10
+rx.core.testing.js	CTe	14
+</code></pre>
+<h2 id="included-observable-operators">Included Observable Operators</h2>
+<h3 id="observable-methods">Observable Methods</h3>
+<pre><code>amb	A	R	LEx
+case	A	RXp	LXp
+catch	A	R	L
+concat	A	R	L
+create	A	R	L	C
+defer	A	R	L
+empty	A	R	L
+for	A	RXp	LXp
+forkJoin	A	RXp	LXp
+from	A	R	L
+fromArray	A	R	L
+fromCallback	A	RAs	L
+fromEvent	A	RAs	L
+fromEventPattern	A	RAs	L
+fromNodeCallback	A	RAs	L
+fromPromise	A	RAs (4)	L
+generate	A	R	LEx
+generateWithAbsoluteTime	A	RTi	LTi
+generateWithRelativeTime	A	RTi	LTi
+if	A	RXp	LXp
+interval	A	RTi	L
+just	A	R	L
+merge	A	R	L
+mergeDelayError	A	R	L
+never	A	R	L
+of	A	R	L
+ofArrayChanges	A
+ofWithScheduler	A	R	L
+onErrorResumeNext	A	R	LEx
+pairs	A	R	L
+range	A	R	L
+repeat	A	R	L
+return	A	R	L
+spawn	A	RAs	LAs
+start	A	RAs	LAs
+startAsync	A	RAs	LAs
+throw	A	R	L
+timer	A	RTi	L
+toAsync	A	RAs	LAs
+toPromise		RAs
+using	A		LEx
+when	A	RJp	LJp
+while	A	RXp	LXp
+wrap	A	RAs
+zip	A	R	L
+</code></pre>
+<h3 id="observable-instance-methods-prototype-marks-functions-also-on-object">Observable Instance Methods (prototype) (! marks functions also on object)</h3>
+<pre><code>aggregate	A	RAg	LAg
+all	A	RAg	LAg
+</code></pre>
+<p>! amb	A	R	LEx<br>
+and	A	RJp	LJp<br>
+any	A	RAg	LAg<br>
+asObservable	A	R	L<br>
+average	A	RAg	LAg<br>
+buffer	A	RCo	LCo<br>
+bufferWithCount	A	R	LEx<br>
+bufferWithTime	A	RTi	LTi<br>
+bufferWithTimeOrCount	A	RTi	LTi<br>
+! catch	A	R	L<br>
+combineLatest	A	R	L<br>
+! concat	A	R	L<br>
+concatAll	A	R<br>
+concatMap	A	R	L<br>
+connect	A	RBi	L	CBi<br>
+controlled	A<br>
+count	A	RAg	LAg<br>
+debounce	A	RTi	L<br>
+defaultIfEmpty	A	R	L<br>
+delay	A	RTi	L<br>
+delaySubscription	A	RTi	LTi<br>
+dematerialize	A		L<br>
+distinct	A	R	LEx<br>
+distinctUntilChanged	A	R	L<br>
+do	A	R	L<br>
+doOnNext	A	R	L<br>
+doOnError	A	R	L<br>
+doOnCompleted	A	R	L<br>
+doWhile	A	RXp	LXp<br>
+elementAt	A	RAg	LAg<br>
+every	A	RAg	LAg<br>
+expand	A	RXp	LXp<br>
+extend	A	RXp	LXp<br>
+filter	A	R	L<br>
+finally | ensure	A	R	L<br>
+find	A	RAg	LAg<br>
+findIndex	A	RAg	LAg<br>
+first	A	RAg	LAg<br>
+flatMap	A	R	L<br>
+flatMapFirst	A	RXp	LXp<br>
+flatMapLatest	A	R	L<br>
+flatMapObserver	A	R<br>
+flatMapWithMaxConcurrent	A	RXp	LXp<br>
+! forkJoin	A	RXp	LXp<br>
+groupBy	A	RCo	LCo<br>
+groupByUntil	A	RCo	LCo<br>
+groupJoin	A	RCo	LCo<br>
+ignoreElements	A	R	L<br>
+includes	A	RAg (3)	LAg (5)<br>
+indexOf		RAg	LAg<br>
+isEmpty	A	RAg	LAg<br>
+join	A	RCo	LCo<br>
+last	A	RAg	LAg<br>
+lastIndexOf	A	RAg	LAg<br>
+let	A	RXp	LXp<br>
+manySelect	A	RXp	LXp<br>
+map	A	R	L<br>
+max	A	RAg	LAg<br>
+maxBy	A	RAg	LAg<br>
+! merge	A	R	L<br>
+mergeAll	A	R	L<br>
+min	A	RAg	LAg<br>
+minBy	A	RAg	LAg<br>
+multicast	A		L<br>
+observeOn	A	R	LEx<br>
+onErrorResumeNext	A	R	LEx<br>
+pairwise	A	RCo	LCo<br>
+partition	A	RCo	LCo<br>
+pausable	A		(L)<br>
+pausableBuffered	A<br>
+pluck	A<br>
+publish	A	RBi	L	CBi<br>
+publishLast	A	RBi	L	CBi<br>
+publishValue	A	RBi	L	CBi<br>
+refCount	A	RBi	L	CBi<br>
+reduce	A	RAg	LAg<br>
+repeat	A	R	L<br>
+replay	A	RBi	L	CBi<br>
+retry	A	R	L<br>
+retryWhen	A	R	L<br>
+sample	A	RTi	L &amp; LTi<br>
+scan	A	R	L<br>
+select	A	R	L<br>
+selectConcat	A	R	L<br>
+selectMany	A	R	L<br>
+selectManyObserver	A<br>
+sequenceEqual	A	RAg	LAg<br>
+selectSwitch		R	L<br>
+selectSwitchFirst		RXp	LXp<br>
+selectWithMaxConcurrent		RXp	LXp<br>
+share	A (1)	RBi		CBi<br>
+shareLast		RBi		CBi<br>
+shareReplay	A (1)	RBi		CBi<br>
+shareValue	A (1)	RBi		CBi<br>
+single	A	R &amp; RAg	LAg<br>
+singleInstance	A	RBi	L	CBi<br>
+skip	A	R	L<br>
+skipLast	A	R	L<br>
+skipLastWithTime	A	RTi	LTi<br>
+skipUntil	A	R	L<br>
+skipUntilWithTime	A<br>
+skipWhile	A	R	L<br>
+slice	A	RAg	LAg<br>
+some	A	RAg	LAg<br>
+startWith	A	R	L<br>
+subscribe | forEach	A	R	L<br>
+subscribeOn	A	R (2)	LEx<br>
+subscribeOnNext		R	L<br>
+subscribeOnError		R	L<br>
+subscribeOnCompleted		R	L<br>
+sum	A	RAg	LAg<br>
+switch | switchLatest	A	R	L<br>
+switchFirst	A<br>
+take	A	R	L<br>
+takeLast	A	R	L<br>
+takeLastBuffer	A		LEx<br>
+takeLastBufferWithTime	A	RTi	LTi<br>
+takeLastWithTime	A	RTi	LTi<br>
+takeUntil	A	R	L<br>
+takeUntilWithTime	A<br>
+takeWhile	A	R	L<br>
+tap	A		L<br>
+tapOnNext	A		L<br>
+tapOnError	A		L<br>
+tapOnCompleted	A		L<br>
+thenDo		RJp	LJp<br>
+throttle	A	RTi	L<br>
+timeInterval	A	RTi	LTi<br>
+timeout	A	RTi	L &amp; LTi<br>
+timeoutWithSelector			LTi<br>
+timestamp	A	RTi	L &amp; LTi<br>
+toArray	A	R	L<br>
+toMap		RAg	LAg<br>
+? toPromise			L<br>
+toSet		RAg	LAg<br>
+transduce		R	L<br>
+where	A	R	L<br>
+window	A	RCo	LCo<br>
+windowWithCount	A	R	LEx<br>
+windowWithTime	A	RTi	LTi<br>
+windowWithTimeOrCount	A	RTi	LTi<br>
+withLatestFrom	A	R	L<br>
+! zip	A	R	L<br>
+zipIterable	A	R	L</p>
+<h2 id="included-classes">Included Classes</h2>
+<h3 id="core-objects">Core Objects</h3>
+<pre><code>Rx.Observer	A	R	L	C
+Rx.Observable		R		C
+Rx.Notification	A	R	L	CTe
+</code></pre>
+<h3 id="subjects">Subjects</h3>
+<pre><code>Rx.AsyncSubject	A	R	L	CBi
+Rx.BehaviorSubject		RBi	L	CBi
+Rx.ReplaySubject		RBi	L	CBi
+Rx.Subject	A	R	L	CBi
+</code></pre>
+<h3 id="schedulers">Schedulers</h3>
+<pre><code>Rx.Scheduler	A	R	L	C
+Rx.TestScheduler		RTe	LTe	CTe
+Rx.VirtualTimeScheduler		RVt	LVt	CTe
+Rx.HistoricalScheduler		RVt	LVt
+</code></pre>
+<h3 id="disposables">Disposables</h3>
+<pre><code>Rx.CompositeDisposable	A	R	L	C
+Rx.Disposable	A	R	L	C
+Rx.RefCountDisposable	A	R	L
+Rx.SerialDisposable	A	R	L	C
+Rx.SingleAssignmentDisposable	A	R	L	C
+</code></pre>
+<h3 id="testing-classes">Testing classes</h3>
+<pre><code>Rx.ReactiveTest		RTe	LTe	CTe
+Rx.Recorded		RTe	LTe	CTe
+Rx.Subscription		RTe	LTe	CTe
+Rx.TestScheduler (see Schedulers above)
+</code></pre>
+<p>(XYz): not in the lists, but found in the description of the operator.<br>
+(1): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.complete.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.complete.md</a><br>
+Also some methods / classes are not in All?<br>
+(2): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.md</a><br>
+(3): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.aggregates.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.aggregates.md</a><br>
+(4): Not in <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.async.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.async.md</a><br>
+(5): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/lite/rx.lite.aggregates.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/lite/rx.lite.aggregates.md</a></p>
+<p>?ts=40</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://PhiLhoSoft.github.io/Programming/RxJS-operators/" data-id="ciifnguo60029e8t168iiiiyf" class="article-share-link">Share</a>
+      
+        <a href="http://PhiLhoSoft.github.io/Programming/RxJS-operators/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">Functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/library/">Library</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactive/">Reactive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rxjs/">RxJS</a></li></ul>
 
     </footer>
   </div>
@@ -319,7 +651,7 @@ It can even come from static data (eg. content of an array): in this case, time 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Programming/Functional Reactive Programming/" data-id="ciif40hyt0000dkt1tkknckxa" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Functional Reactive Programming/" data-id="ciifngujn0000e8t1lg9rx733" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Programming/Functional Reactive Programming/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -381,7 +713,7 @@ More importantly, it has functions to manipulate collections. Collections is a g
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Programming/Using Lodash for fun and profit/" data-id="ciif40i1y001rdkt1tsti8we4" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Using Lodash for fun and profit/" data-id="ciifngunp001se8t1a5gxf26p" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Programming/Using Lodash for fun and profit/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -452,7 +784,7 @@ I recommend it.</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Software/Adobe Backets review/" data-id="ciif40i1o001ldkt1i63rr78h" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Software/Adobe Backets review/" data-id="ciifngune001me8t1e6wmo6l9" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Software/Adobe Backets review/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -521,7 +853,7 @@ On the other hand, FP comes from lambda calculus, a “formal system in mathemat
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Programming/Functional programming introduction/" data-id="ciif40i2l0028dkt1ninxy0lp" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Functional programming introduction/" data-id="ciifnguod002ae8t1lwy8w5fi" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Programming/Functional programming introduction/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -589,7 +921,7 @@ Apparently, it doesn&#x2019;t even exist!<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Software/Microsoft Visual Studio Code review/" data-id="ciif40i0v0011dkt1549xrz2n" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Software/Microsoft Visual Studio Code review/" data-id="ciifngumi0012e8t173mm9mfh" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Software/Microsoft Visual Studio Code review/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -674,7 +1006,7 @@ In this case, the missing parameters (at the end of the list) are declared but h
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Programming/Test if variable or property is defined in JS/" data-id="ciif40i2f0022dkt1sv7ae4x0" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Test if variable or property is defined in JS/" data-id="ciifnguny0023e8t1qmi1ralz" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Programming/Test if variable or property is defined in JS/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -737,7 +1069,7 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Software/JetBrains WebStorm review/" data-id="ciif40i140019dkt12rvvna6h" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Software/JetBrains WebStorm review/" data-id="ciifngumq001ae8t1e5a374lb" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Software/JetBrains WebStorm review/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -799,6 +1131,23 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
           <li>
             
             <div class="item-thumbnail">
+              <a href="/Programming/RxJS-operators/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
+              <p class="item-title"><a href="/Programming/RxJS-operators/" class="title">RxJS distributions</a></p>
+              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
               <a href="/Programming/Functional Reactive Programming/" class="thumbnail">
   
     <span style="background-image:url(/images/Work-in-Progress.svg
@@ -832,23 +1181,6 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/Software/Adobe Backets review/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
-              <p class="item-title"><a href="/Software/Adobe Backets review/" class="title">Adobe Brackets review</a></p>
-              <p class="item-date"><time datetime="2015-09-25T11:24:00.000Z" itemprop="datePublished">2015-09-25</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -858,7 +1190,7 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -867,7 +1199,7 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
   <div class="widget-wrap">
     <h3 class="widget-title">tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -876,7 +1208,7 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
   <div class="widget-wrap">
     <h3 class="widget-title">tag cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 15px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 17.5px;">IDE</a> <a href="/tags/javascript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/library/" style="font-size: 12.5px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 17.5px;">Programming</a> <a href="/tags/reactive/" style="font-size: 10px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 10px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 20px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 17.5px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
+      <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 17.5px;">IDE</a> <a href="/tags/javascript/" style="font-size: 17.5px;">JavaScript</a> <a href="/tags/library/" style="font-size: 15px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 20px;">Programming</a> <a href="/tags/reactive/" style="font-size: 12.5px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 12.5px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 20px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 17.5px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
     </div>
   </div>
 
@@ -885,7 +1217,7 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
   <div class="widget-wrap">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 

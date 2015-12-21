@@ -11,8 +11,8 @@
 <meta property="og:url" content="http://PhiLhoSoft.github.io/about/index.html">
 <meta property="og:site_name" content="PhiLhoSoft Technical Blog">
 <meta property="og:description" content="Not about me, just a discrete (?) place to experiment...">
-<meta property="og:image" content="http://PhiLhoSoft.github.io/css/images/logo.png">
-<meta property="og:updated_time" content="2015-12-19T11:00:15.789Z">
+<meta property="og:image" content="http://PhiLhoSoft.github.io/images/logo.png">
+<meta property="og:updated_time" content="2015-12-21T07:36:57.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="About">
 <meta name="twitter:description" content="Not about me, just a discrete (?) place to experiment...">
@@ -100,7 +100,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        9
+        10
         <span>posts</span>
       </div>
       <div class="article-info-block">
@@ -159,7 +159,7 @@
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/about/index.html">
-      <time datetime="2015-12-19T11:00:15.789Z" itemprop="datePublished">2015-12-19</time>
+      <time datetime="2015-12-21T07:36:57.697Z" itemprop="datePublished">2015-12-21</time>
     </a>
   </div>
 
@@ -171,109 +171,20 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <img src="/css/images/logo.png" title="PhiLho&apos;s logo" alt="PhiLho">
+        <img src="/images/logo.png" title="PhiLho&apos;s logo" alt="PhiLho">
 <!-- toc -->
 <ul>
-<li><a href="#philhosoft">PhiLhoSoft</a>
-<ul>
-<li><a href="#technical">Technical</a></li>
-<li><a href="#typography">Typography</a>
-<ul>
-<li><a href="#paragraphs-and-lists">Paragraphs and lists</a></li>
-<li><a href="#inline-code">Inline code</a></li>
-<li><a href="#quote">Quote</a></li>
-<li><a href="#tables">Tables</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#philhosoft">PhiLhoSoft</a></li>
 </ul>
 <!-- tocstop -->
 <h1 id="philhosoft">PhiLhoSoft</h1>
-<p>So far, only some <a href="./Slides">technical slides</a>.<br>
-More to come&#x2026;<br>
-This page is ugly on purpose&#x2026; (almost).</p>
-<h2 id="technical">Technical</h2>
-<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Testing some code display. To be highlighted later.</span></span><br><span class="line"></span><br><span class="line">String defaultAsString&lt;Element&gt;(Element? e) =&gt; e?.string <span class="keyword">else</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="annotation">shared</span> String formatAsNewick&lt;Element, ActualTreeNode&gt;(ActualTreeNode root,</span><br><span class="line">        String(Element?) asString = defaultAsString&lt;Element&gt;)</span><br><span class="line">        <span class="keyword">given</span> ActualTreeNode <span class="keyword">satisfies</span> TreeNode&lt;Element, ActualTreeNode&gt;</span><br><span class="line">{</span><br><span class="line">    <span class="comment">// We need a custom iterator as we do a specific action on each step.</span></span><br><span class="line">    <span class="keyword">class</span> PostOrderIteration(ActualTreeNode root)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">function</span> wrap(ActualTreeNode node)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">return</span> [ node, node.children.iterator() ];</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        Stack&lt;[ ActualTreeNode, Iterator&lt;ActualTreeNode&gt; ]&gt; stack = LinkedList&lt;[ ActualTreeNode, Iterator&lt;ActualTreeNode&gt; ]&gt;();</span><br><span class="line">        stack.push(wrap(root));</span><br><span class="line"></span><br><span class="line">        <span class="annotation">shared</span> <span class="keyword">void</span> iterate(StringBuilder sb)</span><br><span class="line">        {</span><br><span class="line">            <span class="comment">// Cut for shortness...</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">value</span> ppi = PostOrderIteration(root);</span><br><span class="line">    <span class="keyword">value</span> sb = StringBuilder();</span><br><span class="line">    ppi.iterate(sb);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sb.string;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h2 id="typography">Typography</h2>
-<section>
-<h3 id="paragraphs-and-lists">Paragraphs and lists</h3>
-<p>A simple paragraph. Followed by an ordered list (<abbr title="ordered list">OL</abbr>).</p>
-<ol>
-<li>One</li>
-<li>Two</li>
-<li>Three<br>
-Can have <strong>paragraph</strong> inside, too.</li>
-</ol>
-<p>Then an unordered list. (<abbr title="unordered list">UL</abbr>)</p>
-<ul>
-<li>One</li>
-<li>Two</li>
-<li>Three<br>
-Here too, can have <em>paragraph</em> inside, too.</li>
-</ul>
-<p>And a simple regular paragraph to conclude.</p>
-</section>
-<section>
-<h3 id="inline-code">Inline code</h3>
-<p>We can have code in a paragraph: <code>var p = _.find(persons, { name: Bond&apos;, surname: &apos;James&apos; });</code> and even more.</p>
-</section>
-<section>
-<h3 id="quote">Quote</h3>
-<p>Let&#x2019;s try a quote:</p>
-<blockquote cite="http://ceylon-lang.org/documentation/1.2/spec/html_single/#d0e15">
-Java is a simple language to learn and Java code is easy to read and understand.
-Java provides a level of typesafety that is appropriate for business computing and
-enables sophisticated tooling with features like refactoring support, code completion, and code navigation.
-Ceylon aims to retain the overall model of Java, while getting rid of some of Java&apos;s warts,
-and improving upon Java&apos;s facilities for creating abstractions and writing generic libraries and frameworks.
-</blockquote>
-<p>From the <cite>Ceylon Language Specification</cite></p>
-</section>
-<section>
-<h3 id="tables">Tables</h3>
-<p>Now, with tables (thead, tfoot, and tbody)</p>
-<table>
-	<caption>Caption of the table</caption>
-	<thead>
-		<tr>
-			<th>First Header</th>
-			<th>Second Header</th>
-			<th>Last Header</th>
-		</tr>
-	</thead>
-	<tfoot>
-		<tr>
-			<td>Footer on Left</td>
-			<td>Footer on Middle</td>
-			<td>Footer on Right</td>
-		</tr>
-	</tfoot>
-	<tbody>
-		<tr>
-			<td>Body content 1.1</td>
-			<td>Body content 2.1</td>
-			<td>Body content 3.1</td>
-		</tr>
-		<tr>
-			<td>Body content 1.2</td>
-			<td>Body content 2.2</td>
-			<td>Body content 3.2</td>
-		</tr>
-		<tr>
-			<td>Body content 1.3</td>
-			<td>Body content 2.3</td>
-			<td>Body content 3.3</td>
-		</tr>
-	</tbody>
-</table>
-That&apos;s all for now.
-</section>
+<p>I have done some <a href="./Slides">technical slides</a>.</p>
+<p>More to come&#x2026;</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/about/index.html" data-id="ciif40i0c000ldkt17l5yeje4" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/about/index.html" data-id="ciifngulv000me8t1wbqhvo2y" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/about/index.html#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -341,6 +252,23 @@ That&apos;s all for now.
           <li>
             
             <div class="item-thumbnail">
+              <a href="/Programming/RxJS-operators/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
+              <p class="item-title"><a href="/Programming/RxJS-operators/" class="title">RxJS distributions</a></p>
+              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
               <a href="/Programming/Functional Reactive Programming/" class="thumbnail">
   
     <span style="background-image:url(/images/Work-in-Progress.svg
@@ -374,23 +302,6 @@ That&apos;s all for now.
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/Software/Adobe Backets review/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
-              <p class="item-title"><a href="/Software/Adobe Backets review/" class="title">Adobe Brackets review</a></p>
-              <p class="item-date"><time datetime="2015-09-25T11:24:00.000Z" itemprop="datePublished">2015-09-25</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -400,7 +311,7 @@ That&apos;s all for now.
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -409,7 +320,7 @@ That&apos;s all for now.
   <div class="widget-wrap">
     <h3 class="widget-title">tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -418,7 +329,7 @@ That&apos;s all for now.
   <div class="widget-wrap">
     <h3 class="widget-title">tag cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 15px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 17.5px;">IDE</a> <a href="/tags/javascript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/library/" style="font-size: 12.5px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 17.5px;">Programming</a> <a href="/tags/reactive/" style="font-size: 10px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 10px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 20px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 17.5px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
+      <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 17.5px;">IDE</a> <a href="/tags/javascript/" style="font-size: 17.5px;">JavaScript</a> <a href="/tags/library/" style="font-size: 15px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 20px;">Programming</a> <a href="/tags/reactive/" style="font-size: 12.5px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 12.5px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 20px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 17.5px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
     </div>
   </div>
 
@@ -427,7 +338,7 @@ That&apos;s all for now.
   <div class="widget-wrap">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
