@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>How to test if a variable or property is defined in JavaScript ~|~ PhiLhoSoft Technical Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Shows various ways to test if a variable or a property is defined in JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to test if a variable or property is defined in JavaScript">
+<meta property="og:url" content="http://PhiLhoSoft.github.io/Programming/Test if variable or property is defined in JS/index.html">
+<meta property="og:site_name" content="PhiLhoSoft Technical Blog">
+<meta property="og:description" content="Shows various ways to test if a variable or a property is defined in JavaScript">
+<meta property="og:updated_time" content="2015-12-18T09:20:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to test if a variable or property is defined in JavaScript">
+<meta name="twitter:description" content="Shows various ways to test if a variable or a property is defined in JavaScript">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+
+  
+
+  
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/images/logo.png)"></i><span class="site-title">PhiLhoSoft Technical Blog</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://PhiLhoSoft.github.io"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+        <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://PhiLhoSoft.github.io"></form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/images/avatar.png">
+      <h2 id="name">Philippe Lhoste (PhiLho)</h2>
+      <h3 id="title">Senior Software Engineer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Paris, France</span>
+      <a id="follow" href="https://github.com/PhiLhoSoft/">FOLLOW</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        10
+        <span>posts</span>
+      </div>
+      <div class="article-info-block">
+        14
+        <span>tags</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/PhiLhoSoft" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="https://twitter.com/PhiLhoSoft" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+          
+          <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+    <div class="article-info profile-block bio">
+      <h2>About</h2>
+      <p>A blog where I share my technical (programming) findings, insights, experiences, tutorials, etc.</p>
+    </div>
+    
+    <div class="article-info profile-block license">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+      </a><br>
+      This work by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">PhiLho</span>
+      is licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </div>
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-Programming/Test if variable or property is defined in JS" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      How to test if a variable or property is defined in JavaScript
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/Programming/Test if variable or property is defined in JS/">
+      <time datetime="2015-03-20T17:20:00.000Z" itemprop="datePublished">2015-03-20</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/javascript/">JavaScript</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h1 id="how-to-test-if-a-variable-or-property-is-defined-in-javascript">How to test if a variable or property is defined in JavaScript</h1>
+<h2 id="the-problem">The problem</h2>
+<p>There are several use cases for testing if a variable or property is defined. We will examine them before examining the ways to check the state.</p>
+<ul>
+<li>
+<p>Check if a global variable exists.<br>
+Of course, in our code, we carefully avoid to create global variables&#x2026; We use <code>var</code> each time we declare a variable, and <code>&apos;use strict&apos;;</code> guards against forgetting it. Of course, we have <code>&apos;use strict&apos;;</code> everywhere, and an ESLint, JSHint or similar tool configuration to enforce it.<br>
+But still, we can have global variables, at least when we load &#x2018;old-school&#x2019; (not AMD / CommonJS enabled) libraries: jQuery&#x2019;s <code>$</code> and Underscore / Lodash&#x2019;s <code>_</code> are famous examples.<br>
+In generic code, we might want to check if these variables are defined, and if not, to provide an alternative implementation.<br>
+Reminder: in a browser, these global variables are attached to the <code>window</code> object.<br>
+In the general case, we have two scenarii: the variable is not declared at all, or it is declared but no value has been assigned to it yet.<br>
+In the first case, if we try to use it, we will have an error (ReferenceError) complaining about a non-existing variable.<br>
+In the second case, the variable has the value <code>undefined</code>.</p>
+</li>
+<li>
+<p>Check if a local variable exists.<br>
+Actually, I will ignore this one: it is the same case than the first one, and a simple look at the code around is better than coding a check! It is here only for exhausting the cases&#x2026;</p>
+</li>
+<li>
+<p>Check if a property is defined on an object.<br>
+That&#x2019;s the most common case. It can be used against global objects (eg. to see if a browser object has one of the latest features), against library objects (to handle old versions or optional features), against function parameters (optional properties on a parameter), etc.</p>
+</li>
+<li>
+<p>Check if a function parameter is defined.<br>
+A function expecting a number of parameters can be called with only part of them, or even none.<br>
+In this case, the missing parameters (at the end of the list) are declared but have the value <code>undefined</code>.</p>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="the-possible-checks">The possible checks</h2>
+<p>JavaScript offers several ways to do this check. What is the &#x201C;best&#x201D; one?<br>
+As often, the answer is: &#x201C;It depends&#x201D;&#x2026;</p>
+<h3 id="typeof-v">typeof v</h3>
+<p>A rather universal / safe way is to use the <code>typeof</code> operator:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> someIdentifier == <span class="string">&apos;undefined&apos;</span>)</span><br></pre></td></tr></table></figure>
+<p>Advantage: it works in all cases, even when the variable is not declared at all (that&#x2019;s the only case where we can use an undeclared variable without throwing an error). But honestly, it is verbose / cumbersome&#x2026; :-) And I dislike using strings in code like that: if you type <code>&apos;undfined&apos;</code> instead, it can go unnoticed for a long time&#x2026;<br>
+Note: since <code>typeof</code> is guaranteed to return a string result, we can use the <code>==</code> check. You might prefer to use <code>===</code> comparison if that&#x2019;s the policy of your project (which might be enforced by some tools).</p>
+<h3 id="v-undefined">v === undefined</h3>
+<p>A simpler way to do the check is to compare against <code>undefined</code>:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (someIdentifier === <span class="literal">undefined</span>)</span><br></pre></td></tr></table></figure>
+<p>Beware: don&#x2019;t use <code>==</code> as automatic type conversions done by JavaScript will bite you!</p>
+<p>Some people object that this method can be flawed because JavaScript doesn&#x2019;t prevent from assigning a value to <code>undefined</code>:<br>
+<code>undefined = {};</code> is legal!<br>
+Now, it is unlikely to happen, unless somebody made a programming mistake like forgetting an <code>=</code> in an oddly constructed test: <code>if (undefined = foo)</code>.<br>
+If you include in your code base some code from an inattentive adept of Yoda conditions, you have a bigger problem than you thought&#x2026; :-)<br>
+And ECMAScript 5, implemented in all major modern browsers, now prevent this, making (at least!) <code>undefined</code> immutable.<br>
+So, unless you target very old browsers, it is safe, short and explicit.</p>
+<h3 id="if-v">if (v)</h3>
+<p><code>if (foo)</code><br>
+<em>or</em><br>
+<code>if (foo.bar)</code></p>
+<p>I mention it because its usage is common. But it is generally a bad way to do the check.<br>
+First, the first form fails (with the error &#x201C;ReferenceError: foo is not defined&#x201D;) if the variable is not defined at all. Now, the check is generally done for a property or local variable / parameters, which is safer. Note that so called global variables are, on the browser, properties of the <code>window</code> object, so instead of writing <code>if (foo)</code>, we can always write <code>if (window.foo)</code>, and it won&#x2019;t crash as in the first form.<br>
+Second, it is a brittle check: it will fail if <code>foo.bar</code> is undefined, as expected, but also if it is &#x201C;falsey&#x201D;, the JavaScript term for all values evaluated as false because of type coercion. So it also fails if <code>foo.bar</code> is defined but has the value <code>false</code>, or is an empty string, or zero, or <code>null</code>, etc.<br>
+Not very trustworthy&#x2026;<br>
+To be honest, this form of test is mostly used when <code>foo.bar</code> is expected to be a function, to check if we can call it or not. In this case, it is unlikely to be 0 or &#x2018;&#x2019; or false&#x2026;<br>
+It is also OK if the variable / property must be an object. It is often used in the idiom <code>var x = foo &amp;&amp; foo.bar;</code> to avoid getting a property on an undefined object.</p>
+<h3 id="yourlibraryisdefined-or-somelibraryisstring">yourLibrary.isDefined() or someLibrary.isString()</h3>
+<p>Several libraries offer facilities to properly do this check.</p>
+<p>AngularJS offers several functions for that: <code>isDefined()</code>, <code>isUndefined()</code>, but also specialized functions to check if a variable is defined and has the proper type:</p>
+<ul>
+<li>angular.isArray</li>
+<li>angular.isDate</li>
+<li>angular.isElement</li>
+<li>angular.isFunction</li>
+<li>angular.isNumber</li>
+<li>angular.isObject</li>
+<li>angular.isString</li>
+</ul>
+<p>Underscore and Lodash have similar functions:</p>
+<ul>
+<li>_.isElement</li>
+<li>_.isArray</li>
+<li>_.isObject</li>
+<li>_.isArguments</li>
+<li>_.isFunction</li>
+<li>_.isString</li>
+<li>_.isNumber</li>
+<li>_.isBoolean</li>
+<li>_.isDate</li>
+<li>_.isRegExp</li>
+<li>_.isError</li>
+<li>_.isFinite</li>
+<li>_.isNaN</li>
+<li>_.isNull</li>
+<li>_.isUndefined</li>
+</ul>
+<p>Lodash has some more functions:</p>
+<ul>
+<li>_.isNative</li>
+<li>_.isPlainObject</li>
+<li>_.isTypedArray</li>
+</ul>
+<p>jQuery also has checks:</p>
+<ul>
+<li>jquery.isArray</li>
+<li>jquery.isFunction</li>
+<li>jquery.isNumeric</li>
+<li>jquery.isPlainObject</li>
+<li>jquery.isWindow</li>
+<li>jquery.isXMLDoc</li>
+</ul>
+<p>And so on.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Test if variable or property is defined in JS/" data-id="ciifzit7z00237oqeokznxv5f" class="article-share-link">Share</a>
+      
+        <a href="http://PhiLhoSoft.github.io/Programming/Test if variable or property is defined in JS/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tutorial/">Tutorial</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Software/Microsoft Visual Studio Code review/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Microsoft Visual Studio Code review
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Software/JetBrains WebStorm review/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JetBrains WebStorm review</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recents</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/GitHub Atom review/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
+              <p class="item-title"><a href="/Software/GitHub Atom review/" class="title">GitHub Atom review</a></p>
+              <p class="item-date"><time datetime="2015-12-15T09:40:00.000Z" itemprop="datePublished">2015-12-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/Static site generators/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Work-in-Progress.svg
+)" alt="Static Site Generators" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/tools/">Tools</a></p>
+              <p class="item-title"><a href="/Software/Static site generators/" class="title">Static Site Generators</a></p>
+              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/RxJS-operators/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
+              <p class="item-title"><a href="/Programming/RxJS-operators/" class="title">RxJS distributions</a></p>
+              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/Functional Reactive Programming/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Work-in-Progress.svg
+)" alt="Functional Reactive Programming" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
+              <p class="item-title"><a href="/Programming/Functional Reactive Programming/" class="title">Functional Reactive Programming</a></p>
+              <p class="item-date"><time datetime="2015-11-09T23:00:00.000Z" itemprop="datePublished">2015-11-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/Using Lodash for fun and profit/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Work-in-Progress.svg
+)" alt="Using Lodash for fun and profit" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/javascript/">JavaScript</a></p>
+              <p class="item-title"><a href="/Programming/Using Lodash for fun and profit/" class="title">Using Lodash for fun and profit</a></p>
+              <p class="item-date"><time datetime="2015-09-30T22:00:00.000Z" itemprop="datePublished">2015-10-01</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tag cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 17.5px;">IDE</a> <a href="/tags/javascript/" style="font-size: 17.5px;">JavaScript</a> <a href="/tags/library/" style="font-size: 15px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 20px;">Programming</a> <a href="/tags/reactive/" style="font-size: 12.5px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 12.5px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 20px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 17.5px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Philippe Lhoste (PhiLho)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script>
+  var disqus_shortname = 'philhosoft';
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

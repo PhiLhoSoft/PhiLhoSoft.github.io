@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Functional Reactive Programming ~|~ PhiLhoSoft Technical Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Tutorial about the functional reactive programming paradigm, using RxJS as illustration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Functional Reactive Programming">
+<meta property="og:url" content="http://PhiLhoSoft.github.io/Programming/Functional Reactive Programming/index.html">
+<meta property="og:site_name" content="PhiLhoSoft Technical Blog">
+<meta property="og:description" content="Tutorial about the functional reactive programming paradigm, using RxJS as illustration">
+<meta property="og:image" content="http://PhiLhoSoft.github.io/images/Work-in-Progress.svg">
+<meta property="og:updated_time" content="2015-12-21T14:41:49.587Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Functional Reactive Programming">
+<meta name="twitter:description" content="Tutorial about the functional reactive programming paradigm, using RxJS as illustration">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+
+  
+
+  
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/images/logo.png)"></i><span class="site-title">PhiLhoSoft Technical Blog</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://PhiLhoSoft.github.io"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+        <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://PhiLhoSoft.github.io"></form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/images/avatar.png">
+      <h2 id="name">Philippe Lhoste (PhiLho)</h2>
+      <h3 id="title">Senior Software Engineer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Paris, France</span>
+      <a id="follow" href="https://github.com/PhiLhoSoft/">FOLLOW</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        10
+        <span>posts</span>
+      </div>
+      <div class="article-info-block">
+        14
+        <span>tags</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/PhiLhoSoft" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="https://twitter.com/PhiLhoSoft" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+          
+          <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+    <div class="article-info profile-block bio">
+      <h2>About</h2>
+      <p>A blog where I share my technical (programming) findings, insights, experiences, tutorials, etc.</p>
+    </div>
+    
+    <div class="article-info profile-block license">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+      </a><br>
+      This work by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">PhiLho</span>
+      is licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </div>
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-Programming/Functional Reactive Programming" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Functional Reactive Programming
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/Programming/Functional Reactive Programming/">
+      <time datetime="2015-11-09T23:00:00.000Z" itemprop="datePublished">2015-11-10</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h1 id="functional-reactive-programming">Functional Reactive Programming</h1>
+<p>FRP is a way to deal with events and asynchronous data in a functional style.<br>
+Basically, it is an implementation of the Observer design pattern, dealing with streams of data coming on a timeline.</p>
+<h2 id="concept">Concept</h2>
+<p>We saw, in the article about <a href="/Programming/Functional%20programming%20introduction/">functional programming</a>, powerful ways to process iterable data, by composing functions, with lazy evaluation able to deal with infinite data, etc.<br>
+FRP does the same, but applied to streams of events, which introduces a new dimension: time.<br>
+Events can be seen as some data coming at a given point in time.<br>
+Data might come from user interaction: a keyboard key is pressed or released, the mouse moves, is pressed, dragged, released, etc.<br>
+Data can also come from a server, after an asynchronous request. File system requests (asynchronous reading of file in Node.js, for example) are similar.<br>
+It can also be a timer, delivering a timeout once or regularly.<br>
+It can even come from static data (eg. content of an array): in this case, time is &#x201C;now&#x201D;.</p>
+<a id="more"></a>
+<aside class="article-wip">
+<img class="no-fancybox" src="/images/Work-in-Progress.svg" width="240" height="110" title="Work in Progress" alt="Work in Progress">
+This is a work in progress: this article is unfinished and will be updated.
+</aside>
+<p>In his seminal article <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">The introduction to Reactive Programming you&#x2019;ve been missing</a>, Andre Staltz wrote the &#x2018;mantra&#x2019;: &#x201C;Everything is a stream&#x201D;.<br>
+It looks like a golden hammer seeing the world as nails to hit&#x2026; I prefer the less slogan-like &#x201C;Everything can be seen as a stream&#x201D;, or perhaps even more accurately, &#x201C;Everything can be put in a stream&#x201D;.<br>
+After all, a stream is just a sequential collection (succession) of items disposed along a time axis, ie. with a timestamp.<br>
+It can be applied in the real world, from trains coming to a station to persons at a <guichet>. Even the only time one person went to a concert can be seen as a stream&#x2026; with only one item.</guichet></p>
+<p>So streams are a way to model &#x201C;the world&#x201D; from the point of view of moments in time, ordered along the time axis.</p>
+<h2 id="implementations">Implementations</h2>
+<h3 id="disclaimer">Disclaimer</h3>
+<p>Purists of the FRP concept, those having coined the term, claim that the implementations I talk about here are not really FRP.</p>
+<p>Let&#x2019;s agree on that and say that what we call FRP here is just a bastardized, simplified, with pragmatic compromises, that happens to use the same term, because it is just convenient&#x2026;</p>
+<h3 id="javascript">JavaScript</h3>
+<p>FRP has been implemented in various languages, particularly in functional languages like Haskell where it is a good fit to their paradigms. But it can be found also in Java, Scala, C#, etc.<br>
+It is quite popular in JavaScript, quite functional in nature, where it solves a number of hard problems: avoiding callback hell (chained asynchronous calls), easing usage of promises and timeouts, handling successions of user input, etc.<br>
+Thus we saw lot of FRP libraries to be created. RxJS is among the firsts. Bacon was created in reaction to the complexity of the former, Kefir was born because Bacon is slow and memory hungry, More.js is yet another library, etc.<br>
+The <a href="http://xgrommx.github.io/rx-book/index.html">RxJS book</a> lists a number of them in its <a href="http://xgrommx.github.io/rx-book/content/resources/similar_libraries/index.html">Similar libraries</a> page.</p>
+<p>The principles explained here can be applied to different languages and libraries, but to avoid being too abstract, I will give examples in JS, using a specific library.</p>
+<h3 id="rxjs">RxJS</h3>
+<p>I briefly explored some of the JS libraries, but finally settled on RxJS: it is one of the most complete implementation, it is backed by a corporation instead of being an experiment from an individual, it has good docs and good tutorials.<br>
+Another advantage: its API has been defined by the <a href="http://reactivex.io/">ReactiveX</a> project, and it has been implemented in lot of languages: Java, C#, C++, Ruby, Python, Swift, and many JVM languages (often via RxJava). Plus some independently developed implementations, like Rx.PHP.<br>
+So once you know the API for a language, using it in another language is rather trivial, needing mostly minor adaptations.<br>
+One downside of RxJS is its size: it is a large API, so there is lot to learn, and the library is quite big, which can be annoying if you want a lean application (eg. for using on mobile devices).<br>
+That said, a large part of the API can be ignored at first, a beginner needs to know only a few functions (called <em>operators</em> in RxJS).<br>
+Moreover, the API has been split in various packages: the Core libraries contains only the vital minimum for Rx. The Lite libraries and the Main libraries have a base file with the objects and the essential operators, and other files split by theme: aggregates, async, time, etc. The difference between Main and Lite resides in the way the operators are grouped.<br>
+The point is that a project can include only a base file, and add additional ones if a specific operator is needed. This can reduce the amount of code to include in a page.<br>
+Or, for experimentations and convenience, just include the <code>rx.all.js</code> file and be done.</p>
+<p>RxJS calls stream &#x201C;sequences&#x201D;, and since the point is to observe them and to react on what they content, they call them &#x201C;observable sequences&#x201D;. Older documents called them just &#x201C;observables&#x201D;, a bit ambiguous, so they adopted the longer term. I might still use the &#x201C;stream&#x201D; term too.</p>
+<h2 id="creating-a-stream">Creating a stream</h2>
+<p>You can create an Observable from scratch, but in most case, you just use one of the adapters wrapping common JavaScript entities in an observable sequence.</p>
+<h3 id="wrapping-in-a-stream">Wrapping in a stream</h3>
+<h3 id="creating-from-scratch">Creating from scratch</h3>
+<p>You can create a new instance of the <code>Rx.Observable</code> object.</p>
+<h2 id="subscribing-to-a-stream">Subscribing to a stream</h2>
+<p>By subscribing to a stream, you create an Observer, which is, most of the time, a Disposable, which can clean up the observed resource automatically or on demand.</p>
+<h3 id="hot-and-cold">Hot and cold</h3>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Functional Reactive Programming/" data-id="ciifzit5j00007oqere2l7e45" class="article-share-link">Share</a>
+      
+        <a href="http://PhiLhoSoft.github.io/Programming/Functional Reactive Programming/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">Functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/library/">Library</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactive/">Reactive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rxjs/">RxJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tutorial/">Tutorial</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Programming/RxJS-operators/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          RxJS distributions
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Programming/Using Lodash for fun and profit/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Using Lodash for fun and profit</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recents</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/GitHub Atom review/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
+              <p class="item-title"><a href="/Software/GitHub Atom review/" class="title">GitHub Atom review</a></p>
+              <p class="item-date"><time datetime="2015-12-15T09:40:00.000Z" itemprop="datePublished">2015-12-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/Static site generators/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Work-in-Progress.svg
+)" alt="Static Site Generators" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/tools/">Tools</a></p>
+              <p class="item-title"><a href="/Software/Static site generators/" class="title">Static Site Generators</a></p>
+              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/RxJS-operators/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
+              <p class="item-title"><a href="/Programming/RxJS-operators/" class="title">RxJS distributions</a></p>
+              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/Functional Reactive Programming/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Work-in-Progress.svg
+)" alt="Functional Reactive Programming" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
+              <p class="item-title"><a href="/Programming/Functional Reactive Programming/" class="title">Functional Reactive Programming</a></p>
+              <p class="item-date"><time datetime="2015-11-09T23:00:00.000Z" itemprop="datePublished">2015-11-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/Using Lodash for fun and profit/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Work-in-Progress.svg
+)" alt="Using Lodash for fun and profit" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/javascript/">JavaScript</a></p>
+              <p class="item-title"><a href="/Programming/Using Lodash for fun and profit/" class="title">Using Lodash for fun and profit</a></p>
+              <p class="item-date"><time datetime="2015-09-30T22:00:00.000Z" itemprop="datePublished">2015-10-01</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tag cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 17.5px;">IDE</a> <a href="/tags/javascript/" style="font-size: 17.5px;">JavaScript</a> <a href="/tags/library/" style="font-size: 15px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 20px;">Programming</a> <a href="/tags/reactive/" style="font-size: 12.5px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 12.5px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 20px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 17.5px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Philippe Lhoste (PhiLho)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script>
+  var disqus_shortname = 'philhosoft';
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
