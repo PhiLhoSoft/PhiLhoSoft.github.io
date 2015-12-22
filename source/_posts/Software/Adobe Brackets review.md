@@ -16,6 +16,8 @@ Integrated Development Environment oriented toward the Web technologies
 
 http://brackets.io/
 
+{% img /images/Brackets_logo.png "'Brackets logo'" "'Brackets'" %}
+
 ## Quick review
 
 I installed Brackets (v. 1.2 on Windows 7 with 8 GB of memory; currently at v.1.4), it went out quite smoothly, just asking for the directory where to install it.

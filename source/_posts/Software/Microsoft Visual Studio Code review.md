@@ -16,6 +16,8 @@ Integrated Development Environment oriented toward the Web technologies
 
 https://code.visualstudio.com/
 
+{% img /images/VisualStudioCode_logo.png "'VisualStudioCode logo'" "'Visual Studio Code'" %}
+
 ## Quick review
 
 I installed Visual Studio Code (v. 0.10.3 on Windows 7 with 8 GB of memory).
@@ -32,4 +34,3 @@ https://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/
 These are features I use extensively in all editors / IDEs I use, I feel cripled if I don't have them...
 
 End of test... See you later.
-
