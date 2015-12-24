@@ -89,6 +89,8 @@ Annoyance: I can hit Ctrl+F in the Settings > Package page (for example), but it
 
 Command palette: good idea to highlight searched terms, but on light theme, I get light gray highlight, nearly unreadable on very light gray background...
 
+Bug: column selection doesn't skip wrapped part of lines. Ie. if lines are wrapped, and if we extend a column selection beyond a wrapped line, the wrapped part is also taking the selection.
+
 Minor quibble: title and closing cross in inactive tabs are one or two pixels too low (one pixel lower than the active tab, at least). It "hurts" my sense of tidiness... :-)
 
 ## Installed packages

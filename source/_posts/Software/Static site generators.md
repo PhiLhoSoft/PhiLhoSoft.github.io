@@ -92,4 +92,4 @@ I made some minor changes, mostly on the CSS side, to personalize it a bit.
 
 ### Remarks
 
-I installed Hexo-cli, then Hexo itself, globally (`npm i -g`), so that the big footprint of Hexo isn't repeated on each project. Therefore, I removed the `hexo` dependency from `package.json`.
+Once Hexo-cli is installed, if we do an `hexo` command in the project freshly cloned, it will complain, asking to install Hexo locally. Instead of that, you just have to do `npm install` to deploy Hexo locally and all needed plugins.

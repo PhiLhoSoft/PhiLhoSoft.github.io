@@ -21,8 +21,8 @@
     <div class="contact-info profile-block">
       <table class="contact-list">
         <tr>
-          <% for(var i in theme.contacts) { %>
-          <td><a href="<%- url_for(theme.contacts[i]) %>" target="_blank" title="<%= i %>"><i class="fa fa-<%= i %>"></i></a></td>
+          <% for(var contact in theme.contacts) { %>
+          <td><a href="<%- url_for(theme.contacts[contact]) %>" title="<%= contact %>"><img src="/images/icon-<%= contact %>.svg" alt="<%= contact %>" width="32" height="32"/></a></td>
           <% } %>
         </tr>
       </table>

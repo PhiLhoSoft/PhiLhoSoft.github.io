@@ -74,6 +74,8 @@ Idem for accented letters, always just a sweep away.
 
 The app is free, without ads. They ask for support, which is well deserved. They also give a free game with various goals, allowing to train, measuring speed, errors and progresses. After some training, I reached a decent speed (much higher than with default keyboard). After some months of using this keyboard (typing articles such as this one in public transports on my tiny old phone), I tried the game again. And I found out I outperformed all my previous results by a large margin! Practice make it perfect. Note that pure speed is really a goal in itself (except for the challenge, of course): I don't type very fast (still reaching the top level of the games), but I don't care as I frequently stop to think what I will type next... The real goal is to let the fingers to find the letter gestures by themselves, to avoid hunt-and-type each letter. Ideally, one should be able to type without even seeing the letters on the keyboard. MessagEase has even a "blind" mode, with a grid without letters...
 
+Note: I typed most of the articles of this site on my small phone (a Samsung Galaxy Ace 2) with this keyboard. I doubt I would have managed to do this with a classical keyboard!
+
 ## The parts needing improvements
 
 Aka. nitpicking... Aka. personal message / remarks to the MessagEase team!

@@ -30,7 +30,12 @@ thumbnail: true
 # Contacts
 contacts:
   github: http://github.com/PhiLhoSoft
-  twitter: https://twitter.com/PhiLhoSoft
+  twitterEN: https://twitter.com/PhiLhoSoft
+  stackoverflow: http://stackoverflow.com/users/15459/philho
+  deviantart: http://philho.deviantart.com/
+  free: http://Phi.Lho.free.fr/
+  twitterFR: https://twitter.com/Phi_Lho
+  goodreads: https://www.goodreads.com/review/list/3585303-philippe-lhoste
   rss: atom.xml
 
 about: A blog where I share my technical (programming) findings, insights, experiences, tutorials, etc.
