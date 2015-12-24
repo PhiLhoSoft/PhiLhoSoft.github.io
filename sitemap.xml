@@ -2,13 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://PhiLhoSoft.github.io/Software/Microsoft%20Visual%20Studio%20Code%20review/</loc>
-    <lastmod>2015-12-23T09:20:14.854Z</lastmod>
+    <loc>http://PhiLhoSoft.github.io/Software/Static%20site%20generators/</loc>
+    <lastmod>2015-12-24T15:31:07.186Z</lastmod>
   </url>
   
   <url>
     <loc>http://PhiLhoSoft.github.io/Software/MessagEase%20Android%20keyboard%20review/</loc>
-    <lastmod>2015-12-23T09:20:14.851Z</lastmod>
+    <lastmod>2015-12-24T15:19:24.771Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://PhiLhoSoft.github.io/Software/Microsoft%20Visual%20Studio%20Code%20review/</loc>
+    <lastmod>2015-12-23T09:20:14.854Z</lastmod>
   </url>
   
   <url>
@@ -44,11 +49,6 @@
   <url>
     <loc>http://PhiLhoSoft.github.io/categories/index.html</loc>
     <lastmod>2015-12-22T07:20:53.702Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://PhiLhoSoft.github.io/Software/Static%20site%20generators/</loc>
-    <lastmod>2015-12-22T07:20:53.701Z</lastmod>
   </url>
   
   <url>
