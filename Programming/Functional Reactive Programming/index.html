@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="PhiLhoSoft Technical Blog">
 <meta property="og:description" content="Tutorial about the functional reactive programming paradigm, using RxJS as illustration">
 <meta property="og:image" content="http://PhiLhoSoft.github.io/images/Work-in-Progress.svg">
-<meta property="og:updated_time" content="2015-12-20T23:21:48.716Z">
+<meta property="og:updated_time" content="2015-12-22T07:20:53.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Functional Reactive Programming">
 <meta name="twitter:description" content="Tutorial about the functional reactive programming paradigm, using RxJS as illustration">
@@ -100,11 +100,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        10
+        11
         <span>posts</span>
       </div>
       <div class="article-info-block">
-        14
+        16
         <span>tags</span>
       </div>
     </div>
@@ -200,7 +200,7 @@ It can be applied in the real world, from trains coming to a station to persons 
 <h2 id="implementations">Implementations</h2>
 <h3 id="disclaimer">Disclaimer</h3>
 <p>Purists of the FRP concept, those having coined the term, claim that the implementations I talk about here are not really FRP.</p>
-<p>Let&#x2019;s agree on that and say that what we call FRP here is just a bastadized, simplified, with pragmatic compromizes, that happens to use the same term, because it is just convenient&#x2026;</p>
+<p>Let&#x2019;s agree on that and say that what we call FRP here is just a bastardized, simplified, with pragmatic compromises, that happens to use the same term, because it is just convenient&#x2026;</p>
 <h3 id="javascript">JavaScript</h3>
 <p>FRP has been implemented in various languages, particularly in functional languages like Haskell where it is a good fit to their paradigms. But it can be found also in Java, Scala, C#, etc.<br>
 It is quite popular in JavaScript, quite functional in nature, where it solves a number of hard problems: avoiding callback hell (chained asynchronous calls), easing usage of promises and timeouts, handling successions of user input, etc.<br>
@@ -209,16 +209,16 @@ The <a href="http://xgrommx.github.io/rx-book/index.html">RxJS book</a> lists a 
 <p>The principles explained here can be applied to different languages and libraries, but to avoid being too abstract, I will give examples in JS, using a specific library.</p>
 <h3 id="rxjs">RxJS</h3>
 <p>I briefly explored some of the JS libraries, but finally settled on RxJS: it is one of the most complete implementation, it is backed by a corporation instead of being an experiment from an individual, it has good docs and good tutorials.<br>
-Another advantage: its API has been defined by the <a href="http://reactivex.io/">ReactiveX</a> project, and it has been implemented in lot of languages: Java, C#, C++, Ruby, Python, Swift, and many JVM languages (often via RxJava). Plus some independently developped implementations, like Rx.PHP.<br>
+Another advantage: its API has been defined by the <a href="http://reactivex.io/">ReactiveX</a> project, and it has been implemented in lot of languages: Java, C#, C++, Ruby, Python, Swift, and many JVM languages (often via RxJava). Plus some independently developed implementations, like Rx.PHP.<br>
 So once you know the API for a language, using it in another language is rather trivial, needing mostly minor adaptations.<br>
 One downside of RxJS is its size: it is a large API, so there is lot to learn, and the library is quite big, which can be annoying if you want a lean application (eg. for using on mobile devices).<br>
 That said, a large part of the API can be ignored at first, a beginner needs to know only a few functions (called <em>operators</em> in RxJS).<br>
-Moreover, the API has been split in various packages: the Core libraries contains only the vital minimum for Rx. The Lite libraries and the Main libraries have a base file with the objects and the essential operators, and other files splitted by theme: aggregates, async, time, etc. The difference between Main and Lite resides in the way the operators are grouped.<br>
+Moreover, the API has been split in various packages: the Core libraries contains only the vital minimum for Rx. The Lite libraries and the Main libraries have a base file with the objects and the essential operators, and other files split by theme: aggregates, async, time, etc. The difference between Main and Lite resides in the way the operators are grouped.<br>
 The point is that a project can include only a base file, and add additional ones if a specific operator is needed. This can reduce the amount of code to include in a page.<br>
 Or, for experimentations and convenience, just include the <code>rx.all.js</code> file and be done.</p>
 <p>RxJS calls stream &#x201C;sequences&#x201D;, and since the point is to observe them and to react on what they content, they call them &#x201C;observable sequences&#x201D;. Older documents called them just &#x201C;observables&#x201D;, a bit ambiguous, so they adopted the longer term. I might still use the &#x201C;stream&#x201D; term too.</p>
 <h2 id="creating-a-stream">Creating a stream</h2>
-<p>You can create an Observable from scratch, but in most case, you just use one of the adaptors wrapping common JavaScript entities in an observable sequence.</p>
+<p>You can create an Observable from scratch, but in most case, you just use one of the adapters wrapping common JavaScript entities in an observable sequence.</p>
 <h3 id="wrapping-in-a-stream">Wrapping in a stream</h3>
 <h3 id="creating-from-scratch">Creating from scratch</h3>
 <p>You can create a new instance of the <code>Rx.Observable</code> object.</p>
@@ -229,7 +229,7 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Programming/Functional Reactive Programming/" data-id="ciifngujn0000e8t1lg9rx733" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Functional Reactive Programming/" data-id="ciikd9kw60000w0t1r2ow6mfh" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Programming/Functional Reactive Programming/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -242,11 +242,11 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
     
 <nav id="article-nav">
   
-    <a href="/Programming/RxJS-operators/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Software/Static site generators/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          RxJS distributions
+          Static Site Generators
         
       </div>
     </a>
@@ -283,9 +283,28 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
           <li>
             
             <div class="item-thumbnail">
+              <a href="/Software/MessagEase Android keyboard review/" class="thumbnail">
+  
+    <span style="background-image:url(/images/MessagEase_Keyboard.png
+)" alt="MessagEase (Android keyboard) review" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/android/">Android</a></p>
+              <p class="item-title"><a href="/Software/MessagEase Android keyboard review/" class="title">MessagEase (Android keyboard) review</a></p>
+              <p class="item-date"><time datetime="2015-12-17T09:56:00.000Z" itemprop="datePublished">2015-12-17</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
               <a href="/Software/GitHub Atom review/" class="thumbnail">
   
-    <span class="thumbnail-image thumbnail-none"></span>
+    <span style="background-image:url(/images/Atom_logo.png
+)" alt="GitHub Atom review" class="thumbnail-image"></span>
   
 </a>
             </div>
@@ -294,6 +313,23 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
               <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
               <p class="item-title"><a href="/Software/GitHub Atom review/" class="title">GitHub Atom review</a></p>
               <p class="item-date"><time datetime="2015-12-15T09:40:00.000Z" itemprop="datePublished">2015-12-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/RxJS-operators/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
+              <p class="item-title"><a href="/Programming/RxJS-operators/" class="title">RxJS distributions</a></p>
+              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
             </div>
           </li>
         
@@ -318,23 +354,6 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
           <li>
             
             <div class="item-thumbnail">
-              <a href="/Programming/RxJS-operators/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
-              <p class="item-title"><a href="/Programming/RxJS-operators/" class="title">RxJS distributions</a></p>
-              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
               <a href="/Programming/Functional Reactive Programming/" class="thumbnail">
   
     <span style="background-image:url(/images/Work-in-Progress.svg
@@ -350,24 +369,6 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/Programming/Using Lodash for fun and profit/" class="thumbnail">
-  
-    <span style="background-image:url(/images/Work-in-Progress.svg
-)" alt="Using Lodash for fun and profit" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/javascript/">JavaScript</a></p>
-              <p class="item-title"><a href="/Programming/Using Lodash for fun and profit/" class="title">Using Lodash for fun and profit</a></p>
-              <p class="item-date"><time datetime="2015-09-30T22:00:00.000Z" itemprop="datePublished">2015-10-01</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -377,7 +378,7 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -386,7 +387,7 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
   <div class="widget-wrap">
     <h3 class="widget-title">tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keyboard/">Keyboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -395,7 +396,7 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
   <div class="widget-wrap">
     <h3 class="widget-title">tag cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 17.5px;">IDE</a> <a href="/tags/javascript/" style="font-size: 17.5px;">JavaScript</a> <a href="/tags/library/" style="font-size: 15px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 20px;">Programming</a> <a href="/tags/reactive/" style="font-size: 12.5px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 12.5px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 20px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 17.5px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
+      <a href="/tags/android/" style="font-size: 10px;">Android</a> <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 16px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 16px;">IDE</a> <a href="/tags/javascript/" style="font-size: 16px;">JavaScript</a> <a href="/tags/keyboard/" style="font-size: 10px;">Keyboard</a> <a href="/tags/library/" style="font-size: 14px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 18px;">Programming</a> <a href="/tags/reactive/" style="font-size: 12px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 12px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 18px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 16px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
     </div>
   </div>
 
@@ -404,7 +405,7 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
   <div class="widget-wrap">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 

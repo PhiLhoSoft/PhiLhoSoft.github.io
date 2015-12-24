@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://PhiLhoSoft.github.io/"/>
-  <updated>2015-12-19T08:16:00.000Z</updated>
+  <updated>2015-12-23T09:20:14.851Z</updated>
   <id>http://PhiLhoSoft.github.io/</id>
   
   <author>
@@ -15,6 +15,97 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[MessagEase (Android keyboard) review]]></title>
+    <link href="http://PhiLhoSoft.github.io/Software/MessagEase%20Android%20keyboard%20review/"/>
+    <id>http://PhiLhoSoft.github.io/Software/MessagEase Android keyboard review/</id>
+    <published>2015-12-17T09:56:00.000Z</published>
+    <updated>2015-12-23T09:20:14.851Z</updated>
+    <content type="html"><![CDATA[<h1 id="messagease-android-keyboard-review">MessagEase (Android keyboard) review</h1>
+<img src="/images/MessagEase_Keyboard.png" width="150" height="150" title="My MessagEase keyboard as exported by the app" alt="MessagEase keyboard">
+<p>Most Android keyboards suffer from the same flaw: they mimic traditional typewriter / computer keyboards.<br>
+The (only?) advantage is that most users are familiar with it.<br>
+The inconveniences are numerous:</p>
+<ul>
+<li>These keyboards were designed to slow down typing&#x2026; (well, multi-finger typing, but still, they are not intuitive).</li>
+<li>People are trained / used to type with several fingers, while on Android you are limited to two, at best.</li>
+<li>These keyboards often lack arrow keys, Delete key and multi-key / finger combinations, like shifting to capital, Ctrl+C / Ctrl+V, Ctrl+Backspace to delete a word, etc. To reach some keys (accented chars) and go back to regular typing, you might have to type three or four keys.</li>
+<li>Keys are small, particularly on small phones.</li>
+</ul>
+<p>I thought of a squarish / circular design around a central point, where letters surrounding it would change to make more accessible the letters more likely to follow the previous ones (for a given dictionary).<br>
+Idea with a number of caveats, like not relying on muscle memory and needing to know the context in the edited text.</p>
+<p>So I searched alternatives (they are numerous!), tried some (disliked swipe-based ones, liked Hacker&#x2019;s Keyboard in its classical category) and finally stumbled upon MessagEase.<br>
+I felt it was the right one, even if I expected some learning curve&#x2026; It was close of my idea, but with a fixed layout (for a given language), and it makes the most common letters easier to type than the rarest ones.</p>
+<p>Its square design make it look huge, but in practice, with its 4x4 keys, it is not much bigger than a four row traditional keyboard. And you can easily adjust its size to fit your taste / capabilities.<br>
+It is very flexible, with tons of settings to adjust finely the look and feel of the keyboard, to adapt it to the needs and tastes of the users. Yet, it has sensible defaults, so it is good out of the box.</p>
+<a id="more"></a>
+<h1 id="principle">Principle</h1>
+<img src="/images/MessagEase_screenshot.png" title="MessagEase keyboard screenshot in the Jota+ editor" alt="MessagEase keyboard screenshot">
+<p>The main area of the keyboard is a 3x3 square of keys. Each key (sub-square) has the nine most used letters of the chosen language (aniuortes for French, not far for English). They are typed with a simple tap on them.<br>
+The four next most used letters (hbdc) are obtained by sweeping from the central square to a side square. For the next four, the move is from the center to the corners. Then come the reverse moves, from sides or corners to center, providing the eight next letters. The last letter is obtained with a sweep between two sides. Other side to side or to corner moves provide accented letters and punctuation signs.<br>
+With some logic making them easier to memorize: lower signs (,.:;) are at the bottom of the keyboard while higher ones (`^&#xB4;) are at the top, and the move follows the direction of the sign.<br>
+Numbers are obtained by a special keyboard (or a long press).<br>
+Special moves allow to easily reach capital letters: a circular move over the main letters, and a sweep and back for the others. Plus autocapitalization at the beginning of sentences.</p>
+<p>The keyboard also provides very convenient special keys: you can cut, copy or paste with a single sweep. A side sweep on the space bar moves the caret by one character. Sweep and back to move by a whole word.<br>
+Tap on the backspace to delete the char on left of caret. Sweep to left and back to delete from caret to start of word. Sweep to right to delete the char on right of caret (idem Delete key), sweep and back to right to delete to end of word.</p>
+<p>Some characters are obtained via a combination key: oe plus the key gives &#x153;; &lt;&lt; and the key gives &#xAB; (French quote). Etc. `^&#xB4; keys are automatically merged if the previous letter accepts accents (eg. E and &#xB4; gives &#xC9;). Backspace cancels the merging.</p>
+<p>There are other shortcuts, like defining sentences to enter with a special gesture, etc.</p>
+<p>You can have an area displaying suggesting words completing the one you are typing. For your selected language, of course. You have to install the languages separately.<br>
+These are only suggestions, you can ignore them or tap on one to autocomplete the current word. No stupid autocorrection causing so often confusion, embarrassment and fun&#x2026; at your depends! :-)</p>
+<h1 id="remarks">Remarks</h1>
+<p>The keyboard layout is, by default, adapted to the chosen language, depending on the most often found letters of the language. But as I type as much English than French, I chose to use the same keyboard for both, because learning to use efficiently the keyboard involves memorizing the letter placements and using muscle memory. So having two keyboard layouts would be rather couter-productive (unless you have a better brain than mine&#x2026;), at least for similar languages (eg. latin-based). Of course, English vs. Arabic, for example, is a different problem.<br>
+I chose the French keyboard, as it has the accents I need. I don&#x2019;t mind to have a less optimal character layout for English, the frequency of letters isn&#x2019;t so different it makes a huge difference&#x2026; Of course, I have the two dictionaries (for autocompletion) and I appreciate the ease of switching them and the different color coding.</p>
+<p>The keyboard has been designed by <a href="https://www.exideas.com/ME/index.php">Edideas</a>.</p>
+<h2 id="the-good-parts">The good parts</h2>
+<p>When I discovered MessagEase, I thought: &#x201C;Ah! That&#x2019;s the one I was looking for!&#x201D;&#x2026;<br>
+It is an ideal keyboard both for typing text and for programmers.</p>
+<p>With traditional keyboards, I despised to have to hit three keys to enter a capital, a number or a punctuation sign. And editing capabilities were non-existent, beside trying to tap the caret between two letters.</p>
+<p>Despite the initial learning curve, I love to be able to move the caret, delete the char or word on right, delete the previous word, paste quickly&#x2026;</p>
+<p>And most characters used in programming are just a sweep away: {} $ [] &amp;| etc. Even the tab character is readily available!<br>
+Idem for accented letters, always just a sweep away.</p>
+<p>The app is free, without ads. They ask for support, which is well deserved. They also give a free game with various goals, allowing to train, measuring speed, errors and progresses. After some training, I reached a decent speed (much higher than with default keyboard). After some months of using this keyboard (typing articles such as this one in public transports on my tiny old phone), I tried the game again. And I found out I outperformed all my previous results by a large margin! Practice make it perfect. Note that pure speed is really a goal in itself (except for the challenge, of course): I don&#x2019;t type very fast (still reaching the top level of the games), but I don&#x2019;t care as I frequently stop to think what I will type next&#x2026; The real goal is to let the fingers to find the letter gestures by themselves, to avoid hunt-and-type each letter. Ideally, one should be able to type without even seeing the letters on the keyboard. MessagEase has even a &#x201C;blind&#x201D; mode, with a grid without letters&#x2026;</p>
+<h2 id="the-parts-needing-improvements">The parts needing improvements</h2>
+<p>Aka. nitpicking&#x2026; Aka. personal message / remarks to the MessagEase team!</p>
+<ul>
+<li>There are two shortcuts on the drag up movement on the hand: resize the keyboard and toggle the autocompletion area (word prediction). This is confusing! Actually, the behavior depends if the area is displayed or not. This is not really well explained in the otherwise detailed documentation.</li>
+<li>If I type a word with a punctuation sign on the right (eg. adding some words at the end of a sentence), auto-completion is off. Word prediction should ignore characters (in general) after the caret.</li>
+<li>Should auto-capitalize after an ellipsis (three dots) or dot following a parenthesis, etc.<br>
+Also if there are only spaces, signs (dashes, dots, stars, parentheses, etc.) and number after the start of the line: these probably mark list items.</li>
+<li>I appreciate that autocompletion adds a space after the word, but is smart enough to put a punctuation sign typed immediately after against the word. But there are some caveats:
+<ul>
+<li>It doesn&#x2019;t work with the closing parenthesis.</li>
+<li>It doesn&#x2019;t work with ellipsis. &#x2026;</li>
+<li>In French, we put a space between a word and a double punctuation sign: colon, semi-colon, double quote (the French variants: &#xAB;&#xBB;), interrogation and exclamation point. It would be nice to change the behavior if we use the French dictionary (see above why keyboard detection wouldn&#x2019;t work).<br>
+(Note: I found the setting to handle the closing parenthesis case; still would be nice to make this a default, and to make this setting (list of characters) depending on dictionary.)</li>
+</ul>
+</li>
+<li>When I navigate deeply in the (excellent) help, I would like to have a quick way to go back to the text I edit, instead of having to hit Back several times. Perhaps change the behavior of the top-right icon, which isn&#x2019;t much useful currently.</li>
+<li>The MessagEase game should allow using any keyboard: that would allow to compare old speed with new one. Of course, results with other keyboards should be kept separate of MessagEase&#x2019;s results.</li>
+<li>Word prediction / autocompletion: as said, it is quite good. I still have two suggestions, if these gestures are possible there: a drag up would complete the chosen word with the plural form (ideally the correct one for the current language, otherwise the default regular one for this language); a drag down would complete the word without space after it, allowing to complete it faster than browsing through a long list of words with this prefix. Eg. I type <em>sugg</em>, I choose autocompletion without space to <em>suggest</em>, I type a <em>i</em> to get the final <em>suggesting</em> proposal which otherwise would need lot of sweeping to reach.</li>
+</ul>
+<h3 id="typos-in-help">Typos in Help</h3>
+<p>Seen:<br>
+indecated<br>
+commends<br>
+more then two keys</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[a review of the MessagEase keyboard for Android]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://PhiLhoSoft.github.io/tags/android/"/>
+    
+      <category term="Keyboard" scheme="http://PhiLhoSoft.github.io/tags/keyboard/"/>
+    
+      <category term="Software" scheme="http://PhiLhoSoft.github.io/tags/software/"/>
+    
+      <category term="Software" scheme="http://PhiLhoSoft.github.io/categories/software/"/>
+    
+      <category term="Android" scheme="http://PhiLhoSoft.github.io/categories/software/android/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[GitHub Atom review]]></title>
     <link href="http://PhiLhoSoft.github.io/Software/GitHub%20Atom%20review/"/>
     <id>http://PhiLhoSoft.github.io/Software/GitHub Atom review/</id>
@@ -23,12 +114,16 @@
     <content type="html"><![CDATA[<h1 id="github-atom-review">GitHub Atom review</h1>
 <p>&#x201C;A hackable text editor for the 21st Century&#x201D;</p>
 <p><a href="https://atom.io/">https://atom.io/</a></p>
+<img src="/images/Atom_logo.png" title="Atom logo" alt="Atom">
 <h2 id="disclaimer">Disclaimer</h2>
 <p>I came to Atom with a prejudice&#x2026;<br>
-The long closed-source / beta period, the fact the &#x201C;hackable&#x201D; editor isn&#x2019;t coded in JavaScript but in CoffeeScript, the need for plugins for everything (according to some reviews), the reported slowness and memory hungriness, made me to hesitate to try it&#x2026; I was also a happy user of Adobe Brackets, with no compeling need to change.<br>
-But, Brackets accumulated a number of little annoyances, making me to try other editors.<br>
+The long closed-source / beta period, the fact the &#x201C;hackable&#x201D; editor isn&#x2019;t coded in JavaScript but in CoffeeScript, the need to add plugins for everything (according to some reviews), the reported slowness and memory hungriness, made me to hesitate to try it&#x2026; I was also a happy user of <a href="/Software/Adobe%20Brackets%20review">Adobe Brackets</a>, with no compelling need to change.<br>
+But, Brackets accumulated a number of little annoyances, making me wanting to try other editors.<br>
 The test of Visual Studio Code was brief, as it didn&#x2019;t have the base (semi-advanced if you want) features I use all the time: drag&#x2019;n&#x2019;drop of code, and column selection.<br>
-So I tested Atom, with a critical eye. Spoiler: I was seducted, and it becomes my favorite Web IDE&#x2026;</p>
+So I tested Atom, with a critical eye. Spoiler: I was seduced, and it becomes my favorite Web IDE&#x2026;</p>
+<p>That&#x2019;s the problem with information found on Internet: it quickly becomes stale&#x2026;<br>
+The Atom team improved memory consumption, have an eye on responsiveness (I was impressed by their TimeCop package, and the fact they report for each package the time they add to loading), ship lot of plugins with the base editor: delegating to packages is part of their vision of modularity, but they made official packages for the most essential features, and you don&#x2019;t need to hunt every package implementing base features, saving time.</p>
+<p>I appreciate the clean interface and the attention to details they have bring to the project.</p>
 <a id="more"></a>
 <h2 id="quick-review">Quick review</h2>
 <p>I downloaded the installer. It is big! Of the IDEs I tried, it is among the biggest:</p>
@@ -69,29 +164,36 @@ So I tested Atom, with a critical eye. Spoiler: I was seducted, and it becomes m
 </tbody>
 </table>
 <p>I installed Atom (v. 1.3.1 on Windows 7 with 8 GB of memory).<br>
-It doesn&#x2019;t ask where to install, it goes arbitrarily at C:\Users&lt;user name&gt;\AppData\Local\atom. I would prefer to install it beside my other programs, to locale it easily. And I would appreciate it asks me before installing something on the desktop (I have no icons there!) or on the start menu (I no longer care about this one, but still&#x2026;).<br>
-It is a bit &#x201C;all over the place&#x201D;, as it also has a C:\Users&lt;user name&gt;C:\Users\plhoste.atom\AppData\Roaming\Atom folder (for cache?), and a C:\Users&lt;user name&gt;.atom folder (settings, packages&#x2026;).</p>
-<p>I opened it, it starts quickly (at least as second load, after the initial one after install).<br>
-It has a dark UI, which I don&#x2019;t like, but I quickly found where to change this to the default light theme. Good point than several themes are bundled by default: no need to hunt for them. The default light UI theme is rather nice. I also chose the One Light syntax theme among four. A bit too pale (low contrast) for my taste, I will eventually see if I can tweak it.</p>
+It doesn&#x2019;t ask where to install, it goes arbitrarily at <code>C:\Users\&lt;user name&gt;\AppData\Local\atom</code>. I would prefer to install it beside my other programs, to locale it easily. And I would appreciate it asks me before installing something on the desktop (I have no icons there!) or on the start menu (I no longer care about this one, but still&#x2026;).<br>
+It is a bit &#x201C;all over the place&#x201D;, as it also has a <code>C:\Users\&lt;user name&gt;\AppData\Roaming\Atom</code> folder (for cache?), and a <code>C:\Users\&lt;user name&gt;\.atom folder</code> (settings, packages&#x2026;).</p>
+<p>I opened it, it starts rather quickly.<br>
+It has a dark UI, which I don&#x2019;t like, but I quickly found where to change this to the default light theme. Good point than several themes are bundled by default: no need to hunt for them, at least at start. The default light UI theme is rather nice. I also chose the <em>One Light</em> syntax theme among four. A bit too pale (low contrast) for my taste, I will eventually see if I can tweak it.</p>
 <p>As I feared (I searched a bit before, given the Visual Studio Code deception), drag&#x2019;n&#x2019;drop of code isn&#x2019;t available out of the box. Actually, I saw several plugins activating it. That&#x2019;s one of the problems with this editor: there is a plethora of plugins, which can be nice, but it is confusing to choose one&#x2026; And I still think such feature should be built-in in the editor.<br>
-Same for column (rectangular) selections! Later, I found out Atom supports out of the box column selection (Alt+Up / Down, extend only, allows rectangular selection with Shift+Left / Right) and multiple carets (Ctrl+click).<br>
+Same for column (rectangular) selections! Later, I found out Atom supports out of the box column selection (Ctrl+Alt+Up / Down, extend only, allows rectangular selection with Shift+Left / Right) and multiple carets (Ctrl+click).<br>
 I find a bit unsettling to have to install lot of plugins to get base editor features. I have the same issue with Brackets, but it has at least these two features built-in (but D&#x2019;n&#x2019;D must be activated by a setting).<br>
 That said, I found several features out of the box for which I had to install a plugin in Brackets:</p>
 <ul>
-<li>Jump to matching brace / bracket</li>
-<li>Gutter selection<br>
-And finally, Atom has more base features out of the box.</li>
+<li>Jump to matching brace (bracket / parenthesis);</li>
+<li>Gutter selection of lines;</li>
+<li>Show whitespace / end of lines / indentation guides / right margin;</li>
+<li>Selection to upper / lower case; and some more.</li>
+<li>Change text in selection only; regular expressions for searching; limit searches to word only (something I rarely use but which is sometime useful).</li>
 </ul>
-<p>I expected to find a feature not present in Brackets: click on a word, hit Ctrl+F to find the word under caret. Nope, not better, I have to select the word (double-click as usual; Ctrl+D does it as well, but I assign it to duplicate line instead) to have it picked up by default. At least, it memorizes the last search. But unlike SciTE (my all-purpose lightweight text editor of choice), it doesn&#x2019;t keep an history of searches.<br>
-Good point: it allows to change text in selection only (a feature I miss in Brackets), and to limit searches to word only (something I rarely use but which is sometime useful).</p>
+<p>Two features I mentioned in the above article are also missing from Atom:</p>
+<ul>
+<li>Auto-fill of search field with text under caret (text has to be selected; Ctrl+D selects the current word, but I assign it to duplicate line instead; at least, it memorizes the last search);</li>
+<li>Recall previous searches / replacements (something that SciTE (my all-purpose lightweight text editor of choice) does, which I find convenient);</li>
+</ul>
 <p>OK, I switched to Atom to type this text (in Markdown format). Good surprise: it has spell checking enabled out of the box. And it can suggest words, although I am not sure of the logic of suggestions (scanning existing buffers, apparently; nice point: it is not obtrusive). Little bug (or unwanted feature ;-) &#x2013; I see a misspelled word in the text (red underline), I right-click directly on it, and choose Correct spelling. It does nothing&#x2026; I found out I have to left-click first on the word to get spelling suggestions.<br>
-I see no way to add words to a user dictionary.</p>
+I see no way to add words to a user dictionary (there is an issue for that, and another for other language dictionaries).</p>
 <p>The Welcome Guide is nice, I just saw a way to customize the styling. Although it lacks concrete examples: eg. how do I change the color of titles in Markdown? (I avoid reddish colors, reserved to mark errors). Ah, I suppose I have to study an existing style, like <a href="https://github.com/atom/atom-light-syntax/blob/master/index.less">https://github.com/atom/atom-light-syntax/blob/master/index.less</a><br>
 And I can see the actual styles by showing the developer tools (View &gt; Developer &gt; Toggle Developer Tools) and using it like Chrome DevTools.<br>
 Also a bug: I have <em>Choose a Theme</em> and <em>Customize the Styling</em> opened, I can&#x2019;t scroll back above <em>Install a Package</em>. I have to close one to see the top!</p>
 <p>Another bug or unwanted feature: it ensures there is an empty line at the end of a file when saving it, which can be nice (I generally want that), but if I have several lines, it removes the extra ones (which is annoying in a text file, because I want to keep my future paragraph empty lines). Will see if I can disable that.</p>
-<p>Undo coalescing is a bit strange: when I type a word, then undo, it removes parts of the word, successively, instead of whole word.</p>
+<p>Undo coalescing is a bit strange: when I type a word, then undo, it removes parts of the word, successively, instead of whole word.<br>
+Apparently, it coalesces when there is a pause in typing. Half a good idea, bad for slow typists (not sure if this can be tweaked), not consistent. I prefer Scintilla&#x2019;s coalescing, based on keys: when an move key (eg. arrow) is typed, or when clicking somewhere.</p>
 <p>Atom lacks a nice feature of Brackets: in an HTML file, Brackets can auto-complete the path of a resource (script, CSS file, etc.). Found a plugin for that, of course&#x2026; Although it is slightly less convenient.</p>
+<p>Apparently, Atom has only &#x201C;duplicate-lines&#x201D;, not &#x201C;duplicate-selection&#x201D;, alas. Sometime, I want to duplicate the selection inside the same line, eg. to quickly add an additional parameter with its type.</p>
 <p>Annoyance: I can hit Ctrl+F in the Settings &gt; Package page (for example), but it doesn&#x2019;t find anything there (can be convenient to find a given package by something else than its name).</p>
 <p>Command palette: good idea to highlight searched terms, but on light theme, I get light gray highlight, nearly unreadable on very light gray background&#x2026;</p>
 <p>Minor quibble: title and closing cross in inactive tabs are one or two pixels too low (one pixel lower than the active tab, at least). It &#x201C;hurts&#x201D; my sense of tidiness&#x2026; :-)</p>
@@ -107,9 +209,17 @@ Allow column selection with mouse.<br>
 </li>
 <li>
 <p>simple-drag-drop-text<br>
+Enable classical drag&#x2019;n&#x2019;drop of text, with move (by default) or copy (with Ctrl).<br>
 0.3.0 by mark-hahn<br>
 <a href="https://atom.io/packages/simple-drag-drop-text">https://atom.io/packages/simple-drag-drop-text</a><br>
 <a href="https://github.com/mark-hahn/simple-drag-drop-text">https://github.com/mark-hahn/simple-drag-drop-text</a></p>
+</li>
+<li>
+<p>keyboard-localization<br>
+Must have if you have a non-US keyboard; eg. a French one: I can&#x2019;t type } nor ] because I have to use AltGr (ie. RightCtrl+RightAlt) to reach them, and this makes interference with some Ctrl+Alt shortcuts.<br>
+1.4.112 by andischerer<br>
+<a href="https://atom.io/packages/keyboard-localization">https://atom.io/packages/keyboard-localization</a><br>
+<a href="https://github.com/andischerer/atom-keyboard-localization">https://github.com/andischerer/atom-keyboard-localization</a></p>
 </li>
 <li>
 <p>minimap<br>
@@ -127,23 +237,24 @@ Shows headings of a Markdown text as a mindmap, allows to navigate.<br>
 </li>
 <li>
 <p>highlight-selected<br>
+When a selection is done, corresponding words (must be whole words) in the same buffer are highlighted as well.<br>
 0.11.1 by richrace<br>
 <a href="https://atom.io/packages/highlight-selected">https://atom.io/packages/highlight-selected</a><br>
 <a href="https://github.com/richrace/highlight-selected">https://github.com/richrace/highlight-selected</a></p>
 </li>
 <li>
 <p>minimap-highlight-selected<br>
+Shows highlights by the previous package in the minimap.<br>
 4.3.1 by atom-minimap<br>
 <a href="https://atom.io/packages/minimap-highlight-selected">https://atom.io/packages/minimap-highlight-selected</a><br>
 <a href="https://github.com/atom-minimap/minimap-highlight-selected">https://github.com/atom-minimap/minimap-highlight-selected</a></p>
 </li>
 <li>
 <p>autocomplete-paths<br>
-Autocompletion for paths in the project, according to file system.<br>
+Autocompletion for paths in the project, according to file system. With patch <a href="https://github.com/atom-community/autocomplete-paths/pull/51/files">https://github.com/atom-community/autocomplete-paths/pull/51/files</a> applied manually&#x2026;<br>
 1.0.2 by atom-community<br>
 <a href="https://atom.io/packages/autocomplete-paths">https://atom.io/packages/autocomplete-paths</a><br>
-<a href="https://github.com/atom-community/autocomplete-paths">https://github.com/atom-community/autocomplete-paths</a><br>
-With patch <a href="https://github.com/atom-community/autocomplete-paths/pull/51/files">https://github.com/atom-community/autocomplete-paths/pull/51/files</a> applied manually&#x2026;</p>
+<a href="https://github.com/atom-community/autocomplete-paths">https://github.com/atom-community/autocomplete-paths</a></p>
 </li>
 <li>
 <p>autoclose-html<br>
@@ -151,6 +262,13 @@ Automatically close HTML tags.<br>
 0.19.0 by mattberkowitz<br>
 <a href="https://atom.io/packages/autoclose-html">https://atom.io/packages/autoclose-html</a><br>
 <a href="https://github.com/mattberkowitz/autoclose-html">https://github.com/mattberkowitz/autoclose-html</a></p>
+</li>
+<li>
+<p>toggle-quotes<br>
+Keyboard shortcut to switch between single and double quotes on the string the caret is in.<br>
+1.0.0 by atom<br>
+<a href="https://atom.io/packages/toggle-quotes">https://atom.io/packages/toggle-quotes</a><br>
+<a href="https://github.com/atom/toggle-quotes">https://github.com/atom/toggle-quotes</a></p>
 </li>
 <li>
 <p>linter<br>
@@ -189,7 +307,7 @@ Linter for Sass.<br>
 </li>
 <li>
 <p>pigments<br>
-Shows colors from various CSS notations (including named colors). I prefer to display them as circles after the color definition.<br>
+Shows colors from various CSS notations (including named and computed colors). I prefer to display them as circles after the color definition.<br>
 0.19.3 by abe33<br>
 <a href="https://atom.io/packages/pigments">https://atom.io/packages/pigments</a><br>
 <a href="https://github.com/abe33/atom-pigments">https://github.com/abe33/atom-pigments</a></p>
@@ -209,6 +327,27 @@ Add icons (depending on file type) in the tree view on the left.<br>
 <a href="https://github.com/DanBrooker/file-icons">https://github.com/DanBrooker/file-icons</a></p>
 </li>
 <li>
+<p>atom-easy-jsdoc<br>
+JSDoc generation.<br>
+4.2.0 by tgandrews<br>
+<a href="https://atom.io/packages/atom-easy-jsdoc">https://atom.io/packages/atom-easy-jsdoc</a><br>
+<a href="https://github.com/tgandrews/atom-easy-jsdoc">https://github.com/tgandrews/atom-easy-jsdoc</a></p>
+</li>
+<li>
+<p>string-looper<br>
+Change word case, number value and loop between keywords with the arrows of your keyboard.<br>
+0.1.2 by leny<br>
+<a href="https://atom.io/packages/string-looper">https://atom.io/packages/string-looper</a><br>
+<a href="https://github.com/leny/atom-string-looper">https://github.com/leny/atom-string-looper</a></p>
+</li>
+<li>
+<p>sync-settings<br>
+Synchronization of Atom settings across computers.<br>
+0.6.0 by Hackafe<br>
+<a href="https://atom.io/packages/sync-settings">https://atom.io/packages/sync-settings</a><br>
+<a href="https://github.com/Hackafe/atom-sync-settings">https://github.com/Hackafe/atom-sync-settings</a></p>
+</li>
+<li>
 <p>rest-client<br>
 Simple Rest client to generate requests to servers.  Complement of RestClient on Firefox, Postman in Chrome.<br>
 0.5.0 by ddavison<br>
@@ -216,10 +355,27 @@ Simple Rest client to generate requests to servers.  Complement of RestClient on
 <a href="https://github.com/ddavison/rest-client">https://github.com/ddavison/rest-client</a></p>
 </li>
 <li>
+<p>atom-perforce<br>
+Support of the Perforce VCS (I use it at work). Has <a href="https://github.com/mattsawyer77/atom-perforce/issues/46">problems on Windows</a>, I fixed (some of) them.<br>
+1.7.0 by mattsawyer77<br>
+<a href="https://atom.io/packages/atom-perforce">https://atom.io/packages/atom-perforce</a><br>
+<a href="https://github.com/mattsawyer77/atom-perforce">https://github.com/mattsawyer77/atom-perforce</a></p>
+</li>
+</ul>
+<h2 id="not-used-to-see-later">Not used, to see later</h2>
+<ul>
+<li>
+<p>test-jumper<br>
+To jump between main file and its unit test. Not used because it can&#x2019;t seem to fit in our project layout&#x2026; Still interesting.<br>
+0.5.0 by danielcooper<br>
+<a href="https://atom.io/packages/test-jumper">https://atom.io/packages/test-jumper</a><br>
+<a href="https://github.com/danielcooper/test-jumper">https://github.com/danielcooper/test-jumper</a></p>
+</li>
+<li>
 <p>tree-ignore<br>
+Allows to ignore paths in the project. Installation failed silently (not mentioning an error; I see the error when going to <em>Packages</em>), I had to go to the console of the DevTools to see the errors. Apparently, an issue with node-gyp on Windows. So I just use the Ignored Names setting for all projects.<br>
 0.2.6 by leny<br>
-<a href="https://github.com/leny/atom-tree-ignore">https://github.com/leny/atom-tree-ignore</a><br>
-Installation failed silently (not mentioning an error; I see the error when going to <em>Packages</em>), I had to go to the console of the DevTools to see the errors. Apparently, an issue with node-gyp on Windows.</p>
+<a href="https://github.com/leny/atom-tree-ignore">https://github.com/leny/atom-tree-ignore</a></p>
 </li>
 </ul>
 <h1 id="themes">Themes</h1>
@@ -239,7 +395,7 @@ Installation failed silently (not mentioning an error; I see the error when goin
 </ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[a review of the GitHub Atom editor (IDE), at version 0.10]]>
+    <![CDATA[a review of the GitHub Atom editor (IDE), at version 1.3.2]]>
     
     </summary>
     
@@ -256,357 +412,1768 @@ Installation failed silently (not mentioning an error; I see the error when goin
   </entry>
   
   <entry>
-    <title><![CDATA[Static Site Generators]]></title>
-    <link href="http://PhiLhoSoft.github.io/Software/Static%20site%20generators/"/>
-    <id>http://PhiLhoSoft.github.io/Software/Static site generators/</id>
-    <published>2015-11-14T23:00:00.000Z</published>
-    <updated>2015-12-21T07:25:51.119Z</updated>
-    <content type="html"><![CDATA[<h1 id="static-site-generator">Static site generator</h1>
-<p>So I want to write some new technical articles (like this one&#x2026;) on my latest discoveries.<br>
-My previous host keeps <a href="http://Phi.Lho.free.fr">my old site</a> but has cut my FTP access, so I cannot update or add new stuff.</p>
-<a id="more"></a>
-<aside class="article-wip">
-<img class="no-fancybox" src="/images/Work-in-Progress.svg" width="240" height="110" title="Work in Progress" alt="Work in Progress">
-This is a work in progress: this article is unfinished and will be updated.
-</aside>
-<h2 id="static">Static</h2>
-<p>I found out that GitHub Pages might be a good free host for technical content, but it won&#x2019;t allow a blog / CMS software (like WordPress) to run on it.<br>
-Of course, it has Jekyll, but I wasn&#x2019;t seduced: the syntax is so-so (for me), it is a Ruby tool (slow and I have no control over it), etc.<br>
-But it was a hint: no need for a full fledged blog software generating pages from scratch on each user request: these pages are mostly static so they can be coded once and for all, like I did in the previous century&#x2026;<br>
-The most dynamic parts are the back-office, which I can live without, and managing user comments (with spam control). For the latter, I saw most solutions just use Disqus, a cross-platform comment service relying only on JS (and the related site / cloud host), so needing no server-side script or database. And I already use it (as a commenter), so it looks like the way to go.</p>
-<p>So I need something more flexible, and / or something I could hack into my needs.</p>
-<h2 id="listings">Listings</h2>
-<p>A quick research shown, via two sites (<a href="https://www.staticgen.com/">Top Open-Source Static Site Generators - StaticGen</a> and <a href="https://staticsitegenerators.net/">Static Site Generators</a>) that there is literally a ton of static site generator softwares.<br>
-Note / strong hint for those making such software: if you don&#x2019;t have a site to show of| what your tool can do, you are doing it wrong. No need to pay for a domain name, you can host it on a free site like <a href="http://GitHub.io">GitHub.io</a> or similar.</p>
-<h2 id="hugo">Hugo</h2>
-<p>I first tried <a href="http://gohugo.io/">Hugo</a>, which I discovered earlier: it has a nice site, which is an important point for this kind of software&#x2026; And a decent doc. And native binary is a promise of speed.<br>
-But I quickly hit a limitation: the Markdown parser is quite rigid and not adapted to my needs. And since 1) I don&#x2019;t know Go, 2) I don&#x2019;t have much time for deep hacks, I want something working quickly, I looked elsewhere (it was a &#x201C;no Go&#x201D;&#x2026;).</p>
-<h2 id="other-languages">Other languages</h2>
-<p>I could use a generator written in Lua, which is a language I know and appreciate, but they seem quite confidential, used by the author and a dozen of users (guestimate&#x2026;), so I feared some issues&#x2026; (or too much work to adapt to my needs).</p>
-<p>There are also PHP generators: it feels odd to use this language for off-line generation&#x2026; I can understand they appeal to those familiar with the language.</p>
-<p>I can hack a Java-based generator, but I feared some heaviness.</p>
-<p>I finally chose to explorate JavaScript-based generators (via Node.js): I know well the language, and I know there is a rich ecosystem of Web-oriented tools.</p>
-<h2 id="metalsmith">Metalsmith</h2>
-<p>Another interesting generator is <a href="http://www.metalsmith.io/">Metalsmith</a>: it has a very small core, and delegate all tasks to plugins which it orchestrates. It results in flexibility: it can also generate eBooks, etc.</p>
-<h2 id="build-tools">Build tools</h2>
-<p>But, I thought, it looked like yet another build tool, like Webpack, Brunch or Gulp, only with more specialized plugins.<br>
-I know web tools, I know how to transform Markdown to HTML, Sass to CSS, etc. I can surely leverage an existing build tool to do that, with even more flexibility. But as I haven&#x2019;t much time to spend on writing these tools (finding plugins, chaining the tasks into something sensible), I searched some kind of existing &#x201C;glue&#x201D;.</p>
-<h3 id="antwar">AntWar</h3>
-<p>I first tried <a href="http://antwarjs.github.io/">Antwar</a> which is based on Webpack and React.<br>
-It has a good site with a tutorial, and an interesting flexibility.<br>
-But I ran into some issues, like a rigid Markdown parser, so I looked elsewhere.</p>
-<h3 id="akashacms">AkashaCMS</h3>
-<p>Then I tried <a href="http://akashacms.com/">AkashaCMS</a>, still based on Webpack. The site is less sexy, but full of good information. It uses the Markdown-it parser, which is a good choice as it is very flexible.<br>
-I have to write my own template, which is not a real problem, particularly if I use x as a starting point.<br>
-But, out of the box, it uses the quite outdated EJS template system: the code is still in Google Code! The forum hadn&#x2019;t a new message in months. And the syntax is ugly and heavy, reminds of JSP / ASP, and includes JS code to do its stuff.<br>
-Plus it uses Less to generate CSS, while I prefer Sass.<br>
-Again, I can replace these parts if I want, the author explains how to change a renderer, but again I wanted something faster to use.</p>
-<p>I skip over other generators I saw, like <a href="http://moonwave99.github.io/waffel/">Waffel</a> (based on Brunch), which seems promising, or <a href="https://github.com/gatsbyjs/gatsby">Gatsby</a> also interesting, based also on React.js, but written in CoffeeScript.</p>
-<h2 id="hexo">Hexo</h2>
-<p>Finally, I came back to <a href="https://hexo.io/">Hexo</a>, which I looked at several times before&#x2026;<br>
-That&#x2019;s one of the tools with a nice site, good tutorials, and lot of support: it lists lot of plugins and themes, so it is easy to get started.</p>
-<p>Alas, lot (if not all) of these themes are written in EJS (why is it so popular?) and Less&#x2026;</p>
-<p>These were the initial choices of Hexo. Since v.3, they moved EJS and Stylus renderers to external plugins, and there are other plugins, but unless you are willing to make your own theme from scratch, you are stuck with these technologies.</p>
-<p>I chose the <a href="http://blog.zhangruipeng.me/hexo-theme-icarus/">Icarus</a> theme, responsive, clean and nice, supporting Disqus and Google Analytics out of the box.<br>
-I made some minor changes, mostly on the CSS side, to personalize it a bit.</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[Making of this site]]>
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://PhiLhoSoft.github.io/tags/blog/"/>
-    
-      <category term="Site generation" scheme="http://PhiLhoSoft.github.io/tags/site-generation/"/>
-    
-      <category term="Software" scheme="http://PhiLhoSoft.github.io/tags/software/"/>
-    
-      <category term="Tool" scheme="http://PhiLhoSoft.github.io/tags/tool/"/>
-    
-      <category term="Web" scheme="http://PhiLhoSoft.github.io/tags/web/"/>
-    
-      <category term="Software" scheme="http://PhiLhoSoft.github.io/categories/software/"/>
-    
-      <category term="Tools" scheme="http://PhiLhoSoft.github.io/categories/software/tools/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[RxJS distributions]]></title>
     <link href="http://PhiLhoSoft.github.io/Programming/RxJS-operators/"/>
     <id>http://PhiLhoSoft.github.io/Programming/RxJS-operators/</id>
     <published>2015-11-14T23:00:00.000Z</published>
-    <updated>2015-12-21T07:40:18.151Z</updated>
+    <updated>2015-12-23T09:20:14.845Z</updated>
     <content type="html"><![CDATA[<h1 id="rxjs-distributions">RxJS distributions</h1>
-<p><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc">https://github.com/Reactive-Extensions/RxJS/tree/master/doc</a></p>
+<h2 id="introduction">Introduction</h2>
+<p>RxJS has several distributions:</p>
+<ul>
+<li>The Core distribution, with two sub-modules, is a minimal implementation;</li>
+<li>The Main distribution is broken down between a main module and several sub-modules;</li>
+<li>The Lite distribution is similar to the Main one, but with different assignments: it includes a big part of the binding library, and part of the async one, so it is more usable without including other modules;</li>
+<li>The All distribution includes nearly everything, as the name implies.</li>
+</ul>
+<p>As this is a bit confusing, I made a table out of the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc">official doc</a>, including all mistakes found in this manually generated doc, some of which I point out here, to help tracking them down.</p>
+<h2 id="the-distributions">The distributions</h2>
 <p>Numbers are size in KB of .min.js as of 4.0.6 around October 2015. To be used only as comparison between versions.<br>
 The file names with + are not in the documentation, I found them after installing RxJS. I guess they come from v.4, and that the doc is still about v.3.</p>
-<p>The complete library:</p>
-<pre><code>rx.all.js	A	139
-</code></pre>
-<p>Main Libraries:</p>
-<pre><code>rx.js	R	72
-rx.aggregates.js	RAg	16
-rx.async.js	RAs (needs RBi)	7
-</code></pre>
-<ul>
-<li>rx.backpressure.js		8<br>
-rx.binding.js	RBi	7<br>
-rx.coincidence.js	RCo	7<br>
-rx.experimental.js	RXp	8<br>
-rx.joinpatterns.js	RJp	5</li>
-<li>rx.sorting.js		3<br>
-rx.testing.js	RTe (needs RVt)	7<br>
-rx.time.js	RTi	16<br>
-rx.virtualtime.js	RVt	4</li>
-</ul>
-<p>Lite Libraries:</p>
-<pre><code>rx.lite.js	L	81
-rx.lite.aggregates.js	LAg	17
-rx.lite.async.js	LAs	4
-</code></pre>
-<ul>
-<li>rx.lite.backpressure.js		4<br>
-rx.lite.coincidence.js	LCo	7<br>
-rx.lite.experimental.js	LXp	8<br>
-rx.lite.extras.js	LEx	10<br>
-rx.lite.joinpatterns.js	LJp	5<br>
-rx.lite.testing.js	LTe	7<br>
-rx.lite.time.js	LTi	9<br>
-rx.lite.virtualtime.js	LVt	4</li>
-</ul>
-<p>Core Libraries:</p>
-<pre><code>rx.core.js	C	15
-rx.core.binding.js	CBi	10
-rx.core.testing.js	CTe	14
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>File name</th>
+<th>Id</th>
+<th>Size (KiB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Complete library</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>rx.all.js</td>
+<td>A</td>
+<td>139</td>
+</tr>
+<tr>
+<td><strong>Lite libraries</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>rx.lite.js</td>
+<td>L</td>
+<td>81</td>
+</tr>
+<tr>
+<td>rx.lite.aggregates.js</td>
+<td>LAg</td>
+<td>17</td>
+</tr>
+<tr>
+<td>rx.lite.async.js</td>
+<td>LAs</td>
+<td>4</td>
+</tr>
+<tr>
+<td>rx.lite.backpressure.js +</td>
+<td></td>
+<td>4</td>
+</tr>
+<tr>
+<td>rx.lite.coincidence.js</td>
+<td>LCo</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rx.lite.experimental.js</td>
+<td>LXp</td>
+<td>8</td>
+</tr>
+<tr>
+<td>rx.lite.extras.js</td>
+<td>LEx</td>
+<td>10</td>
+</tr>
+<tr>
+<td>rx.lite.joinpatterns.js</td>
+<td>LJp</td>
+<td>5</td>
+</tr>
+<tr>
+<td>rx.lite.testing.js</td>
+<td>LTe</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rx.lite.time.js</td>
+<td>LTi</td>
+<td>9</td>
+</tr>
+<tr>
+<td>rx.lite.virtualtime.js</td>
+<td>LVt</td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>Main library</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>rx.js</td>
+<td>R</td>
+<td>72</td>
+</tr>
+<tr>
+<td>rx.aggregates.js</td>
+<td>RAg</td>
+<td>16</td>
+</tr>
+<tr>
+<td>rx.async.js</td>
+<td>RAs (needs RBi)</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rx.backpressure.js +</td>
+<td></td>
+<td>8</td>
+</tr>
+<tr>
+<td>rx.binding.js</td>
+<td>RBi</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rx.coincidence.js</td>
+<td>RCo</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rx.experimental.js</td>
+<td>RXp</td>
+<td>8</td>
+</tr>
+<tr>
+<td>rx.joinpatterns.js</td>
+<td>RJp</td>
+<td>5</td>
+</tr>
+<tr>
+<td>rx.sorting.js +</td>
+<td></td>
+<td>3</td>
+</tr>
+<tr>
+<td>rx.testing.js</td>
+<td>RTe (needs RVt)</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rx.time.js</td>
+<td>RTi</td>
+<td>16</td>
+</tr>
+<tr>
+<td>rx.virtualtime.js</td>
+<td>RVt</td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>Core library</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>rx.core.js</td>
+<td>C</td>
+<td>15</td>
+</tr>
+<tr>
+<td>rx.core.binding.js</td>
+<td>CBi</td>
+<td>10</td>
+</tr>
+<tr>
+<td>rx.core.testing.js</td>
+<td>CTe</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
 <h2 id="included-observable-operators">Included Observable Operators</h2>
 <h3 id="observable-methods">Observable Methods</h3>
-<pre><code>amb	A	R	LEx
-case	A	RXp	LXp
-catch	A	R	L
-concat	A	R	L
-create	A	R	L	C
-defer	A	R	L
-empty	A	R	L
-for	A	RXp	LXp
-forkJoin	A	RXp	LXp
-from	A	R	L
-fromArray	A	R	L
-fromCallback	A	RAs	L
-fromEvent	A	RAs	L
-fromEventPattern	A	RAs	L
-fromNodeCallback	A	RAs	L
-fromPromise	A	RAs (4)	L
-generate	A	R	LEx
-generateWithAbsoluteTime	A	RTi	LTi
-generateWithRelativeTime	A	RTi	LTi
-if	A	RXp	LXp
-interval	A	RTi	L
-just	A	R	L
-merge	A	R	L
-mergeDelayError	A	R	L
-never	A	R	L
-of	A	R	L
-ofArrayChanges	A
-ofWithScheduler	A	R	L
-onErrorResumeNext	A	R	LEx
-pairs	A	R	L
-range	A	R	L
-repeat	A	R	L
-return	A	R	L
-spawn	A	RAs	LAs
-start	A	RAs	LAs
-startAsync	A	RAs	LAs
-throw	A	R	L
-timer	A	RTi	L
-toAsync	A	RAs	LAs
-toPromise		RAs
-using	A		LEx
-when	A	RJp	LJp
-while	A	RXp	LXp
-wrap	A	RAs
-zip	A	R	L
-</code></pre>
-<h3 id="observable-instance-methods-prototype-marks-functions-also-on-object">Observable Instance Methods (prototype) (! marks functions also on object)</h3>
-<pre><code>aggregate	A	RAg	LAg
-all	A	RAg	LAg
-</code></pre>
-<p>! amb	A	R	LEx<br>
-and	A	RJp	LJp<br>
-any	A	RAg	LAg<br>
-asObservable	A	R	L<br>
-average	A	RAg	LAg<br>
-buffer	A	RCo	LCo<br>
-bufferWithCount	A	R	LEx<br>
-bufferWithTime	A	RTi	LTi<br>
-bufferWithTimeOrCount	A	RTi	LTi<br>
-! catch	A	R	L<br>
-combineLatest	A	R	L<br>
-! concat	A	R	L<br>
-concatAll	A	R<br>
-concatMap	A	R	L<br>
-connect	A	RBi	L	CBi<br>
-controlled	A<br>
-count	A	RAg	LAg<br>
-debounce	A	RTi	L<br>
-defaultIfEmpty	A	R	L<br>
-delay	A	RTi	L<br>
-delaySubscription	A	RTi	LTi<br>
-dematerialize	A		L<br>
-distinct	A	R	LEx<br>
-distinctUntilChanged	A	R	L<br>
-do	A	R	L<br>
-doOnNext	A	R	L<br>
-doOnError	A	R	L<br>
-doOnCompleted	A	R	L<br>
-doWhile	A	RXp	LXp<br>
-elementAt	A	RAg	LAg<br>
-every	A	RAg	LAg<br>
-expand	A	RXp	LXp<br>
-extend	A	RXp	LXp<br>
-filter	A	R	L<br>
-finally | ensure	A	R	L<br>
-find	A	RAg	LAg<br>
-findIndex	A	RAg	LAg<br>
-first	A	RAg	LAg<br>
-flatMap	A	R	L<br>
-flatMapFirst	A	RXp	LXp<br>
-flatMapLatest	A	R	L<br>
-flatMapObserver	A	R<br>
-flatMapWithMaxConcurrent	A	RXp	LXp<br>
-! forkJoin	A	RXp	LXp<br>
-groupBy	A	RCo	LCo<br>
-groupByUntil	A	RCo	LCo<br>
-groupJoin	A	RCo	LCo<br>
-ignoreElements	A	R	L<br>
-includes	A	RAg (3)	LAg (5)<br>
-indexOf		RAg	LAg<br>
-isEmpty	A	RAg	LAg<br>
-join	A	RCo	LCo<br>
-last	A	RAg	LAg<br>
-lastIndexOf	A	RAg	LAg<br>
-let	A	RXp	LXp<br>
-manySelect	A	RXp	LXp<br>
-map	A	R	L<br>
-max	A	RAg	LAg<br>
-maxBy	A	RAg	LAg<br>
-! merge	A	R	L<br>
-mergeAll	A	R	L<br>
-min	A	RAg	LAg<br>
-minBy	A	RAg	LAg<br>
-multicast	A		L<br>
-observeOn	A	R	LEx<br>
-onErrorResumeNext	A	R	LEx<br>
-pairwise	A	RCo	LCo<br>
-partition	A	RCo	LCo<br>
-pausable	A		(L)<br>
-pausableBuffered	A<br>
-pluck	A<br>
-publish	A	RBi	L	CBi<br>
-publishLast	A	RBi	L	CBi<br>
-publishValue	A	RBi	L	CBi<br>
-refCount	A	RBi	L	CBi<br>
-reduce	A	RAg	LAg<br>
-repeat	A	R	L<br>
-replay	A	RBi	L	CBi<br>
-retry	A	R	L<br>
-retryWhen	A	R	L<br>
-sample	A	RTi	L &amp; LTi<br>
-scan	A	R	L<br>
-select	A	R	L<br>
-selectConcat	A	R	L<br>
-selectMany	A	R	L<br>
-selectManyObserver	A<br>
-sequenceEqual	A	RAg	LAg<br>
-selectSwitch		R	L<br>
-selectSwitchFirst		RXp	LXp<br>
-selectWithMaxConcurrent		RXp	LXp<br>
-share	A (1)	RBi		CBi<br>
-shareLast		RBi		CBi<br>
-shareReplay	A (1)	RBi		CBi<br>
-shareValue	A (1)	RBi		CBi<br>
-single	A	R &amp; RAg	LAg<br>
-singleInstance	A	RBi	L	CBi<br>
-skip	A	R	L<br>
-skipLast	A	R	L<br>
-skipLastWithTime	A	RTi	LTi<br>
-skipUntil	A	R	L<br>
-skipUntilWithTime	A<br>
-skipWhile	A	R	L<br>
-slice	A	RAg	LAg<br>
-some	A	RAg	LAg<br>
-startWith	A	R	L<br>
-subscribe | forEach	A	R	L<br>
-subscribeOn	A	R (2)	LEx<br>
-subscribeOnNext		R	L<br>
-subscribeOnError		R	L<br>
-subscribeOnCompleted		R	L<br>
-sum	A	RAg	LAg<br>
-switch | switchLatest	A	R	L<br>
-switchFirst	A<br>
-take	A	R	L<br>
-takeLast	A	R	L<br>
-takeLastBuffer	A		LEx<br>
-takeLastBufferWithTime	A	RTi	LTi<br>
-takeLastWithTime	A	RTi	LTi<br>
-takeUntil	A	R	L<br>
-takeUntilWithTime	A<br>
-takeWhile	A	R	L<br>
-tap	A		L<br>
-tapOnNext	A		L<br>
-tapOnError	A		L<br>
-tapOnCompleted	A		L<br>
-thenDo		RJp	LJp<br>
-throttle	A	RTi	L<br>
-timeInterval	A	RTi	LTi<br>
-timeout	A	RTi	L &amp; LTi<br>
-timeoutWithSelector			LTi<br>
-timestamp	A	RTi	L &amp; LTi<br>
-toArray	A	R	L<br>
-toMap		RAg	LAg<br>
-? toPromise			L<br>
-toSet		RAg	LAg<br>
-transduce		R	L<br>
-where	A	R	L<br>
-window	A	RCo	LCo<br>
-windowWithCount	A	R	LEx<br>
-windowWithTime	A	RTi	LTi<br>
-windowWithTimeOrCount	A	RTi	LTi<br>
-withLatestFrom	A	R	L<br>
-! zip	A	R	L<br>
-zipIterable	A	R	L</p>
+<table>
+<thead>
+<tr>
+<th>Method name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amb</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>case</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>catch</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>concat</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>create</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>defer</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>empty</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>for</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>forkJoin</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>from</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>fromArray</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>fromCallback</td>
+<td>A</td>
+<td>L</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>fromEvent</td>
+<td>A</td>
+<td>L</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>fromEventPattern</td>
+<td>A</td>
+<td>L</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>fromNodeCallback</td>
+<td>A</td>
+<td>L</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>fromPromise</td>
+<td>A</td>
+<td>L</td>
+<td>RAs (4)</td>
+<td></td>
+</tr>
+<tr>
+<td>generate</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>generateWithAbsoluteTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>generateWithRelativeTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>if</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>interval</td>
+<td>A</td>
+<td>L</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>just</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>merge</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>mergeDelayError</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>never</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>of</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>ofArrayChanges</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ofWithScheduler</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>onErrorResumeNext</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>pairs</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>range</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>repeat</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>return</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>spawn</td>
+<td>A</td>
+<td>LAs</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>start</td>
+<td>A</td>
+<td>LAs</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>startAsync</td>
+<td>A</td>
+<td>LAs</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>throw</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>timer</td>
+<td>A</td>
+<td>L</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>toAsync</td>
+<td>A</td>
+<td>LAs</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>toPromise</td>
+<td></td>
+<td></td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>using</td>
+<td>A</td>
+<td>LEx</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>when</td>
+<td>A</td>
+<td>LJp</td>
+<td>RJp</td>
+<td></td>
+</tr>
+<tr>
+<td>while</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>wrap</td>
+<td>A</td>
+<td></td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>zip</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="observable-instance-methods-prototype">Observable Instance Methods (prototype)</h3>
+<p>(! marks functions also on object)</p>
+<table>
+<thead>
+<tr>
+<th>Method name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aggregate</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>all</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>amb !</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>and</td>
+<td>A</td>
+<td>LJp</td>
+<td>RJp</td>
+<td></td>
+</tr>
+<tr>
+<td>any</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>asObservable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>average</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>buffer</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>bufferWithCount</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>bufferWithTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>bufferWithTimeOrCount</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>catch !</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>combineLatest</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>concat !</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>concatAll</td>
+<td>A</td>
+<td></td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>concatMap</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>connect</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>controlled</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>count</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>debounce</td>
+<td>A</td>
+<td>L</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>defaultIfEmpty</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>delay</td>
+<td>A</td>
+<td>L</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>delaySubscription</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>dematerialize</td>
+<td>A</td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>distinct</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>distinctUntilChanged</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>do</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>doOnNext</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>doOnError</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>doOnCompleted</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>doWhile</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>elementAt</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>every</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>expand</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>extend</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>filter</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>finally / ensure</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>find</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>findIndex</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>first</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>flatMap</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>flatMapFirst</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>flatMapLatest</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>flatMapObserver</td>
+<td>A</td>
+<td></td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>flatMapWithMaxConcurrent</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>forkJoin !</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>groupBy</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>groupByUntil</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>groupJoin</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>ignoreElements</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>includes</td>
+<td>A</td>
+<td>LAg (5)</td>
+<td>RAg (3)</td>
+<td></td>
+</tr>
+<tr>
+<td>indexOf</td>
+<td></td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>isEmpty</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>join</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>last</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>lastIndexOf</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>let</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>manySelect</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>map</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>max</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>maxBy</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>merge !</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>mergeAll</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>min</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>minBy</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>multicast</td>
+<td>A</td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>observeOn</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>onErrorResumeNext</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>pairwise</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>partition</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>pausable</td>
+<td>A</td>
+<td>(L)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pausableBuffered</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pluck</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>publish</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>publishLast</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>publishValue</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>refCount</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>reduce</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>repeat</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>replay</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>retry</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>retryWhen</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>sample</td>
+<td>A</td>
+<td>L &amp; LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>scan</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>select</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>selectConcat</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>selectMany</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>selectManyObserver</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sequenceEqual</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>selectSwitch</td>
+<td></td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>selectSwitchFirst</td>
+<td></td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>selectWithMaxConcurrent</td>
+<td></td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>share</td>
+<td>A (1)</td>
+<td></td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>shareLast</td>
+<td></td>
+<td></td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>shareReplay</td>
+<td>A (1)</td>
+<td></td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>shareValue</td>
+<td>A (1)</td>
+<td></td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>single</td>
+<td>A</td>
+<td>LAg</td>
+<td>R &amp; RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>singleInstance</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>skip</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>skipLast</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>skipLastWithTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>skipUntil</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>skipUntilWithTime</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>skipWhile</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>slice</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>some</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>startWith</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>subscribe / forEach</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>subscribeOn</td>
+<td>A</td>
+<td>LEx</td>
+<td>R (2)</td>
+<td></td>
+</tr>
+<tr>
+<td>subscribeOnNext</td>
+<td></td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>subscribeOnError</td>
+<td></td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>subscribeOnCompleted</td>
+<td></td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>sum</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>switch / switchLatest</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>switchFirst</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>take</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>takeLast</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>takeLastBuffer</td>
+<td>A</td>
+<td>LEx</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>takeLastBufferWithTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>takeLastWithTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>takeUntil</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>takeUntilWithTime</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>takeWhile</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>tap</td>
+<td>A</td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tapOnNext</td>
+<td>A</td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tapOnError</td>
+<td>A</td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tapOnCompleted</td>
+<td>A</td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>thenDo</td>
+<td></td>
+<td>LJp</td>
+<td>RJp</td>
+<td></td>
+</tr>
+<tr>
+<td>throttle</td>
+<td>A</td>
+<td>L</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>timeInterval</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>A</td>
+<td>L &amp; LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>timeoutWithSelector</td>
+<td></td>
+<td>LTi</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>A</td>
+<td>L &amp; LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>toArray</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>toMap</td>
+<td></td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>toPromise ?</td>
+<td></td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>toSet</td>
+<td></td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>transduce</td>
+<td></td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>where</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>window</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>windowWithCount</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>windowWithTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>windowWithTimeOrCount</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>withLatestFrom</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>zip !</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>zipIterable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="included-classes">Included Classes</h2>
 <h3 id="core-objects">Core Objects</h3>
-<pre><code>Rx.Observer	A	R	L	C
-Rx.Observable		R		C
-Rx.Notification	A	R	L	CTe
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rx.Observer</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rx.Observable</td>
+<td></td>
+<td></td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rx.Notification</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>CTe</td>
+</tr>
+</tbody>
+</table>
 <h3 id="subjects">Subjects</h3>
-<pre><code>Rx.AsyncSubject	A	R	L	CBi
-Rx.BehaviorSubject		RBi	L	CBi
-Rx.ReplaySubject		RBi	L	CBi
-Rx.Subject	A	R	L	CBi
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rx.AsyncSubject</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>Rx.BehaviorSubject</td>
+<td></td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>Rx.ReplaySubject</td>
+<td></td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>Rx.Subject</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>CBi</td>
+</tr>
+</tbody>
+</table>
 <h3 id="schedulers">Schedulers</h3>
-<pre><code>Rx.Scheduler	A	R	L	C
-Rx.TestScheduler		RTe	LTe	CTe
-Rx.VirtualTimeScheduler		RVt	LVt	CTe
-Rx.HistoricalScheduler		RVt	LVt
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rx.Scheduler</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rx.TestScheduler</td>
+<td></td>
+<td>LTe</td>
+<td>RTe</td>
+<td>CTe</td>
+</tr>
+<tr>
+<td>Rx.VirtualTimeScheduler</td>
+<td></td>
+<td>LVt</td>
+<td>RVt</td>
+<td>CTe</td>
+</tr>
+<tr>
+<td>Rx.HistoricalScheduler</td>
+<td></td>
+<td>LVt</td>
+<td>RVt</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="disposables">Disposables</h3>
-<pre><code>Rx.CompositeDisposable	A	R	L	C
-Rx.Disposable	A	R	L	C
-Rx.RefCountDisposable	A	R	L
-Rx.SerialDisposable	A	R	L	C
-Rx.SingleAssignmentDisposable	A	R	L	C
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rx.CompositeDisposable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rx.Disposable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rx.RefCountDisposable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>Rx.SerialDisposable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rx.SingleAssignmentDisposable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
 <h3 id="testing-classes">Testing classes</h3>
-<pre><code>Rx.ReactiveTest		RTe	LTe	CTe
-Rx.Recorded		RTe	LTe	CTe
-Rx.Subscription		RTe	LTe	CTe
-Rx.TestScheduler (see Schedulers above)
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rx.ReactiveTest</td>
+<td></td>
+<td>LTe</td>
+<td>RTe</td>
+<td>CTe</td>
+</tr>
+<tr>
+<td>Rx.Recorded</td>
+<td></td>
+<td>LTe</td>
+<td>RTe</td>
+<td>CTe</td>
+</tr>
+<tr>
+<td>Rx.Subscription</td>
+<td></td>
+<td>LTe</td>
+<td>RTe</td>
+<td>CTe</td>
+</tr>
+<tr>
+<td>Rx.TestScheduler (see Schedulers above)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>(XYz): not in the lists, but found in the description of the operator.<br>
 (1): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.complete.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.complete.md</a><br>
 Also some methods / classes are not in All?<br>
@@ -614,7 +2181,6 @@ Also some methods / classes are not in All?<br>
 (3): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.aggregates.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.aggregates.md</a><br>
 (4): Not in <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.async.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.async.md</a><br>
 (5): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/lite/rx.lite.aggregates.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/lite/rx.lite.aggregates.md</a></p>
-<p>?ts=40</p>
 ]]></content>
     <summary type="html">
     <![CDATA[RxJS distributions and their operators]]>
@@ -640,11 +2206,89 @@ Also some methods / classes are not in All?<br>
   </entry>
   
   <entry>
+    <title><![CDATA[Static Site Generators]]></title>
+    <link href="http://PhiLhoSoft.github.io/Software/Static%20site%20generators/"/>
+    <id>http://PhiLhoSoft.github.io/Software/Static site generators/</id>
+    <published>2015-11-14T23:00:00.000Z</published>
+    <updated>2015-12-22T07:20:53.701Z</updated>
+    <content type="html"><![CDATA[<h1 id="static-site-generator">Static site generator</h1>
+<p>So I want to write some new technical articles (like this one&#x2026;) on my latest discoveries.<br>
+My previous host keeps <a href="http://Phi.Lho.free.fr">my old site</a> but has cut my FTP access, so I cannot update or add new stuff.</p>
+<a id="more"></a>
+<aside class="article-wip">
+<img class="no-fancybox" src="/images/Work-in-Progress.svg" width="240" height="110" title="Work in Progress" alt="Work in Progress">
+This is a work in progress: this article is unfinished and will be updated.
+</aside>
+<h2 id="static">Static</h2>
+<p>I found out that GitHub Pages might be a good free host for technical content, but it won&#x2019;t allow a blog / CMS software (like WordPress) to run on it.<br>
+Of course, it has Jekyll, but I wasn&#x2019;t seduced: the syntax is so-so (for me), it is a Ruby tool (slow and I have no control over it), etc.<br>
+But it was a hint: no need for a full fledged blog software generating pages from scratch on each user request: these pages are mostly static so they can be coded once and for all, like I did in the previous century&#x2026;<br>
+The most dynamic parts are the back-office, which I can live without, and managing user comments (with spam control). For the latter, I saw most solutions just use Disqus, a cross-platform comment service relying only on JS (and the related site / cloud host), so needing no server-side script or database. And I already use it (as a commenter), so it looks like the way to go.</p>
+<p>So I need something more flexible, and / or something I could hack into my needs.</p>
+<h2 id="listings">Listings</h2>
+<p>A quick research shown, via two sites (<a href="https://www.staticgen.com/">Top Open-Source Static Site Generators - StaticGen</a> and <a href="https://staticsitegenerators.net/">Static Site Generators</a>) that there is literally a ton of static site generator softwares.<br>
+Note / strong hint for those making such software: if you don&#x2019;t have a site to show of| what your tool can do, you are doing it wrong. No need to pay for a domain name, you can host it on a free site like <a href="http://GitHub.io">GitHub.io</a> or similar.</p>
+<h2 id="hugo">Hugo</h2>
+<p>I first tried <a href="http://gohugo.io/">Hugo</a>, which I discovered earlier: it has a nice site, which is an important point for this kind of software&#x2026; And a decent doc. And native binary is a promise of speed.<br>
+But I quickly hit a limitation: the Markdown parser is quite rigid and not adapted to my needs. And since 1) I don&#x2019;t know Go, 2) I don&#x2019;t have much time for deep hacks, I want something working quickly, I looked elsewhere (it was a &#x201C;no Go&#x201D;&#x2026;).</p>
+<h2 id="other-languages">Other languages</h2>
+<p>I could use a generator written in Lua, which is a language I know and appreciate, but they seem quite confidential, used by the author and a dozen of users (guestimate&#x2026;), so I feared some issues&#x2026; (or too much work to adapt to my needs).</p>
+<p>There are also PHP generators: it feels odd to use this language for off-line generation&#x2026; I can understand they appeal to those familiar with the language.</p>
+<p>I can hack a Java-based generator, but I feared some heaviness.</p>
+<p>I finally chose to explore JavaScript-based generators (via Node.js): I know well the language, and I know there is a rich ecosystem of Web-oriented tools.</p>
+<h2 id="metalsmith">Metalsmith</h2>
+<p>Another interesting generator is <a href="http://www.metalsmith.io/">Metalsmith</a>: it has a very small core, and delegate all tasks to plugins which it orchestrates. It results in flexibility: it can also generate eBooks, etc.</p>
+<h2 id="build-tools">Build tools</h2>
+<p>But, I thought, it looked like yet another build tool, like Webpack, Brunch or Gulp, only with more specialized plugins.<br>
+I know web tools, I know how to transform Markdown to HTML, Sass to CSS, etc. I can surely leverage an existing build tool to do that, with even more flexibility. But as I haven&#x2019;t much time to spend on writing these tools (finding plugins, chaining the tasks into something sensible), I searched some kind of existing &#x201C;glue&#x201D;.</p>
+<h3 id="antwar">AntWar</h3>
+<p>I first tried <a href="http://antwarjs.github.io/">Antwar</a> which is based on Webpack and React.<br>
+It has a good site with a tutorial, and an interesting flexibility.<br>
+But I ran into some issues, like a rigid Markdown parser, so I looked elsewhere.</p>
+<h3 id="akashacms">AkashaCMS</h3>
+<p>Then I tried <a href="http://akashacms.com/">AkashaCMS</a>, still based on Webpack. The site is less sexy, but full of good information. It uses the Markdown-it parser, which is a good choice as it is very flexible.<br>
+I have to write my own template, which is not a real problem, particularly if I use x as a starting point.<br>
+But, out of the box, it uses the quite outdated EJS template system: the code is still in Google Code! The forum hadn&#x2019;t a new message in months. And the syntax is ugly and heavy, reminds of JSP / ASP, and includes JS code to do its stuff.<br>
+Plus it uses Less to generate CSS, while I prefer Sass.<br>
+Again, I can replace these parts if I want, the author explains how to change a renderer, but again I wanted something faster to use.</p>
+<p>I skip over other generators I saw, like <a href="http://moonwave99.github.io/waffel/">Waffel</a> (based on Brunch), which seems promising, or <a href="https://github.com/gatsbyjs/gatsby">Gatsby</a> also interesting, based also on React.js, but written in CoffeeScript.</p>
+<h2 id="hexo">Hexo</h2>
+<p>Finally, I came back to <a href="https://hexo.io/">Hexo</a>, which I looked at several times before&#x2026;<br>
+That&#x2019;s one of the tools with a nice site, good tutorials, and lot of support: it lists lot of plugins and themes, so it is easy to get started.</p>
+<p>Alas, lot (if not all) of these themes are written in EJS (why is it so popular?) and Less&#x2026;</p>
+<p>These were the initial choices of Hexo. Since v.3, they moved EJS and Stylus renderers to external plugins, and there are other plugins, but unless you are willing to make your own theme from scratch, you are stuck with these technologies.</p>
+<p>I chose the <a href="http://blog.zhangruipeng.me/hexo-theme-icarus/">Icarus</a> theme, responsive, clean and nice, supporting Disqus and Google Analytics out of the box.<br>
+I made some minor changes, mostly on the CSS side, to personalize it a bit.</p>
+<h3 id="remarks">Remarks</h3>
+<p>I installed Hexo-cli, then Hexo itself, globally (<code>npm i -g</code>), so that the big footprint of Hexo isn&#x2019;t repeated on each project. Therefore, I removed the <code>hexo</code> dependency from <code>package.json</code>.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[Making of this site]]>
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://PhiLhoSoft.github.io/tags/blog/"/>
+    
+      <category term="Site generation" scheme="http://PhiLhoSoft.github.io/tags/site-generation/"/>
+    
+      <category term="Software" scheme="http://PhiLhoSoft.github.io/tags/software/"/>
+    
+      <category term="Tool" scheme="http://PhiLhoSoft.github.io/tags/tool/"/>
+    
+      <category term="Web" scheme="http://PhiLhoSoft.github.io/tags/web/"/>
+    
+      <category term="Software" scheme="http://PhiLhoSoft.github.io/categories/software/"/>
+    
+      <category term="Tools" scheme="http://PhiLhoSoft.github.io/categories/software/tools/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Functional Reactive Programming]]></title>
     <link href="http://PhiLhoSoft.github.io/Programming/Functional%20Reactive%20Programming/"/>
     <id>http://PhiLhoSoft.github.io/Programming/Functional Reactive Programming/</id>
     <published>2015-11-09T23:00:00.000Z</published>
-    <updated>2015-12-20T23:21:48.716Z</updated>
+    <updated>2015-12-22T07:20:53.631Z</updated>
     <content type="html"><![CDATA[<h1 id="functional-reactive-programming">Functional Reactive Programming</h1>
 <p>FRP is a way to deal with events and asynchronous data in a functional style.<br>
 Basically, it is an implementation of the Observer design pattern, dealing with streams of data coming on a timeline.</p>
@@ -669,7 +2313,7 @@ It can be applied in the real world, from trains coming to a station to persons 
 <h2 id="implementations">Implementations</h2>
 <h3 id="disclaimer">Disclaimer</h3>
 <p>Purists of the FRP concept, those having coined the term, claim that the implementations I talk about here are not really FRP.</p>
-<p>Let&#x2019;s agree on that and say that what we call FRP here is just a bastadized, simplified, with pragmatic compromizes, that happens to use the same term, because it is just convenient&#x2026;</p>
+<p>Let&#x2019;s agree on that and say that what we call FRP here is just a bastardized, simplified, with pragmatic compromises, that happens to use the same term, because it is just convenient&#x2026;</p>
 <h3 id="javascript">JavaScript</h3>
 <p>FRP has been implemented in various languages, particularly in functional languages like Haskell where it is a good fit to their paradigms. But it can be found also in Java, Scala, C#, etc.<br>
 It is quite popular in JavaScript, quite functional in nature, where it solves a number of hard problems: avoiding callback hell (chained asynchronous calls), easing usage of promises and timeouts, handling successions of user input, etc.<br>
@@ -678,16 +2322,16 @@ The <a href="http://xgrommx.github.io/rx-book/index.html">RxJS book</a> lists a 
 <p>The principles explained here can be applied to different languages and libraries, but to avoid being too abstract, I will give examples in JS, using a specific library.</p>
 <h3 id="rxjs">RxJS</h3>
 <p>I briefly explored some of the JS libraries, but finally settled on RxJS: it is one of the most complete implementation, it is backed by a corporation instead of being an experiment from an individual, it has good docs and good tutorials.<br>
-Another advantage: its API has been defined by the <a href="http://reactivex.io/">ReactiveX</a> project, and it has been implemented in lot of languages: Java, C#, C++, Ruby, Python, Swift, and many JVM languages (often via RxJava). Plus some independently developped implementations, like Rx.PHP.<br>
+Another advantage: its API has been defined by the <a href="http://reactivex.io/">ReactiveX</a> project, and it has been implemented in lot of languages: Java, C#, C++, Ruby, Python, Swift, and many JVM languages (often via RxJava). Plus some independently developed implementations, like Rx.PHP.<br>
 So once you know the API for a language, using it in another language is rather trivial, needing mostly minor adaptations.<br>
 One downside of RxJS is its size: it is a large API, so there is lot to learn, and the library is quite big, which can be annoying if you want a lean application (eg. for using on mobile devices).<br>
 That said, a large part of the API can be ignored at first, a beginner needs to know only a few functions (called <em>operators</em> in RxJS).<br>
-Moreover, the API has been split in various packages: the Core libraries contains only the vital minimum for Rx. The Lite libraries and the Main libraries have a base file with the objects and the essential operators, and other files splitted by theme: aggregates, async, time, etc. The difference between Main and Lite resides in the way the operators are grouped.<br>
+Moreover, the API has been split in various packages: the Core libraries contains only the vital minimum for Rx. The Lite libraries and the Main libraries have a base file with the objects and the essential operators, and other files split by theme: aggregates, async, time, etc. The difference between Main and Lite resides in the way the operators are grouped.<br>
 The point is that a project can include only a base file, and add additional ones if a specific operator is needed. This can reduce the amount of code to include in a page.<br>
 Or, for experimentations and convenience, just include the <code>rx.all.js</code> file and be done.</p>
 <p>RxJS calls stream &#x201C;sequences&#x201D;, and since the point is to observe them and to react on what they content, they call them &#x201C;observable sequences&#x201D;. Older documents called them just &#x201C;observables&#x201D;, a bit ambiguous, so they adopted the longer term. I might still use the &#x201C;stream&#x201D; term too.</p>
 <h2 id="creating-a-stream">Creating a stream</h2>
-<p>You can create an Observable from scratch, but in most case, you just use one of the adaptors wrapping common JavaScript entities in an observable sequence.</p>
+<p>You can create an Observable from scratch, but in most case, you just use one of the adapters wrapping common JavaScript entities in an observable sequence.</p>
 <h3 id="wrapping-in-a-stream">Wrapping in a stream</h3>
 <h3 id="creating-from-scratch">Creating from scratch</h3>
 <p>You can create a new instance of the <code>Rx.Observable</code> object.</p>
@@ -725,12 +2369,12 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
     <link href="http://PhiLhoSoft.github.io/Programming/Using%20Lodash%20for%20fun%20and%20profit/"/>
     <id>http://PhiLhoSoft.github.io/Programming/Using Lodash for fun and profit/</id>
     <published>2015-09-30T22:00:00.000Z</published>
-    <updated>2015-12-20T23:26:42.649Z</updated>
+    <updated>2015-12-22T07:20:53.691Z</updated>
     <content type="html"><![CDATA[<h1 id="using-lodash-for-fun-and-profit">Using Lodash for fun and profit</h1>
 <p>Lodash is a JavaScript utility library enabling a functional programming coding style.<br>
 Lodash has general purpose functions, for type checking, string utilities, even functions to manipulate functions.<br>
 More importantly, it has functions to manipulate collections. Collections is a general term covering arrays, objects (seen as maps) and even strings (seen as arrays of characters).</p>
-<p>This allows to replace most <code>for</code> loops with powerful and succint function calls, showing clearly the intent of the operation without having to analyze complex code.</p>
+<p>This allows to replace most <code>for</code> loops with powerful and succinct function calls, showing clearly the intent of the operation without having to analyze complex code.</p>
 <a id="more"></a>
 <aside class="article-wip">
 <img class="no-fancybox" src="/images/Work-in-Progress.svg" width="240" height="110" title="Work in Progress" alt="Work in Progress">
@@ -738,7 +2382,7 @@ This is a work in progress: this article is unfinished and will be updated.
 </aside>
 <h2 id="history">History</h2>
 <p>In the days of JavaScript before EcmaScript 5 (which added methods like map or filter), JS was mostly used as an imperative language.<br>
-The Underscore library (created by Jeremy Ashkenas) changed that by introducing (in 2009) functions like map, filter or reduce to ease processing of arrays. Similarly to jQuery, which adds a global variable named <code>$</code> to be reacheable from everywhere, Underscore adds a global variable named&#x2026; <code>_</code> to provide its functions.<br>
+The Underscore library (created by Jeremy Ashkenas) changed that by introducing (in 2009) functions like map, filter or reduce to ease processing of arrays. Similarly to jQuery, which adds a global variable named <code>$</code> to be reachable from everywhere, Underscore adds a global variable named&#x2026; <code>_</code> to provide its functions.<br>
 An Underscore contributer, John-David Dalton, tired of some limitations and inconsistencies of the library, forked it (in 2012) and named the project Lo-Dash (pun on &#x201C;low dash&#x201D;, ie. an underscore). Later, it just took the name Lodash. The library kept the <code>_</code> symbol, as it is intended to be a drop-in replacement of Underscore: replace one with the other, no other code change, and benefit from higher speed, more functions, more consistency and better documentation.<br>
 Today, Lodash diverges from the Underscore API but maintains a compatibility build.<br>
 Out of the box, Lodash is bigger than Underscore. Unless you start adding extensions to the latter to get functionalities available in Lodash&#x2026; And Lodash has a tool to create a build having only the functions you want. And if you use <code>require</code> on your functions, it will build automatically with only them.<br>
@@ -796,7 +2440,7 @@ Lodash allows to chain calls, leading to more readable code, and even to more ef
 It is necessary because this chain is open-ended: you can add other functions after it. Eg. you can end it after the <code>take()</code>, and have two different values by ending the chain with two different <code>map</code>s.<br>
 <code>value()</code> tells to end the chain and to evaluate it.<br>
 This shows that this chaining is <em>lazy</em>: no processing is done until it is requested by <code>value()</code>. Moreover, this chaining is optimized, Lodash practices function fusion with shortcut: it doesn&#x2019;t create an intermediary result on each function call, but rather creates a compound function processing the whole input at once. And, of course, it will not map the data beyond the 10 selected by <code>take()</code>.<br>
-There is a slighly shorter variant:</p>
+There is a slightly shorter variant:</p>
 <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var r = _<span class="comment">(numbers)</span>.filter<span class="comment">(...)</span>...value<span class="comment">()</span>;</span><br></pre></td></tr></table></figure>
 <p>They are basically the same, with a little difference: <code>value()</code> is not necessary if the final result is a primitive (string, number, &#x2026;). And it is slightly shorter, although less explicit.</p>
 <h2 id="mutating-data">Mutating data</h2>
@@ -879,16 +2523,20 @@ and sentence styles:</li>
 <li>Start Case</li>
 </ul>
 <p>Lodash offers a number of functions to convert from any style to one of these.</p>
-<p>_.camelCase: foo&#x2013;bar-, __foo_bar, Foo Bar =&gt; fooBar<br>
-_.capitalize: foo bar =&gt; Foo bar<br>
-_.kebabCase: FooBar, <em>foo__bar</em>, foo Bar =&gt; foo-bar<br>
-_.snakeCase: foo bar, fooBar, Foo-Bar =&gt; foo_bar<br>
-_.startCase: foo bar, --Foo-bar, _foo_bar =&gt; Foo Bar</p>
+<ul>
+<li>_.camelCase: foo&#x2013;bar-, __foo_bar, Foo Bar =&gt; fooBar</li>
+<li>_.capitalize: foo bar =&gt; Foo bar</li>
+<li>_.kebabCase: FooBar, <em>foo__bar</em>, foo Bar =&gt; foo-bar</li>
+<li>_.snakeCase: foo bar, fooBar, Foo-Bar =&gt; foo_bar</li>
+<li>_.startCase: foo bar, --Foo-bar, _foo_bar =&gt; Foo Bar</li>
+</ul>
 <h3 id="additional-functions">Additional functions:</h3>
-<p>_.deburr(&#x201C;&#xE7;a d&#xE9;j&#xE0; t&#xF4;t&#x201D;) =&gt; ca deja tot<br>
-_.startsWith(&#x201C;aaron&#x201D;, &#x201C;aa&#x201D;) -&gt; true<br>
-_.endsWith(&#x201C;file.txt&#x201D;, &#x201C;.txt&#x201D;) =&gt; true<br>
-_.repeat(&quot;=-&quot;, 3) =&gt; =-=-=-</p>
+<ul>
+<li>_.deburr(&#x201C;&#xE7;a d&#xE9;j&#xE0; t&#xF4;t&#x201D;) =&gt; ca deja tot</li>
+<li>_.startsWith(&#x201C;aaron&#x201D;, &#x201C;aa&#x201D;) -&gt; true</li>
+<li>_.endsWith(&#x201C;file.txt&#x201D;, &#x201C;.txt&#x201D;) =&gt; true</li>
+<li>_.repeat(&quot;=-&quot;, 3) =&gt; =-=-=-</li>
+</ul>
 <p>Plus some other functions too long to detail: see doc for more.<br>
 A <code>template</code> function allowing string interpolation.<br>
 Two escape functions to escape some characters in HTML and regexp. There is also an unescape function.<br>
@@ -951,13 +2599,14 @@ They a particularly useful to ensure an argument has been passed to a function.<
   
   <entry>
     <title><![CDATA[Adobe Brackets review]]></title>
-    <link href="http://PhiLhoSoft.github.io/Software/Adobe%20Backets%20review/"/>
-    <id>http://PhiLhoSoft.github.io/Software/Adobe Backets review/</id>
+    <link href="http://PhiLhoSoft.github.io/Software/Adobe%20Brackets%20review/"/>
+    <id>http://PhiLhoSoft.github.io/Software/Adobe Brackets review/</id>
     <published>2015-09-25T11:24:00.000Z</published>
-    <updated>2015-12-20T22:36:35.721Z</updated>
+    <updated>2015-12-23T09:20:14.846Z</updated>
     <content type="html"><![CDATA[<h1 id="adobe-brackets-ide-for-the-web">Adobe Brackets - IDE for the Web</h1>
 <p>Integrated Development Environment oriented toward the Web technologies</p>
 <p><a href="http://brackets.io/">http://brackets.io/</a></p>
+<img src="/images/Brackets_logo.png" title="Brackets logo" alt="Brackets">
 <h2 id="quick-review">Quick review</h2>
 <p>I installed Brackets (v. 1.2 on Windows 7 with 8 GB of memory; currently at v.1.4), it went out quite smoothly, just asking for the directory where to install it.<br>
 I opened it, it starts very fast.<br>
@@ -1246,7 +2895,7 @@ I will list here a number of these extensions I found useful.</p>
     <link href="http://PhiLhoSoft.github.io/Programming/Functional%20programming%20introduction/"/>
     <id>http://PhiLhoSoft.github.io/Programming/Functional programming introduction/</id>
     <published>2015-09-19T22:00:00.000Z</published>
-    <updated>2015-12-20T23:24:07.752Z</updated>
+    <updated>2015-12-22T07:20:53.655Z</updated>
     <content type="html"><![CDATA[<h1 id="functional-programming-a-brief-pragmatic-overview">Functional Programming: a Brief, Pragmatic Overview</h1>
 <p>Functional Programming (FP) is a programming paradigm, like imperative (procedural) programming or object-oriented programming (OOP).<br>
 Some people oppose these paradigms, but actually they are not exclusive of each other: we do imperative programming inside OOP&#x2019;s methods, and we can mix OOP and FP: that&#x2019;s even a trend in modern languages (Scala, Ceylon, &#x2026;) and in older ones (JavaScript, Java 8&#x2026;).</p>
@@ -1394,10 +3043,11 @@ For this kind of chaining, it is easier if all these functions take only one par
     <link href="http://PhiLhoSoft.github.io/Software/Microsoft%20Visual%20Studio%20Code%20review/"/>
     <id>http://PhiLhoSoft.github.io/Software/Microsoft Visual Studio Code review/</id>
     <published>2015-07-12T09:06:00.000Z</published>
-    <updated>2015-12-19T11:00:15.714Z</updated>
+    <updated>2015-12-23T09:20:14.854Z</updated>
     <content type="html"><![CDATA[<h1 id="microsoft-visual-studio-code-review">Microsoft Visual Studio Code review</h1>
 <p>Integrated Development Environment oriented toward the Web technologies</p>
 <p><a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+<img src="/images/VisualStudioCode_logo.png" title="VisualStudioCode logo" alt="Visual Studio Code">
 <h2 id="quick-review">Quick review</h2>
 <p>I installed Visual Studio Code (v. 0.10.3 on Windows 7 with 8 GB of memory).<br>
 I opened it, it starts reasonably fast.<br>
@@ -1559,8 +3209,10 @@ It is also OK if the variable / property must be an object. It is often used in 
     <link href="http://PhiLhoSoft.github.io/Software/JetBrains%20WebStorm%20review/"/>
     <id>http://PhiLhoSoft.github.io/Software/JetBrains WebStorm review/</id>
     <published>2015-03-02T10:42:00.000Z</published>
-    <updated>2015-12-19T11:00:15.346Z</updated>
+    <updated>2015-12-23T09:20:14.850Z</updated>
     <content type="html"><![CDATA[<h1 id="jetbrains-webstorm-review">JetBrains WebStorm review</h1>
+<p><a href="https://www.jetbrains.com/webstorm/">https://www.jetbrains.com/webstorm/</a></p>
+<img src="/images/WebStorm_logo.png" title="WebStorm logo" alt="WebStorm">
 <p>For Java coding, I elected Eclipse as my main IDE. I tried NetBeans, and appreciated it, but at the time, it was Java-centric so I went back to Eclipse instead, more polyglot. Now, NetBeans is more versatile, but now I know Eclipse well, with its quirks, warts and all, so I remain there.<br>
 When I had to code JavaScript (with AngularJS, how original!) at work, for a new project, I naturally tried to use Eclipse, with an Angular plugin. It wasn&#x2019;t so bad, but still a bit frustrating, with no renaming of local variables, loosing the capability to drag&#x2019;n&#x2019;drop code in CSS or HTML editors (a long-standing bug&#x2026;), and some other frustrations.<br>
 A colleague advised to try WebStorm.<br>

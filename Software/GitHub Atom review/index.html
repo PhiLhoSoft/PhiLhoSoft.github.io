@@ -5,16 +5,17 @@
   
   <title>GitHub Atom review ~|~ PhiLhoSoft Technical Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="a review of the GitHub Atom editor (IDE), at version 0.10">
+  <meta name="description" content="a review of the GitHub Atom editor (IDE), at version 1.3.2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitHub Atom review">
 <meta property="og:url" content="http://PhiLhoSoft.github.io/Software/GitHub Atom review/index.html">
 <meta property="og:site_name" content="PhiLhoSoft Technical Blog">
-<meta property="og:description" content="a review of the GitHub Atom editor (IDE), at version 0.10">
+<meta property="og:description" content="a review of the GitHub Atom editor (IDE), at version 1.3.2">
+<meta property="og:image" content="http://PhiLhoSoft.github.io/images/Atom_logo.png">
 <meta property="og:updated_time" content="2015-12-19T08:16:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub Atom review">
-<meta name="twitter:description" content="a review of the GitHub Atom editor (IDE), at version 0.10">
+<meta name="twitter:description" content="a review of the GitHub Atom editor (IDE), at version 1.3.2">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -99,11 +100,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        10
+        11
         <span>posts</span>
       </div>
       <div class="article-info-block">
-        14
+        16
         <span>tags</span>
       </div>
     </div>
@@ -178,12 +179,16 @@
         <h1 id="github-atom-review">GitHub Atom review</h1>
 <p>&#x201C;A hackable text editor for the 21st Century&#x201D;</p>
 <p><a href="https://atom.io/">https://atom.io/</a></p>
+<img src="/images/Atom_logo.png" title="Atom logo" alt="Atom">
 <h2 id="disclaimer">Disclaimer</h2>
 <p>I came to Atom with a prejudice&#x2026;<br>
-The long closed-source / beta period, the fact the &#x201C;hackable&#x201D; editor isn&#x2019;t coded in JavaScript but in CoffeeScript, the need for plugins for everything (according to some reviews), the reported slowness and memory hungriness, made me to hesitate to try it&#x2026; I was also a happy user of Adobe Brackets, with no compeling need to change.<br>
-But, Brackets accumulated a number of little annoyances, making me to try other editors.<br>
+The long closed-source / beta period, the fact the &#x201C;hackable&#x201D; editor isn&#x2019;t coded in JavaScript but in CoffeeScript, the need to add plugins for everything (according to some reviews), the reported slowness and memory hungriness, made me to hesitate to try it&#x2026; I was also a happy user of <a href="/Software/Adobe%20Brackets%20review">Adobe Brackets</a>, with no compelling need to change.<br>
+But, Brackets accumulated a number of little annoyances, making me wanting to try other editors.<br>
 The test of Visual Studio Code was brief, as it didn&#x2019;t have the base (semi-advanced if you want) features I use all the time: drag&#x2019;n&#x2019;drop of code, and column selection.<br>
-So I tested Atom, with a critical eye. Spoiler: I was seducted, and it becomes my favorite Web IDE&#x2026;</p>
+So I tested Atom, with a critical eye. Spoiler: I was seduced, and it becomes my favorite Web IDE&#x2026;</p>
+<p>That&#x2019;s the problem with information found on Internet: it quickly becomes stale&#x2026;<br>
+The Atom team improved memory consumption, have an eye on responsiveness (I was impressed by their TimeCop package, and the fact they report for each package the time they add to loading), ship lot of plugins with the base editor: delegating to packages is part of their vision of modularity, but they made official packages for the most essential features, and you don&#x2019;t need to hunt every package implementing base features, saving time.</p>
+<p>I appreciate the clean interface and the attention to details they have bring to the project.</p>
 <a id="more"></a>
 <h2 id="quick-review">Quick review</h2>
 <p>I downloaded the installer. It is big! Of the IDEs I tried, it is among the biggest:</p>
@@ -224,29 +229,36 @@ So I tested Atom, with a critical eye. Spoiler: I was seducted, and it becomes m
 </tbody>
 </table>
 <p>I installed Atom (v. 1.3.1 on Windows 7 with 8 GB of memory).<br>
-It doesn&#x2019;t ask where to install, it goes arbitrarily at C:\Users&lt;user name&gt;\AppData\Local\atom. I would prefer to install it beside my other programs, to locale it easily. And I would appreciate it asks me before installing something on the desktop (I have no icons there!) or on the start menu (I no longer care about this one, but still&#x2026;).<br>
-It is a bit &#x201C;all over the place&#x201D;, as it also has a C:\Users&lt;user name&gt;C:\Users\plhoste.atom\AppData\Roaming\Atom folder (for cache?), and a C:\Users&lt;user name&gt;.atom folder (settings, packages&#x2026;).</p>
-<p>I opened it, it starts quickly (at least as second load, after the initial one after install).<br>
-It has a dark UI, which I don&#x2019;t like, but I quickly found where to change this to the default light theme. Good point than several themes are bundled by default: no need to hunt for them. The default light UI theme is rather nice. I also chose the One Light syntax theme among four. A bit too pale (low contrast) for my taste, I will eventually see if I can tweak it.</p>
+It doesn&#x2019;t ask where to install, it goes arbitrarily at <code>C:\Users\&lt;user name&gt;\AppData\Local\atom</code>. I would prefer to install it beside my other programs, to locale it easily. And I would appreciate it asks me before installing something on the desktop (I have no icons there!) or on the start menu (I no longer care about this one, but still&#x2026;).<br>
+It is a bit &#x201C;all over the place&#x201D;, as it also has a <code>C:\Users\&lt;user name&gt;\AppData\Roaming\Atom</code> folder (for cache?), and a <code>C:\Users\&lt;user name&gt;\.atom folder</code> (settings, packages&#x2026;).</p>
+<p>I opened it, it starts rather quickly.<br>
+It has a dark UI, which I don&#x2019;t like, but I quickly found where to change this to the default light theme. Good point than several themes are bundled by default: no need to hunt for them, at least at start. The default light UI theme is rather nice. I also chose the <em>One Light</em> syntax theme among four. A bit too pale (low contrast) for my taste, I will eventually see if I can tweak it.</p>
 <p>As I feared (I searched a bit before, given the Visual Studio Code deception), drag&#x2019;n&#x2019;drop of code isn&#x2019;t available out of the box. Actually, I saw several plugins activating it. That&#x2019;s one of the problems with this editor: there is a plethora of plugins, which can be nice, but it is confusing to choose one&#x2026; And I still think such feature should be built-in in the editor.<br>
-Same for column (rectangular) selections! Later, I found out Atom supports out of the box column selection (Alt+Up / Down, extend only, allows rectangular selection with Shift+Left / Right) and multiple carets (Ctrl+click).<br>
+Same for column (rectangular) selections! Later, I found out Atom supports out of the box column selection (Ctrl+Alt+Up / Down, extend only, allows rectangular selection with Shift+Left / Right) and multiple carets (Ctrl+click).<br>
 I find a bit unsettling to have to install lot of plugins to get base editor features. I have the same issue with Brackets, but it has at least these two features built-in (but D&#x2019;n&#x2019;D must be activated by a setting).<br>
 That said, I found several features out of the box for which I had to install a plugin in Brackets:</p>
 <ul>
-<li>Jump to matching brace / bracket</li>
-<li>Gutter selection<br>
-And finally, Atom has more base features out of the box.</li>
+<li>Jump to matching brace (bracket / parenthesis);</li>
+<li>Gutter selection of lines;</li>
+<li>Show whitespace / end of lines / indentation guides / right margin;</li>
+<li>Selection to upper / lower case; and some more.</li>
+<li>Change text in selection only; regular expressions for searching; limit searches to word only (something I rarely use but which is sometime useful).</li>
 </ul>
-<p>I expected to find a feature not present in Brackets: click on a word, hit Ctrl+F to find the word under caret. Nope, not better, I have to select the word (double-click as usual; Ctrl+D does it as well, but I assign it to duplicate line instead) to have it picked up by default. At least, it memorizes the last search. But unlike SciTE (my all-purpose lightweight text editor of choice), it doesn&#x2019;t keep an history of searches.<br>
-Good point: it allows to change text in selection only (a feature I miss in Brackets), and to limit searches to word only (something I rarely use but which is sometime useful).</p>
+<p>Two features I mentioned in the above article are also missing from Atom:</p>
+<ul>
+<li>Auto-fill of search field with text under caret (text has to be selected; Ctrl+D selects the current word, but I assign it to duplicate line instead; at least, it memorizes the last search);</li>
+<li>Recall previous searches / replacements (something that SciTE (my all-purpose lightweight text editor of choice) does, which I find convenient);</li>
+</ul>
 <p>OK, I switched to Atom to type this text (in Markdown format). Good surprise: it has spell checking enabled out of the box. And it can suggest words, although I am not sure of the logic of suggestions (scanning existing buffers, apparently; nice point: it is not obtrusive). Little bug (or unwanted feature ;-) &#x2013; I see a misspelled word in the text (red underline), I right-click directly on it, and choose Correct spelling. It does nothing&#x2026; I found out I have to left-click first on the word to get spelling suggestions.<br>
-I see no way to add words to a user dictionary.</p>
+I see no way to add words to a user dictionary (there is an issue for that, and another for other language dictionaries).</p>
 <p>The Welcome Guide is nice, I just saw a way to customize the styling. Although it lacks concrete examples: eg. how do I change the color of titles in Markdown? (I avoid reddish colors, reserved to mark errors). Ah, I suppose I have to study an existing style, like <a href="https://github.com/atom/atom-light-syntax/blob/master/index.less">https://github.com/atom/atom-light-syntax/blob/master/index.less</a><br>
 And I can see the actual styles by showing the developer tools (View &gt; Developer &gt; Toggle Developer Tools) and using it like Chrome DevTools.<br>
 Also a bug: I have <em>Choose a Theme</em> and <em>Customize the Styling</em> opened, I can&#x2019;t scroll back above <em>Install a Package</em>. I have to close one to see the top!</p>
 <p>Another bug or unwanted feature: it ensures there is an empty line at the end of a file when saving it, which can be nice (I generally want that), but if I have several lines, it removes the extra ones (which is annoying in a text file, because I want to keep my future paragraph empty lines). Will see if I can disable that.</p>
-<p>Undo coalescing is a bit strange: when I type a word, then undo, it removes parts of the word, successively, instead of whole word.</p>
+<p>Undo coalescing is a bit strange: when I type a word, then undo, it removes parts of the word, successively, instead of whole word.<br>
+Apparently, it coalesces when there is a pause in typing. Half a good idea, bad for slow typists (not sure if this can be tweaked), not consistent. I prefer Scintilla&#x2019;s coalescing, based on keys: when an move key (eg. arrow) is typed, or when clicking somewhere.</p>
 <p>Atom lacks a nice feature of Brackets: in an HTML file, Brackets can auto-complete the path of a resource (script, CSS file, etc.). Found a plugin for that, of course&#x2026; Although it is slightly less convenient.</p>
+<p>Apparently, Atom has only &#x201C;duplicate-lines&#x201D;, not &#x201C;duplicate-selection&#x201D;, alas. Sometime, I want to duplicate the selection inside the same line, eg. to quickly add an additional parameter with its type.</p>
 <p>Annoyance: I can hit Ctrl+F in the Settings &gt; Package page (for example), but it doesn&#x2019;t find anything there (can be convenient to find a given package by something else than its name).</p>
 <p>Command palette: good idea to highlight searched terms, but on light theme, I get light gray highlight, nearly unreadable on very light gray background&#x2026;</p>
 <p>Minor quibble: title and closing cross in inactive tabs are one or two pixels too low (one pixel lower than the active tab, at least). It &#x201C;hurts&#x201D; my sense of tidiness&#x2026; :-)</p>
@@ -262,9 +274,17 @@ Allow column selection with mouse.<br>
 </li>
 <li>
 <p>simple-drag-drop-text<br>
+Enable classical drag&#x2019;n&#x2019;drop of text, with move (by default) or copy (with Ctrl).<br>
 0.3.0 by mark-hahn<br>
 <a href="https://atom.io/packages/simple-drag-drop-text">https://atom.io/packages/simple-drag-drop-text</a><br>
 <a href="https://github.com/mark-hahn/simple-drag-drop-text">https://github.com/mark-hahn/simple-drag-drop-text</a></p>
+</li>
+<li>
+<p>keyboard-localization<br>
+Must have if you have a non-US keyboard; eg. a French one: I can&#x2019;t type } nor ] because I have to use AltGr (ie. RightCtrl+RightAlt) to reach them, and this makes interference with some Ctrl+Alt shortcuts.<br>
+1.4.112 by andischerer<br>
+<a href="https://atom.io/packages/keyboard-localization">https://atom.io/packages/keyboard-localization</a><br>
+<a href="https://github.com/andischerer/atom-keyboard-localization">https://github.com/andischerer/atom-keyboard-localization</a></p>
 </li>
 <li>
 <p>minimap<br>
@@ -282,23 +302,24 @@ Shows headings of a Markdown text as a mindmap, allows to navigate.<br>
 </li>
 <li>
 <p>highlight-selected<br>
+When a selection is done, corresponding words (must be whole words) in the same buffer are highlighted as well.<br>
 0.11.1 by richrace<br>
 <a href="https://atom.io/packages/highlight-selected">https://atom.io/packages/highlight-selected</a><br>
 <a href="https://github.com/richrace/highlight-selected">https://github.com/richrace/highlight-selected</a></p>
 </li>
 <li>
 <p>minimap-highlight-selected<br>
+Shows highlights by the previous package in the minimap.<br>
 4.3.1 by atom-minimap<br>
 <a href="https://atom.io/packages/minimap-highlight-selected">https://atom.io/packages/minimap-highlight-selected</a><br>
 <a href="https://github.com/atom-minimap/minimap-highlight-selected">https://github.com/atom-minimap/minimap-highlight-selected</a></p>
 </li>
 <li>
 <p>autocomplete-paths<br>
-Autocompletion for paths in the project, according to file system.<br>
+Autocompletion for paths in the project, according to file system. With patch <a href="https://github.com/atom-community/autocomplete-paths/pull/51/files">https://github.com/atom-community/autocomplete-paths/pull/51/files</a> applied manually&#x2026;<br>
 1.0.2 by atom-community<br>
 <a href="https://atom.io/packages/autocomplete-paths">https://atom.io/packages/autocomplete-paths</a><br>
-<a href="https://github.com/atom-community/autocomplete-paths">https://github.com/atom-community/autocomplete-paths</a><br>
-With patch <a href="https://github.com/atom-community/autocomplete-paths/pull/51/files">https://github.com/atom-community/autocomplete-paths/pull/51/files</a> applied manually&#x2026;</p>
+<a href="https://github.com/atom-community/autocomplete-paths">https://github.com/atom-community/autocomplete-paths</a></p>
 </li>
 <li>
 <p>autoclose-html<br>
@@ -306,6 +327,13 @@ Automatically close HTML tags.<br>
 0.19.0 by mattberkowitz<br>
 <a href="https://atom.io/packages/autoclose-html">https://atom.io/packages/autoclose-html</a><br>
 <a href="https://github.com/mattberkowitz/autoclose-html">https://github.com/mattberkowitz/autoclose-html</a></p>
+</li>
+<li>
+<p>toggle-quotes<br>
+Keyboard shortcut to switch between single and double quotes on the string the caret is in.<br>
+1.0.0 by atom<br>
+<a href="https://atom.io/packages/toggle-quotes">https://atom.io/packages/toggle-quotes</a><br>
+<a href="https://github.com/atom/toggle-quotes">https://github.com/atom/toggle-quotes</a></p>
 </li>
 <li>
 <p>linter<br>
@@ -344,7 +372,7 @@ Linter for Sass.<br>
 </li>
 <li>
 <p>pigments<br>
-Shows colors from various CSS notations (including named colors). I prefer to display them as circles after the color definition.<br>
+Shows colors from various CSS notations (including named and computed colors). I prefer to display them as circles after the color definition.<br>
 0.19.3 by abe33<br>
 <a href="https://atom.io/packages/pigments">https://atom.io/packages/pigments</a><br>
 <a href="https://github.com/abe33/atom-pigments">https://github.com/abe33/atom-pigments</a></p>
@@ -364,6 +392,27 @@ Add icons (depending on file type) in the tree view on the left.<br>
 <a href="https://github.com/DanBrooker/file-icons">https://github.com/DanBrooker/file-icons</a></p>
 </li>
 <li>
+<p>atom-easy-jsdoc<br>
+JSDoc generation.<br>
+4.2.0 by tgandrews<br>
+<a href="https://atom.io/packages/atom-easy-jsdoc">https://atom.io/packages/atom-easy-jsdoc</a><br>
+<a href="https://github.com/tgandrews/atom-easy-jsdoc">https://github.com/tgandrews/atom-easy-jsdoc</a></p>
+</li>
+<li>
+<p>string-looper<br>
+Change word case, number value and loop between keywords with the arrows of your keyboard.<br>
+0.1.2 by leny<br>
+<a href="https://atom.io/packages/string-looper">https://atom.io/packages/string-looper</a><br>
+<a href="https://github.com/leny/atom-string-looper">https://github.com/leny/atom-string-looper</a></p>
+</li>
+<li>
+<p>sync-settings<br>
+Synchronization of Atom settings across computers.<br>
+0.6.0 by Hackafe<br>
+<a href="https://atom.io/packages/sync-settings">https://atom.io/packages/sync-settings</a><br>
+<a href="https://github.com/Hackafe/atom-sync-settings">https://github.com/Hackafe/atom-sync-settings</a></p>
+</li>
+<li>
 <p>rest-client<br>
 Simple Rest client to generate requests to servers.  Complement of RestClient on Firefox, Postman in Chrome.<br>
 0.5.0 by ddavison<br>
@@ -371,10 +420,27 @@ Simple Rest client to generate requests to servers.  Complement of RestClient on
 <a href="https://github.com/ddavison/rest-client">https://github.com/ddavison/rest-client</a></p>
 </li>
 <li>
+<p>atom-perforce<br>
+Support of the Perforce VCS (I use it at work). Has <a href="https://github.com/mattsawyer77/atom-perforce/issues/46">problems on Windows</a>, I fixed (some of) them.<br>
+1.7.0 by mattsawyer77<br>
+<a href="https://atom.io/packages/atom-perforce">https://atom.io/packages/atom-perforce</a><br>
+<a href="https://github.com/mattsawyer77/atom-perforce">https://github.com/mattsawyer77/atom-perforce</a></p>
+</li>
+</ul>
+<h2 id="not-used-to-see-later">Not used, to see later</h2>
+<ul>
+<li>
+<p>test-jumper<br>
+To jump between main file and its unit test. Not used because it can&#x2019;t seem to fit in our project layout&#x2026; Still interesting.<br>
+0.5.0 by danielcooper<br>
+<a href="https://atom.io/packages/test-jumper">https://atom.io/packages/test-jumper</a><br>
+<a href="https://github.com/danielcooper/test-jumper">https://github.com/danielcooper/test-jumper</a></p>
+</li>
+<li>
 <p>tree-ignore<br>
+Allows to ignore paths in the project. Installation failed silently (not mentioning an error; I see the error when going to <em>Packages</em>), I had to go to the console of the DevTools to see the errors. Apparently, an issue with node-gyp on Windows. So I just use the Ignored Names setting for all projects.<br>
 0.2.6 by leny<br>
-<a href="https://github.com/leny/atom-tree-ignore">https://github.com/leny/atom-tree-ignore</a><br>
-Installation failed silently (not mentioning an error; I see the error when going to <em>Packages</em>), I had to go to the console of the DevTools to see the errors. Apparently, an issue with node-gyp on Windows.</p>
+<a href="https://github.com/leny/atom-tree-ignore">https://github.com/leny/atom-tree-ignore</a></p>
 </li>
 </ul>
 <h1 id="themes">Themes</h1>
@@ -396,7 +462,7 @@ Installation failed silently (not mentioning an error; I see the error when goin
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Software/GitHub Atom review/" data-id="ciifngun0001ge8t1fcipl5jf" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Software/GitHub Atom review/" data-id="ciikd9l0u001pw0t119wgoabc" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Software/GitHub Atom review/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -409,10 +475,19 @@ Installation failed silently (not mentioning an error; I see the error when goin
     
 <nav id="article-nav">
   
+    <a href="/Software/MessagEase Android keyboard review/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MessagEase (Android keyboard) review
+        
+      </div>
+    </a>
   
-    <a href="/Software/Static site generators/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/Programming/RxJS-operators/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Static Site Generators</div>
+      <div class="article-nav-title">RxJS distributions</div>
     </a>
   
 </nav>
@@ -441,9 +516,28 @@ Installation failed silently (not mentioning an error; I see the error when goin
           <li>
             
             <div class="item-thumbnail">
+              <a href="/Software/MessagEase Android keyboard review/" class="thumbnail">
+  
+    <span style="background-image:url(/images/MessagEase_Keyboard.png
+)" alt="MessagEase (Android keyboard) review" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/android/">Android</a></p>
+              <p class="item-title"><a href="/Software/MessagEase Android keyboard review/" class="title">MessagEase (Android keyboard) review</a></p>
+              <p class="item-date"><time datetime="2015-12-17T09:56:00.000Z" itemprop="datePublished">2015-12-17</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
               <a href="/Software/GitHub Atom review/" class="thumbnail">
   
-    <span class="thumbnail-image thumbnail-none"></span>
+    <span style="background-image:url(/images/Atom_logo.png
+)" alt="GitHub Atom review" class="thumbnail-image"></span>
   
 </a>
             </div>
@@ -452,6 +546,23 @@ Installation failed silently (not mentioning an error; I see the error when goin
               <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
               <p class="item-title"><a href="/Software/GitHub Atom review/" class="title">GitHub Atom review</a></p>
               <p class="item-date"><time datetime="2015-12-15T09:40:00.000Z" itemprop="datePublished">2015-12-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/RxJS-operators/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
+              <p class="item-title"><a href="/Programming/RxJS-operators/" class="title">RxJS distributions</a></p>
+              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
             </div>
           </li>
         
@@ -476,23 +587,6 @@ Installation failed silently (not mentioning an error; I see the error when goin
           <li>
             
             <div class="item-thumbnail">
-              <a href="/Programming/RxJS-operators/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
-              <p class="item-title"><a href="/Programming/RxJS-operators/" class="title">RxJS distributions</a></p>
-              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
               <a href="/Programming/Functional Reactive Programming/" class="thumbnail">
   
     <span style="background-image:url(/images/Work-in-Progress.svg
@@ -508,24 +602,6 @@ Installation failed silently (not mentioning an error; I see the error when goin
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/Programming/Using Lodash for fun and profit/" class="thumbnail">
-  
-    <span style="background-image:url(/images/Work-in-Progress.svg
-)" alt="Using Lodash for fun and profit" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/javascript/">JavaScript</a></p>
-              <p class="item-title"><a href="/Programming/Using Lodash for fun and profit/" class="title">Using Lodash for fun and profit</a></p>
-              <p class="item-date"><time datetime="2015-09-30T22:00:00.000Z" itemprop="datePublished">2015-10-01</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -535,7 +611,7 @@ Installation failed silently (not mentioning an error; I see the error when goin
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -544,7 +620,7 @@ Installation failed silently (not mentioning an error; I see the error when goin
   <div class="widget-wrap">
     <h3 class="widget-title">tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keyboard/">Keyboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -553,7 +629,7 @@ Installation failed silently (not mentioning an error; I see the error when goin
   <div class="widget-wrap">
     <h3 class="widget-title">tag cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 17.5px;">IDE</a> <a href="/tags/javascript/" style="font-size: 17.5px;">JavaScript</a> <a href="/tags/library/" style="font-size: 15px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 20px;">Programming</a> <a href="/tags/reactive/" style="font-size: 12.5px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 12.5px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 20px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 17.5px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
+      <a href="/tags/android/" style="font-size: 10px;">Android</a> <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 16px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 16px;">IDE</a> <a href="/tags/javascript/" style="font-size: 16px;">JavaScript</a> <a href="/tags/keyboard/" style="font-size: 10px;">Keyboard</a> <a href="/tags/library/" style="font-size: 14px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 18px;">Programming</a> <a href="/tags/reactive/" style="font-size: 12px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 12px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 18px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 16px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
     </div>
   </div>
 
@@ -562,7 +638,7 @@ Installation failed silently (not mentioning an error; I see the error when goin
   <div class="widget-wrap">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 

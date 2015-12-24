@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://PhiLhoSoft.github.io/Programming/RxJS-operators/index.html">
 <meta property="og:site_name" content="PhiLhoSoft Technical Blog">
 <meta property="og:description" content="RxJS distributions and their operators">
-<meta property="og:updated_time" content="2015-12-21T07:40:18.151Z">
+<meta property="og:updated_time" content="2015-12-23T09:20:14.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RxJS distributions">
 <meta name="twitter:description" content="RxJS distributions and their operators">
@@ -99,11 +99,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        10
+        11
         <span>posts</span>
       </div>
       <div class="article-info-block">
-        14
+        16
         <span>tags</span>
       </div>
     </div>
@@ -176,275 +176,1762 @@
       
                 
         <h1 id="rxjs-distributions">RxJS distributions</h1>
-<p><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc">https://github.com/Reactive-Extensions/RxJS/tree/master/doc</a></p>
+<h2 id="introduction">Introduction</h2>
+<p>RxJS has several distributions:</p>
+<ul>
+<li>The Core distribution, with two sub-modules, is a minimal implementation;</li>
+<li>The Main distribution is broken down between a main module and several sub-modules;</li>
+<li>The Lite distribution is similar to the Main one, but with different assignments: it includes a big part of the binding library, and part of the async one, so it is more usable without including other modules;</li>
+<li>The All distribution includes nearly everything, as the name implies.</li>
+</ul>
+<p>As this is a bit confusing, I made a table out of the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc">official doc</a>, including all mistakes found in this manually generated doc, some of which I point out here, to help tracking them down.</p>
+<h2 id="the-distributions">The distributions</h2>
 <p>Numbers are size in KB of .min.js as of 4.0.6 around October 2015. To be used only as comparison between versions.<br>
 The file names with + are not in the documentation, I found them after installing RxJS. I guess they come from v.4, and that the doc is still about v.3.</p>
-<p>The complete library:</p>
-<pre><code>rx.all.js	A	139
-</code></pre>
-<p>Main Libraries:</p>
-<pre><code>rx.js	R	72
-rx.aggregates.js	RAg	16
-rx.async.js	RAs (needs RBi)	7
-</code></pre>
-<ul>
-<li>rx.backpressure.js		8<br>
-rx.binding.js	RBi	7<br>
-rx.coincidence.js	RCo	7<br>
-rx.experimental.js	RXp	8<br>
-rx.joinpatterns.js	RJp	5</li>
-<li>rx.sorting.js		3<br>
-rx.testing.js	RTe (needs RVt)	7<br>
-rx.time.js	RTi	16<br>
-rx.virtualtime.js	RVt	4</li>
-</ul>
-<p>Lite Libraries:</p>
-<pre><code>rx.lite.js	L	81
-rx.lite.aggregates.js	LAg	17
-rx.lite.async.js	LAs	4
-</code></pre>
-<ul>
-<li>rx.lite.backpressure.js		4<br>
-rx.lite.coincidence.js	LCo	7<br>
-rx.lite.experimental.js	LXp	8<br>
-rx.lite.extras.js	LEx	10<br>
-rx.lite.joinpatterns.js	LJp	5<br>
-rx.lite.testing.js	LTe	7<br>
-rx.lite.time.js	LTi	9<br>
-rx.lite.virtualtime.js	LVt	4</li>
-</ul>
-<p>Core Libraries:</p>
-<pre><code>rx.core.js	C	15
-rx.core.binding.js	CBi	10
-rx.core.testing.js	CTe	14
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>File name</th>
+<th>Id</th>
+<th>Size (KiB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Complete library</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>rx.all.js</td>
+<td>A</td>
+<td>139</td>
+</tr>
+<tr>
+<td><strong>Lite libraries</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>rx.lite.js</td>
+<td>L</td>
+<td>81</td>
+</tr>
+<tr>
+<td>rx.lite.aggregates.js</td>
+<td>LAg</td>
+<td>17</td>
+</tr>
+<tr>
+<td>rx.lite.async.js</td>
+<td>LAs</td>
+<td>4</td>
+</tr>
+<tr>
+<td>rx.lite.backpressure.js +</td>
+<td></td>
+<td>4</td>
+</tr>
+<tr>
+<td>rx.lite.coincidence.js</td>
+<td>LCo</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rx.lite.experimental.js</td>
+<td>LXp</td>
+<td>8</td>
+</tr>
+<tr>
+<td>rx.lite.extras.js</td>
+<td>LEx</td>
+<td>10</td>
+</tr>
+<tr>
+<td>rx.lite.joinpatterns.js</td>
+<td>LJp</td>
+<td>5</td>
+</tr>
+<tr>
+<td>rx.lite.testing.js</td>
+<td>LTe</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rx.lite.time.js</td>
+<td>LTi</td>
+<td>9</td>
+</tr>
+<tr>
+<td>rx.lite.virtualtime.js</td>
+<td>LVt</td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>Main library</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>rx.js</td>
+<td>R</td>
+<td>72</td>
+</tr>
+<tr>
+<td>rx.aggregates.js</td>
+<td>RAg</td>
+<td>16</td>
+</tr>
+<tr>
+<td>rx.async.js</td>
+<td>RAs (needs RBi)</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rx.backpressure.js +</td>
+<td></td>
+<td>8</td>
+</tr>
+<tr>
+<td>rx.binding.js</td>
+<td>RBi</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rx.coincidence.js</td>
+<td>RCo</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rx.experimental.js</td>
+<td>RXp</td>
+<td>8</td>
+</tr>
+<tr>
+<td>rx.joinpatterns.js</td>
+<td>RJp</td>
+<td>5</td>
+</tr>
+<tr>
+<td>rx.sorting.js +</td>
+<td></td>
+<td>3</td>
+</tr>
+<tr>
+<td>rx.testing.js</td>
+<td>RTe (needs RVt)</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rx.time.js</td>
+<td>RTi</td>
+<td>16</td>
+</tr>
+<tr>
+<td>rx.virtualtime.js</td>
+<td>RVt</td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>Core library</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>rx.core.js</td>
+<td>C</td>
+<td>15</td>
+</tr>
+<tr>
+<td>rx.core.binding.js</td>
+<td>CBi</td>
+<td>10</td>
+</tr>
+<tr>
+<td>rx.core.testing.js</td>
+<td>CTe</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
 <h2 id="included-observable-operators">Included Observable Operators</h2>
 <h3 id="observable-methods">Observable Methods</h3>
-<pre><code>amb	A	R	LEx
-case	A	RXp	LXp
-catch	A	R	L
-concat	A	R	L
-create	A	R	L	C
-defer	A	R	L
-empty	A	R	L
-for	A	RXp	LXp
-forkJoin	A	RXp	LXp
-from	A	R	L
-fromArray	A	R	L
-fromCallback	A	RAs	L
-fromEvent	A	RAs	L
-fromEventPattern	A	RAs	L
-fromNodeCallback	A	RAs	L
-fromPromise	A	RAs (4)	L
-generate	A	R	LEx
-generateWithAbsoluteTime	A	RTi	LTi
-generateWithRelativeTime	A	RTi	LTi
-if	A	RXp	LXp
-interval	A	RTi	L
-just	A	R	L
-merge	A	R	L
-mergeDelayError	A	R	L
-never	A	R	L
-of	A	R	L
-ofArrayChanges	A
-ofWithScheduler	A	R	L
-onErrorResumeNext	A	R	LEx
-pairs	A	R	L
-range	A	R	L
-repeat	A	R	L
-return	A	R	L
-spawn	A	RAs	LAs
-start	A	RAs	LAs
-startAsync	A	RAs	LAs
-throw	A	R	L
-timer	A	RTi	L
-toAsync	A	RAs	LAs
-toPromise		RAs
-using	A		LEx
-when	A	RJp	LJp
-while	A	RXp	LXp
-wrap	A	RAs
-zip	A	R	L
-</code></pre>
-<h3 id="observable-instance-methods-prototype-marks-functions-also-on-object">Observable Instance Methods (prototype) (! marks functions also on object)</h3>
-<pre><code>aggregate	A	RAg	LAg
-all	A	RAg	LAg
-</code></pre>
-<p>! amb	A	R	LEx<br>
-and	A	RJp	LJp<br>
-any	A	RAg	LAg<br>
-asObservable	A	R	L<br>
-average	A	RAg	LAg<br>
-buffer	A	RCo	LCo<br>
-bufferWithCount	A	R	LEx<br>
-bufferWithTime	A	RTi	LTi<br>
-bufferWithTimeOrCount	A	RTi	LTi<br>
-! catch	A	R	L<br>
-combineLatest	A	R	L<br>
-! concat	A	R	L<br>
-concatAll	A	R<br>
-concatMap	A	R	L<br>
-connect	A	RBi	L	CBi<br>
-controlled	A<br>
-count	A	RAg	LAg<br>
-debounce	A	RTi	L<br>
-defaultIfEmpty	A	R	L<br>
-delay	A	RTi	L<br>
-delaySubscription	A	RTi	LTi<br>
-dematerialize	A		L<br>
-distinct	A	R	LEx<br>
-distinctUntilChanged	A	R	L<br>
-do	A	R	L<br>
-doOnNext	A	R	L<br>
-doOnError	A	R	L<br>
-doOnCompleted	A	R	L<br>
-doWhile	A	RXp	LXp<br>
-elementAt	A	RAg	LAg<br>
-every	A	RAg	LAg<br>
-expand	A	RXp	LXp<br>
-extend	A	RXp	LXp<br>
-filter	A	R	L<br>
-finally | ensure	A	R	L<br>
-find	A	RAg	LAg<br>
-findIndex	A	RAg	LAg<br>
-first	A	RAg	LAg<br>
-flatMap	A	R	L<br>
-flatMapFirst	A	RXp	LXp<br>
-flatMapLatest	A	R	L<br>
-flatMapObserver	A	R<br>
-flatMapWithMaxConcurrent	A	RXp	LXp<br>
-! forkJoin	A	RXp	LXp<br>
-groupBy	A	RCo	LCo<br>
-groupByUntil	A	RCo	LCo<br>
-groupJoin	A	RCo	LCo<br>
-ignoreElements	A	R	L<br>
-includes	A	RAg (3)	LAg (5)<br>
-indexOf		RAg	LAg<br>
-isEmpty	A	RAg	LAg<br>
-join	A	RCo	LCo<br>
-last	A	RAg	LAg<br>
-lastIndexOf	A	RAg	LAg<br>
-let	A	RXp	LXp<br>
-manySelect	A	RXp	LXp<br>
-map	A	R	L<br>
-max	A	RAg	LAg<br>
-maxBy	A	RAg	LAg<br>
-! merge	A	R	L<br>
-mergeAll	A	R	L<br>
-min	A	RAg	LAg<br>
-minBy	A	RAg	LAg<br>
-multicast	A		L<br>
-observeOn	A	R	LEx<br>
-onErrorResumeNext	A	R	LEx<br>
-pairwise	A	RCo	LCo<br>
-partition	A	RCo	LCo<br>
-pausable	A		(L)<br>
-pausableBuffered	A<br>
-pluck	A<br>
-publish	A	RBi	L	CBi<br>
-publishLast	A	RBi	L	CBi<br>
-publishValue	A	RBi	L	CBi<br>
-refCount	A	RBi	L	CBi<br>
-reduce	A	RAg	LAg<br>
-repeat	A	R	L<br>
-replay	A	RBi	L	CBi<br>
-retry	A	R	L<br>
-retryWhen	A	R	L<br>
-sample	A	RTi	L &amp; LTi<br>
-scan	A	R	L<br>
-select	A	R	L<br>
-selectConcat	A	R	L<br>
-selectMany	A	R	L<br>
-selectManyObserver	A<br>
-sequenceEqual	A	RAg	LAg<br>
-selectSwitch		R	L<br>
-selectSwitchFirst		RXp	LXp<br>
-selectWithMaxConcurrent		RXp	LXp<br>
-share	A (1)	RBi		CBi<br>
-shareLast		RBi		CBi<br>
-shareReplay	A (1)	RBi		CBi<br>
-shareValue	A (1)	RBi		CBi<br>
-single	A	R &amp; RAg	LAg<br>
-singleInstance	A	RBi	L	CBi<br>
-skip	A	R	L<br>
-skipLast	A	R	L<br>
-skipLastWithTime	A	RTi	LTi<br>
-skipUntil	A	R	L<br>
-skipUntilWithTime	A<br>
-skipWhile	A	R	L<br>
-slice	A	RAg	LAg<br>
-some	A	RAg	LAg<br>
-startWith	A	R	L<br>
-subscribe | forEach	A	R	L<br>
-subscribeOn	A	R (2)	LEx<br>
-subscribeOnNext		R	L<br>
-subscribeOnError		R	L<br>
-subscribeOnCompleted		R	L<br>
-sum	A	RAg	LAg<br>
-switch | switchLatest	A	R	L<br>
-switchFirst	A<br>
-take	A	R	L<br>
-takeLast	A	R	L<br>
-takeLastBuffer	A		LEx<br>
-takeLastBufferWithTime	A	RTi	LTi<br>
-takeLastWithTime	A	RTi	LTi<br>
-takeUntil	A	R	L<br>
-takeUntilWithTime	A<br>
-takeWhile	A	R	L<br>
-tap	A		L<br>
-tapOnNext	A		L<br>
-tapOnError	A		L<br>
-tapOnCompleted	A		L<br>
-thenDo		RJp	LJp<br>
-throttle	A	RTi	L<br>
-timeInterval	A	RTi	LTi<br>
-timeout	A	RTi	L &amp; LTi<br>
-timeoutWithSelector			LTi<br>
-timestamp	A	RTi	L &amp; LTi<br>
-toArray	A	R	L<br>
-toMap		RAg	LAg<br>
-? toPromise			L<br>
-toSet		RAg	LAg<br>
-transduce		R	L<br>
-where	A	R	L<br>
-window	A	RCo	LCo<br>
-windowWithCount	A	R	LEx<br>
-windowWithTime	A	RTi	LTi<br>
-windowWithTimeOrCount	A	RTi	LTi<br>
-withLatestFrom	A	R	L<br>
-! zip	A	R	L<br>
-zipIterable	A	R	L</p>
+<table>
+<thead>
+<tr>
+<th>Method name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amb</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>case</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>catch</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>concat</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>create</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>defer</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>empty</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>for</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>forkJoin</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>from</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>fromArray</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>fromCallback</td>
+<td>A</td>
+<td>L</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>fromEvent</td>
+<td>A</td>
+<td>L</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>fromEventPattern</td>
+<td>A</td>
+<td>L</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>fromNodeCallback</td>
+<td>A</td>
+<td>L</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>fromPromise</td>
+<td>A</td>
+<td>L</td>
+<td>RAs (4)</td>
+<td></td>
+</tr>
+<tr>
+<td>generate</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>generateWithAbsoluteTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>generateWithRelativeTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>if</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>interval</td>
+<td>A</td>
+<td>L</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>just</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>merge</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>mergeDelayError</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>never</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>of</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>ofArrayChanges</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ofWithScheduler</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>onErrorResumeNext</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>pairs</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>range</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>repeat</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>return</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>spawn</td>
+<td>A</td>
+<td>LAs</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>start</td>
+<td>A</td>
+<td>LAs</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>startAsync</td>
+<td>A</td>
+<td>LAs</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>throw</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>timer</td>
+<td>A</td>
+<td>L</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>toAsync</td>
+<td>A</td>
+<td>LAs</td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>toPromise</td>
+<td></td>
+<td></td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>using</td>
+<td>A</td>
+<td>LEx</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>when</td>
+<td>A</td>
+<td>LJp</td>
+<td>RJp</td>
+<td></td>
+</tr>
+<tr>
+<td>while</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>wrap</td>
+<td>A</td>
+<td></td>
+<td>RAs</td>
+<td></td>
+</tr>
+<tr>
+<td>zip</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="observable-instance-methods-prototype">Observable Instance Methods (prototype)</h3>
+<p>(! marks functions also on object)</p>
+<table>
+<thead>
+<tr>
+<th>Method name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aggregate</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>all</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>amb !</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>and</td>
+<td>A</td>
+<td>LJp</td>
+<td>RJp</td>
+<td></td>
+</tr>
+<tr>
+<td>any</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>asObservable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>average</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>buffer</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>bufferWithCount</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>bufferWithTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>bufferWithTimeOrCount</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>catch !</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>combineLatest</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>concat !</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>concatAll</td>
+<td>A</td>
+<td></td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>concatMap</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>connect</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>controlled</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>count</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>debounce</td>
+<td>A</td>
+<td>L</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>defaultIfEmpty</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>delay</td>
+<td>A</td>
+<td>L</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>delaySubscription</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>dematerialize</td>
+<td>A</td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>distinct</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>distinctUntilChanged</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>do</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>doOnNext</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>doOnError</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>doOnCompleted</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>doWhile</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>elementAt</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>every</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>expand</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>extend</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>filter</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>finally / ensure</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>find</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>findIndex</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>first</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>flatMap</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>flatMapFirst</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>flatMapLatest</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>flatMapObserver</td>
+<td>A</td>
+<td></td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>flatMapWithMaxConcurrent</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>forkJoin !</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>groupBy</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>groupByUntil</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>groupJoin</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>ignoreElements</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>includes</td>
+<td>A</td>
+<td>LAg (5)</td>
+<td>RAg (3)</td>
+<td></td>
+</tr>
+<tr>
+<td>indexOf</td>
+<td></td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>isEmpty</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>join</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>last</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>lastIndexOf</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>let</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>manySelect</td>
+<td>A</td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>map</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>max</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>maxBy</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>merge !</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>mergeAll</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>min</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>minBy</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>multicast</td>
+<td>A</td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>observeOn</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>onErrorResumeNext</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>pairwise</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>partition</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>pausable</td>
+<td>A</td>
+<td>(L)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pausableBuffered</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pluck</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>publish</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>publishLast</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>publishValue</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>refCount</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>reduce</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>repeat</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>replay</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>retry</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>retryWhen</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>sample</td>
+<td>A</td>
+<td>L &amp; LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>scan</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>select</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>selectConcat</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>selectMany</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>selectManyObserver</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sequenceEqual</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>selectSwitch</td>
+<td></td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>selectSwitchFirst</td>
+<td></td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>selectWithMaxConcurrent</td>
+<td></td>
+<td>LXp</td>
+<td>RXp</td>
+<td></td>
+</tr>
+<tr>
+<td>share</td>
+<td>A (1)</td>
+<td></td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>shareLast</td>
+<td></td>
+<td></td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>shareReplay</td>
+<td>A (1)</td>
+<td></td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>shareValue</td>
+<td>A (1)</td>
+<td></td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>single</td>
+<td>A</td>
+<td>LAg</td>
+<td>R &amp; RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>singleInstance</td>
+<td>A</td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>skip</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>skipLast</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>skipLastWithTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>skipUntil</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>skipUntilWithTime</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>skipWhile</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>slice</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>some</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>startWith</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>subscribe / forEach</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>subscribeOn</td>
+<td>A</td>
+<td>LEx</td>
+<td>R (2)</td>
+<td></td>
+</tr>
+<tr>
+<td>subscribeOnNext</td>
+<td></td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>subscribeOnError</td>
+<td></td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>subscribeOnCompleted</td>
+<td></td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>sum</td>
+<td>A</td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>switch / switchLatest</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>switchFirst</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>take</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>takeLast</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>takeLastBuffer</td>
+<td>A</td>
+<td>LEx</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>takeLastBufferWithTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>takeLastWithTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>takeUntil</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>takeUntilWithTime</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>takeWhile</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>tap</td>
+<td>A</td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tapOnNext</td>
+<td>A</td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tapOnError</td>
+<td>A</td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tapOnCompleted</td>
+<td>A</td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>thenDo</td>
+<td></td>
+<td>LJp</td>
+<td>RJp</td>
+<td></td>
+</tr>
+<tr>
+<td>throttle</td>
+<td>A</td>
+<td>L</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>timeInterval</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>A</td>
+<td>L &amp; LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>timeoutWithSelector</td>
+<td></td>
+<td>LTi</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>A</td>
+<td>L &amp; LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>toArray</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>toMap</td>
+<td></td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>toPromise ?</td>
+<td></td>
+<td>L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>toSet</td>
+<td></td>
+<td>LAg</td>
+<td>RAg</td>
+<td></td>
+</tr>
+<tr>
+<td>transduce</td>
+<td></td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>where</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>window</td>
+<td>A</td>
+<td>LCo</td>
+<td>RCo</td>
+<td></td>
+</tr>
+<tr>
+<td>windowWithCount</td>
+<td>A</td>
+<td>LEx</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>windowWithTime</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>windowWithTimeOrCount</td>
+<td>A</td>
+<td>LTi</td>
+<td>RTi</td>
+<td></td>
+</tr>
+<tr>
+<td>withLatestFrom</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>zip !</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>zipIterable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="included-classes">Included Classes</h2>
 <h3 id="core-objects">Core Objects</h3>
-<pre><code>Rx.Observer	A	R	L	C
-Rx.Observable		R		C
-Rx.Notification	A	R	L	CTe
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rx.Observer</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rx.Observable</td>
+<td></td>
+<td></td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rx.Notification</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>CTe</td>
+</tr>
+</tbody>
+</table>
 <h3 id="subjects">Subjects</h3>
-<pre><code>Rx.AsyncSubject	A	R	L	CBi
-Rx.BehaviorSubject		RBi	L	CBi
-Rx.ReplaySubject		RBi	L	CBi
-Rx.Subject	A	R	L	CBi
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rx.AsyncSubject</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>Rx.BehaviorSubject</td>
+<td></td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>Rx.ReplaySubject</td>
+<td></td>
+<td>L</td>
+<td>RBi</td>
+<td>CBi</td>
+</tr>
+<tr>
+<td>Rx.Subject</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>CBi</td>
+</tr>
+</tbody>
+</table>
 <h3 id="schedulers">Schedulers</h3>
-<pre><code>Rx.Scheduler	A	R	L	C
-Rx.TestScheduler		RTe	LTe	CTe
-Rx.VirtualTimeScheduler		RVt	LVt	CTe
-Rx.HistoricalScheduler		RVt	LVt
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rx.Scheduler</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rx.TestScheduler</td>
+<td></td>
+<td>LTe</td>
+<td>RTe</td>
+<td>CTe</td>
+</tr>
+<tr>
+<td>Rx.VirtualTimeScheduler</td>
+<td></td>
+<td>LVt</td>
+<td>RVt</td>
+<td>CTe</td>
+</tr>
+<tr>
+<td>Rx.HistoricalScheduler</td>
+<td></td>
+<td>LVt</td>
+<td>RVt</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="disposables">Disposables</h3>
-<pre><code>Rx.CompositeDisposable	A	R	L	C
-Rx.Disposable	A	R	L	C
-Rx.RefCountDisposable	A	R	L
-Rx.SerialDisposable	A	R	L	C
-Rx.SingleAssignmentDisposable	A	R	L	C
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rx.CompositeDisposable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rx.Disposable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rx.RefCountDisposable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>Rx.SerialDisposable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Rx.SingleAssignmentDisposable</td>
+<td>A</td>
+<td>L</td>
+<td>R</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
 <h3 id="testing-classes">Testing classes</h3>
-<pre><code>Rx.ReactiveTest		RTe	LTe	CTe
-Rx.Recorded		RTe	LTe	CTe
-Rx.Subscription		RTe	LTe	CTe
-Rx.TestScheduler (see Schedulers above)
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>In All</th>
+<th>Library id for Lite</th>
+<th>Library id for Main</th>
+<th>Library id for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rx.ReactiveTest</td>
+<td></td>
+<td>LTe</td>
+<td>RTe</td>
+<td>CTe</td>
+</tr>
+<tr>
+<td>Rx.Recorded</td>
+<td></td>
+<td>LTe</td>
+<td>RTe</td>
+<td>CTe</td>
+</tr>
+<tr>
+<td>Rx.Subscription</td>
+<td></td>
+<td>LTe</td>
+<td>RTe</td>
+<td>CTe</td>
+</tr>
+<tr>
+<td>Rx.TestScheduler (see Schedulers above)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>(XYz): not in the lists, but found in the description of the operator.<br>
 (1): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.complete.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.complete.md</a><br>
 Also some methods / classes are not in All?<br>
@@ -452,12 +1939,11 @@ Also some methods / classes are not in All?<br>
 (3): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.aggregates.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.aggregates.md</a><br>
 (4): Not in <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.async.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/main/rx.async.md</a><br>
 (5): Out of order in the list at <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/lite/rx.lite.aggregates.md">https://github.com/Reactive-Extensions/RxJS/blob/master/doc/libraries/lite/rx.lite.aggregates.md</a></p>
-<p>?ts=40</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Programming/RxJS-operators/" data-id="ciifnguo60029e8t168iiiiyf" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Programming/RxJS-operators/" data-id="ciikd9l24002iw0t1ljv0p5zm" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Programming/RxJS-operators/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -470,19 +1956,19 @@ Also some methods / classes are not in All?<br>
     
 <nav id="article-nav">
   
-    <a href="/Software/Static site generators/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Software/GitHub Atom review/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Static Site Generators
+          GitHub Atom review
         
       </div>
     </a>
   
   
-    <a href="/Programming/Functional Reactive Programming/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Software/Static site generators/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Functional Reactive Programming</div>
+      <div class="article-nav-title">Static Site Generators</div>
     </a>
   
 </nav>
@@ -511,9 +1997,28 @@ Also some methods / classes are not in All?<br>
           <li>
             
             <div class="item-thumbnail">
+              <a href="/Software/MessagEase Android keyboard review/" class="thumbnail">
+  
+    <span style="background-image:url(/images/MessagEase_Keyboard.png
+)" alt="MessagEase (Android keyboard) review" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/android/">Android</a></p>
+              <p class="item-title"><a href="/Software/MessagEase Android keyboard review/" class="title">MessagEase (Android keyboard) review</a></p>
+              <p class="item-date"><time datetime="2015-12-17T09:56:00.000Z" itemprop="datePublished">2015-12-17</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
               <a href="/Software/GitHub Atom review/" class="thumbnail">
   
-    <span class="thumbnail-image thumbnail-none"></span>
+    <span style="background-image:url(/images/Atom_logo.png
+)" alt="GitHub Atom review" class="thumbnail-image"></span>
   
 </a>
             </div>
@@ -522,6 +2027,23 @@ Also some methods / classes are not in All?<br>
               <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
               <p class="item-title"><a href="/Software/GitHub Atom review/" class="title">GitHub Atom review</a></p>
               <p class="item-date"><time datetime="2015-12-15T09:40:00.000Z" itemprop="datePublished">2015-12-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/RxJS-operators/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
+              <p class="item-title"><a href="/Programming/RxJS-operators/" class="title">RxJS distributions</a></p>
+              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
             </div>
           </li>
         
@@ -546,23 +2068,6 @@ Also some methods / classes are not in All?<br>
           <li>
             
             <div class="item-thumbnail">
-              <a href="/Programming/RxJS-operators/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
-              <p class="item-title"><a href="/Programming/RxJS-operators/" class="title">RxJS distributions</a></p>
-              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
               <a href="/Programming/Functional Reactive Programming/" class="thumbnail">
   
     <span style="background-image:url(/images/Work-in-Progress.svg
@@ -578,24 +2083,6 @@ Also some methods / classes are not in All?<br>
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/Programming/Using Lodash for fun and profit/" class="thumbnail">
-  
-    <span style="background-image:url(/images/Work-in-Progress.svg
-)" alt="Using Lodash for fun and profit" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/javascript/">JavaScript</a></p>
-              <p class="item-title"><a href="/Programming/Using Lodash for fun and profit/" class="title">Using Lodash for fun and profit</a></p>
-              <p class="item-date"><time datetime="2015-09-30T22:00:00.000Z" itemprop="datePublished">2015-10-01</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -605,7 +2092,7 @@ Also some methods / classes are not in All?<br>
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -614,7 +2101,7 @@ Also some methods / classes are not in All?<br>
   <div class="widget-wrap">
     <h3 class="widget-title">tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keyboard/">Keyboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -623,7 +2110,7 @@ Also some methods / classes are not in All?<br>
   <div class="widget-wrap">
     <h3 class="widget-title">tag cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 17.5px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 17.5px;">IDE</a> <a href="/tags/javascript/" style="font-size: 17.5px;">JavaScript</a> <a href="/tags/library/" style="font-size: 15px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 20px;">Programming</a> <a href="/tags/reactive/" style="font-size: 12.5px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 12.5px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 20px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 17.5px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
+      <a href="/tags/android/" style="font-size: 10px;">Android</a> <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/functional-programming/" style="font-size: 16px;">Functional programming</a> <a href="/tags/ide/" style="font-size: 16px;">IDE</a> <a href="/tags/javascript/" style="font-size: 16px;">JavaScript</a> <a href="/tags/keyboard/" style="font-size: 10px;">Keyboard</a> <a href="/tags/library/" style="font-size: 14px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 18px;">Programming</a> <a href="/tags/reactive/" style="font-size: 12px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 12px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 18px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 16px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
     </div>
   </div>
 
@@ -632,7 +2119,7 @@ Also some methods / classes are not in All?<br>
   <div class="widget-wrap">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
