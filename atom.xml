@@ -197,6 +197,7 @@ Apparently, it coalesces when there is a pause in typing. Half a good idea, bad 
 <p>Apparently, Atom has only &#x201C;duplicate-lines&#x201D;, not &#x201C;duplicate-selection&#x201D;, alas. Sometime, I want to duplicate the selection inside the same line, eg. to quickly add an additional parameter with its type.</p>
 <p>Annoyance: I can hit Ctrl+F in the Settings &gt; Package page (for example), but it doesn&#x2019;t find anything there (can be convenient to find a given package by something else than its name).</p>
 <p>Command palette: good idea to highlight searched terms, but on light theme, I get light gray highlight, nearly unreadable on very light gray background&#x2026;</p>
+<p>Bug: column selection doesn&#x2019;t skip wrapped part of lines. Ie. if lines are wrapped, and if we extend a column selection beyond a wrapped line, the wrapped part is also taking the selection.</p>
 <p>Minor quibble: title and closing cross in inactive tabs are one or two pixels too low (one pixel lower than the active tab, at least). It &#x201C;hurts&#x201D; my sense of tidiness&#x2026; :-)</p>
 <h2 id="installed-packages">Installed packages</h2>
 <p>Good point: once a plugin / package is installed, no need to restart Atom to get it working.</p>
