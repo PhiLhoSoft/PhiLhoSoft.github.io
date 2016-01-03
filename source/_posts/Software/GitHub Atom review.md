@@ -46,6 +46,8 @@ I downloaded the installer. It is big! Of the IDEs I tried, it is among the bigg
 | Atom	|	1.3.1	|	88 MB |
 | WebStorm	|	9	|	140MB |
 
+Really heavy for a so-called "text editor".
+
 I installed Atom (v. 1.3.1 on Windows 7 with 8 GB of memory).
 It doesn't ask where to install, it goes arbitrarily at `C:\Users\<user name>\AppData\Local\atom`. I would prefer to install it beside my other programs, to locale it easily. And I would appreciate it asks me before installing something on the desktop (I have no icons there!) or on the start menu (I no longer care about this one, but still...).
 It is a bit "all over the place", as it also has a `C:\Users\<user name>\AppData\Roaming\Atom` folder (for cache?), and a `C:\Users\<user name>\.atom folder` (settings, packages...).
@@ -85,11 +87,21 @@ Atom lacks a nice feature of Brackets: in an HTML file, Brackets can auto-comple
 
 Apparently, Atom has only "duplicate-lines", not "duplicate-selection", alas. Sometime, I want to duplicate the selection inside the same line, eg. to quickly add an additional parameter with its type.
 
+Good idea: if I type something, the buffer is marked as dirty, of course. If I edit back to the initial state (eg. type a char, then Backspace), instead of using Undo, it still see the file as pristine (as Git would do...).
+
 Annoyance: I can hit Ctrl+F in the Settings > Package page (for example), but it doesn't find anything there (can be convenient to find a given package by something else than its name).
 
 Command palette: good idea to highlight searched terms, but on light theme, I get light gray highlight, nearly unreadable on very light gray background...
 
 Bug: column selection doesn't skip wrapped part of lines. Ie. if lines are wrapped, and if we extend a column selection beyond a wrapped line, the wrapped part is also taking the selection.
+
+Bug, or annoyance (as I am used to a different behavior for other editors): if I hit Ctrl+Delete at the start of an indented line, I expect the editor to remove only the indentation characters, ie. to remove spaces or tabs up to the first non-whitespace character. But it eats also the beginning of the significant line, ie. the first word or the first symbols.
+Relevant issue with a workaround: https://github.com/atom/atom/issues/4026
+```
+'atom-workspace atom-text-editor':
+  'ctrl-backspace': 'editor:delete-to-previous-word-boundary'
+  'ctrl-delete': 'editor:delete-to-next-word-boundary'
+```
 
 Minor quibble: title and closing cross in inactive tabs are one or two pixels too low (one pixel lower than the active tab, at least). It "hurts" my sense of tidiness... :-)
 
@@ -114,6 +126,11 @@ Must have if you have a non-US keyboard; eg. a French one: I can't type } nor ] 
 1.4.112 by andischerer
 https://atom.io/packages/keyboard-localization
 https://github.com/andischerer/atom-keyboard-localization
+
+- tree-view-open-files
+0.3.0 by postcasio
+https://atom.io/packages/tree-view-open-files
+https://github.com/postcasio/tree-view-open-files
 
 - minimap
 Visual miniature representation of the content of the editor. Allows quick navigation.
@@ -217,8 +234,14 @@ Change word case, number value and loop between keywords with the arrows of your
 https://atom.io/packages/string-looper
 https://github.com/leny/atom-string-looper
 
+- language-ejs
+EJS template support, to cleanly edit the Hexo theme I chose. Apparently only syntax highlighting support...
+0.2.0 by darron
+https://atom.io/packages/language-ejs
+https://github.com/darron/language-ejs
+
 - sync-settings
-Synchronization of Atom settings across computers.
+Synchronization of Atom settings across computers, using a Gist to keep track of history of various files.
 0.6.0 by Hackafe
 https://atom.io/packages/sync-settings
 https://github.com/Hackafe/atom-sync-settings
@@ -244,8 +267,8 @@ https://atom.io/packages/test-jumper
 https://github.com/danielcooper/test-jumper
 
 - tree-ignore
-Allows to ignore paths in the project. Installation failed silently (not mentioning an error; I see the error when going to _Packages_), I had to go to the console of the DevTools to see the errors. Apparently, an issue with node-gyp on Windows. So I just use the Ignored Names setting for all projects.
-0.2.6 by leny
+Allows to ignore paths in the project, hiding them from the tree-view.
+0.3.1 by leny
 https://github.com/leny/atom-tree-ignore
 
 # Themes

@@ -33,6 +33,9 @@
 		"hexo-renderer-bourbon": "latest",
 		"hexo-autoprefixer": "latest",
 		"hexo-tag-bootstrap": "latest",
-		"hexo-toc": "latest"
+		"hexo-toc": "latest",
+
+		"posthtml": "latest",
+		"posthtml-inline-assets": "latest"
 	}
 }

@@ -52,7 +52,7 @@ cdn: # You can choose "useso" instead of "google apis"(default).
 
 # Miscellaneous
 google_site_verification:
-google_analytics:
+google_analytics: UA-20636309-2
 favicon: /favicon.ico
 twitter:
 google_plus:
