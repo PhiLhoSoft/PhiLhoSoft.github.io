@@ -2,6 +2,8 @@
 
 'use strict';
 
+var deactivated = true;
+
 var posthtml = require('posthtml');
 var inlineAssets = require('posthtml-inline-assets');
 
@@ -15,6 +17,8 @@ hexo.extend.filter.register('after_render:html', inlineSvg);
 
 function inlineSvg(str, data)
 {
+	if (deactivated) return str;
+
 	var options = hexo.config.inlineSvg;
 //~ 	var path = data.path;
 //~ 	var exclude = options.exclude;

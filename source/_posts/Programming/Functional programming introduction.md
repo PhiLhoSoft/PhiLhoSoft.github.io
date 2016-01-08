@@ -57,8 +57,8 @@ FP doesn't like loops (those made with `for`, `while`, `repeat`, etc. keywords).
 Recursion can be hard to get right, and some languages like Java or JavaScript (up to ES6) don't support tail-call recursion, so it is rarely used outside of specialized usages like iterating on tree or graph nodes.
 Fortunately FP offers a wide range of functions to process (or create) collections, which are the most common use case for loops. We will extend on this topic later.
 
-Another important concept in FP is _closures_. When a function returns another function, the inner one can use outer variables in its scope. In general, it is limited to the immediate scope, ie. variables and parameters of the enclosing function. It is a capture of the state of these variables at the time the function is returned. We say the inner function _closes_ over these values, hence the closure name.
-It is a double edged sword, as these captured variables might be mutated, introducing state in the function, something that FP avoids...
+Another important concept in FP is _closures_. When a function returns another function, the inner one (the closure) can use outer variables in its scope. In general, usage is limited to the immediate scope, ie. variables and parameters of the enclosing function. The closure keeps a reference on the content of the used variables at the time the function is returned. We say the inner function _closes_ over these values, hence the closure name.
+It is a double edged sword, as these captured values might be mutated (if possible / allowed for the value), introducing state in the function, something that FP avoids...
 Let's make an example for this rather abstract concept. I use JavaScript (ES6) here. I make a generic function that can return specialized variants:
 
 ```

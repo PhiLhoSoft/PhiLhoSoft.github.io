@@ -38,13 +38,13 @@ I appreciate the clean interface and the attention to details they have bring to
 
 I downloaded the installer. It is big! Of the IDEs I tried, it is among the biggest:
 
-| Name	|	Version	|	Size |
-| ----- | --------- | ------ |
-| Brackets	|	1.5	|	37 MB |
-| Visual Studio Code	|	0.10.3	|	43 MB |
-| Light Table	|	0.7.2	|	48 MB |
-| Atom	|	1.3.1	|	88 MB |
-| WebStorm	|	9	|	140MB |
+|	Name	|	Version	|	Size	|
+|---|---|---|
+|	Brackets	|	1.5	|	37 MB	|
+|	Visual Studio Code	|	0.10.3	|	43 MB	|
+|	Light Table	|	0.7.2	|	48 MB	|
+|	Atom	|	1.3.1	|	88 MB	|
+|	WebStorm	|	9	|	140MB	|
 
 Really heavy for a so-called "text editor".
 
@@ -128,6 +128,7 @@ https://atom.io/packages/keyboard-localization
 https://github.com/andischerer/atom-keyboard-localization
 
 - tree-view-open-files
+Shows opened files above the tree-view. Better than tabs when lot of files are opened.
 0.3.0 by postcasio
 https://atom.io/packages/tree-view-open-files
 https://github.com/postcasio/tree-view-open-files
@@ -199,16 +200,28 @@ https://atom.io/packages/linter-csslint
 https://github.com/AtomLinter/linter-csslint
 
 - linter-sass-lint
-Linter for Sass.
-0.4.3 by DanPurdy
+Linter for Sass / Scss.
+0.6.3 by AtomLinter
 https://atom.io/packages/linter-sass-lint
-https://github.com/DanPurdy/linter-sass-lint
+https://github.com/AtomLinter/linter-sass-lint
 
 - pigments
 Shows colors from various CSS notations (including named and computed colors). I prefer to display them as circles after the color definition.
 0.19.3 by abe33
 https://atom.io/packages/pigments
 https://github.com/abe33/atom-pigments
+
+- refactor
+Allows refactoring (basically, renaming of identifiers in context). Needs plugins per language.
+0.6.0 by hax
+https://atom.io/packages/refactor
+https://github.com/hax/refactor
+
+- js-refactor
+Refactor plugin for JS.
+0.6.0 by hax
+https://atom.io/packages/js-refactor
+https://github.com/hax/js-refactor
 
 - atom-beautify
 Beaufity code, according to given rules. Not for my code (I always format as I want) but for foreign code pasted in mine...
@@ -228,12 +241,6 @@ JSDoc generation.
 https://atom.io/packages/atom-easy-jsdoc
 https://github.com/tgandrews/atom-easy-jsdoc
 
-- string-looper
-Change word case, number value and loop between keywords with the arrows of your keyboard.
-0.1.2 by leny
-https://atom.io/packages/string-looper
-https://github.com/leny/atom-string-looper
-
 - language-ejs
 EJS template support, to cleanly edit the Hexo theme I chose. Apparently only syntax highlighting support...
 0.2.0 by darron
@@ -245,6 +252,11 @@ Synchronization of Atom settings across computers, using a Gist to keep track of
 0.6.0 by Hackafe
 https://atom.io/packages/sync-settings
 https://github.com/Hackafe/atom-sync-settings
+
+- tree-ignore
+Allows to ignore paths in the project, hiding them in the tree-view.
+0.3.1 by leny
+https://github.com/leny/atom-tree-ignore
 
 - rest-client
 Simple Rest client to generate requests to servers.  Complement of RestClient on Firefox, Postman in Chrome.
@@ -260,16 +272,17 @@ https://github.com/mattsawyer77/atom-perforce
 
 ## Not used, to see later
 
+- string-looper
+Change word case, number value and loop between keywords with the arrows of your keyboard.
+0.1.2 by leny
+https://atom.io/packages/string-looper
+https://github.com/leny/atom-string-looper
+
 - test-jumper
 To jump between main file and its unit test. Not used because it can't seem to fit in our project layout... Still interesting.
 0.5.0 by danielcooper
 https://atom.io/packages/test-jumper
 https://github.com/danielcooper/test-jumper
-
-- tree-ignore
-Allows to ignore paths in the project, hiding them from the tree-view.
-0.3.1 by leny
-https://github.com/leny/atom-tree-ignore
 
 # Themes
 

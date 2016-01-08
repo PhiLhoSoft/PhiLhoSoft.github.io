@@ -271,10 +271,10 @@ _.defaultsDeep(dest, src1, src2)
 Reminder: case is a typographical style: uppercase (A) or lowercase (a).
 JavaScript allows to change case of a whole string: `s.toUpperCase()` and `s.toLowerCase()`.
 Language identifiers (and file names, etc.) can have various styles:
-- snake_case (one style of variables)
-- UPPER_CASE (constants)
-- camelCase (another style of variables)
-- TitleCase (classes)
+- UPPER_CASE (usually constants)
+- snake_case (one style of variables / functions)
+- camelCase (another style of variables / functions)
+- TitleCase (often classes and similar constructs, functions in Microsoft world...)
 - kebab-case (CSS properties, often CSS class names too)
 and sentence styles:
 - Initial capital

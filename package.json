@@ -30,7 +30,6 @@
 
 		"hexo-generator-search": "latest",
 		"hexo-renderer-markdown-it": "latest",
-		"hexo-renderer-bourbon": "latest",
 		"hexo-autoprefixer": "latest",
 		"hexo-tag-bootstrap": "latest",
 		"hexo-toc": "latest",
