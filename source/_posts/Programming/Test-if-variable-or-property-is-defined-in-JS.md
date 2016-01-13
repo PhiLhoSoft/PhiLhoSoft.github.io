@@ -8,7 +8,7 @@ tags:
 - Programming
 - JavaScript
 date: 2015-03-20 18:20
-updated: 2015-12-18 10:20
+updated: 2015-01-13 12:20
 ---
 
 # How to test if a variable or property is defined in JavaScript
@@ -60,12 +60,13 @@ if (someIdentifier === undefined)
 ```
 Beware: don't use `==` as automatic type conversions done by JavaScript will bite you!
 
-Some people object that this method can be flawed because JavaScript doesn't prevent from assigning a value to `undefined`:
+Some people object that this method can be flawed because JavaScript doesn't prevent from assigning a value to `undefined`, which is not a keyword. It is just a variable attached to the global object (`window` in a browser):
 `undefined = {};` is legal!
 Now, it is unlikely to happen, unless somebody made a programming mistake like forgetting an `=` in an oddly constructed test: `if (undefined = foo)`.
 If you include in your code base some code from an inattentive adept of Yoda conditions, you have a bigger problem than you thought... :-)
-And ECMAScript 5, implemented in all major modern browsers, now prevent this, making (at least!) `undefined` immutable.
-So, unless you target very old browsers, it is safe, short and explicit.
+And EcmaScript 5, implemented in all major modern browsers, now prevent this, making (at least!) `undefined` immutable.
+Although you can still define a local variable shadowing the global `undefined`. But, again, defining a `var undefined` in your code is unlikely (or malicious!).
+So, unless you target very old browsers or you are very paranoid, it is safe, short and explicit.
 
 ### if (v)
 

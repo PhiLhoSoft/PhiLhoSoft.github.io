@@ -21,7 +21,7 @@ Basically, it is an implementation of the Observer design pattern, dealing with 
 
 ## Concept
 
-We saw, in the article about [functional programming](/Programming/Functional%20programming%20introduction/), powerful ways to process iterable data, by composing functions, with lazy evaluation able to deal with infinite data, etc.
+We saw, in the article about [functional programming](/Programming/Functional-programming-introduction/), powerful ways to process iterable data, by composing functions, with lazy evaluation able to deal with infinite data, etc.
 FRP does the same, but applied to streams of events, which introduces a new dimension: time.
 Events can be seen as some data coming at a given point in time.
 Data might come from user interaction: a keyboard key is pressed or released, the mouse moves, is pressed, dragged, released, etc.

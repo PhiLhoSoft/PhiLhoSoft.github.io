@@ -22,7 +22,7 @@ https://atom.io/
 ## Disclaimer
 
 I came to Atom with a prejudice...
-The long closed-source / beta period, the fact the "hackable" editor isn't coded in JavaScript but in CoffeeScript, the need to add plugins for everything (according to some reviews), the reported slowness and memory hungriness, made me to hesitate to try it... I was also a happy user of [Adobe Brackets](/Software/Adobe%20Brackets%20review), with no compelling need to change.
+The long closed-source / beta period, the fact the "hackable" editor isn't coded in JavaScript but in CoffeeScript, the need to add plugins for everything (according to some reviews), the reported slowness and memory hungriness, made me to hesitate to try it... I was also a happy user of [Adobe Brackets](/Software/Adobe-Brackets-review), with no compelling need to change.
 But, Brackets accumulated a number of little annoyances, making me wanting to try other editors.
 The test of Visual Studio Code was brief, as it didn't have the base (semi-advanced if you want) features I use all the time: drag'n'drop of code, and column selection.
 So I tested Atom, with a critical eye. Spoiler: I was seduced, and it becomes my favorite Web IDE...
@@ -108,6 +108,7 @@ Minor quibble: title and closing cross in inactive tabs are one or two pixels to
 ## Installed packages
 
 Good point: once a plugin / package is installed, no need to restart Atom to get it working.
+Note: list can be incomplete, and version numbers are indicative only: I won't update them on each package update!
 
 - Sublime Style Column Selection
 Allow column selection with mouse.
@@ -193,17 +194,11 @@ Linter for HTML.
 https://atom.io/packages/linter-htmlhint
 https://github.com/AtomLinter/linter-htmlhint
 
-- linter-csslint
-Linter for CSS.
-1.1.0 by AtomLinter
-https://atom.io/packages/linter-csslint
-https://github.com/AtomLinter/linter-csslint
-
-- linter-sass-lint
-Linter for Sass / Scss.
-0.6.3 by AtomLinter
-https://atom.io/packages/linter-sass-lint
-https://github.com/AtomLinter/linter-sass-lint
+- linter-stylelint
+Linter for CSS and Sass.
+1.9.1 by AtomLinter
+https://atom.io/packages/linter-stylelint
+https://github.com/AtomLinter/linter-stylelint
 
 - pigments
 Shows colors from various CSS notations (including named and computed colors). I prefer to display them as circles after the color definition.
@@ -218,7 +213,7 @@ https://atom.io/packages/refactor
 https://github.com/hax/refactor
 
 - js-refactor
-Refactor plugin for JS.
+Refactor plugin for JS (only rename variables and parameters).
 0.6.0 by hax
 https://atom.io/packages/js-refactor
 https://github.com/hax/js-refactor
@@ -256,6 +251,7 @@ https://github.com/Hackafe/atom-sync-settings
 - tree-ignore
 Allows to ignore paths in the project, hiding them in the tree-view.
 0.3.1 by leny
+https://atom.io/packages/atom-tree-ignore
 https://github.com/leny/atom-tree-ignore
 
 - rest-client

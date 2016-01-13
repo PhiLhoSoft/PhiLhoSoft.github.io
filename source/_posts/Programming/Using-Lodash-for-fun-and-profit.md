@@ -51,7 +51,7 @@ These functions always take a collection as input, and generally a function, cal
 There are functions to filter out items (or to keep only some of them), to map them to something else, to reduce them to a single value, to find an item, etc.
 With them, you will never need to write a for loop ever again...
 
-I wrote [an article explaining the base principles of functional programming](/Programming/Functional%20programming%20introduction/) (FP) behind these functions. I invite you to read it before continuing here: although the article is language agnostic, it fully apply to Lodash and I cleverly used Lodash function names there... Actually, most of them are relatively standard in the FP world and can be found in various libraries across various languages.
+I wrote [an article explaining the base principles of functional programming](/Programming/Functional-programming-introduction/) (FP) behind these functions. I invite you to read it before continuing here: although the article is language agnostic, it fully apply to Lodash and I cleverly used Lodash function names there... Actually, most of them are relatively standard in the FP world and can be found in various libraries across various languages.
 
 So here, I will concentrate on the specificities of Lodash, fully adapted to the needs of JavaScript.
 
