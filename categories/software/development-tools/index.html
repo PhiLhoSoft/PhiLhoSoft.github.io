@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Playground ~|~ PhiLhoSoft Technical Blog</title>
+  <title>Category: Development tools ~|~ PhiLhoSoft Technical Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A place to experiment with the theme">
+  <meta name="description" content="PhiLho&apos;s technical articles">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Playground">
-<meta property="og:url" content="http://PhiLhoSoft.github.io/playground/index.html">
+<meta property="og:title" content="PhiLhoSoft Technical Blog">
+<meta property="og:url" content="http://PhiLhoSoft.github.io/categories/software/development-tools/index.html">
 <meta property="og:site_name" content="PhiLhoSoft Technical Blog">
-<meta property="og:description" content="A place to experiment with the theme">
-<meta property="og:updated_time" content="2015-12-22T07:20:53.703Z">
+<meta property="og:description" content="PhiLho&apos;s technical articles">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Playground">
-<meta name="twitter:description" content="A place to experiment with the theme">
+<meta name="twitter:title" content="PhiLhoSoft Technical Blog">
+<meta name="twitter:description" content="PhiLho&apos;s technical articles">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -194,140 +193,50 @@ ga('send', 'pageview');
 </aside>
 
       
-      <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
-  <div class="article-inner">
+      <section id="main">
+    <section class="archives-wrap">
+    <div class="archive-category-wrap">
+      <span class="archive-category">Development tools</span>
+    </div>
+    <div class="archives">
     
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
-    
-      <header class="article-header">
-        
+    <div class="archive-article-thumbnail">
+      <a href="/Software/Git-gitignore-rules/" class="thumbnail">
   
-    <h1 class="article-title" itemprop="name">
-      Playground
+    <span style="background-image:url(/images/Git_logo.png
+)" alt="Git .gitignore rules" class="thumbnail-image"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/Software/Git-gitignore-rules/">Git .gitignore rules</a>
     </h1>
   
 
-        <div class="article-meta">
-          
-  <div class="article-date">
+      
+        
+  <div class="archive-article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/playground/index.html">
-      <time datetime="2015-12-21T07:01:35.000Z" itemprop="datePublished">2015-12-21</time>
+    <a href="/Software/Git-gitignore-rules/">
+      <time datetime="2016-01-08T10:34:00.000Z" itemprop="datePublished">2016 Jan 8</time>
     </a>
   </div>
 
 
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
       
-                
-        <h1 id="playground">Playground</h1>
-<p>This is a place to experiment with the theme, and Markdown rendering.</p>
-<p>This page is ugly on purpose&#x2026; (almost).</p>
-<h2 id="technical">Technical</h2>
-<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Testing some code display. To be highlighted later.</span></span><br><span class="line"></span><br><span class="line">String defaultAsString&lt;Element&gt;(Element? e) =&gt; e?.string <span class="keyword">else</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="annotation">shared</span> String formatAsNewick&lt;Element, ActualTreeNode&gt;(ActualTreeNode root,</span><br><span class="line">        String(Element?) asString = defaultAsString&lt;Element&gt;)</span><br><span class="line">        <span class="keyword">given</span> ActualTreeNode <span class="keyword">satisfies</span> TreeNode&lt;Element, ActualTreeNode&gt;</span><br><span class="line">{</span><br><span class="line">    <span class="comment">// We need a custom iterator as we do a specific action on each step.</span></span><br><span class="line">    <span class="keyword">class</span> PostOrderIteration(ActualTreeNode root)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">function</span> wrap(ActualTreeNode node)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">return</span> [ node, node.children.iterator() ];</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        Stack&lt;[ ActualTreeNode, Iterator&lt;ActualTreeNode&gt; ]&gt; stack = LinkedList&lt;[ ActualTreeNode, Iterator&lt;ActualTreeNode&gt; ]&gt;();</span><br><span class="line">        stack.push(wrap(root));</span><br><span class="line"></span><br><span class="line">        <span class="annotation">shared</span> <span class="keyword">void</span> iterate(StringBuilder sb)</span><br><span class="line">        {</span><br><span class="line">            <span class="comment">// Cut for shortness...</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">value</span> ppi = PostOrderIteration(root);</span><br><span class="line">    <span class="keyword">value</span> sb = StringBuilder();</span><br><span class="line">    ppi.iterate(sb);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sb.string;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h2 id="typography">Typography</h2>
-<section>
-<h3 id="paragraphs-and-lists">Paragraphs and lists</h3>
-<p>A simple paragraph. Followed by an ordered list (<abbr title="ordered list">OL</abbr>).</p>
-<ol>
-<li>One</li>
-<li>Two</li>
-<li>Three<br>
-Can have <strong>paragraph</strong> inside, too.</li>
-</ol>
-<p>Then an unordered list. (<abbr title="unordered list">UL</abbr>)</p>
-<ul>
-<li>One</li>
-<li>Two</li>
-<li>Three<br>
-Here too, can have <em>paragraph</em> inside, too.</li>
-</ul>
-<p>And a simple regular paragraph to conclude.</p>
-</section>
-<section>
-<h3 id="inline-code">Inline code</h3>
-<p>We can have code in a paragraph: <code>var p = _.find(persons, { name: Bond&apos;, surname: &apos;James&apos; });</code> and even more.</p>
-</section>
-<section>
-<h3 id="quote">Quote</h3>
-<p>Let&#x2019;s try a quote:</p>
-<blockquote cite="http://ceylon-lang.org/documentation/1.2/spec/html_single/#d0e15">
-Java is a simple language to learn and Java code is easy to read and understand.
-Java provides a level of typesafety that is appropriate for business computing and
-enables sophisticated tooling with features like refactoring support, code completion, and code navigation.
-Ceylon aims to retain the overall model of Java, while getting rid of some of Java&apos;s warts,
-and improving upon Java&apos;s facilities for creating abstractions and writing generic libraries and frameworks.
-</blockquote>
-<p>From the <cite>Ceylon Language Specification</cite></p>
-</section>
-<section>
-<h3 id="tables">Tables</h3>
-<p>Now, with tables (thead, tfoot, and tbody)</p>
-<table>
-	<caption>Caption of the table</caption>
-	<thead>
-		<tr>
-			<th>First Header</th>
-			<th>Second Header</th>
-			<th>Last Header</th>
-		</tr>
-	</thead>
-	<tfoot>
-		<tr>
-			<td>Footer on Left</td>
-			<td>Footer on Middle</td>
-			<td>Footer on Right</td>
-		</tr>
-	</tfoot>
-	<tbody>
-		<tr>
-			<td>Body content 1.1</td>
-			<td>Body content 2.1</td>
-			<td>Body content 3.1</td>
-		</tr>
-		<tr>
-			<td>Body content 1.2</td>
-			<td>Body content 2.2</td>
-			<td>Body content 3.2</td>
-		</tr>
-		<tr>
-			<td>Body content 1.3</td>
-			<td>Body content 2.3</td>
-			<td>Body content 3.3</td>
-		</tr>
-	</tbody>
-</table>
-That&apos;s all for now.
-</section>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/playground/index.html" data-id="cijdi0xpr000kqkt1e26m1sgn" class="article-share-link">Share</a>
-      
-        <a href="http://PhiLhoSoft.github.io/playground/index.html#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
+    </header>
   </div>
-  
-    
-
-  
 </article>
-
-
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
-
-</section>
+    
+    </div></section>
+    </section>
       
         <aside id="sidebar">
   
@@ -488,7 +397,7 @@ That&apos;s all for now.
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

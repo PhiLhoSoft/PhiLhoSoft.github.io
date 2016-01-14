@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Playground ~|~ PhiLhoSoft Technical Blog</title>
+  <title>Git .gitignore rules ~|~ PhiLhoSoft Technical Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A place to experiment with the theme">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Playground">
-<meta property="og:url" content="http://PhiLhoSoft.github.io/playground/index.html">
+  <meta name="description" content="Exploration of some points of .gitignore rules">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git .gitignore rules">
+<meta property="og:url" content="http://PhiLhoSoft.github.io/Software/Git-gitignore-rules/index.html">
 <meta property="og:site_name" content="PhiLhoSoft Technical Blog">
-<meta property="og:description" content="A place to experiment with the theme">
-<meta property="og:updated_time" content="2015-12-22T07:20:53.703Z">
+<meta property="og:description" content="Exploration of some points of .gitignore rules">
+<meta property="og:image" content="http://PhiLhoSoft.github.io/images/Git_logo.png">
+<meta property="og:updated_time" content="2016-01-13T23:11:38.628Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Playground">
-<meta name="twitter:description" content="A place to experiment with the theme">
+<meta name="twitter:title" content="Git .gitignore rules">
+<meta name="twitter:description" content="Exploration of some points of .gitignore rules">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -194,7 +195,7 @@ ga('send', 'pageview');
 </aside>
 
       
-      <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-Software/Git-gitignore-rules" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -203,7 +204,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      Playground
+      Git .gitignore rules
     </h1>
   
 
@@ -211,111 +212,411 @@ ga('send', 'pageview');
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/playground/index.html">
-      <time datetime="2015-12-21T07:01:35.000Z" itemprop="datePublished">2015-12-21</time>
+    <a href="/Software/Git-gitignore-rules/">
+      <time datetime="2016-01-08T10:34:00.000Z" itemprop="datePublished">2016-01-08</time>
     </a>
   </div>
 
 
           
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/development-tools/">Development tools</a>
+  </div>
+
         </div>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <h1 id="playground">Playground</h1>
-<p>This is a place to experiment with the theme, and Markdown rendering.</p>
-<p>This page is ugly on purpose&#x2026; (almost).</p>
-<h2 id="technical">Technical</h2>
-<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Testing some code display. To be highlighted later.</span></span><br><span class="line"></span><br><span class="line">String defaultAsString&lt;Element&gt;(Element? e) =&gt; e?.string <span class="keyword">else</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="annotation">shared</span> String formatAsNewick&lt;Element, ActualTreeNode&gt;(ActualTreeNode root,</span><br><span class="line">        String(Element?) asString = defaultAsString&lt;Element&gt;)</span><br><span class="line">        <span class="keyword">given</span> ActualTreeNode <span class="keyword">satisfies</span> TreeNode&lt;Element, ActualTreeNode&gt;</span><br><span class="line">{</span><br><span class="line">    <span class="comment">// We need a custom iterator as we do a specific action on each step.</span></span><br><span class="line">    <span class="keyword">class</span> PostOrderIteration(ActualTreeNode root)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">function</span> wrap(ActualTreeNode node)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">return</span> [ node, node.children.iterator() ];</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        Stack&lt;[ ActualTreeNode, Iterator&lt;ActualTreeNode&gt; ]&gt; stack = LinkedList&lt;[ ActualTreeNode, Iterator&lt;ActualTreeNode&gt; ]&gt;();</span><br><span class="line">        stack.push(wrap(root));</span><br><span class="line"></span><br><span class="line">        <span class="annotation">shared</span> <span class="keyword">void</span> iterate(StringBuilder sb)</span><br><span class="line">        {</span><br><span class="line">            <span class="comment">// Cut for shortness...</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">value</span> ppi = PostOrderIteration(root);</span><br><span class="line">    <span class="keyword">value</span> sb = StringBuilder();</span><br><span class="line">    ppi.iterate(sb);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sb.string;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h2 id="typography">Typography</h2>
-<section>
-<h3 id="paragraphs-and-lists">Paragraphs and lists</h3>
-<p>A simple paragraph. Followed by an ordered list (<abbr title="ordered list">OL</abbr>).</p>
-<ol>
-<li>One</li>
-<li>Two</li>
-<li>Three<br>
-Can have <strong>paragraph</strong> inside, too.</li>
-</ol>
-<p>Then an unordered list. (<abbr title="unordered list">UL</abbr>)</p>
-<ul>
-<li>One</li>
-<li>Two</li>
-<li>Three<br>
-Here too, can have <em>paragraph</em> inside, too.</li>
-</ul>
-<p>And a simple regular paragraph to conclude.</p>
-</section>
-<section>
-<h3 id="inline-code">Inline code</h3>
-<p>We can have code in a paragraph: <code>var p = _.find(persons, { name: Bond&apos;, surname: &apos;James&apos; });</code> and even more.</p>
-</section>
-<section>
-<h3 id="quote">Quote</h3>
-<p>Let&#x2019;s try a quote:</p>
-<blockquote cite="http://ceylon-lang.org/documentation/1.2/spec/html_single/#d0e15">
-Java is a simple language to learn and Java code is easy to read and understand.
-Java provides a level of typesafety that is appropriate for business computing and
-enables sophisticated tooling with features like refactoring support, code completion, and code navigation.
-Ceylon aims to retain the overall model of Java, while getting rid of some of Java&apos;s warts,
-and improving upon Java&apos;s facilities for creating abstractions and writing generic libraries and frameworks.
-</blockquote>
-<p>From the <cite>Ceylon Language Specification</cite></p>
-</section>
-<section>
-<h3 id="tables">Tables</h3>
-<p>Now, with tables (thead, tfoot, and tbody)</p>
+        <h1 id="git-gitignore-rules">Git .gitignore rules</h1>
+<img src="/images/Git_logo.png" title="Git logo" alt="Git">
+<p>The rules are defined in <a href="http://git-scm.com/docs/gitignore">http://git-scm.com/docs/gitignore</a><br>
+I won&#x2019;t repeat them here, nor test them all. I will only explore some corner cases, not well explained in the said document&#x2026;</p>
+<a id="more"></a>
+<h2 id="test">Test</h2>
+<p>List all candidates to tracking with <code>git status -u</code>.<br>
+x means &#x2018;shown by status&#x2019;, empty means &#x2018;ignored&#x2019;.</p>
 <table>
-	<caption>Caption of the table</caption>
-	<thead>
-		<tr>
-			<th>First Header</th>
-			<th>Second Header</th>
-			<th>Last Header</th>
-		</tr>
-	</thead>
-	<tfoot>
-		<tr>
-			<td>Footer on Left</td>
-			<td>Footer on Middle</td>
-			<td>Footer on Right</td>
-		</tr>
-	</tfoot>
-	<tbody>
-		<tr>
-			<td>Body content 1.1</td>
-			<td>Body content 2.1</td>
-			<td>Body content 3.1</td>
-		</tr>
-		<tr>
-			<td>Body content 1.2</td>
-			<td>Body content 2.2</td>
-			<td>Body content 3.2</td>
-		</tr>
-		<tr>
-			<td>Body content 1.3</td>
-			<td>Body content 2.3</td>
-			<td>Body content 3.3</td>
-		</tr>
-	</tbody>
+<thead>
+<tr>
+<th></th>
+<th><code>foo</code></th>
+<th><code>/foo</code></th>
+<th><code>foo/</code></th>
+<th><code>f*</code></th>
+<th><code>f*/</code></th>
+<th><code>*.y</code></th>
+<th><code>foo/c.x</code></th>
+<th><code>foo/*.y</code></th>
+<th><code>**/foo/*.y</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bar/b.y</code></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>?</td>
+</tr>
+<tr>
+<td><code>bar/foo/a.y</code></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x?</td>
+<td></td>
+</tr>
+<tr>
+<td><code>bar/foo/c.x</code></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>?</td>
+<td>x</td>
+<td>?</td>
+</tr>
+<tr>
+<td><code>bar/foo/d.y</code></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x?</td>
+<td></td>
+</tr>
+<tr>
+<td><code>baz/f.y</code></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>?</td>
+</tr>
+<tr>
+<td><code>baz/foo</code></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>?</td>
+</tr>
+<tr>
+<td><code>baz/nf.x</code></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>foo/a.x</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>foo/b.y</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>foo/c.x</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+</tr>
+</tbody>
 </table>
-That&apos;s all for now.
-</section>
+<p>A bit surprised by the <code>foo/c.x</code> and <code>foo/*.y</code> patterns, I can&#x2019;t see in the doc where they say that a pattern with slash and joker is anchored to top.<br>
+The last one is probably barely legal. One should keep things simple&#x2026;<br>
+Now, let&#x2019;s see the combination of exclude and re-include.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>foo</code></th>
+<th><code>bar</code>(1)</th>
+<th><code>bar</code></th>
+<th><code>bar/*</code></th>
+<th><code>bar/foo/*</code></th>
+<th><code>bar/foo/*</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>!bar/foo</code></td>
+<td><code>!bar/foo</code></td>
+<td><code>!bar/foo/*</code></td>
+<td><code>!bar/foo</code></td>
+<td><code>!bar/foo/c.x</code></td>
+<td><code>!bar/foo/*.y</code></td>
+</tr>
+<tr>
+<td><code>bar/b.y</code></td>
+<td>x</td>
+<td></td>
+<td>x?</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>bar/foo/a.y</code></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>bar/foo/c.x</code></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td></td>
+</tr>
+<tr>
+<td><code>bar/foo/d.y</code></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>baz/f.y</code></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>baz/foo</code></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>baz/nf.x</code></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>foo/a.x</code></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>foo/b.y</code></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>foo/c.x</code></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<p>(1) and <code>/bar</code> and <code>bar/</code></p>
+<p>I was confused by the re-include behavior, the post at <a href="http://stackoverflow.com/questions/2820255/how-do-negated-patterns-work-in-gitignore">http://stackoverflow.com/questions/2820255/how-do-negated-patterns-work-in-gitignore</a> clarified the issue.<br>
+We need to add a joker to the exclude path so that re-include paths are examined.<br>
+Recursively:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>bar/*</code></th>
+<th><code>bar/foo/*</code></th>
+<th><code>bar/foo/*</code></th>
+<th><code>bar/*</code></th>
+<th><code>bar/foo/*</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>!bar/foo</code></td>
+<td><code>!bar/foo/c.x</code></td>
+<td><code>!bar/foo/*.y</code> (2)</td>
+<td><code>!bar/foo</code></td>
+<td><code>!bar/foo/*.y</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>bar/foo/*</code></td>
+<td><code>!bar/foo/zab/</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>!bar/foo/zab</code></td>
+<td><code>bar/foo/zab/*</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>!bar/foo/zab/*.y</code></td>
+</tr>
+<tr>
+<td><code>bar/b.y</code></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>bar/foo/a.y</code></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>bar/foo/c.x</code></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>bar/foo/d.y</code></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>bar/foo/zab/e.x</code></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td></td>
+</tr>
+<tr>
+<td><code>bar/foo/zab/f.y</code></td>
+<td>x</td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<p>(2) and <code>!bar/foo/**/*.y</code> and <code>!bar/foo/zab/*.y</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/playground/index.html" data-id="cijdi0xpr000kqkt1e26m1sgn" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Software/Git-gitignore-rules/" data-id="cijdi0xrp001vqkt1rde7xqmy" class="article-share-link">Share</a>
       
-        <a href="http://PhiLhoSoft.github.io/playground/index.html#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://PhiLhoSoft.github.io/Software/Git-gitignore-rules/#disqus_thread" class="article-comment-link">Comments</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/command-line/">Command line</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/software/">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/">Tool</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/Software/MessagEase-Android-keyboard-review/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MessagEase (Android keyboard) review</div>
+    </a>
+  
+</nav>
+
 
   
 </article>

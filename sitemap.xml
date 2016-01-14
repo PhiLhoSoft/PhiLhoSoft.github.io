@@ -3,32 +3,52 @@
   
   <url>
     <loc>http://PhiLhoSoft.github.io/about/index.html</loc>
-    <lastmod>2015-12-24T23:26:28.000Z</lastmod>
+    <lastmod>2016-01-14T00:07:08.867Z</lastmod>
   </url>
   
   <url>
-    <loc>http://PhiLhoSoft.github.io/Software/Static%20site%20generators/</loc>
-    <lastmod>2015-12-24T15:31:07.186Z</lastmod>
+    <loc>http://PhiLhoSoft.github.io/Software/Static-site-generators/</loc>
+    <lastmod>2016-01-13T23:11:38.725Z</lastmod>
   </url>
   
   <url>
-    <loc>http://PhiLhoSoft.github.io/Software/MessagEase%20Android%20keyboard%20review/</loc>
-    <lastmod>2015-12-24T15:19:24.771Z</lastmod>
+    <loc>http://PhiLhoSoft.github.io/Software/Microsoft-Visual-Studio-Code-review/</loc>
+    <lastmod>2016-01-13T23:11:38.716Z</lastmod>
   </url>
   
   <url>
-    <loc>http://PhiLhoSoft.github.io/Software/Microsoft%20Visual%20Studio%20Code%20review/</loc>
-    <lastmod>2015-12-23T09:20:14.854Z</lastmod>
+    <loc>http://PhiLhoSoft.github.io/Software/MessagEase-Android-keyboard-review/</loc>
+    <lastmod>2016-01-13T23:11:38.678Z</lastmod>
   </url>
   
   <url>
-    <loc>http://PhiLhoSoft.github.io/Software/JetBrains%20WebStorm%20review/</loc>
-    <lastmod>2015-12-23T09:20:14.850Z</lastmod>
+    <loc>http://PhiLhoSoft.github.io/Software/JetBrains-WebStorm-review/</loc>
+    <lastmod>2016-01-13T23:11:38.654Z</lastmod>
   </url>
   
   <url>
-    <loc>http://PhiLhoSoft.github.io/Software/Adobe%20Brackets%20review/</loc>
-    <lastmod>2015-12-23T09:20:14.846Z</lastmod>
+    <loc>http://PhiLhoSoft.github.io/Software/Git-gitignore-rules/</loc>
+    <lastmod>2016-01-13T23:11:38.628Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://PhiLhoSoft.github.io/Software/Adobe-Brackets-review/</loc>
+    <lastmod>2016-01-13T23:11:38.609Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://PhiLhoSoft.github.io/Programming/Using-Lodash-for-fun-and-profit/</loc>
+    <lastmod>2016-01-13T19:09:40.594Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://PhiLhoSoft.github.io/Programming/Functional-programming-introduction/</loc>
+    <lastmod>2016-01-13T19:09:40.461Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://PhiLhoSoft.github.io/Programming/Functional-Reactive-Programming/</loc>
+    <lastmod>2016-01-13T19:09:40.322Z</lastmod>
   </url>
   
   <url>
@@ -52,28 +72,13 @@
   </url>
   
   <url>
-    <loc>http://PhiLhoSoft.github.io/Programming/Using%20Lodash%20for%20fun%20and%20profit/</loc>
-    <lastmod>2015-12-22T07:20:53.691Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://PhiLhoSoft.github.io/Programming/Functional%20programming%20introduction/</loc>
-    <lastmod>2015-12-22T07:20:53.655Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://PhiLhoSoft.github.io/Programming/Functional%20Reactive%20Programming/</loc>
-    <lastmod>2015-12-22T07:20:53.631Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://PhiLhoSoft.github.io/Software/GitHub%20Atom%20review/</loc>
+    <loc>http://PhiLhoSoft.github.io/Software/GitHub-Atom-review/</loc>
     <lastmod>2015-12-19T08:16:00.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://PhiLhoSoft.github.io/Programming/Test%20if%20variable%20or%20property%20is%20defined%20in%20JS/</loc>
-    <lastmod>2015-12-18T09:20:00.000Z</lastmod>
+    <loc>http://PhiLhoSoft.github.io/Programming/Test-if-variable-or-property-is-defined-in-JS/</loc>
+    <lastmod>2015-01-13T11:20:00.000Z</lastmod>
   </url>
   
 </urlset>

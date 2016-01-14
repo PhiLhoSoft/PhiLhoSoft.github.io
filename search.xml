@@ -4,8 +4,376 @@
   
     
     <entry>
+      <title><![CDATA[Git .gitignore rules]]></title>
+      <url>http://PhiLhoSoft.github.io/Software/Git-gitignore-rules/</url>
+      <content type="html"><![CDATA[<h1 id="git-gitignore-rules">Git .gitignore rules</h1>
+<img src="/images/Git_logo.png" title="Git logo" alt="Git">
+<p>The rules are defined in <a href="http://git-scm.com/docs/gitignore">http://git-scm.com/docs/gitignore</a><br>
+I won&#x2019;t repeat them here, nor test them all. I will only explore some corner cases, not well explained in the said document&#x2026;</p>
+<a id="more"></a>
+<h2 id="test">Test</h2>
+<p>List all candidates to tracking with <code>git status -u</code>.<br>
+x means &#x2018;shown by status&#x2019;, empty means &#x2018;ignored&#x2019;.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>foo</code></th>
+<th><code>/foo</code></th>
+<th><code>foo/</code></th>
+<th><code>f*</code></th>
+<th><code>f*/</code></th>
+<th><code>*.y</code></th>
+<th><code>foo/c.x</code></th>
+<th><code>foo/*.y</code></th>
+<th><code>**/foo/*.y</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bar/b.y</code></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>?</td>
+</tr>
+<tr>
+<td><code>bar/foo/a.y</code></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x?</td>
+<td></td>
+</tr>
+<tr>
+<td><code>bar/foo/c.x</code></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>?</td>
+<td>x</td>
+<td>?</td>
+</tr>
+<tr>
+<td><code>bar/foo/d.y</code></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x?</td>
+<td></td>
+</tr>
+<tr>
+<td><code>baz/f.y</code></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>?</td>
+</tr>
+<tr>
+<td><code>baz/foo</code></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>?</td>
+</tr>
+<tr>
+<td><code>baz/nf.x</code></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>foo/a.x</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>foo/b.y</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>foo/c.x</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<p>A bit surprised by the <code>foo/c.x</code> and <code>foo/*.y</code> patterns, I can&#x2019;t see in the doc where they say that a pattern with slash and joker is anchored to top.<br>
+The last one is probably barely legal. One should keep things simple&#x2026;<br>
+Now, let&#x2019;s see the combination of exclude and re-include.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>foo</code></th>
+<th><code>bar</code>(1)</th>
+<th><code>bar</code></th>
+<th><code>bar/*</code></th>
+<th><code>bar/foo/*</code></th>
+<th><code>bar/foo/*</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>!bar/foo</code></td>
+<td><code>!bar/foo</code></td>
+<td><code>!bar/foo/*</code></td>
+<td><code>!bar/foo</code></td>
+<td><code>!bar/foo/c.x</code></td>
+<td><code>!bar/foo/*.y</code></td>
+</tr>
+<tr>
+<td><code>bar/b.y</code></td>
+<td>x</td>
+<td></td>
+<td>x?</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>bar/foo/a.y</code></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>bar/foo/c.x</code></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td></td>
+</tr>
+<tr>
+<td><code>bar/foo/d.y</code></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>baz/f.y</code></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>baz/foo</code></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>baz/nf.x</code></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>foo/a.x</code></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>foo/b.y</code></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>foo/c.x</code></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<p>(1) and <code>/bar</code> and <code>bar/</code></p>
+<p>I was confused by the re-include behavior, the post at <a href="http://stackoverflow.com/questions/2820255/how-do-negated-patterns-work-in-gitignore">http://stackoverflow.com/questions/2820255/how-do-negated-patterns-work-in-gitignore</a> clarified the issue.<br>
+We need to add a joker to the exclude path so that re-include paths are examined.<br>
+Recursively:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>bar/*</code></th>
+<th><code>bar/foo/*</code></th>
+<th><code>bar/foo/*</code></th>
+<th><code>bar/*</code></th>
+<th><code>bar/foo/*</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>!bar/foo</code></td>
+<td><code>!bar/foo/c.x</code></td>
+<td><code>!bar/foo/*.y</code> (2)</td>
+<td><code>!bar/foo</code></td>
+<td><code>!bar/foo/*.y</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>bar/foo/*</code></td>
+<td><code>!bar/foo/zab/</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>!bar/foo/zab</code></td>
+<td><code>bar/foo/zab/*</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>!bar/foo/zab/*.y</code></td>
+</tr>
+<tr>
+<td><code>bar/b.y</code></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>bar/foo/a.y</code></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>bar/foo/c.x</code></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>bar/foo/d.y</code></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+<tr>
+<td><code>bar/foo/zab/e.x</code></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td></td>
+</tr>
+<tr>
+<td><code>bar/foo/zab/f.y</code></td>
+<td>x</td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<p>(2) and <code>!bar/foo/**/*.y</code> and <code>!bar/foo/zab/*.y</code></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[MessagEase (Android keyboard) review]]></title>
-      <url>http://PhiLhoSoft.github.io/Software/MessagEase%20Android%20keyboard%20review/</url>
+      <url>http://PhiLhoSoft.github.io/Software/MessagEase-Android-keyboard-review/</url>
       <content type="html"><![CDATA[<h1 id="messagease-android-keyboard-review">MessagEase (Android keyboard) review</h1>
 <img src="/images/MessagEase_Keyboard.png" width="150" height="150" title="My MessagEase keyboard as exported by the app" alt="MessagEase keyboard">
 <p>Most Android keyboards suffer from the same flaw: they mimic traditional typewriter / computer keyboards.<br>
@@ -79,14 +447,14 @@ more then two keys</p>
     
     <entry>
       <title><![CDATA[GitHub Atom review]]></title>
-      <url>http://PhiLhoSoft.github.io/Software/GitHub%20Atom%20review/</url>
+      <url>http://PhiLhoSoft.github.io/Software/GitHub-Atom-review/</url>
       <content type="html"><![CDATA[<h1 id="github-atom-review">GitHub Atom review</h1>
 <p>&#x201C;A hackable text editor for the 21st Century&#x201D;</p>
 <p><a href="https://atom.io/">https://atom.io/</a></p>
 <img src="/images/Atom_logo.png" title="Atom logo" alt="Atom">
 <h2 id="disclaimer">Disclaimer</h2>
 <p>I came to Atom with a prejudice&#x2026;<br>
-The long closed-source / beta period, the fact the &#x201C;hackable&#x201D; editor isn&#x2019;t coded in JavaScript but in CoffeeScript, the need to add plugins for everything (according to some reviews), the reported slowness and memory hungriness, made me to hesitate to try it&#x2026; I was also a happy user of <a href="/Software/Adobe%20Brackets%20review">Adobe Brackets</a>, with no compelling need to change.<br>
+The long closed-source / beta period, the fact the &#x201C;hackable&#x201D; editor isn&#x2019;t coded in JavaScript but in CoffeeScript, the need to add plugins for everything (according to some reviews), the reported slowness and memory hungriness, made me to hesitate to try it&#x2026; I was also a happy user of <a href="/Software/Adobe-Brackets-review">Adobe Brackets</a>, with no compelling need to change.<br>
 But, Brackets accumulated a number of little annoyances, making me wanting to try other editors.<br>
 The test of Visual Studio Code was brief, as it didn&#x2019;t have the base (semi-advanced if you want) features I use all the time: drag&#x2019;n&#x2019;drop of code, and column selection.<br>
 So I tested Atom, with a critical eye. Spoiler: I was seduced, and it becomes my favorite Web IDE&#x2026;</p>
@@ -132,6 +500,7 @@ The Atom team improved memory consumption, have an eye on responsiveness (I was 
 </tr>
 </tbody>
 </table>
+<p>Really heavy for a so-called &#x201C;text editor&#x201D;.</p>
 <p>I installed Atom (v. 1.3.1 on Windows 7 with 8 GB of memory).<br>
 It doesn&#x2019;t ask where to install, it goes arbitrarily at <code>C:\Users\&lt;user name&gt;\AppData\Local\atom</code>. I would prefer to install it beside my other programs, to locale it easily. And I would appreciate it asks me before installing something on the desktop (I have no icons there!) or on the start menu (I no longer care about this one, but still&#x2026;).<br>
 It is a bit &#x201C;all over the place&#x201D;, as it also has a <code>C:\Users\&lt;user name&gt;\AppData\Roaming\Atom</code> folder (for cache?), and a <code>C:\Users\&lt;user name&gt;\.atom folder</code> (settings, packages&#x2026;).</p>
@@ -163,12 +532,17 @@ Also a bug: I have <em>Choose a Theme</em> and <em>Customize the Styling</em> op
 Apparently, it coalesces when there is a pause in typing. Half a good idea, bad for slow typists (not sure if this can be tweaked), not consistent. I prefer Scintilla&#x2019;s coalescing, based on keys: when an move key (eg. arrow) is typed, or when clicking somewhere.</p>
 <p>Atom lacks a nice feature of Brackets: in an HTML file, Brackets can auto-complete the path of a resource (script, CSS file, etc.). Found a plugin for that, of course&#x2026; Although it is slightly less convenient.</p>
 <p>Apparently, Atom has only &#x201C;duplicate-lines&#x201D;, not &#x201C;duplicate-selection&#x201D;, alas. Sometime, I want to duplicate the selection inside the same line, eg. to quickly add an additional parameter with its type.</p>
+<p>Good idea: if I type something, the buffer is marked as dirty, of course. If I edit back to the initial state (eg. type a char, then Backspace), instead of using Undo, it still see the file as pristine (as Git would do&#x2026;).</p>
 <p>Annoyance: I can hit Ctrl+F in the Settings &gt; Package page (for example), but it doesn&#x2019;t find anything there (can be convenient to find a given package by something else than its name).</p>
 <p>Command palette: good idea to highlight searched terms, but on light theme, I get light gray highlight, nearly unreadable on very light gray background&#x2026;</p>
 <p>Bug: column selection doesn&#x2019;t skip wrapped part of lines. Ie. if lines are wrapped, and if we extend a column selection beyond a wrapped line, the wrapped part is also taking the selection.</p>
+<p>Bug, or annoyance (as I am used to a different behavior for other editors): if I hit Ctrl+Delete at the start of an indented line, I expect the editor to remove only the indentation characters, ie. to remove spaces or tabs up to the first non-whitespace character. But it eats also the beginning of the significant line, ie. the first word or the first symbols.<br>
+Relevant issue with a workaround: <a href="https://github.com/atom/atom/issues/4026">https://github.com/atom/atom/issues/4026</a></p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&apos;atom</span>-workspace atom-text-editor&apos;:</span><br><span class="line">  <span class="symbol">&apos;ctrl</span>-backspace&apos;: <span class="symbol">&apos;editor</span>:delete-<span class="keyword">to</span>-previous-word-boundary&apos;</span><br><span class="line">  <span class="symbol">&apos;ctrl</span>-delete&apos;: <span class="symbol">&apos;editor</span>:delete-<span class="keyword">to</span>-next-word-boundary&apos;</span><br></pre></td></tr></table></figure>
 <p>Minor quibble: title and closing cross in inactive tabs are one or two pixels too low (one pixel lower than the active tab, at least). It &#x201C;hurts&#x201D; my sense of tidiness&#x2026; :-)</p>
 <h2 id="installed-packages">Installed packages</h2>
-<p>Good point: once a plugin / package is installed, no need to restart Atom to get it working.</p>
+<p>Good point: once a plugin / package is installed, no need to restart Atom to get it working.<br>
+Note: list can be incomplete, and version numbers are indicative only: I won&#x2019;t update them on each package update!</p>
 <ul>
 <li>
 <p>Sublime Style Column Selection<br>
@@ -190,6 +564,13 @@ Must have if you have a non-US keyboard; eg. a French one: I can&#x2019;t type }
 1.4.112 by andischerer<br>
 <a href="https://atom.io/packages/keyboard-localization">https://atom.io/packages/keyboard-localization</a><br>
 <a href="https://github.com/andischerer/atom-keyboard-localization">https://github.com/andischerer/atom-keyboard-localization</a></p>
+</li>
+<li>
+<p>tree-view-open-files<br>
+Shows opened files above the tree-view. Better than tabs when lot of files are opened.<br>
+0.3.0 by postcasio<br>
+<a href="https://atom.io/packages/tree-view-open-files">https://atom.io/packages/tree-view-open-files</a><br>
+<a href="https://github.com/postcasio/tree-view-open-files">https://github.com/postcasio/tree-view-open-files</a></p>
 </li>
 <li>
 <p>minimap<br>
@@ -262,18 +643,11 @@ Linter for HTML.<br>
 <a href="https://github.com/AtomLinter/linter-htmlhint">https://github.com/AtomLinter/linter-htmlhint</a></p>
 </li>
 <li>
-<p>linter-csslint<br>
-Linter for CSS.<br>
-1.1.0 by AtomLinter<br>
-<a href="https://atom.io/packages/linter-csslint">https://atom.io/packages/linter-csslint</a><br>
-<a href="https://github.com/AtomLinter/linter-csslint">https://github.com/AtomLinter/linter-csslint</a></p>
-</li>
-<li>
-<p>linter-sass-lint<br>
-Linter for Sass.<br>
-0.4.3 by DanPurdy<br>
-<a href="https://atom.io/packages/linter-sass-lint">https://atom.io/packages/linter-sass-lint</a><br>
-<a href="https://github.com/DanPurdy/linter-sass-lint">https://github.com/DanPurdy/linter-sass-lint</a></p>
+<p>linter-stylelint<br>
+Linter for CSS and Sass.<br>
+1.9.1 by AtomLinter<br>
+<a href="https://atom.io/packages/linter-stylelint">https://atom.io/packages/linter-stylelint</a><br>
+<a href="https://github.com/AtomLinter/linter-stylelint">https://github.com/AtomLinter/linter-stylelint</a></p>
 </li>
 <li>
 <p>pigments<br>
@@ -281,6 +655,20 @@ Shows colors from various CSS notations (including named and computed colors). I
 0.19.3 by abe33<br>
 <a href="https://atom.io/packages/pigments">https://atom.io/packages/pigments</a><br>
 <a href="https://github.com/abe33/atom-pigments">https://github.com/abe33/atom-pigments</a></p>
+</li>
+<li>
+<p>refactor<br>
+Allows refactoring (basically, renaming of identifiers in context). Needs plugins per language.<br>
+0.6.0 by hax<br>
+<a href="https://atom.io/packages/refactor">https://atom.io/packages/refactor</a><br>
+<a href="https://github.com/hax/refactor">https://github.com/hax/refactor</a></p>
+</li>
+<li>
+<p>js-refactor<br>
+Refactor plugin for JS (only rename variables and parameters).<br>
+0.6.0 by hax<br>
+<a href="https://atom.io/packages/js-refactor">https://atom.io/packages/js-refactor</a><br>
+<a href="https://github.com/hax/js-refactor">https://github.com/hax/js-refactor</a></p>
 </li>
 <li>
 <p>atom-beautify<br>
@@ -304,18 +692,25 @@ JSDoc generation.<br>
 <a href="https://github.com/tgandrews/atom-easy-jsdoc">https://github.com/tgandrews/atom-easy-jsdoc</a></p>
 </li>
 <li>
-<p>string-looper<br>
-Change word case, number value and loop between keywords with the arrows of your keyboard.<br>
-0.1.2 by leny<br>
-<a href="https://atom.io/packages/string-looper">https://atom.io/packages/string-looper</a><br>
-<a href="https://github.com/leny/atom-string-looper">https://github.com/leny/atom-string-looper</a></p>
+<p>language-ejs<br>
+EJS template support, to cleanly edit the Hexo theme I chose. Apparently only syntax highlighting support&#x2026;<br>
+0.2.0 by darron<br>
+<a href="https://atom.io/packages/language-ejs">https://atom.io/packages/language-ejs</a><br>
+<a href="https://github.com/darron/language-ejs">https://github.com/darron/language-ejs</a></p>
 </li>
 <li>
 <p>sync-settings<br>
-Synchronization of Atom settings across computers.<br>
+Synchronization of Atom settings across computers, using a Gist to keep track of history of various files.<br>
 0.6.0 by Hackafe<br>
 <a href="https://atom.io/packages/sync-settings">https://atom.io/packages/sync-settings</a><br>
 <a href="https://github.com/Hackafe/atom-sync-settings">https://github.com/Hackafe/atom-sync-settings</a></p>
+</li>
+<li>
+<p>tree-ignore<br>
+Allows to ignore paths in the project, hiding them in the tree-view.<br>
+0.3.1 by leny<br>
+<a href="https://atom.io/packages/atom-tree-ignore">https://atom.io/packages/atom-tree-ignore</a><br>
+<a href="https://github.com/leny/atom-tree-ignore">https://github.com/leny/atom-tree-ignore</a></p>
 </li>
 <li>
 <p>rest-client<br>
@@ -335,17 +730,18 @@ Support of the Perforce VCS (I use it at work). Has <a href="https://github.com/
 <h2 id="not-used-to-see-later">Not used, to see later</h2>
 <ul>
 <li>
+<p>string-looper<br>
+Change word case, number value and loop between keywords with the arrows of your keyboard.<br>
+0.1.2 by leny<br>
+<a href="https://atom.io/packages/string-looper">https://atom.io/packages/string-looper</a><br>
+<a href="https://github.com/leny/atom-string-looper">https://github.com/leny/atom-string-looper</a></p>
+</li>
+<li>
 <p>test-jumper<br>
 To jump between main file and its unit test. Not used because it can&#x2019;t seem to fit in our project layout&#x2026; Still interesting.<br>
 0.5.0 by danielcooper<br>
 <a href="https://atom.io/packages/test-jumper">https://atom.io/packages/test-jumper</a><br>
 <a href="https://github.com/danielcooper/test-jumper">https://github.com/danielcooper/test-jumper</a></p>
-</li>
-<li>
-<p>tree-ignore<br>
-Allows to ignore paths in the project. Installation failed silently (not mentioning an error; I see the error when going to <em>Packages</em>), I had to go to the console of the DevTools to see the errors. Apparently, an issue with node-gyp on Windows. So I just use the Ignored Names setting for all projects.<br>
-0.2.6 by leny<br>
-<a href="https://github.com/leny/atom-tree-ignore">https://github.com/leny/atom-tree-ignore</a></p>
 </li>
 </ul>
 <h1 id="themes">Themes</h1>
@@ -2138,7 +2534,7 @@ Also some methods / classes are not in All?<br>
     
     <entry>
       <title><![CDATA[Static Site Generators]]></title>
-      <url>http://PhiLhoSoft.github.io/Software/Static%20site%20generators/</url>
+      <url>http://PhiLhoSoft.github.io/Software/Static-site-generators/</url>
       <content type="html"><![CDATA[<h1 id="static-site-generator">Static site generator</h1>
 <p>So I want to write some new technical articles (like this one&#x2026;) on my latest discoveries.<br>
 My previous host keeps <a href="http://Phi.Lho.free.fr">my old site</a> but has cut my FTP access, so I cannot update or add new stuff.</p>
@@ -2194,12 +2590,12 @@ I made some minor changes, mostly on the CSS side, to personalize it a bit.</p>
     
     <entry>
       <title><![CDATA[Functional Reactive Programming]]></title>
-      <url>http://PhiLhoSoft.github.io/Programming/Functional%20Reactive%20Programming/</url>
+      <url>http://PhiLhoSoft.github.io/Programming/Functional-Reactive-Programming/</url>
       <content type="html"><![CDATA[<h1 id="functional-reactive-programming">Functional Reactive Programming</h1>
 <p>FRP is a way to deal with events and asynchronous data in a functional style.<br>
 Basically, it is an implementation of the Observer design pattern, dealing with streams of data coming on a timeline.</p>
 <h2 id="concept">Concept</h2>
-<p>We saw, in the article about <a href="/Programming/Functional%20programming%20introduction/">functional programming</a>, powerful ways to process iterable data, by composing functions, with lazy evaluation able to deal with infinite data, etc.<br>
+<p>We saw, in the article about <a href="/Programming/Functional-programming-introduction/">functional programming</a>, powerful ways to process iterable data, by composing functions, with lazy evaluation able to deal with infinite data, etc.<br>
 FRP does the same, but applied to streams of events, which introduces a new dimension: time.<br>
 Events can be seen as some data coming at a given point in time.<br>
 Data might come from user interaction: a keyboard key is pressed or released, the mouse moves, is pressed, dragged, released, etc.<br>
@@ -2249,7 +2645,7 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
     
     <entry>
       <title><![CDATA[Using Lodash for fun and profit]]></title>
-      <url>http://PhiLhoSoft.github.io/Programming/Using%20Lodash%20for%20fun%20and%20profit/</url>
+      <url>http://PhiLhoSoft.github.io/Programming/Using-Lodash-for-fun-and-profit/</url>
       <content type="html"><![CDATA[<h1 id="using-lodash-for-fun-and-profit">Using Lodash for fun and profit</h1>
 <p>Lodash is a JavaScript utility library enabling a functional programming coding style.<br>
 Lodash has general purpose functions, for type checking, string utilities, even functions to manipulate functions.<br>
@@ -2277,7 +2673,7 @@ But it also has functions that treat these three types as one: collection. They 
 These functions always take a collection as input, and generally a function, called <em>iteratee</em>, or <em>predicate</em> if it returns a boolean, that processes each item of the collection.<br>
 There are functions to filter out items (or to keep only some of them), to map them to something else, to reduce them to a single value, to find an item, etc.<br>
 With them, you will never need to write a for loop ever again&#x2026;</p>
-<p>I wrote <a href="/Programming/Functional%20programming%20introduction/">an article explaining the base principles of functional programming</a> (FP) behind these functions. I invite you to read it before continuing here: although the article is language agnostic, it fully apply to Lodash and I cleverly used Lodash function names there&#x2026; Actually, most of them are relatively standard in the FP world and can be found in various libraries across various languages.</p>
+<p>I wrote <a href="/Programming/Functional-programming-introduction/">an article explaining the base principles of functional programming</a> (FP) behind these functions. I invite you to read it before continuing here: although the article is language agnostic, it fully apply to Lodash and I cleverly used Lodash function names there&#x2026; Actually, most of them are relatively standard in the FP world and can be found in various libraries across various languages.</p>
 <p>So here, I will concentrate on the specificities of Lodash, fully adapted to the needs of JavaScript.</p>
 <h2 id="general-patterns-of-lodash-function-parameters">General patterns of Lodash function parameters</h2>
 <p>As said, lot of Lodash functions take a collection as first parameter, and an iteratee as second one.<br>
@@ -2393,10 +2789,10 @@ Is like <code>_.defaults</code> but it t recursively assigns default properties.
 JavaScript allows to change case of a whole string: <code>s.toUpperCase()</code> and <code>s.toLowerCase()</code>.<br>
 Language identifiers (and file names, etc.) can have various styles:</p>
 <ul>
-<li>snake_case (one style of variables)</li>
-<li>UPPER_CASE (constants)</li>
-<li>camelCase (another style of variables)</li>
-<li>TitleCase (classes)</li>
+<li>UPPER_CASE (usually constants)</li>
+<li>snake_case (one style of variables / functions)</li>
+<li>camelCase (another style of variables / functions)</li>
+<li>TitleCase (often classes and similar constructs, functions in Microsoft world&#x2026;)</li>
 <li>kebab-case (CSS properties, often CSS class names too)<br>
 and sentence styles:</li>
 <li>Initial capital</li>
@@ -2458,7 +2854,7 @@ They a particularly useful to ensure an argument has been passed to a function.<
     
     <entry>
       <title><![CDATA[Adobe Brackets review]]></title>
-      <url>http://PhiLhoSoft.github.io/Software/Adobe%20Brackets%20review/</url>
+      <url>http://PhiLhoSoft.github.io/Software/Adobe-Brackets-review/</url>
       <content type="html"><![CDATA[<h1 id="adobe-brackets-ide-for-the-web">Adobe Brackets - IDE for the Web</h1>
 <p>Integrated Development Environment oriented toward the Web technologies</p>
 <p><a href="http://brackets.io/">http://brackets.io/</a></p>
@@ -2733,7 +3129,7 @@ I will list here a number of these extensions I found useful.</p>
     
     <entry>
       <title><![CDATA[Functional Programming: a Brief, Pragmatic Overview]]></title>
-      <url>http://PhiLhoSoft.github.io/Programming/Functional%20programming%20introduction/</url>
+      <url>http://PhiLhoSoft.github.io/Programming/Functional-programming-introduction/</url>
       <content type="html"><![CDATA[<h1 id="functional-programming-a-brief-pragmatic-overview">Functional Programming: a Brief, Pragmatic Overview</h1>
 <p>Functional Programming (FP) is a programming paradigm, like imperative (procedural) programming or object-oriented programming (OOP).<br>
 Some people oppose these paradigms, but actually they are not exclusive of each other: we do imperative programming inside OOP&#x2019;s methods, and we can mix OOP and FP: that&#x2019;s even a trend in modern languages (Scala, Ceylon, &#x2026;) and in older ones (JavaScript, Java 8&#x2026;).</p>
@@ -2765,8 +3161,8 @@ It might seem inefficient but there are techniques to optimize this practice. Am
 <p>FP doesn&#x2019;t like loops (those made with <code>for</code>, <code>while</code>, <code>repeat</code>, etc. keywords). These are stateful constructs, with one or more loop variables. FP often uses recursion instead, thus purely relying on functions. But to be effective, the language must support <em>tail-call recursion</em> to avoid bloating the call stack. This means that a function returning the result of calling itself can avoid to push a call reference (to return to the calling point) and can instead jump directly into the new call. Yes, that&#x2019;s a kind of goto&#x2026;<br>
 Recursion can be hard to get right, and some languages like Java or JavaScript (up to ES6) don&#x2019;t support tail-call recursion, so it is rarely used outside of specialized usages like iterating on tree or graph nodes.<br>
 Fortunately FP offers a wide range of functions to process (or create) collections, which are the most common use case for loops. We will extend on this topic later.</p>
-<p>Another important concept in FP is <em>closures</em>. When a function returns another function, the inner one can use outer variables in its scope. In general, it is limited to the immediate scope, ie. variables and parameters of the enclosing function. It is a capture of the state of these variables at the time the function is returned. We say the inner function <em>closes</em> over these values, hence the closure name.<br>
-It is a double edged sword, as these captured variables might be mutated, introducing state in the function, something that FP avoids&#x2026;<br>
+<p>Another important concept in FP is <em>closures</em>. When a function returns another function, the inner one (the closure) can use outer variables in its scope. In general, usage is limited to the immediate scope, ie. variables and parameters of the enclosing function. The closure keeps a reference on the content of the used variables at the time the function is returned. We say the inner function <em>closes</em> over these values, hence the closure name.<br>
+It is a double edged sword, as these captured values might be mutated (if possible / allowed for the value), introducing state in the function, something that FP avoids&#x2026;<br>
 Let&#x2019;s make an example for this rather abstract concept. I use JavaScript (ES6) here. I make a generic function that can return specialized variants:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> adder = (step) =&gt;</span><br><span class="line">{</span><br><span class="line">  <span class="keyword">return</span> (v) =&gt; v + step;</span><br><span class="line">};</span><br><span class="line"><span class="comment">// The above is verbose for clarity.</span></span><br><span class="line"><span class="comment">// It can be written:</span></span><br><span class="line"><span class="comment">// adder = step =&gt; v =&gt; v + step</span></span><br><span class="line"><span class="keyword">const</span> plusplus = adder(<span class="number">1</span>);</span><br><span class="line">plusplus(<span class="number">5</span>); <span class="comment">// -&gt; 6</span></span><br><span class="line"><span class="keyword">const</span> decr = adder(-<span class="number">1</span>);</span><br><span class="line">decr(<span class="number">43</span>); <span class="comment">// -&gt; 42</span></span><br></pre></td></tr></table></figure>
 <p>Note that a function can have state that doesn&#x2019;t affect its idempotency. A common example in FP is <em>memoization</em>. A function with a long computation time (Fibonacci, is prime, etc.) can keep previous results. Thus, if asked again with a previously computed argument, it can just return the previous result. It is particularly effective with functions whose computing of a value is based on results for lower values. The given recursive functions above are good examples.</p>
@@ -2863,7 +3259,7 @@ For this kind of chaining, it is easier if all these functions take only one par
     
     <entry>
       <title><![CDATA[Microsoft Visual Studio Code review]]></title>
-      <url>http://PhiLhoSoft.github.io/Software/Microsoft%20Visual%20Studio%20Code%20review/</url>
+      <url>http://PhiLhoSoft.github.io/Software/Microsoft-Visual-Studio-Code-review/</url>
       <content type="html"><![CDATA[<h1 id="microsoft-visual-studio-code-review">Microsoft Visual Studio Code review</h1>
 <p>Integrated Development Environment oriented toward the Web technologies</p>
 <p><a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
@@ -2884,7 +3280,7 @@ Apparently, it doesn&#x2019;t even exist!<br>
     
     <entry>
       <title><![CDATA[How to test if a variable or property is defined in JavaScript]]></title>
-      <url>http://PhiLhoSoft.github.io/Programming/Test%20if%20variable%20or%20property%20is%20defined%20in%20JS/</url>
+      <url>http://PhiLhoSoft.github.io/Programming/Test-if-variable-or-property-is-defined-in-JS/</url>
       <content type="html"><![CDATA[<h1 id="how-to-test-if-a-variable-or-property-is-defined-in-javascript">How to test if a variable or property is defined in JavaScript</h1>
 <h2 id="the-problem">The problem</h2>
 <p>There are several use cases for testing if a variable or property is defined. We will examine them before examining the ways to check the state.</p>
@@ -2926,12 +3322,13 @@ Note: since <code>typeof</code> is guaranteed to return a string result, we can 
 <p>A simpler way to do the check is to compare against <code>undefined</code>:</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (someIdentifier === <span class="literal">undefined</span>)</span><br></pre></td></tr></table></figure>
 <p>Beware: don&#x2019;t use <code>==</code> as automatic type conversions done by JavaScript will bite you!</p>
-<p>Some people object that this method can be flawed because JavaScript doesn&#x2019;t prevent from assigning a value to <code>undefined</code>:<br>
+<p>Some people object that this method can be flawed because JavaScript doesn&#x2019;t prevent from assigning a value to <code>undefined</code>, which is not a keyword. It is just a variable attached to the global object (<code>window</code> in a browser):<br>
 <code>undefined = {};</code> is legal!<br>
 Now, it is unlikely to happen, unless somebody made a programming mistake like forgetting an <code>=</code> in an oddly constructed test: <code>if (undefined = foo)</code>.<br>
 If you include in your code base some code from an inattentive adept of Yoda conditions, you have a bigger problem than you thought&#x2026; :-)<br>
-And ECMAScript 5, implemented in all major modern browsers, now prevent this, making (at least!) <code>undefined</code> immutable.<br>
-So, unless you target very old browsers, it is safe, short and explicit.</p>
+And EcmaScript 5, implemented in all major modern browsers, now prevent this, making (at least!) <code>undefined</code> immutable.<br>
+Although you can still define a local variable shadowing the global <code>undefined</code>. But, again, defining a <code>var undefined</code> in your code is unlikely (or malicious!).<br>
+So, unless you target very old browsers or you are very paranoid, it is safe, short and explicit.</p>
 <h3 id="if-v">if (v)</h3>
 <p><code>if (foo)</code><br>
 <em>or</em><br>
@@ -2993,7 +3390,7 @@ It is also OK if the variable / property must be an object. It is often used in 
     
     <entry>
       <title><![CDATA[JetBrains WebStorm review]]></title>
-      <url>http://PhiLhoSoft.github.io/Software/JetBrains%20WebStorm%20review/</url>
+      <url>http://PhiLhoSoft.github.io/Software/JetBrains-WebStorm-review/</url>
       <content type="html"><![CDATA[<h1 id="jetbrains-webstorm-review">JetBrains WebStorm review</h1>
 <p><a href="https://www.jetbrains.com/webstorm/">https://www.jetbrains.com/webstorm/</a></p>
 <img src="/images/WebStorm_logo.png" title="WebStorm logo" alt="WebStorm">
