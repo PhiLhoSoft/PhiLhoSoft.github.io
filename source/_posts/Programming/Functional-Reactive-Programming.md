@@ -17,7 +17,7 @@ date: 2015-11-10
 # Functional Reactive Programming
 
 FRP is a way to deal with events and asynchronous data in a functional style.
-Basically, it is an implementation of the Observer design pattern, dealing with streams of data coming on a timeline.
+Basically, it is an implementation of the Observer design pattern, coupled with the Iterator one, dealing with streams of data coming on a timeline with a fluid API.
 
 ## Concept
 
@@ -36,7 +36,7 @@ It can even come from static data (eg. content of an array): in this case, time 
 This is a work in progress: this article is unfinished and will be updated.
 </aside>
 
-In his seminal article [The introduction to Reactive Programming you've been missing](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), Andre Staltz wrote the 'mantra': "Everything is a stream".
+In his seminal article [The introduction to Reactive Programming you've been missing](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), André Staltz wrote the 'mantra': "Everything is a stream".
 It looks like a golden hammer seeing the world as nails to hit... I prefer the less slogan-like "Everything can be seen as a stream", or perhaps even more accurately, "Everything can be put in a stream".
 After all, a stream is just a sequential collection (succession) of items disposed along a time axis, ie. with a timestamp.
 It can be applied in the real world, from trains coming to a station to persons at a <guichet>. Even the only time one person went to a concert can be seen as a stream... with only one item.

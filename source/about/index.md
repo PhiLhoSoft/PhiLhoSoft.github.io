@@ -25,6 +25,7 @@ There is a [playground](../playground) page, to experiment with Markdown and sty
 <img class="no-fancybox" src="/images/icon-github.svg" alt="GitHub" width="32" height="32"/><a href="http://github.com/PhiLhoSoft">GitHub</a><br>
 <img class="no-fancybox" src="/images/icon-twitterEN.svg" alt="English Twitter" width="32" height="32"/><a href="https://twitter.com/PhiLhoSoft">English Twitter (technical)</a><br>
 <img class="no-fancybox" src="/images/icon-stackoverflow.svg" alt="StackOverflow" width="32" height="32"/><a href="http://stackoverflow.com/users/15459/philho">StackOverflow</a><br>
+<img class="no-fancybox" src="/images/icon-plunker.svg" alt="Plunker" width="32" height="32"/><a href="http://plnkr.co/users/PhiLhoSoft">Plunker</a><br>
 <img class="no-fancybox" src="/images/icon-deviantart.svg" alt="deviantART" width="32" height="32"/><a href="http://philho.deviantart.com/">deviantART</a><br>
 <img class="no-fancybox" src="/images/icon-free.svg" alt="Free.fr" width="32" height="32"/><a href="http://Phi.Lho.free.fr/">Legacy site and blog on Free.fr</a><br>
 <img class="no-fancybox" src="/images/icon-twitterFR.svg" alt="French Twitter" width="32" height="32"/><a href="https://twitter.com/Phi_Lho">French Twitter (puns, etc.)</a><br>
@@ -33,5 +34,19 @@ There is a [playground](../playground) page, to experiment with Markdown and sty
 </div>
 
 Yes, no Facebook here...
+
+My [old site](http://phi.lho.free.fr/) is still up. I made this one because:
+- the previous one was old and ugly...
+- and quite outdated, except for some articles like [my regular expression tutorial](http://phi.lho.free.fr/programming/RETutorial.en.html) which I plan to port back here;
+- and I am locked out by this free provider: I no longer have FTP access!
+
+Some blog posts are still interesting (IMHO), so I just link to them... :-) Might also copy them here.
+- [Sorting strings by respecting natural order for numbers](http://phi.lho.free.fr/serendipity/index.php?/archives/30-Sorting-strings-by-respecting-natural-order-for-numbers.html) (Java)
+- [Is this string a number?](http://phi.lho.free.fr/serendipity/index.php?/archives/28-Is-this-string-a-number.html) (fast way of finding out, in Java...)
+- [JavaFX: 3000 Chars for a Crystal Clock](http://phi.lho.free.fr/serendipity/index.php?/archives/23-JavaFX-3000-Chars-for-a-Crystal-Clock.html) (JavaFX as a language, not as a library...)
+- [A magnifiying glass in JavaFX](http://phi.lho.free.fr/serendipity/index.php?/archives/21-A-magnifiying-glass-in-JavaFX.html) (idem)
+
+I was part of the [Processing](http://processing.org) community for a long time, even being moderator and administrator of the forums.
+I wrote some tutorials on [commonly asked questions](https://forum.processing.org/two/categories/common-questions) in these forums.
 
 Oh, and I contributed to a book (in French): [Le guide de Lua et ses applications](http://www.d-booker.fr/programmation-et-langage/1-livre-lua.html)
