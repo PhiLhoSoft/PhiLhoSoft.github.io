@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Made by PhiLhoSoft -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 256 256">
+<rect style="fill: #000000; stroke: none;"
+   width="204"
+   height="204"
+   x="25"
+   y="25"
+   rx="24"
+   ry="24"/>
+<rect style="fill: #FFFFFF; stroke: none;"
+   y="40"
+   x="40"
+   height="176"
+   width="176"
+   rx="12"
+   ry="12"/>
+<path d="m 111.42857,57.005038 29.28572,0 -0.17858,88.214282 45.53572,-44.64285 0,39.82142 -60.17857,59.10715 -59.64286,-59.64286 0.535714,-39.46429 45.178576,44.82143 z"/>
+</svg>

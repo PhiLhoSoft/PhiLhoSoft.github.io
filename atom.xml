@@ -2706,10 +2706,10 @@ I made some minor changes, mostly on the CSS side, to personalize it a bit.</p>
     <link href="http://PhiLhoSoft.github.io/Programming/Functional-Reactive-Programming/"/>
     <id>http://PhiLhoSoft.github.io/Programming/Functional-Reactive-Programming/</id>
     <published>2015-11-09T23:00:00.000Z</published>
-    <updated>2016-01-13T19:09:40.322Z</updated>
+    <updated>2016-01-15T09:33:46.366Z</updated>
     <content type="html"><![CDATA[<h1 id="functional-reactive-programming">Functional Reactive Programming</h1>
 <p>FRP is a way to deal with events and asynchronous data in a functional style.<br>
-Basically, it is an implementation of the Observer design pattern, dealing with streams of data coming on a timeline.</p>
+Basically, it is an implementation of the Observer design pattern, coupled with the Iterator one, dealing with streams of data coming on a timeline with a fluid API.</p>
 <h2 id="concept">Concept</h2>
 <p>We saw, in the article about <a href="/Programming/Functional-programming-introduction/">functional programming</a>, powerful ways to process iterable data, by composing functions, with lazy evaluation able to deal with infinite data, etc.<br>
 FRP does the same, but applied to streams of events, which introduces a new dimension: time.<br>
@@ -2723,7 +2723,7 @@ It can even come from static data (eg. content of an array): in this case, time 
 <img class="no-fancybox" src="/images/Work-in-Progress.svg" width="240" height="110" title="Work in Progress" alt="Work in Progress">
 This is a work in progress: this article is unfinished and will be updated.
 </aside>
-<p>In his seminal article <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">The introduction to Reactive Programming you&#x2019;ve been missing</a>, Andre Staltz wrote the &#x2018;mantra&#x2019;: &#x201C;Everything is a stream&#x201D;.<br>
+<p>In his seminal article <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">The introduction to Reactive Programming you&#x2019;ve been missing</a>, Andr&#xE9; Staltz wrote the &#x2018;mantra&#x2019;: &#x201C;Everything is a stream&#x201D;.<br>
 It looks like a golden hammer seeing the world as nails to hit&#x2026; I prefer the less slogan-like &#x201C;Everything can be seen as a stream&#x201D;, or perhaps even more accurately, &#x201C;Everything can be put in a stream&#x201D;.<br>
 After all, a stream is just a sequential collection (succession) of items disposed along a time axis, ie. with a timestamp.<br>
 It can be applied in the real world, from trains coming to a station to persons at a <guichet>. Even the only time one person went to a concert can be seen as a stream&#x2026; with only one item.</guichet></p>
