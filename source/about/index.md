@@ -19,6 +19,8 @@ The articles has been written in Markdown format, mostly typed on my phone (usin
 
 There is a [playground](../playground) page, to experiment with Markdown and styles. Apparently, with Hexo, at least with the Icarus theme, pages cannot be accessed unless something links explicitly to them...
 
+You can take a look at my curriculum vitæ (resume / résumé), in [French](./CV_PhilippeLhoste_fr.doc) or in [English](CV_PhilippeLhoste_en.doc). They are in MS Word format because it can be read nearly everywhere and it allows a decent formatting.
+
 ## My presence on Internet
 
 <div class="site-list">
