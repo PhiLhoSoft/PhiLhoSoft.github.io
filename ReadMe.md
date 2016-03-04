@@ -1,4 +1,4 @@
-# Hexo Test
+# The PhiLhoSoft blog / Web site
 
-Trying Hexo to generate a GitHub.io site.
+Using Hexo to generate my GitHub.io site: blog articles, some permanent web pages, etc.
 

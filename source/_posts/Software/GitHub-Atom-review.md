@@ -1,5 +1,5 @@
 title: GitHub Atom review
-description: a review of the GitHub Atom editor (IDE), at version 1.3.2
+description: a review of the GitHub Atom editor (IDE), at version 1.5.3
 categories:
 - Software
 - IDE
@@ -8,7 +8,7 @@ tags:
 - Tool
 - IDE
 date: 2015-12-15 10:40:00
-updated: 2015-12-19 09:16:00
+updated: 2016-03-01 12:45:00
 ---
 
 # GitHub Atom review
@@ -51,6 +51,7 @@ Really heavy for a so-called "text editor".
 I installed Atom (v. 1.3.1 on Windows 7 with 8 GB of memory).
 It doesn't ask where to install, it goes arbitrarily at `C:\Users\<user name>\AppData\Local\atom`. I would prefer to install it beside my other programs, to locale it easily. And I would appreciate it asks me before installing something on the desktop (I have no icons there!) or on the start menu (I no longer care about this one, but still...).
 It is a bit "all over the place", as it also has a `C:\Users\<user name>\AppData\Roaming\Atom` folder (for cache?), and a `C:\Users\<user name>\.atom folder` (settings, packages...).
+Note on icons: in the Quick Start menu, and in the context menu of files, they use the path to the .exe file to give the icon. But this path changes on every auto-update! And they don't update it... Simple fix: replace this path with %USERPROFILE%\AppData\Local\atom\app.ico which is provided with the editor...
 
 I opened it, it starts rather quickly.
 It has a dark UI, which I don't like, but I quickly found where to change this to the default light theme. Good point than several themes are bundled by default: no need to hunt for them, at least at start. The default light UI theme is rather nice. I also chose the _One Light_ syntax theme among four. A bit too pale (low contrast) for my taste, I will eventually see if I can tweak it.
@@ -76,7 +77,11 @@ I see no way to add words to a user dictionary (there is an issue for that, and 
 
 The Welcome Guide is nice, I just saw a way to customize the styling. Although it lacks concrete examples: eg. how do I change the color of titles in Markdown? (I avoid reddish colors, reserved to mark errors). Ah, I suppose I have to study an existing style, like https://github.com/atom/atom-light-syntax/blob/master/index.less
 And I can see the actual styles by showing the developer tools (View > Developer > Toggle Developer Tools) and using it like Chrome DevTools.
-Also a bug: I have _Choose a Theme_ and _Customize the Styling_ opened, I can't scroll back above _Install a Package_. I have to close one to see the top!
+
+## Bugs and annoyances
+
+Bug: I have _Choose a Theme_ and _Customize the Styling_ opened in the Welcome Guide. I can't scroll back above _Install a Package_. I have to close one to see the top!
+And I can't scroll the list of packages (installed, to install, etc.) with keys (up / down / page up / page down).
 
 Another bug or unwanted feature: it ensures there is an empty line at the end of a file when saving it, which can be nice (I generally want that), but if I have several lines, it removes the extra ones (which is annoying in a text file, because I want to keep my future paragraph empty lines). Will see if I can disable that.
 
@@ -87,13 +92,15 @@ Atom lacks a nice feature of Brackets: in an HTML file, Brackets can auto-comple
 
 Apparently, Atom has only "duplicate-lines", not "duplicate-selection", alas. Sometime, I want to duplicate the selection inside the same line, eg. to quickly add an additional parameter with its type.
 
-Good idea: if I type something, the buffer is marked as dirty, of course. If I edit back to the initial state (eg. type a char, then Backspace), instead of using Undo, it still see the file as pristine (as Git would do...).
+Good idea: if I type something, the buffer is marked as dirty, of course. If I edit back to the initial state (eg. type a char, then Backspace), instead of using Undo, it sees the file as pristine again (as Git would do...).
 
 Annoyance: I can hit Ctrl+F in the Settings > Package page (for example), but it doesn't find anything there (can be convenient to find a given package by something else than its name).
 
-Command palette: good idea to highlight searched terms, but on light theme, I get light gray highlight, nearly unreadable on very light gray background...
+Command palette: good idea to highlight searched terms, but on light theme, I get light gray highlight, nearly unreadable on very light gray background... [EDIT] They fixed that!
 
 Bug: column selection doesn't skip wrapped part of lines. Ie. if lines are wrapped, and if we extend a column selection beyond a wrapped line, the wrapped part is also taking the selection.
+https://github.com/atom/atom/issues/10234
+Bad idea: I can do a column selection with Ctrl+Alt+Up / Down. BUT, they thought it was a good idea to extend in both directions... So there is no way to reduce the selection if we overshot! In general, I don't start in the middle of my selection, I am either at the top or bottom line, then I go from there. So I expect, if I go in the reverse direction (of the initial choice), to reduce the selection.
 
 Bug, or annoyance (as I am used to a different behavior for other editors): if I hit Ctrl+Delete at the start of an indented line, I expect the editor to remove only the indentation characters, ie. to remove spaces or tabs up to the first non-whitespace character. But it eats also the beginning of the significant line, ie. the first word or the first symbols.
 Relevant issue with a workaround: https://github.com/atom/atom/issues/4026
@@ -103,12 +110,39 @@ Relevant issue with a workaround: https://github.com/atom/atom/issues/4026
   'ctrl-delete': 'editor:delete-to-next-word-boundary'
 ```
 
+In general, I am annoyed by a different behavior on managing whitespace. Example: when I delete a word, I am used* to see the following (or preceding) space(s) to be removed as well. So I can delete several words quickly. Here, I have to delete the intermediary spaces as well.
+I also would be appreciate that Home key sends to start of line (column 0) instead of start of text (after indentation). That's the things I can set up in SciTE...
+
+* With editors like SciTE (based on Visual Studio behavior), Eclipse, Brackets and Plunker, for example. The last two use the CodeMirror library / component, which is very good. Atom seems to use a self-made one, which is lacking on lot of small details.
+
+Auto-indent is broken. Particularly when I paste a code snippet: it indents the already indented code, resulting with double indenting!
+I just activate the "keep indentation level" setting, which some time misses a level...
+https://discuss.atom.io/t/normalize-indent-on-paste-doesnt-work-as-expected/3503/12
+
+Annoyance: there is no way to set the setting tabs vs. spaces per buffer.
+https://discuss.atom.io/t/sometimes-tab-inserts-spaces-even-with-soft-tabs-off/3976/37
+
 Minor quibble: title and closing cross in inactive tabs are one or two pixels too low (one pixel lower than the active tab, at least). It "hurts" my sense of tidiness... :-)
+
+
+## Conclusion
+
+Overall it is a good editor. It is reasonably fast for my usage (I don't open larges files, a known weakness of Atom).
+Well, almost. When Windows swaps out its memory (going to sleep), it is very slow to wake up.
+More annoying, it often displays a message on slowness ("Editor not responding"), I have to hit the button "Keep Waiting" to continue.
+https://github.com/atom/atom/issues/7275
+Even more annoying: the dialog stops everything. The same dialog in Chrome spontaneously disappears when the slowness is no longer detected. Here, the editor waits for clicking on Keep Waiting before resuming!
+https://discuss.atom.io/t/refinements-to-the-not-responding-keep-waiting-dialog/24375
+
+The minor issues mentioned above doesn't prevent from using it: the good parts currently balance the bad ones.
+I will still recommend it. :-)
+
 
 ## Installed packages
 
 Good point: once a plugin / package is installed, no need to restart Atom to get it working.
 Note: list can be incomplete, and version numbers are indicative only: I won't update them on each package update!
+You can find a more complete list (when I back up my settings with sync-settings) at https://gist.github.com/PhiLhoSoft/b61b3e3d13ebd802bb08
 
 - Sublime Style Column Selection
 Allow column selection with mouse.
@@ -134,17 +168,17 @@ Shows opened files above the tree-view. Better than tabs when lot of files are o
 https://atom.io/packages/tree-view-open-files
 https://github.com/postcasio/tree-view-open-files
 
+- Atom Tabs Exposé
+Quick tab overview of open files. Similar to Mac OSX Exposé / Mission Control, Firefox Tab Group, Safari and Chrome Tab Overview, etc.
+0.11.1 by mrodalgaard
+https://atom.io/packages/expose
+https://github.com/mrodalgaard/atom-expose
+
 - minimap
 Visual miniature representation of the content of the editor. Allows quick navigation.
 4.18.0 by atom-minimap
 https://atom.io/packages/minimap
 https://github.com/atom-minimap/minimap
-
-- markdown-mindmap
-Shows headings of a Markdown text as a mindmap, allows to navigate.
-0.2.4 by dundalek
-https://atom.io/packages/markdown-mindmap
-https://github.com/dundalek/atom-markdown-mindmap
 
 - highlight-selected
 When a selection is done, corresponding words (must be whole words) in the same buffer are highlighted as well.
@@ -199,6 +233,12 @@ Linter for CSS and Sass.
 1.9.1 by AtomLinter
 https://atom.io/packages/linter-stylelint
 https://github.com/AtomLinter/linter-stylelint
+
+- minimap-linter
+Display linter markers on minimap.
+1.1.1 by AtomLinter
+https://atom.io/packages/minimap-linter
+https://github.com/AtomLinter/atom-minimap-linter
 
 - pigments
 Shows colors from various CSS notations (including named and computed colors). I prefer to display them as circles after the color definition.
@@ -259,6 +299,12 @@ Simple Rest client to generate requests to servers.  Complement of RestClient on
 0.5.0 by ddavison
 https://atom.io/packages/rest-client
 https://github.com/ddavison/rest-client
+
+- markdown-mindmap
+Shows headings of a Markdown text as a mindmap, allows to navigate.
+0.2.4 by dundalek
+https://atom.io/packages/markdown-mindmap
+https://github.com/dundalek/atom-markdown-mindmap
 
 - atom-perforce
 Support of the Perforce VCS (I use it at work). Has [problems on Windows](https://github.com/mattsawyer77/atom-perforce/issues/46), I fixed (some of) them.
