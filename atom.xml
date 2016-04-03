@@ -2826,17 +2826,13 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
     <link href="http://PhiLhoSoft.github.io/Programming/Using-Lodash-for-fun-and-profit/"/>
     <id>http://PhiLhoSoft.github.io/Programming/Using-Lodash-for-fun-and-profit/</id>
     <published>2015-09-30T22:00:00.000Z</published>
-    <updated>2016-04-03T15:48:14.256Z</updated>
+    <updated>2016-04-03T17:22:09.984Z</updated>
     <content type="html"><![CDATA[<h1 id="using-lodash-for-fun-and-profit">Using Lodash for fun and profit</h1>
 <p>Lodash is a JavaScript utility library enabling a functional programming coding style.<br>
 Lodash has general purpose functions, for type checking, string utilities, even functions to manipulate functions.<br>
 More importantly, it has functions to manipulate collections. Collections is a general term covering arrays, objects (seen as maps) and even strings (seen as arrays of characters).</p>
 <p>This allows to replace most <code>for</code> loops with powerful and succinct function calls, showing clearly the intent of the operation without having to analyze complex code.</p>
 <a id="more"></a>
-<aside class="article-wip">
-<img class="no-fancybox" src="/images/Work-in-Progress.svg" width="240" height="110" title="Work in Progress" alt="Work in Progress">
-This is a work in progress: this article is unfinished and will be updated.
-</aside>
 <h2 id="history">History</h2>
 <p>In the days of JavaScript before EcmaScript 5 (which added methods like map or filter), JS was mostly used as an imperative language.<br>
 The Underscore library (created by Jeremy Ashkenas) changed that by introducing (in 2009) functions like map, filter or reduce to ease processing of arrays. Similarly to jQuery, which adds a global variable named <code>$</code> to be reachable from everywhere, Underscore adds a global variable named&#x2026; <code>_</code> to provide its functions.<br>
@@ -3075,6 +3071,11 @@ They a particularly useful to ensure an argument has been passed to a function.<
 <code>_.isEqual</code> does a deep comparison between two values to determine if they are equivalent. A customizer function allows some fuzzy logic (eg. case-insensitive comparison, etc.).<br>
 <code>_.isMatch</code> does a deep comparison to determine if the given object includes all the properties of the source object. Ie. that&#x2019;s a partial <code>isEqual</code>, ignoring properties in given object not in source object. Also accepts a customizer function.</p>
 <p><code>_.clone</code> and <code>_.cloneDeep</code> create respectively a shallow and a deep clone of the given value. Accepts a customizer.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>As said, Lodash is a very rich library of general purpose functions, particularly in the field of collection manipulations.<br>
+It is very efficient, practical, and results in readable code.<br>
+I invite you to explore the list of functions, to get familiar with them, to be able to pick up the right tool for the right job&#x2026;</p>
+<p>Happy coding!</p>
 ]]></content>
     <summary type="html">
     <![CDATA[Presenting the JavaScript library Lodash]]>
