@@ -11,6 +11,7 @@ tags:
 - Functional programming
 - Lodash
 date: 2015-10-01
+update: 2016-04-03
 ---
 
 # Using Lodash for fun and profit
@@ -41,6 +42,9 @@ Personally, I started to use Underscore, but I found I needed to mutate an array
 I once made an issue (#2052) on Underscore to point out that some information was missing at one place and had to be found elsewhere. The issue was closed without change.
 In contrast, Lodash's doc repeats all the information needed to use a function in each entry. It might seem tiresome, but the user skips over these repetitions... unless she really need the info! In this case, it is here. Great when jumping to a definition to refresh the memory... or to discover it.
 Moreover, I made an issue to point out some little confusion. JD Dalton quickly asked for a pull request, and merged it verbatim within hours.
+
+Note: the article is written for the v.3 of Lodash (more precisely, for v.3.10.1, the last of the v.3 series). Since then, JDD released v.4 of his library, with breaking changes, and lot of new functions.
+For now, I remain at v.3, of smaller scope. I might write a new article for v.4.
 
 
 ## Functional programming
@@ -78,17 +82,19 @@ will return the first person with these name and surname.
 
 You will find these shortcuts in most Lodash functions, if applicable. The Lodash documentation re-explain them on each function supporting them.
 
-Most iteratees / predicates also share the same set of parameters: they are generally called with the current item, its index if the collection is an array or a string, or its key if that's a map (an object), and the collection itself.
-When a function has an iteratee (or other callback function), it also accepts an optional `thisArg` as last parameter. This allows to bind an object to the callback, to access its properties or methods. I haven't used it yet...
+Side note: the first form, `_.filter(list, 'name', someName);`, has been dropped in Lodash 4. So, to reduce the work for a possible update, I advise to systematically use the `_.filter(list, { name: someName });` form instead.
 
-Note that Lodash is robust against `undefined` or `null` input: it won't throw exceptions, but will do some kind of noop, depending on function.
+Most iteratees / predicates also share the same set of parameters: they are generally called with the current item, its index if the collection is an array or a string, or its key if that's a map (an object), and the collection itself.
+When a function has an iteratee (or other callback function), it also accepts an optional `thisArg` as last parameter. This allows to bind an object to the callback, to access its properties or methods. I haven't used it yet... And it has been dropped in v.4!
+
+Note that Lodash is robust against `undefined` or `null` input: it won't throw exceptions, but will do some kind of no-op, depending on function.
 
 
 ## Reminder
 
-In the article mentioned above, I talk about some common functions:
-forEach (each), forEachRight (eachRight), reduce (foldl, inject), reduceRight (foldr), range, filter (select), reject, find (detect), findLast, findIndex, map (collect), mapRight, take, takeWhile, takeRight, takeRightWhile, first (head), last, initial, rest (tail), drop, dropWhile, dropRight, dropRightWhile, map, every (all), some (any), zip, unzip, partial, ary, rearg, negate.
-The names between parentheses are aliases.
+In the article mentioned above (about functional programming), I talk about some common functions:
+forEach (each), forEachRight (eachRight), reduce (foldl, inject), reduceRight (foldr), range, filter (select), reject, find (detect), findLast, findIndex, findLastIndex, map (collect), take, takeWhile, takeRight, takeRightWhile, first (head), last, initial, rest (tail), drop, dropWhile, dropRight, dropRightWhile, every (all), some (any), zip, unzip, partial, ary, rearg, negate.
+The names between parentheses are aliases (some of them removed from v.4 -- avoid using them!).
 Except for consistency, I won't present them again here.
 
 I won't present all the functions of Lodash, check the official documentation to have an up-to-date list and detailed presentations.
@@ -136,7 +142,10 @@ They are basically the same, with a little difference: `value()` is not necessar
 ## Mutating data
 
 We saw that FP privileges usage of immutable data,  returning a new structure instead of changing the given one.
-But Lodash is pragmatic, and provides functions that can mutate collections in-place: it might be more memory efficient, and it is useful when you must keep the reference to the data. For example, if you bind a collection in AngularJS, you have to change it in-place; if you assign a new collection, the binding is broken.
+But Lodash is pragmatic, and provides functions that can mutate collections in-place: it might be more memory efficient, and it is useful when you must keep the reference to the data. It is named referential integrity.
+For example, if you bind a collection in AngularJS, you have to change it in-place; if you assign a new collection, the binding is broken.
+
+We will distinguish below functions mutating data from those returning a new collection.
 
 
 ## Collection functions
@@ -144,6 +153,19 @@ But Lodash is pragmatic, and provides functions that can mutate collections in-p
 Reminder: _collection_ is a generic term. Basically, it covers JS iterable structures: arrays, objects (seen as map, sometime called associative arrays) and strings (seen as a list of characters).
 The following functions work for these kinds of collections. Later, we will present functions more specific to each type.
 
+`_.includes(collection, target, [fromIndex=0])` (aliases: `include`, `contains`)
+Checks if `target` is in `collection`. If fromIndex is negative, it's used as the offset from the end of collection.
+In an array, searches the target for each entry. In an object, searches the target in the values. In a string, checks if target is in the string.
+
+`_.findWhere(collection, source)`
+Performs a deep comparison between each element in `collection` and the `source` object, returning the first element that has equivalent property values (partial matching).
+
+`_.where(collection, source)`
+Performs a deep comparison between each element in `collection` and the `source` object, returning an array of all elements that has equivalent property values (partial matching).
+
+`_.pluck(collection, path)`
+Gets the property value of `path` from all elements in `collection`.
+In general, `collection` is an array of objects, and you want to get all the ids, names or other specific properties of these objects in a new array.
 
 
 ## Array functions
@@ -166,7 +188,7 @@ Returns an array of removed values (null value if index is out of range).
 Removes all elements from array that predicate returns truthy for, and returns an array of removed values.
 Supports property shortcuts.
 
-`_.property.reverse()`
+`_.prototype.reverse()`
 Reverses the wrapped array and returns the wrapped instance (for chaining).
 
 ### Functions returning a new arrays
@@ -175,10 +197,28 @@ Reverses the wrapped array and returns the wrapped instance (for chaining).
 Same as `_.pull` but doesn't mutate the array.
 
 `_.at()`
-Same as `_.pullAt` but doesn't mutate the array.
+Same as `_.pullAt` but doesn't mutate the array. Work on any collection.
 
 `_.filter()`
-Same as `_.remove` but doesn't mutate the array.
+Same as `_.remove` but doesn't mutate the array. Work on any collection.
+
+`_.flatten(array, [isDeep])`
+Some Lodash functions return an array of arrays. `flatten` put all values in the same array, linearly.
+
+`_.uniq(array, [isSorted], [iteratee], [thisArg])` (alias: unique)
+Eliminates duplicate entries from the given array, returning a new array.
+
+`_.union([array])`
+Creates an array of unique values, in order, from all of the provided arrays.
+
+`_.difference(array, [values])`
+Creates an array of unique values not included in the other provided arrays.
+
+`_.intersection([arrays])`
+Creates an array of unique values that are included in all of the provided arrays.
+
+`_.xor([arrays])`
+Creates an array of unique values that is the symmetric difference of the provided arrays.
 
 
 ## Object functions
@@ -222,16 +262,17 @@ Elegant and flexible ways to merge objects and set default values to missing pro
 These functions mutate the destination object, and return the result.
 It is not uncommon to give an empty object `{}` as destination, if we want to merge two objects but to leave them intact (or if one of them can be undefined).
 
-`_assign(object, [sources], [customizer], [thisArg])`
-Assign the (own) properties of source object(s) to the destination object, each additional source property overwriting the previous ones, including source properties set to undefined
+`_.assign(object, [sources], [customizer], [thisArg])` (alias: `extend`)
+Assign the (own) properties of source object(s) to the destination object, each additional source property overwriting the previous ones, including source properties set to undefined.
 
-`defaults(object, [sources])`
+`_.defaults(object, [sources])`
 Assign the (own) properties of source object(s) to the destination object, only if the destination property is `undefined`. Once a property is assigned, it won't change.
 
-`defaultsDeep(object, [sources])`
-Is like `_.defaults` but it t recursively assigns default properties.
+`_.defaultsDeep(object, [sources])`
+Is like `_.defaults` but it recursively assigns default properties.
 
-merge overwrites deeply all properties with successive values, except undefined source properties
+`_.merge(object, [sources], [customizer], [thisArg])`
+Overwrites deeply all (own) properties with successive values, except undefined source properties. Kind of deep `assign`.
 
 Example:
 
@@ -263,6 +304,32 @@ _.defaultsDeep(dest, src1, src2)
     "id":{"driverLicense":"88-65","ssn":"1-54-455","other":"mango","pwd":"123","warcry":"Kowabunga"}}
 ```
 
+### Pick a card, any card
+
+A method I use often is `pick`: it allows to do a partial clone of an object, where you specify the properties to copy.
+`_.pick(object, [predicate], [thisArg])`
+Predicate can be a function, a single key, a list of keys as parameters, or an array of keys.
+
+`_.omit(object, [predicate], [thisArg])`
+Does the reverse of `pick`: it clones the object, removing the given properties.
+
+### Keys and values
+
+`_.keys(object)`
+Creates an array of the own enumerable property names of `object`.
+
+`_.values(object)`
+Creates an array of the own enumerable property values of `object`.
+
+`_.mapKeys(object, [iteratee=_.identity], [thisArg])`
+Creates an object with the same values as `object` and keys generated by running each own enumerable property of `object` through `iteratee`.
+
+`_.mapValues(object, [iteratee=_.identity], [thisArg])`
+Creates an object with the same keys as `object` and values generated by running each own enumerable property of `object` through `iteratee`.
+
+`_.findKey(object, [predicate=_.identity], [thisArg])`
+Finds the propoerty identified by the predicate, and returns its key.
+
 
 ## String functions
 
@@ -282,20 +349,20 @@ and sentence styles:
 
 Lodash offers a number of functions to convert from any style to one of these.
 
-- _.camelCase: foo--bar-, __foo_bar, Foo Bar => fooBar
-- _.capitalize: foo bar => Foo bar
-- _.kebabCase: FooBar, _foo__bar_, foo Bar => foo-bar
-- _.snakeCase: foo bar, fooBar, Foo-Bar => foo_bar
-- _.startCase: foo bar, --Foo-bar, _foo_bar => Foo Bar
+- `_.camelCase`: `foo--bar-`, `__foo_bar`, `Foo Bar` => `fooBar`
+- `_.capitalize`: `foo bar` => `Foo bar`
+- `_.kebabCase`: `FooBar`,` _foo__bar_`, `foo Bar` => `foo-bar`
+- `_.snakeCase`: `foo bar`, `fooBar`, `Foo-Bar` => `foo_bar`
+- `_.startCase`: `foo bar`, `--Foo-bar`, `_foo_bar` => `Foo Bar`
 
 ### Additional functions:
 
-- _.deburr("ça déjà tôt") => ca deja tot
-- _.startsWith("aaron", "aa") -> true
-- _.endsWith("file.txt", ".txt") => true
-- _.repeat("=-", 3) => =-=-=-
+- `_.deburr("ça déjà tôt")` => `ca deja tot`
+- `_.startsWith("aaron", "aa")` -> `true`
+- `_.endsWith("file.txt", ".txt")` => `true`
+- `_.repeat("=-", 3)` => `=-=-=-`
 
-Plus some other functions too long to detail: see doc for more.
+Plus some other functions too numerous to detail: see doc for more.
 A `template` function allowing string interpolation.
 Two escape functions to escape some characters in HTML and regexp. There is also an unescape function.
 Three pad functions to fit a length.
@@ -331,16 +398,18 @@ So when you have a stream of events to process, it samples these events to reduc
 ## Various other functions
 
 Lodash offers a number of functions to check the type of a given value:
+
 isUndefined, isNull,
 isObject, isArray, isFunction, isNative (function),
 isBoolean, isDate, isNumber, isRegexp, isString,
-isArgument, isError, isTypedArray, isElement (Dom element),
+isArguments, isError, isTypedArray, isElement (Dom element),
 isNaN, isFinite
+
 Their name is explicit enough to dispense of a short description. See doc for details.
 They a particularly useful to ensure an argument has been passed to a function.
 
 `_.isEmpty` checks if the given value is empty. Can check for arrays, objects, strings and jQuery-like collections,
 `_.isEqual` does a deep comparison between two values to determine if they are equivalent. A customizer function allows some fuzzy logic (eg. case-insensitive comparison, etc.).
-`_.isMatch` does a deep comparison to determine if the given object includes all the properties of the source object. Also accepts a customizer function.
+`_.isMatch` does a deep comparison to determine if the given object includes all the properties of the source object. Ie. that's a partial `isEqual`, ignoring properties in given object not in source object. Also accepts a customizer function.
 
 `_.clone` and `_.cloneDeep` create respectively a shallow and a deep clone of the given value. Accepts a customizer.
