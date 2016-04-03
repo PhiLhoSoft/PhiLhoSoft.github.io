@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="PhiLhoSoft Technical Blog">
 <meta property="og:description" content="Presenting the JavaScript library Lodash">
 <meta property="og:image" content="http://PhiLhoSoft.github.io/images/Work-in-Progress.svg">
-<meta property="og:updated_time" content="2016-01-13T19:09:40.594Z">
+<meta property="og:updated_time" content="2016-04-03T15:48:14.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using Lodash for fun and profit">
 <meta name="twitter:description" content="Presenting the JavaScript library Lodash">
@@ -257,6 +257,8 @@ As said, EcmaScript 5 brought some functional features like map or filter on arr
 I once made an issue (#2052) on Underscore to point out that some information was missing at one place and had to be found elsewhere. The issue was closed without change.<br>
 In contrast, Lodash&#x2019;s doc repeats all the information needed to use a function in each entry. It might seem tiresome, but the user skips over these repetitions&#x2026; unless she really need the info! In this case, it is here. Great when jumping to a definition to refresh the memory&#x2026; or to discover it.<br>
 Moreover, I made an issue to point out some little confusion. JD Dalton quickly asked for a pull request, and merged it verbatim within hours.</p>
+<p>Note: the article is written for the v.3 of Lodash (more precisely, for v.3.10.1, the last of the v.3 series). Since then, JDD released v.4 of his library, with breaking changes, and lot of new functions.<br>
+For now, I remain at v.3, of smaller scope. I might write a new article for v.4.</p>
 <h2 id="functional-programming">Functional programming</h2>
 <p>As said, Lodash has functions acting specifically on arrays, objects (aka. associative arrays, aka. maps) and strings (and more).<br>
 But it also has functions that treat these three types as one: collection. They are taken as &#x201C;bag of items in variable number, ordered or not&#x201D;.<br>
@@ -282,13 +284,14 @@ For example:<br>
 <code>var p = _.find(persons, { name: Bond&apos;, surname: &apos;James&apos; });</code><br>
 will return the first person with these name and surname.</p>
 <p>You will find these shortcuts in most Lodash functions, if applicable. The Lodash documentation re-explain them on each function supporting them.</p>
+<p>Side note: the first form, <code>_.filter(list, &apos;name&apos;, someName);</code>, has been dropped in Lodash 4. So, to reduce the work for a possible update, I advise to systematically use the <code>_.filter(list, { name: someName });</code> form instead.</p>
 <p>Most iteratees / predicates also share the same set of parameters: they are generally called with the current item, its index if the collection is an array or a string, or its key if that&#x2019;s a map (an object), and the collection itself.<br>
-When a function has an iteratee (or other callback function), it also accepts an optional <code>thisArg</code> as last parameter. This allows to bind an object to the callback, to access its properties or methods. I haven&#x2019;t used it yet&#x2026;</p>
-<p>Note that Lodash is robust against <code>undefined</code> or <code>null</code> input: it won&#x2019;t throw exceptions, but will do some kind of noop, depending on function.</p>
+When a function has an iteratee (or other callback function), it also accepts an optional <code>thisArg</code> as last parameter. This allows to bind an object to the callback, to access its properties or methods. I haven&#x2019;t used it yet&#x2026; And it has been dropped in v.4!</p>
+<p>Note that Lodash is robust against <code>undefined</code> or <code>null</code> input: it won&#x2019;t throw exceptions, but will do some kind of no-op, depending on function.</p>
 <h2 id="reminder">Reminder</h2>
-<p>In the article mentioned above, I talk about some common functions:<br>
-forEach (each), forEachRight (eachRight), reduce (foldl, inject), reduceRight (foldr), range, filter (select), reject, find (detect), findLast, findIndex, map (collect), mapRight, take, takeWhile, takeRight, takeRightWhile, first (head), last, initial, rest (tail), drop, dropWhile, dropRight, dropRightWhile, map, every (all), some (any), zip, unzip, partial, ary, rearg, negate.<br>
-The names between parentheses are aliases.<br>
+<p>In the article mentioned above (about functional programming), I talk about some common functions:<br>
+forEach (each), forEachRight (eachRight), reduce (foldl, inject), reduceRight (foldr), range, filter (select), reject, find (detect), findLast, findIndex, findLastIndex, map (collect), take, takeWhile, takeRight, takeRightWhile, first (head), last, initial, rest (tail), drop, dropWhile, dropRight, dropRightWhile, every (all), some (any), zip, unzip, partial, ary, rearg, negate.<br>
+The names between parentheses are aliases (some of them removed from v.4 &#x2013; avoid using them!).<br>
 Except for consistency, I won&#x2019;t present them again here.</p>
 <p>I won&#x2019;t present all the functions of Lodash, check the official documentation to have an up-to-date list and detailed presentations.<br>
 They are numerous. I advice to quickly scan the list, to get an idea of what they do, what are the available tools, then later to check in depth the functions you need.</p>
@@ -311,10 +314,22 @@ There is a slightly shorter variant:</p>
 <p>They are basically the same, with a little difference: <code>value()</code> is not necessary if the final result is a primitive (string, number, &#x2026;). And it is slightly shorter, although less explicit.</p>
 <h2 id="mutating-data">Mutating data</h2>
 <p>We saw that FP privileges usage of immutable data,  returning a new structure instead of changing the given one.<br>
-But Lodash is pragmatic, and provides functions that can mutate collections in-place: it might be more memory efficient, and it is useful when you must keep the reference to the data. For example, if you bind a collection in AngularJS, you have to change it in-place; if you assign a new collection, the binding is broken.</p>
+But Lodash is pragmatic, and provides functions that can mutate collections in-place: it might be more memory efficient, and it is useful when you must keep the reference to the data. It is named referential integrity.<br>
+For example, if you bind a collection in AngularJS, you have to change it in-place; if you assign a new collection, the binding is broken.</p>
+<p>We will distinguish below functions mutating data from those returning a new collection.</p>
 <h2 id="collection-functions">Collection functions</h2>
 <p>Reminder: <em>collection</em> is a generic term. Basically, it covers JS iterable structures: arrays, objects (seen as map, sometime called associative arrays) and strings (seen as a list of characters).<br>
 The following functions work for these kinds of collections. Later, we will present functions more specific to each type.</p>
+<p><code>_.includes(collection, target, [fromIndex=0])</code> (aliases: <code>include</code>, <code>contains</code>)<br>
+Checks if <code>target</code> is in <code>collection</code>. If fromIndex is negative, it&#x2019;s used as the offset from the end of collection.<br>
+In an array, searches the target for each entry. In an object, searches the target in the values. In a string, checks if target is in the string.</p>
+<p><code>_.findWhere(collection, source)</code><br>
+Performs a deep comparison between each element in <code>collection</code> and the <code>source</code> object, returning the first element that has equivalent property values (partial matching).</p>
+<p><code>_.where(collection, source)</code><br>
+Performs a deep comparison between each element in <code>collection</code> and the <code>source</code> object, returning an array of all elements that has equivalent property values (partial matching).</p>
+<p><code>_.pluck(collection, path)</code><br>
+Gets the property value of <code>path</code> from all elements in <code>collection</code>.<br>
+In general, <code>collection</code> is an array of objects, and you want to get all the ids, names or other specific properties of these objects in a new array.</p>
 <h2 id="array-functions">Array functions</h2>
 <p>We already saw lot of functions that can be applied on arrays (among other iterable structures). Let&#x2019;s see some more specific.</p>
 <h3 id="functions-mutating-arrays">Functions mutating arrays</h3>
@@ -328,15 +343,27 @@ Returns an array of removed values (null value if index is out of range).</p>
 <p><code>_.remove(array, [predicate=_.identity], [thisArg])</code><br>
 Removes all elements from array that predicate returns truthy for, and returns an array of removed values.<br>
 Supports property shortcuts.</p>
-<p><code>_.property.reverse()</code><br>
+<p><code>_.prototype.reverse()</code><br>
 Reverses the wrapped array and returns the wrapped instance (for chaining).</p>
 <h3 id="functions-returning-a-new-arrays">Functions returning a new arrays</h3>
 <p><code>_.without()</code><br>
 Same as <code>_.pull</code> but doesn&#x2019;t mutate the array.</p>
 <p><code>_.at()</code><br>
-Same as <code>_.pullAt</code> but doesn&#x2019;t mutate the array.</p>
+Same as <code>_.pullAt</code> but doesn&#x2019;t mutate the array. Work on any collection.</p>
 <p><code>_.filter()</code><br>
-Same as <code>_.remove</code> but doesn&#x2019;t mutate the array.</p>
+Same as <code>_.remove</code> but doesn&#x2019;t mutate the array. Work on any collection.</p>
+<p><code>_.flatten(array, [isDeep])</code><br>
+Some Lodash functions return an array of arrays. <code>flatten</code> put all values in the same array, linearly.</p>
+<p><code>_.uniq(array, [isSorted], [iteratee], [thisArg])</code> (alias: unique)<br>
+Eliminates duplicate entries from the given array, returning a new array.</p>
+<p><code>_.union([array])</code><br>
+Creates an array of unique values, in order, from all of the provided arrays.</p>
+<p><code>_.difference(array, [values])</code><br>
+Creates an array of unique values not included in the other provided arrays.</p>
+<p><code>_.intersection([arrays])</code><br>
+Creates an array of unique values that are included in all of the provided arrays.</p>
+<p><code>_.xor([arrays])</code><br>
+Creates an array of unique values that is the symmetric difference of the provided arrays.</p>
 <h2 id="object-functions">Object functions</h2>
 <h3 id="accessors">Accessors</h3>
 <p>Objects in JS are dynamic: sometime, an information is optional or missing.<br>
@@ -364,15 +391,33 @@ It can include indexes of arrays: <code>&quot;customer.addresses[1].zipCode&quot
 <p>Elegant and flexible ways to merge objects and set default values to missing properties.<br>
 These functions mutate the destination object, and return the result.<br>
 It is not uncommon to give an empty object <code>{}</code> as destination, if we want to merge two objects but to leave them intact (or if one of them can be undefined).</p>
-<p><code>_assign(object, [sources], [customizer], [thisArg])</code><br>
-Assign the (own) properties of source object(s) to the destination object, each additional source property overwriting the previous ones, including source properties set to undefined</p>
-<p><code>defaults(object, [sources])</code><br>
+<p><code>_.assign(object, [sources], [customizer], [thisArg])</code> (alias: <code>extend</code>)<br>
+Assign the (own) properties of source object(s) to the destination object, each additional source property overwriting the previous ones, including source properties set to undefined.</p>
+<p><code>_.defaults(object, [sources])</code><br>
 Assign the (own) properties of source object(s) to the destination object, only if the destination property is <code>undefined</code>. Once a property is assigned, it won&#x2019;t change.</p>
-<p><code>defaultsDeep(object, [sources])</code><br>
-Is like <code>_.defaults</code> but it t recursively assigns default properties.</p>
-<p>merge overwrites deeply all properties with successive values, except undefined source properties</p>
+<p><code>_.defaultsDeep(object, [sources])</code><br>
+Is like <code>_.defaults</code> but it recursively assigns default properties.</p>
+<p><code>_.merge(object, [sources], [customizer], [thisArg])</code><br>
+Overwrites deeply all (own) properties with successive values, except undefined source properties. Kind of deep <code>assign</code>.</p>
 <p>Example:</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var dest = { <span class="string">name:</span> <span class="string">&apos;Foo&apos;</span>, <span class="string">age:</span> <span class="number">25</span>, <span class="string">driver:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">    id:</span> { <span class="string">driverLicense:</span> <span class="string">&apos;88-65&apos;</span>, <span class="string">ssn:</span> <span class="string">&apos;1-54-455&apos;</span>, <span class="string">other:</span> <span class="string">&apos;mango&apos;</span> }  };</span><br><span class="line">var src1 = { <span class="string">name:</span> <span class="string">&apos;Bar&apos;</span>, <span class="string">driver:</span> <span class="literal">false</span>, <span class="string">address:</span> <span class="string">&apos;Here and there&apos;</span>,</span><br><span class="line"><span class="label">    id:</span> { <span class="string">driverLicense:</span> undefined, <span class="string">ssn:</span> <span class="string">&apos;2-44-985&apos;</span>, <span class="string">pwd:</span> <span class="string">&apos;123&apos;</span> }  };</span><br><span class="line">var src2 = { <span class="string">name:</span> <span class="string">&apos;Moo&apos;</span>, <span class="string">maried:</span> <span class="literal">true</span>, <span class="string">age:</span> undefined, <span class="string">address:</span> <span class="string">&apos;Somewhere&apos;</span>,</span><br><span class="line"><span class="label">    id:</span> { <span class="string">driverLicense:</span> <span class="string">&apos;11-75&apos;</span>, <span class="string">ssn:</span> undefined, <span class="string">warcry:</span> <span class="string">&apos;Kowabunga&apos;</span> } };</span><br><span class="line"></span><br><span class="line">_.assign(dest, src1, src2)</span><br><span class="line"></span><br><span class="line">==&gt; {<span class="string">&quot;name&quot;</span>:<span class="string">&quot;Moo&quot;</span>,<span class="string">&quot;driver&quot;</span>:<span class="literal">false</span>,<span class="string">&quot;id&quot;</span>:{<span class="string">&quot;driverLicense&quot;</span>:<span class="string">&quot;11-75&quot;</span>,<span class="string">&quot;warcry&quot;</span>:<span class="string">&quot;Kowabunga&quot;</span>},<span class="string">&quot;address&quot;</span>:<span class="string">&quot;Somewhere&quot;</span>,<span class="string">&quot;maried&quot;</span>:<span class="literal">true</span>}</span><br><span class="line"></span><br><span class="line">_.merge(dest, src1, src2)</span><br><span class="line"></span><br><span class="line">==&gt; {<span class="string">&quot;name&quot;</span>:<span class="string">&quot;Moo&quot;</span>,<span class="string">&quot;age&quot;</span>:<span class="number">25</span>,<span class="string">&quot;driver&quot;</span>:<span class="literal">false</span>,<span class="string">&quot;address&quot;</span>:<span class="string">&quot;Somewhere&quot;</span>,<span class="string">&quot;maried&quot;</span>:<span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;id&quot;</span>:{<span class="string">&quot;driverLicense&quot;</span>:<span class="string">&quot;11-75&quot;</span>,<span class="string">&quot;ssn&quot;</span>:<span class="string">&quot;2-44-985&quot;</span>,<span class="string">&quot;other&quot;</span>:<span class="string">&quot;mango&quot;</span>,<span class="string">&quot;pwd&quot;</span>:<span class="string">&quot;123&quot;</span>,<span class="string">&quot;warcry&quot;</span>:<span class="string">&quot;Kowabunga&quot;</span>}}</span><br><span class="line"></span><br><span class="line">_.defaults(dest, src1, src2)</span><br><span class="line"></span><br><span class="line">==&gt; {<span class="string">&quot;name&quot;</span>:<span class="string">&quot;Foo&quot;</span>,<span class="string">&quot;age&quot;</span>:<span class="number">25</span>,<span class="string">&quot;driver&quot;</span>:<span class="literal">true</span>,<span class="string">&quot;address&quot;</span>:<span class="string">&quot;Here and there&quot;</span>,<span class="string">&quot;maried&quot;</span>:<span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;id&quot;</span>:{<span class="string">&quot;driverLicense&quot;</span>:<span class="string">&quot;88-65&quot;</span>,<span class="string">&quot;ssn&quot;</span>:<span class="string">&quot;1-54-455&quot;</span>,<span class="string">&quot;other&quot;</span>:<span class="string">&quot;mango&quot;</span>}}</span><br><span class="line"></span><br><span class="line">_.defaultsDeep(dest, src1, src2)</span><br><span class="line"></span><br><span class="line">==&gt; {<span class="string">&quot;name&quot;</span>:<span class="string">&quot;Foo&quot;</span>,<span class="string">&quot;age&quot;</span>:<span class="number">25</span>,<span class="string">&quot;driver&quot;</span>:<span class="literal">true</span>,<span class="string">&quot;address&quot;</span>:<span class="string">&quot;Here and there&quot;</span>,<span class="string">&quot;maried&quot;</span>:<span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;id&quot;</span>:{<span class="string">&quot;driverLicense&quot;</span>:<span class="string">&quot;88-65&quot;</span>,<span class="string">&quot;ssn&quot;</span>:<span class="string">&quot;1-54-455&quot;</span>,<span class="string">&quot;other&quot;</span>:<span class="string">&quot;mango&quot;</span>,<span class="string">&quot;pwd&quot;</span>:<span class="string">&quot;123&quot;</span>,<span class="string">&quot;warcry&quot;</span>:<span class="string">&quot;Kowabunga&quot;</span>}}</span><br></pre></td></tr></table></figure>
+<h3 id="pick-a-card-any-card">Pick a card, any card</h3>
+<p>A method I use often is <code>pick</code>: it allows to do a partial clone of an object, where you specify the properties to copy.<br>
+<code>_.pick(object, [predicate], [thisArg])</code><br>
+Predicate can be a function, a single key, a list of keys as parameters, or an array of keys.</p>
+<p><code>_.omit(object, [predicate], [thisArg])</code><br>
+Does the reverse of <code>pick</code>: it clones the object, removing the given properties.</p>
+<h3 id="keys-and-values">Keys and values</h3>
+<p><code>_.keys(object)</code><br>
+Creates an array of the own enumerable property names of <code>object</code>.</p>
+<p><code>_.values(object)</code><br>
+Creates an array of the own enumerable property values of <code>object</code>.</p>
+<p><code>_.mapKeys(object, [iteratee=_.identity], [thisArg])</code><br>
+Creates an object with the same values as <code>object</code> and keys generated by running each own enumerable property of <code>object</code> through <code>iteratee</code>.</p>
+<p><code>_.mapValues(object, [iteratee=_.identity], [thisArg])</code><br>
+Creates an object with the same keys as <code>object</code> and values generated by running each own enumerable property of <code>object</code> through <code>iteratee</code>.</p>
+<p><code>_.findKey(object, [predicate=_.identity], [thisArg])</code><br>
+Finds the propoerty identified by the predicate, and returns its key.</p>
 <h2 id="string-functions">String functions</h2>
 <h3 id="case-changing-functions">Case-changing functions</h3>
 <p>Reminder: case is a typographical style: uppercase (A) or lowercase (a).<br>
@@ -390,20 +435,20 @@ and sentence styles:</li>
 </ul>
 <p>Lodash offers a number of functions to convert from any style to one of these.</p>
 <ul>
-<li>_.camelCase: foo&#x2013;bar-, __foo_bar, Foo Bar =&gt; fooBar</li>
-<li>_.capitalize: foo bar =&gt; Foo bar</li>
-<li>_.kebabCase: FooBar, <em>foo__bar</em>, foo Bar =&gt; foo-bar</li>
-<li>_.snakeCase: foo bar, fooBar, Foo-Bar =&gt; foo_bar</li>
-<li>_.startCase: foo bar, --Foo-bar, _foo_bar =&gt; Foo Bar</li>
+<li><code>_.camelCase</code>: <code>foo--bar-</code>, <code>__foo_bar</code>, <code>Foo Bar</code> =&gt; <code>fooBar</code></li>
+<li><code>_.capitalize</code>: <code>foo bar</code> =&gt; <code>Foo bar</code></li>
+<li><code>_.kebabCase</code>: <code>FooBar</code>,<code>_foo__bar_</code>, <code>foo Bar</code> =&gt; <code>foo-bar</code></li>
+<li><code>_.snakeCase</code>: <code>foo bar</code>, <code>fooBar</code>, <code>Foo-Bar</code> =&gt; <code>foo_bar</code></li>
+<li><code>_.startCase</code>: <code>foo bar</code>, <code>--Foo-bar</code>, <code>_foo_bar</code> =&gt; <code>Foo Bar</code></li>
 </ul>
 <h3 id="additional-functions">Additional functions:</h3>
 <ul>
-<li>_.deburr(&#x201C;&#xE7;a d&#xE9;j&#xE0; t&#xF4;t&#x201D;) =&gt; ca deja tot</li>
-<li>_.startsWith(&#x201C;aaron&#x201D;, &#x201C;aa&#x201D;) -&gt; true</li>
-<li>_.endsWith(&#x201C;file.txt&#x201D;, &#x201C;.txt&#x201D;) =&gt; true</li>
-<li>_.repeat(&quot;=-&quot;, 3) =&gt; =-=-=-</li>
+<li><code>_.deburr(&quot;&#xE7;a d&#xE9;j&#xE0; t&#xF4;t&quot;)</code> =&gt; <code>ca deja tot</code></li>
+<li><code>_.startsWith(&quot;aaron&quot;, &quot;aa&quot;)</code> -&gt; <code>true</code></li>
+<li><code>_.endsWith(&quot;file.txt&quot;, &quot;.txt&quot;)</code> =&gt; <code>true</code></li>
+<li><code>_.repeat(&quot;=-&quot;, 3)</code> =&gt; <code>=-=-=-</code></li>
 </ul>
-<p>Plus some other functions too long to detail: see doc for more.<br>
+<p>Plus some other functions too numerous to detail: see doc for more.<br>
 A <code>template</code> function allowing string interpolation.<br>
 Two escape functions to escape some characters in HTML and regexp. There is also an unescape function.<br>
 Three pad functions to fit a length.<br>
@@ -427,23 +472,23 @@ It is typically used to regulate a great amount of calls, like mouse moves (drag
 It cuts time in windows of given interval, and it blocks all calls except the last one of the window (or the first one if specified by an option).<br>
 So when you have a stream of events to process, it samples these events to reduce the amount of processing.</p>
 <h2 id="various-other-functions">Various other functions</h2>
-<p>Lodash offers a number of functions to check the type of a given value:<br>
-isUndefined, isNull,<br>
+<p>Lodash offers a number of functions to check the type of a given value:</p>
+<p>isUndefined, isNull,<br>
 isObject, isArray, isFunction, isNative (function),<br>
 isBoolean, isDate, isNumber, isRegexp, isString,<br>
-isArgument, isError, isTypedArray, isElement (Dom element),<br>
-isNaN, isFinite<br>
-Their name is explicit enough to dispense of a short description. See doc for details.<br>
+isArguments, isError, isTypedArray, isElement (Dom element),<br>
+isNaN, isFinite</p>
+<p>Their name is explicit enough to dispense of a short description. See doc for details.<br>
 They a particularly useful to ensure an argument has been passed to a function.</p>
 <p><code>_.isEmpty</code> checks if the given value is empty. Can check for arrays, objects, strings and jQuery-like collections,<br>
 <code>_.isEqual</code> does a deep comparison between two values to determine if they are equivalent. A customizer function allows some fuzzy logic (eg. case-insensitive comparison, etc.).<br>
-<code>_.isMatch</code> does a deep comparison to determine if the given object includes all the properties of the source object. Also accepts a customizer function.</p>
+<code>_.isMatch</code> does a deep comparison to determine if the given object includes all the properties of the source object. Ie. that&#x2019;s a partial <code>isEqual</code>, ignoring properties in given object not in source object. Also accepts a customizer function.</p>
 <p><code>_.clone</code> and <code>_.cloneDeep</code> create respectively a shallow and a deep clone of the given value. Accepts a customizer.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Programming/Using-Lodash-for-fun-and-profit/" data-id="cijvrcbo5002bnot1ogg2rax7" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Using-Lodash-for-fun-and-profit/" data-id="cimkqw2gg002bfct11nr9c4nw" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Programming/Using-Lodash-for-fun-and-profit/#disqus_thread" class="article-comment-link">Comments</a>
       

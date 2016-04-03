@@ -5,17 +5,17 @@
   
   <title>GitHub Atom review ~|~ PhiLhoSoft Technical Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="a review of the GitHub Atom editor (IDE), at version 1.3.2">
+  <meta name="description" content="a review of the GitHub Atom editor (IDE), at version 1.5.3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitHub Atom review">
 <meta property="og:url" content="http://PhiLhoSoft.github.io/Software/GitHub-Atom-review/index.html">
 <meta property="og:site_name" content="PhiLhoSoft Technical Blog">
-<meta property="og:description" content="a review of the GitHub Atom editor (IDE), at version 1.3.2">
+<meta property="og:description" content="a review of the GitHub Atom editor (IDE), at version 1.5.3">
 <meta property="og:image" content="http://PhiLhoSoft.github.io/images/Atom_logo.png">
-<meta property="og:updated_time" content="2015-12-19T08:16:00.000Z">
+<meta property="og:updated_time" content="2016-03-01T11:45:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub Atom review">
-<meta name="twitter:description" content="a review of the GitHub Atom editor (IDE), at version 1.3.2">
+<meta name="twitter:description" content="a review of the GitHub Atom editor (IDE), at version 1.5.3">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -291,7 +291,8 @@ The Atom team improved memory consumption, have an eye on responsiveness (I was 
 <p>Really heavy for a so-called &#x201C;text editor&#x201D;.</p>
 <p>I installed Atom (v. 1.3.1 on Windows 7 with 8 GB of memory).<br>
 It doesn&#x2019;t ask where to install, it goes arbitrarily at <code>C:\Users\&lt;user name&gt;\AppData\Local\atom</code>. I would prefer to install it beside my other programs, to locale it easily. And I would appreciate it asks me before installing something on the desktop (I have no icons there!) or on the start menu (I no longer care about this one, but still&#x2026;).<br>
-It is a bit &#x201C;all over the place&#x201D;, as it also has a <code>C:\Users\&lt;user name&gt;\AppData\Roaming\Atom</code> folder (for cache?), and a <code>C:\Users\&lt;user name&gt;\.atom folder</code> (settings, packages&#x2026;).</p>
+It is a bit &#x201C;all over the place&#x201D;, as it also has a <code>C:\Users\&lt;user name&gt;\AppData\Roaming\Atom</code> folder (for cache?), and a <code>C:\Users\&lt;user name&gt;\.atom folder</code> (settings, packages&#x2026;).<br>
+Note on icons: in the Quick Start menu, and in the context menu of files, they use the path to the .exe file to give the icon. But this path changes on every auto-update! And they don&#x2019;t update it&#x2026; Simple fix: replace this path with %USERPROFILE%\AppData\Local\atom\app.ico which is provided with the editor&#x2026;</p>
 <p>I opened it, it starts rather quickly.<br>
 It has a dark UI, which I don&#x2019;t like, but I quickly found where to change this to the default light theme. Good point than several themes are bundled by default: no need to hunt for them, at least at start. The default light UI theme is rather nice. I also chose the <em>One Light</em> syntax theme among four. A bit too pale (low contrast) for my taste, I will eventually see if I can tweak it.</p>
 <p>As I feared (I searched a bit before, given the Visual Studio Code deception), drag&#x2019;n&#x2019;drop of code isn&#x2019;t available out of the box. Actually, I saw several plugins activating it. That&#x2019;s one of the problems with this editor: there is a plethora of plugins, which can be nice, but it is confusing to choose one&#x2026; And I still think such feature should be built-in in the editor.<br>
@@ -313,24 +314,48 @@ That said, I found several features out of the box for which I had to install a 
 <p>OK, I switched to Atom to type this text (in Markdown format). Good surprise: it has spell checking enabled out of the box. And it can suggest words, although I am not sure of the logic of suggestions (scanning existing buffers, apparently; nice point: it is not obtrusive). Little bug (or unwanted feature ;-) &#x2013; I see a misspelled word in the text (red underline), I right-click directly on it, and choose Correct spelling. It does nothing&#x2026; I found out I have to left-click first on the word to get spelling suggestions.<br>
 I see no way to add words to a user dictionary (there is an issue for that, and another for other language dictionaries).</p>
 <p>The Welcome Guide is nice, I just saw a way to customize the styling. Although it lacks concrete examples: eg. how do I change the color of titles in Markdown? (I avoid reddish colors, reserved to mark errors). Ah, I suppose I have to study an existing style, like <a href="https://github.com/atom/atom-light-syntax/blob/master/index.less">https://github.com/atom/atom-light-syntax/blob/master/index.less</a><br>
-And I can see the actual styles by showing the developer tools (View &gt; Developer &gt; Toggle Developer Tools) and using it like Chrome DevTools.<br>
-Also a bug: I have <em>Choose a Theme</em> and <em>Customize the Styling</em> opened, I can&#x2019;t scroll back above <em>Install a Package</em>. I have to close one to see the top!</p>
+And I can see the actual styles by showing the developer tools (View &gt; Developer &gt; Toggle Developer Tools) and using it like Chrome DevTools.</p>
+<h2 id="bugs-and-annoyances">Bugs and annoyances</h2>
+<p>Bug: I have <em>Choose a Theme</em> and <em>Customize the Styling</em> opened in the Welcome Guide. I can&#x2019;t scroll back above <em>Install a Package</em>. I have to close one to see the top!<br>
+And I can&#x2019;t scroll the list of packages (installed, to install, etc.) with keys (up / down / page up / page down).</p>
 <p>Another bug or unwanted feature: it ensures there is an empty line at the end of a file when saving it, which can be nice (I generally want that), but if I have several lines, it removes the extra ones (which is annoying in a text file, because I want to keep my future paragraph empty lines). Will see if I can disable that.</p>
 <p>Undo coalescing is a bit strange: when I type a word, then undo, it removes parts of the word, successively, instead of whole word.<br>
 Apparently, it coalesces when there is a pause in typing. Half a good idea, bad for slow typists (not sure if this can be tweaked), not consistent. I prefer Scintilla&#x2019;s coalescing, based on keys: when an move key (eg. arrow) is typed, or when clicking somewhere.</p>
 <p>Atom lacks a nice feature of Brackets: in an HTML file, Brackets can auto-complete the path of a resource (script, CSS file, etc.). Found a plugin for that, of course&#x2026; Although it is slightly less convenient.</p>
 <p>Apparently, Atom has only &#x201C;duplicate-lines&#x201D;, not &#x201C;duplicate-selection&#x201D;, alas. Sometime, I want to duplicate the selection inside the same line, eg. to quickly add an additional parameter with its type.</p>
-<p>Good idea: if I type something, the buffer is marked as dirty, of course. If I edit back to the initial state (eg. type a char, then Backspace), instead of using Undo, it still see the file as pristine (as Git would do&#x2026;).</p>
+<p>Good idea: if I type something, the buffer is marked as dirty, of course. If I edit back to the initial state (eg. type a char, then Backspace), instead of using Undo, it sees the file as pristine again (as Git would do&#x2026;).</p>
 <p>Annoyance: I can hit Ctrl+F in the Settings &gt; Package page (for example), but it doesn&#x2019;t find anything there (can be convenient to find a given package by something else than its name).</p>
-<p>Command palette: good idea to highlight searched terms, but on light theme, I get light gray highlight, nearly unreadable on very light gray background&#x2026;</p>
-<p>Bug: column selection doesn&#x2019;t skip wrapped part of lines. Ie. if lines are wrapped, and if we extend a column selection beyond a wrapped line, the wrapped part is also taking the selection.</p>
+<p>Command palette: good idea to highlight searched terms, but on light theme, I get light gray highlight, nearly unreadable on very light gray background&#x2026; [EDIT] They fixed that!</p>
+<p>Bug: column selection doesn&#x2019;t skip wrapped part of lines. Ie. if lines are wrapped, and if we extend a column selection beyond a wrapped line, the wrapped part is also taking the selection.<br>
+<a href="https://github.com/atom/atom/issues/10234">https://github.com/atom/atom/issues/10234</a><br>
+Bad idea: I can do a column selection with Ctrl+Alt+Up / Down. BUT, they thought it was a good idea to extend in both directions&#x2026; So there is no way to reduce the selection if we overshot! In general, I don&#x2019;t start in the middle of my selection, I am either at the top or bottom line, then I go from there. So I expect, if I go in the reverse direction (of the initial choice), to reduce the selection.</p>
 <p>Bug, or annoyance (as I am used to a different behavior for other editors): if I hit Ctrl+Delete at the start of an indented line, I expect the editor to remove only the indentation characters, ie. to remove spaces or tabs up to the first non-whitespace character. But it eats also the beginning of the significant line, ie. the first word or the first symbols.<br>
 Relevant issue with a workaround: <a href="https://github.com/atom/atom/issues/4026">https://github.com/atom/atom/issues/4026</a></p>
 <figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&apos;atom</span>-workspace atom-text-editor&apos;:</span><br><span class="line">  <span class="symbol">&apos;ctrl</span>-backspace&apos;: <span class="symbol">&apos;editor</span>:delete-<span class="keyword">to</span>-previous-word-boundary&apos;</span><br><span class="line">  <span class="symbol">&apos;ctrl</span>-delete&apos;: <span class="symbol">&apos;editor</span>:delete-<span class="keyword">to</span>-next-word-boundary&apos;</span><br></pre></td></tr></table></figure>
+<p>In general, I am annoyed by a different behavior on managing whitespace. Example: when I delete a word, I am used* to see the following (or preceding) space(s) to be removed as well. So I can delete several words quickly. Here, I have to delete the intermediary spaces as well.<br>
+I also would be appreciate that Home key sends to start of line (column 0) instead of start of text (after indentation). That&#x2019;s the things I can set up in SciTE&#x2026;</p>
+<ul>
+<li>With editors like SciTE (based on Visual Studio behavior), Eclipse, Brackets and Plunker, for example. The last two use the CodeMirror library / component, which is very good. Atom seems to use a self-made one, which is lacking on lot of small details.</li>
+</ul>
+<p>Auto-indent is broken. Particularly when I paste a code snippet: it indents the already indented code, resulting with double indenting!<br>
+I just activate the &#x201C;keep indentation level&#x201D; setting, which some time misses a level&#x2026;<br>
+<a href="https://discuss.atom.io/t/normalize-indent-on-paste-doesnt-work-as-expected/3503/12">https://discuss.atom.io/t/normalize-indent-on-paste-doesnt-work-as-expected/3503/12</a></p>
+<p>Annoyance: there is no way to set the setting tabs vs. spaces per buffer.<br>
+<a href="https://discuss.atom.io/t/sometimes-tab-inserts-spaces-even-with-soft-tabs-off/3976/37">https://discuss.atom.io/t/sometimes-tab-inserts-spaces-even-with-soft-tabs-off/3976/37</a></p>
 <p>Minor quibble: title and closing cross in inactive tabs are one or two pixels too low (one pixel lower than the active tab, at least). It &#x201C;hurts&#x201D; my sense of tidiness&#x2026; :-)</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Overall it is a good editor. It is reasonably fast for my usage (I don&#x2019;t open larges files, a known weakness of Atom).<br>
+Well, almost. When Windows swaps out its memory (going to sleep), it is very slow to wake up.<br>
+More annoying, it often displays a message on slowness (&#x201C;Editor not responding&#x201D;), I have to hit the button &#x201C;Keep Waiting&#x201D; to continue.<br>
+<a href="https://github.com/atom/atom/issues/7275">https://github.com/atom/atom/issues/7275</a><br>
+Even more annoying: the dialog stops everything. The same dialog in Chrome spontaneously disappears when the slowness is no longer detected. Here, the editor waits for clicking on Keep Waiting before resuming!<br>
+<a href="https://discuss.atom.io/t/refinements-to-the-not-responding-keep-waiting-dialog/24375">https://discuss.atom.io/t/refinements-to-the-not-responding-keep-waiting-dialog/24375</a></p>
+<p>The minor issues mentioned above doesn&#x2019;t prevent from using it: the good parts currently balance the bad ones.<br>
+I will still recommend it. :-)</p>
 <h2 id="installed-packages">Installed packages</h2>
 <p>Good point: once a plugin / package is installed, no need to restart Atom to get it working.<br>
-Note: list can be incomplete, and version numbers are indicative only: I won&#x2019;t update them on each package update!</p>
+Note: list can be incomplete, and version numbers are indicative only: I won&#x2019;t update them on each package update!<br>
+You can find a more complete list (when I back up my settings with sync-settings) at <a href="https://gist.github.com/PhiLhoSoft/b61b3e3d13ebd802bb08">https://gist.github.com/PhiLhoSoft/b61b3e3d13ebd802bb08</a></p>
 <ul>
 <li>
 <p>Sublime Style Column Selection<br>
@@ -361,18 +386,18 @@ Shows opened files above the tree-view. Better than tabs when lot of files are o
 <a href="https://github.com/postcasio/tree-view-open-files">https://github.com/postcasio/tree-view-open-files</a></p>
 </li>
 <li>
+<p>Atom Tabs Expos&#xFFFD;<br>
+Quick tab overview of open files. Similar to Mac OSX Expos&#xFFFD; / Mission Control, Firefox Tab Group, Safari and Chrome Tab Overview, etc.<br>
+0.11.1 by mrodalgaard<br>
+<a href="https://atom.io/packages/expose">https://atom.io/packages/expose</a><br>
+<a href="https://github.com/mrodalgaard/atom-expose">https://github.com/mrodalgaard/atom-expose</a></p>
+</li>
+<li>
 <p>minimap<br>
 Visual miniature representation of the content of the editor. Allows quick navigation.<br>
 4.18.0 by atom-minimap<br>
 <a href="https://atom.io/packages/minimap">https://atom.io/packages/minimap</a><br>
 <a href="https://github.com/atom-minimap/minimap">https://github.com/atom-minimap/minimap</a></p>
-</li>
-<li>
-<p>markdown-mindmap<br>
-Shows headings of a Markdown text as a mindmap, allows to navigate.<br>
-0.2.4 by dundalek<br>
-<a href="https://atom.io/packages/markdown-mindmap">https://atom.io/packages/markdown-mindmap</a><br>
-<a href="https://github.com/dundalek/atom-markdown-mindmap">https://github.com/dundalek/atom-markdown-mindmap</a></p>
 </li>
 <li>
 <p>highlight-selected<br>
@@ -436,6 +461,13 @@ Linter for CSS and Sass.<br>
 1.9.1 by AtomLinter<br>
 <a href="https://atom.io/packages/linter-stylelint">https://atom.io/packages/linter-stylelint</a><br>
 <a href="https://github.com/AtomLinter/linter-stylelint">https://github.com/AtomLinter/linter-stylelint</a></p>
+</li>
+<li>
+<p>minimap-linter<br>
+Display linter markers on minimap.<br>
+1.1.1 by AtomLinter<br>
+<a href="https://atom.io/packages/minimap-linter">https://atom.io/packages/minimap-linter</a><br>
+<a href="https://github.com/AtomLinter/atom-minimap-linter">https://github.com/AtomLinter/atom-minimap-linter</a></p>
 </li>
 <li>
 <p>pigments<br>
@@ -508,6 +540,13 @@ Simple Rest client to generate requests to servers.  Complement of RestClient on
 <a href="https://github.com/ddavison/rest-client">https://github.com/ddavison/rest-client</a></p>
 </li>
 <li>
+<p>markdown-mindmap<br>
+Shows headings of a Markdown text as a mindmap, allows to navigate.<br>
+0.2.4 by dundalek<br>
+<a href="https://atom.io/packages/markdown-mindmap">https://atom.io/packages/markdown-mindmap</a><br>
+<a href="https://github.com/dundalek/atom-markdown-mindmap">https://github.com/dundalek/atom-markdown-mindmap</a></p>
+</li>
+<li>
 <p>atom-perforce<br>
 Support of the Perforce VCS (I use it at work). Has <a href="https://github.com/mattsawyer77/atom-perforce/issues/46">problems on Windows</a>, I fixed (some of) them.<br>
 1.7.0 by mattsawyer77<br>
@@ -551,7 +590,7 @@ To jump between main file and its unit test. Not used because it can&#x2019;t se
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Software/GitHub-Atom-review/" data-id="cijvrcbne001pnot1d29yfce1" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Software/GitHub-Atom-review/" data-id="cimkqw2fr001pfct1c2v4tw7o" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Software/GitHub-Atom-review/#disqus_thread" class="article-comment-link">Comments</a>
       
