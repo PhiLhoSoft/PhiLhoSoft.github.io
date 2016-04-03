@@ -24,11 +24,6 @@ This allows to replace most `for` loops with powerful and succinct function call
 
 <!-- more -->
 
-<aside class="article-wip">
-<img class="no-fancybox" src="/images/Work-in-Progress.svg" width=240 height=110 title="Work in Progress" alt="Work in Progress"/>
-This is a work in progress: this article is unfinished and will be updated.
-</aside>
-
 ## History
 
 In the days of JavaScript before EcmaScript 5 (which added methods like map or filter), JS was mostly used as an imperative language.
@@ -413,3 +408,12 @@ They a particularly useful to ensure an argument has been passed to a function.
 `_.isMatch` does a deep comparison to determine if the given object includes all the properties of the source object. Ie. that's a partial `isEqual`, ignoring properties in given object not in source object. Also accepts a customizer function.
 
 `_.clone` and `_.cloneDeep` create respectively a shallow and a deep clone of the given value. Accepts a customizer.
+
+
+## Conclusion
+
+As said, Lodash is a very rich library of general purpose functions, particularly in the field of collection manipulations.
+It is very efficient, practical, and results in readable code.
+I invite you to explore the list of functions, to get familiar with them, to be able to pick up the right tool for the right job...
+
+Happy coding!
