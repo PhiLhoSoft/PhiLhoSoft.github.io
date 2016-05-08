@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/12 ~|~ PhiLhoSoft Technical Blog</title>
+  <title>Ceylon strong selling points ~|~ PhiLhoSoft Technical Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PhiLho&apos;s technical articles">
-<meta property="og:type" content="website">
-<meta property="og:title" content="PhiLhoSoft Technical Blog">
-<meta property="og:url" content="http://PhiLhoSoft.github.io/archives/2015/12/index.html">
+  <meta name="description" content="Some strong selling points of Ceylon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ceylon strong selling points">
+<meta property="og:url" content="http://PhiLhoSoft.github.io/Programming/Ceylon-strong-selling-points/index.html">
 <meta property="og:site_name" content="PhiLhoSoft Technical Blog">
-<meta property="og:description" content="PhiLho&apos;s technical articles">
+<meta property="og:description" content="Some strong selling points of Ceylon">
+<meta property="og:updated_time" content="2016-04-23T12:40:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PhiLhoSoft Technical Blog">
-<meta name="twitter:description" content="PhiLho&apos;s technical articles">
+<meta name="twitter:title" content="Ceylon strong selling points">
+<meta name="twitter:description" content="Some strong selling points of Ceylon">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -199,85 +200,108 @@ ga('send', 'pageview');
 </aside>
 
       
-      <section id="main">
-      <div class="archive-year-wrap">
-        <a href="/archives/2015" class="archive-year">2015</a>
+      <section id="main"><article id="post-Programming/Ceylon-strong-selling-points" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ceylon strong selling points
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/Programming/Ceylon-strong-selling-points/">
+      <time datetime="2014-10-14T16:20:00.000Z" itemprop="datePublished">2014-10-14</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/ceylon/">Ceylon</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h1 id="ceylon-strong-selling-points">Ceylon strong selling points</h1>
+<p>Note: this is a draft, based on a Google+ message I made years ago.</p>
+<a id="more"></a>
+<p>I am only a beginner with this language, so I recommend to take a look at the Quick Introduction [1] and Tour of the language [2] to have a better, less subjective and more accurate overview.</p>
+<p>Here is my take:</p>
+<ul>
+<li>Its syntax is C-like, close of Java, without exotic operators&#x2026; ;-) Likewise, interface / abstract class / classes / inheritance / generics are close of Java, remains familiar.</li>
+<li>Visibility rules are simpler than in Java.</li>
+<li>It compiles to the JVM (bytecode) and to JavaScript, with interoperability with both universes.</li>
+<li>No primitives, everything is an object, the compiler can optimize integer / float / characters / etc. to their platform equivalent.</li>
+<li>Multiline strings with interpolation.</li>
+<li>Iterables and Sequences are also first-class entities, with literals.</li>
+<li>It has a strong yet flexible typing, with union and intersection of types, and type inference. Full support of variance (co-, contra-, in-). - Mixins: interfaces can have implementations, but no context / state.</li>
+<li>An awesome feature is null safety, enforced by the compiler itself: the language doesn&#x2019;t have a concept of NPE, because the compiler forces you to test for nullity (existence of value, more precisely) if you told it your variable can be null. At work, we use FindBugs to check this in Java, but it goes with lot of ceremony and has holes&#x2026;</li>
+<li>By default, values are immutable, variable identifiers must be marked as such explicitly.</li>
+<li>Functions are first-class entities, can be stored in variables and collections, passed as parameters and returned, etc.</li>
+<li>Named parameters, default values, flexible syntax allowing declarative object instantiation.</li>
+<li>Simplified accessors: we generally do direct access to (public / shared) members, we can override getters and setters without breaking the API if we need to change the implementation.</li>
+<li>for comprehensions for generating or processing iterables.</li>
+<li>Range literal and processing.</li>
+<li>Operator overloading, with strict rules.</li>
+<li>Capability to rename imported classes; type aliases.</li>
+<li>The IDE is quite good (Eclipse plugin), with auto-completion, refactoring, etc.</li>
+</ul>
+<p>[1] <a href="http://ceylon-lang.org/documentation/1.0/introduction">http://ceylon-lang.org/documentation/1.0/introduction</a><br>
+[2] <a href="http://ceylon-lang.org/documentation/1.0/tour">http://ceylon-lang.org/documentation/1.0/tour</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Ceylon-strong-selling-points/" data-id="cinz1zn0800000kt1yzorseli" class="article-share-link">Share</a>
+      
+        <a href="http://PhiLhoSoft.github.io/Programming/Ceylon-strong-selling-points/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ceylon/">Ceylon</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/language/">Language</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Software/JetBrains-WebStorm-review/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JetBrains WebStorm review
+        
       </div>
-      <section class="archives-wrap">
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/Software/MessagEase-Android-keyboard-review/" class="thumbnail">
-  
-    <span style="background-image:url(/images/MessagEase_Keyboard.png
-)" alt="MessagEase (Android keyboard) review" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Software/MessagEase-Android-keyboard-review/">MessagEase (Android keyboard) review</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/Software/MessagEase-Android-keyboard-review/">
-      <time datetime="2015-12-17T09:56:00.000Z" itemprop="datePublished">Dec 17</time>
     </a>
-  </div>
+  
+  
+</nav>
 
 
-      
-    </header>
-  </div>
+  
 </article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/Software/GitHub-Atom-review/" class="thumbnail">
-  
-    <span style="background-image:url(/images/Atom_logo.png
-)" alt="GitHub Atom review" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Software/GitHub-Atom-review/">GitHub Atom review</a>
-    </h1>
-  
 
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/Software/GitHub-Atom-review/">
-      <time datetime="2015-12-15T09:40:00.000Z" itemprop="datePublished">Dec 15</time>
-    </a>
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
+</section>
 
-
-      
-    </header>
-  </div>
-</article>
-  
-    </div></section>
-  </section>
+</section>
       
         <aside id="sidebar">
   
@@ -438,7 +462,7 @@ ga('send', 'pageview');
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

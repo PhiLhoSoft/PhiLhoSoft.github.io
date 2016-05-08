@@ -647,6 +647,13 @@ Keyboard shortcut to switch between single and double quotes on the string the c
 <a href="https://github.com/atom/toggle-quotes">https://github.com/atom/toggle-quotes</a></p>
 </li>
 <li>
+<p>atom-ternjs<br>
+JavaScript code intelligence<br>
+0.13.2 by tststs<br>
+<a href="https://atom.io/packages/atom-ternjs">https://atom.io/packages/atom-ternjs</a><br>
+<a href="https://github.com/tststs/atom-ternjs">https://github.com/tststs/atom-ternjs</a></p>
+</li>
+<li>
 <p>linter<br>
 Engine allowing to display lint information in real time in the editor. Need plugins for various languages.<br>
 1.11.3 by atom-community<br>
@@ -687,20 +694,6 @@ Shows colors from various CSS notations (including named and computed colors). I
 0.19.3 by abe33<br>
 <a href="https://atom.io/packages/pigments">https://atom.io/packages/pigments</a><br>
 <a href="https://github.com/abe33/atom-pigments">https://github.com/abe33/atom-pigments</a></p>
-</li>
-<li>
-<p>refactor<br>
-Allows refactoring (basically, renaming of identifiers in context). Needs plugins per language.<br>
-0.6.0 by hax<br>
-<a href="https://atom.io/packages/refactor">https://atom.io/packages/refactor</a><br>
-<a href="https://github.com/hax/refactor">https://github.com/hax/refactor</a></p>
-</li>
-<li>
-<p>js-refactor<br>
-Refactor plugin for JS (only rename variables and parameters).<br>
-0.6.0 by hax<br>
-<a href="https://atom.io/packages/js-refactor">https://atom.io/packages/js-refactor</a><br>
-<a href="https://github.com/hax/js-refactor">https://github.com/hax/js-refactor</a></p>
 </li>
 <li>
 <p>atom-beautify<br>
@@ -781,6 +774,23 @@ To jump between main file and its unit test. Not used because it can&#x2019;t se
 0.5.0 by danielcooper<br>
 <a href="https://atom.io/packages/test-jumper">https://atom.io/packages/test-jumper</a><br>
 <a href="https://github.com/danielcooper/test-jumper">https://github.com/danielcooper/test-jumper</a></p>
+</li>
+</ul>
+<h2 id="no-longer-used">No longer used</h2>
+<ul>
+<li>
+<p>refactor<br>
+Allows refactoring (basically, renaming of identifiers in context). Needs plugins per language.<br>
+0.6.0 by hax<br>
+<a href="https://atom.io/packages/refactor">https://atom.io/packages/refactor</a><br>
+<a href="https://github.com/hax/refactor">https://github.com/hax/refactor</a></p>
+</li>
+<li>
+<p>js-refactor<br>
+Refactor plugin for JS (only rename variables and parameters).<br>
+0.6.0 by hax<br>
+<a href="https://atom.io/packages/js-refactor">https://atom.io/packages/js-refactor</a><br>
+<a href="https://github.com/hax/js-refactor">https://github.com/hax/js-refactor</a></p>
 </li>
 </ul>
 <h1 id="themes">Themes</h1>
@@ -2690,6 +2700,7 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
 Lodash has general purpose functions, for type checking, string utilities, even functions to manipulate functions.<br>
 More importantly, it has functions to manipulate collections. Collections is a general term covering arrays, objects (seen as maps) and even strings (seen as arrays of characters).</p>
 <p>This allows to replace most <code>for</code> loops with powerful and succinct function calls, showing clearly the intent of the operation without having to analyze complex code.</p>
+<img src="/images/Lodash_logo.png" title="Lodash logo" alt="Lodash">
 <a id="more"></a>
 <h2 id="history">History</h2>
 <p>In the days of JavaScript before EcmaScript 5 (which added methods like map or filter), JS was mostly used as an imperative language.<br>
@@ -3519,6 +3530,38 @@ I find myself loosing lot of time on this. A little pro thought: it is easy to m
 </ul>
 <p>I hadn&#x2019;t time to test how to debug JavaScript within WS, but it also something it can do.</p>
 <p>Overall, I am quite impressed by this IDE, which has a deep knowledge of the Web environment, offers good editing facilities and is very pleasant to use.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Ceylon strong selling points]]></title>
+      <url>http://PhiLhoSoft.github.io/Programming/Ceylon-strong-selling-points/</url>
+      <content type="html"><![CDATA[<h1 id="ceylon-strong-selling-points">Ceylon strong selling points</h1>
+<p>Note: this is a draft, based on a Google+ message I made years ago.</p>
+<a id="more"></a>
+<p>I am only a beginner with this language, so I recommend to take a look at the Quick Introduction [1] and Tour of the language [2] to have a better, less subjective and more accurate overview.</p>
+<p>Here is my take:</p>
+<ul>
+<li>Its syntax is C-like, close of Java, without exotic operators&#x2026; ;-) Likewise, interface / abstract class / classes / inheritance / generics are close of Java, remains familiar.</li>
+<li>Visibility rules are simpler than in Java.</li>
+<li>It compiles to the JVM (bytecode) and to JavaScript, with interoperability with both universes.</li>
+<li>No primitives, everything is an object, the compiler can optimize integer / float / characters / etc. to their platform equivalent.</li>
+<li>Multiline strings with interpolation.</li>
+<li>Iterables and Sequences are also first-class entities, with literals.</li>
+<li>It has a strong yet flexible typing, with union and intersection of types, and type inference. Full support of variance (co-, contra-, in-). - Mixins: interfaces can have implementations, but no context / state.</li>
+<li>An awesome feature is null safety, enforced by the compiler itself: the language doesn&#x2019;t have a concept of NPE, because the compiler forces you to test for nullity (existence of value, more precisely) if you told it your variable can be null. At work, we use FindBugs to check this in Java, but it goes with lot of ceremony and has holes&#x2026;</li>
+<li>By default, values are immutable, variable identifiers must be marked as such explicitly.</li>
+<li>Functions are first-class entities, can be stored in variables and collections, passed as parameters and returned, etc.</li>
+<li>Named parameters, default values, flexible syntax allowing declarative object instantiation.</li>
+<li>Simplified accessors: we generally do direct access to (public / shared) members, we can override getters and setters without breaking the API if we need to change the implementation.</li>
+<li>for comprehensions for generating or processing iterables.</li>
+<li>Range literal and processing.</li>
+<li>Operator overloading, with strict rules.</li>
+<li>Capability to rename imported classes; type aliases.</li>
+<li>The IDE is quite good (Eclipse plugin), with auto-completion, refactoring, etc.</li>
+</ul>
+<p>[1] <a href="http://ceylon-lang.org/documentation/1.0/introduction">http://ceylon-lang.org/documentation/1.0/introduction</a><br>
+[2] <a href="http://ceylon-lang.org/documentation/1.0/tour">http://ceylon-lang.org/documentation/1.0/tour</a></p>
 ]]></content>
     </entry>
     
