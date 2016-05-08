@@ -22,6 +22,8 @@ More importantly, it has functions to manipulate collections. Collections is a g
 
 This allows to replace most `for` loops with powerful and succinct function calls, showing clearly the intent of the operation without having to analyze complex code.
 
+{% img /images/Lodash_logo.png "'Lodash logo'" "'Lodash'" %}
+
 <!-- more -->
 
 ## History

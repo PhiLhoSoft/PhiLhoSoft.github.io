@@ -210,6 +210,12 @@ Keyboard shortcut to switch between single and double quotes on the string the c
 https://atom.io/packages/toggle-quotes
 https://github.com/atom/toggle-quotes
 
+- atom-ternjs
+JavaScript code intelligence
+0.13.2 by tststs
+https://atom.io/packages/atom-ternjs
+https://github.com/tststs/atom-ternjs
+
 - linter
 Engine allowing to display lint information in real time in the editor. Need plugins for various languages.
 1.11.3 by atom-community
@@ -245,18 +251,6 @@ Shows colors from various CSS notations (including named and computed colors). I
 0.19.3 by abe33
 https://atom.io/packages/pigments
 https://github.com/abe33/atom-pigments
-
-- refactor
-Allows refactoring (basically, renaming of identifiers in context). Needs plugins per language.
-0.6.0 by hax
-https://atom.io/packages/refactor
-https://github.com/hax/refactor
-
-- js-refactor
-Refactor plugin for JS (only rename variables and parameters).
-0.6.0 by hax
-https://atom.io/packages/js-refactor
-https://github.com/hax/js-refactor
 
 - atom-beautify
 Beaufity code, according to given rules. Not for my code (I always format as I want) but for foreign code pasted in mine...
@@ -325,6 +319,21 @@ To jump between main file and its unit test. Not used because it can't seem to f
 0.5.0 by danielcooper
 https://atom.io/packages/test-jumper
 https://github.com/danielcooper/test-jumper
+
+## No longer used
+
+- refactor
+Allows refactoring (basically, renaming of identifiers in context). Needs plugins per language.
+0.6.0 by hax
+https://atom.io/packages/refactor
+https://github.com/hax/refactor
+
+- js-refactor
+Refactor plugin for JS (only rename variables and parameters).
+0.6.0 by hax
+https://atom.io/packages/js-refactor
+https://github.com/hax/js-refactor
+
 
 # Themes
 
