@@ -14,6 +14,8 @@ date: 2016-05-14 18:08
 
 Having to implement range selection in lists in an application at work, I did a little survey of what is done, and was surprised that while the bases are the same for all lists, the more advanced selection modes vary a lot.
 
+{% img /images/Multi-selection.png "'Multi-selection in Windows Explorer" "'Multi-selection in Windows Explorer'" %}
+
 <!-- more -->
 
 In our AngularJS application, we often display lists of things, in the form of rows of items, spawning several columns, each column showing some specific information from the item.
@@ -56,7 +58,7 @@ Shift+click: this is where things start to diverge! It always select the range o
 - in Windows Explorer (WExp), it starts by deselecting all other rows. Idem in the multiple select implementation of all browsers and Thunderbird.
 - in Qt (Perforce / VLC), it adds the new range to the existing selection. It was also the behavior of the implementation I found.
 
-Ctrl+Shift+click is not universally implemented. Actually, I did a little survey in a programmer group on Google+, and with over 60 answers (OK, that's not much), 20 % of them told they don't know how to use Ctrl+Shift+click...
+Ctrl+Shift+click is not universally implemented. Actually, I did a little survey in a programmer group on Google+, and with over 80 answers (OK, that's not much), 20 % of them told they don't know how to use Ctrl+Shift+click...
 In Qt, it just works as Shift+click.
 In Thunderbird, Firefox' implementation of multiple select, and Chrome's one too, it selects the range too, but it is added to the current selection. Just like the previous ones...
 
