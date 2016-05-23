@@ -26,9 +26,9 @@ By default, we cannot even deselect an item! We have to activate an option for t
 And we cannot do a range selection...
 
 Fortunately, the grid has a rather rich selection API, so it is quite easy to supply the missing feature.
-And in an issue of the ag-Grid repository, somebody provided a base implementation of the range selection feature.
+And in an [issue of the ag-Grid repository](https://github.com/ceolter/ag-grid/issues/369), somebody provided a base implementation of the range selection feature.
 
-I was a bit surprised to see the implementation was a bit lacunar and doing some things in a surprising way. So I checked how it is done in a number of popular applications, and found out the implementations differed a lot!
+I was a bit surprised to see the implementation was a bit lacunar and doing some things in a surprising way. So I checked how it is done in a number of popular applications, and found out the implementations differed a lot! And that implementation was actually mimicking the behavior of Qt lists.
 
  ## A quick survey
 
@@ -72,9 +72,9 @@ I haven't implemented yet, but I also checked the possibilities of selection wit
 When the list has the focus, all implementations move the selection with up & down arrows (UDA).
 Likewise, all of them extends the selection from the current position with Shift+UDA.
 
-Now, if you do Ctrl+UDA, WExp, Qt, Firefox and Thunderbird moves the focus, highlighting the current row with a small border.
-Chrome just deselects all and selects the target row.
-Curiously, IE behaves differently than WExp, for once: it keeps the selection, but moves the scrollbar (if any).
+Now, if you do Ctrl+UDA, WExp, Qt, Firefox and Thunderbird moves the focus, highlighting the current row (with focus) with a small border.
+Chrome just deselects all and selects the target row, ie. it ignores the Ctrl modifier.
+Curiously, IE behaves differently than WExp, for once: it keeps the selection unchanged, but moves the scrollbar (if any).
 
 The implementations moving the focus then allows to select or deselect the current row with Ctrl+space. Or even just space in some cases.
 Upon doing Ctrl+Shift+UDA, only Firefox extends the selection from the current position to the new one.
@@ -84,5 +84,161 @@ Qt just move the focus.
 ##Implementation
 
 The implementation is rather simple, actually.
+
+
+```
+ service.addShiftRangeSelect = function(gridOptions, handleCtrlShift, exclude)
+{
+	if (handleCtrlShift === undefined)
+	{
+		handleCtrlShift = true; // Let's make it the default! More powerful... :-)
+	}
+
+	service._buildPortableSelectApi(gridOptions);
+	gridOptions.rowSelection = 'multiple';
+	gridOptions.suppressRowClickSelection = true;
+	gridOptions.onRowClicked = function(row)
+	{
+		if (_.isFunction(exclude) && exclude(row))
+			return; // Don't handle this click (eg. on editable cells)
+
+		if (gridOptions.customSelection.isSelected === undefined)
+		{
+			// One time init, use row's API to tell the version to use
+			gridOptions.customSelection.selectVersion(row);
+		}
+		var lastSelectedRow = gridOptions.customSelection.lastSelectedRow;
+		var shiftKey = row.event.shiftKey,
+			ctrlKey = row.event.ctrlKey;
+
+		// If modifier keys aren't pressed then only select the row that was clicked
+		if (!shiftKey && !ctrlKey)
+		{
+			gridOptions.customSelection.setSelected(row.node, true, true);
+			gridOptions.customSelection.select = true;
+		}
+		// If modifier keys are used and there was a previously selected row
+		else if (lastSelectedRow !== undefined || ctrlKey && !shiftKey)
+		{
+			// Select a block of rows
+			if (shiftKey && !ctrlKey)
+			{
+				if (handleCtrlShift)
+				{
+					gridOptions.api.deselectAll();
+				}
+				gridOptions.customSelection.setRangeSelected(row.rowIndex, lastSelectedRow.rowIndex, true);
+				gridOptions.customSelection.select = true;
+			}
+			// Select one more row
+			else if (ctrlKey && !shiftKey)
+			{
+				if (gridOptions.rowDeselection)
+				{
+					var select = !gridOptions.customSelection.isSelected(row.node);
+					gridOptions.customSelection.setSelected(row.node, select);
+					gridOptions.customSelection.select = select;
+				}
+				else
+				{
+					gridOptions.customSelection.setSelected(row.node, true);
+					gridOptions.customSelection.select = true;
+				}
+			}
+			else if (handleCtrlShift)
+			{
+				gridOptions.customSelection.setRangeSelected(row.rowIndex, lastSelectedRow.rowIndex, gridOptions.customSelection.select);
+			}
+		}
+		// Store the recently clicked row for future use
+		gridOptions.customSelection.lastSelectedRow = row;
+	};
+	gridOptions.onBeforeSortChanged = function()
+	{
+		// Be sure to clear out the row selections on sort change since row indexes will change
+		gridOptions.api.deselectAll();
+		gridOptions.customSelection.lastSelectedRow = undefined;
+	};
+};
+```
+
+```
+service._buildPortableSelectApi = function(gridOptions)
+{
+	gridOptions.customSelection = {};
+
+	gridOptions.customSelection.selectVersion = function(node)
+	{
+		if (node.isSelected) // v.4 specific
+		{
+			gridOptions.customSelection.isSelected = gridOptions.customSelection.forV4.isSelected;
+			gridOptions.customSelection.setSelected = gridOptions.customSelection.forV4.setSelected;
+			gridOptions.customSelection._setRangeSelected = gridOptions.customSelection.forV4._setRangeSelected;
+		}
+		else
+		{
+			gridOptions.customSelection.isSelected = gridOptions.customSelection.forV3.isSelected;
+			gridOptions.customSelection.setSelected = gridOptions.customSelection.forV3.setSelected;
+			gridOptions.customSelection._setRangeSelected = gridOptions.customSelection.forV3._setRangeSelected;
+		}
+	};
+
+	gridOptions.customSelection.setRangeSelected = function(startIndex, endIndex, selected)
+	{
+		// Get our start and end indexes correct
+		if (startIndex > endIndex)
+		{
+			var si = startIndex;
+			startIndex = endIndex;
+			endIndex = si;
+		}
+		gridOptions.customSelection._setRangeSelected(startIndex, endIndex, selected);
+	};
+
+	gridOptions.customSelection.forV4 =
+	{
+		isSelected: function(node) { return node.isSelected(); },
+		setSelected: function(node, selected, clearSelection)
+		{
+			node.setSelected(selected, clearSelection);
+		},
+		_setRangeSelected: function(startIndex, endIndex, selected)
+		{
+			gridOptions.api.forEachNode(function __handleNode(node)
+			{
+				if (node.rowIndex >= startIndex && node.rowIndex <= endIndex)
+				{
+					gridOptions.api.selectNode(node, selected, node.rowIndex < endIndex);
+				}
+			});
+		},
+	};
+
+	gridOptions.customSelection.forV3 =
+	{
+		isSelected: function(node) { return gridOptions.api.isNodeSelected(node); },
+		setSelected: function(node, selected, clearSelection)
+		{
+			if (selected)
+			{
+				gridOptions.api.selectNode(node, !clearSelection);
+			}
+			else
+			{
+				gridOptions.api.deselectNode(node);
+			}
+		},
+		_setRangeSelected: function(startIndex, endIndex, selected)
+		{
+			var operation = (selected ? gridOptions.api.selectIndex : gridOptions.api.deselectIndex).bind(gridOptions.api);
+			// (De)select all the rows between the previously clicked row and the newly clicked row
+			for (var i = startIndex; i <= endIndex; i++)
+			{
+				operation(i, true, i < endIndex); // multi & suppressEvents: on last row, we let the event to pop up
+			}
+		},
+	};
+};
+```
 (To be continued)
 
