@@ -7,15 +7,17 @@ description: "A little something about me"
 # About me
 
 Hi. I am Philippe Lhoste, a French developer loving to discover new (computer) technologies... and to deepen my knowledge of those I use!
-I am usually know on Internet under the pseudo PhiLho, obviously constructed from my name. Initially used as signature for my drawings, then used everywhere.
+I am usually know on Internet under the pseudo PhiLho, obviously constructed from my name*. Initially used as signature for my drawings, then used everywhere.
 I started to use PhiLhoSoft as pseudo for my technical work about software.
 And, yes, I love puns!
+
+* My Skype signature, written when I was doing lot of Java code: `String pseudo = realName.replaceAll("\\b(\\w{3})\\w+?\\b", "$1").toLowerCase();`
 
 ## About the site
 
 I have done some [technical slides](/Slides).
 And, of course, the articles you can see here.
-The articles has been written in Markdown format, mostly typed on my phone (using a [good keyboard](/Software/MessagEase%20Android%20keyboard%20review)), and published using [Hexo](/Software/Static%20site%20generators/), a static site generator.
+The articles has been written in Markdown format, often typed on my phone (using a [good keyboard](/Software/MessagEase%20Android%20keyboard%20review)), and published using Hexo, a [static site generator](/Software/Static%20site%20generators/).
 
 There is a [playground](../playground) page, to experiment with Markdown and styles. Apparently, with Hexo, at least with the Icarus theme, pages cannot be accessed unless something links explicitly to them...
 
@@ -40,7 +42,7 @@ Yes, no Facebook here...
 My [old site](http://phi.lho.free.fr/) is still up. I made this one because:
 - the previous one was old and ugly...
 - and quite outdated, except for some articles like [my regular expression tutorial](http://phi.lho.free.fr/programming/RETutorial.en.html) which I plan to port back here;
-- and I am locked out by this free provider: I no longer have FTP access!
+- and I am locked out by this free provider: (that was nice with me for years) I no longer have FTP access!
 
 Some blog posts are still interesting (IMHO), so I just link to them... :-) Might also copy them here.
 - [Sorting strings by respecting natural order for numbers](http://phi.lho.free.fr/serendipity/index.php?/archives/30-Sorting-strings-by-respecting-natural-order-for-numbers.html) (Java)

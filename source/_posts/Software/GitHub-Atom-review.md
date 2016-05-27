@@ -8,7 +8,7 @@ tags:
 - Tool
 - IDE
 date: 2015-12-15 10:40:00
-updated: 2016-03-01 12:45:00
+updated: 2016-05-17 13:15:00
 ---
 
 # GitHub Atom review
@@ -143,6 +143,7 @@ I will still recommend it. :-)
 Good point: once a plugin / package is installed, no need to restart Atom to get it working.
 Note: list can be incomplete, and version numbers are indicative only: I won't update them on each package update!
 You can find a more complete list (when I back up my settings with sync-settings) at https://gist.github.com/PhiLhoSoft/b61b3e3d13ebd802bb08
+I found an interesting list at the https://github.com/mehcode/awesome-atom repository. I added some packages like _duplicate-line-or-selection_ after reading it...
 
 - Sublime Style Column Selection
 Allow column selection with mouse.
@@ -161,6 +162,12 @@ Must have if you have a non-US keyboard; eg. a French one: I can't type } nor ] 
 1.4.112 by andischerer
 https://atom.io/packages/keyboard-localization
 https://github.com/andischerer/atom-keyboard-localization
+
+- duplicate-line-or-selection
+Something that worries me in Atom from the start, as I have it in SciTE: we can duplicate the current line, but not the selection. This package fixes this problem.
+0.5.0 by nick
+https://atom.io/packages/duplicate-line-or-selection
+https://github.com/nick/duplicate-line-or-selection
 
 - tree-view-open-files
 Shows opened files above the tree-view. Better than tabs when lot of files are opened.
@@ -308,6 +315,12 @@ https://github.com/mattsawyer77/atom-perforce
 
 ## Not used, to see later
 
+- project-plus
+Simply awesome project management in Atom.
+0.9.0 by mehcode
+https://atom.io/packages/project-plus
+https://github.com/mehcode/atom-project-plus
+
 - string-looper
 Change word case, number value and loop between keywords with the arrows of your keyboard.
 0.1.2 by leny
@@ -325,6 +338,13 @@ Allows you to travel back in time! It shows visual plot of commits to the curren
 1.3.0 by littlebee
 https://atom.io/packages/git-time-machine
 https://github.com/littlebee/git-time-machine
+
+- merge-conflicts
+Resolve git conflicts within Atom
+1.4.2 by smashwilson
+https://atom.io/packages/merge-conflicts
+https://github.com/smashwilson/merge-conflicts
+
 
 ## No longer used
 
