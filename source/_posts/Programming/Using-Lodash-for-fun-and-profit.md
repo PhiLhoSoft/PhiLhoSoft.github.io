@@ -40,7 +40,7 @@ I once made an issue (#2052) on Underscore to point out that some information wa
 In contrast, Lodash's doc repeats all the information needed to use a function in each entry. It might seem tiresome, but the user skips over these repetitions... unless she really need the info! In this case, it is here. Great when jumping to a definition to refresh the memory... or to discover it.
 Moreover, I made an issue to point out some little confusion. JD Dalton quickly asked for a pull request, and merged it verbatim within hours.
 
-Note: the article is written for the v.3 of Lodash (more precisely, for v.3.10.1, the last of the v.3 series). Since then, JDD released v.4 of his library, with breaking changes, and lot of new functions.
+Note: the article is written for the v.3 of Lodash (more precisely, for v.3.10.1, the last of the v.3 series). Since then, JDD released v.4 of his library, with breaking changes, and lot of new functions. There is also the Lodash/fp version, with different parameter order, easying their currying for better composition.
 For now, I remain at v.3, of smaller scope. I might write a new article for v.4.
 
 

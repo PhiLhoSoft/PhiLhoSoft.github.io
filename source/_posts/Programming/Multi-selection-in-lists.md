@@ -76,15 +76,16 @@ Now, if you do Ctrl+UDA, WExp, Qt, Firefox and Thunderbird moves the focus, high
 Chrome just deselects all and selects the target row, ie. it ignores the Ctrl modifier.
 Curiously, IE behaves differently than WExp, for once: it keeps the selection unchanged, but moves the scrollbar (if any).
 
-The implementations moving the focus then allows to select or deselect the current row with Ctrl+space. Or even just space in some cases.
+The implementations moving the focus then allow to select or deselect the current row with Ctrl+space. Or even just space in some cases.
 Upon doing Ctrl+Shift+UDA, only Firefox extends the selection from the current position to the new one.
 Curiously, Windows Explorer extends the selection to the new position.
 Qt just move the focus.
 
-##Implementation
+
+## Implementation
 
 The implementation is rather simple, actually.
-
+Note I give it as it was done, with the ag-Grid API, but in the main function, I abstracted away some of it, and the remainder is easy to understand, so the logic can be adapted to another API.
 
 ```
  service.addShiftRangeSelect = function(gridOptions, handleCtrlShift, exclude)
@@ -94,9 +95,12 @@ The implementation is rather simple, actually.
 		handleCtrlShift = true; // Let's make it the default! More powerful... :-)
 	}
 
+    // One time init, depending on ag-Grid version (3 or 4)
 	service._buildPortableSelectApi(gridOptions);
+    // Sets to options consistent with the wanted result
 	gridOptions.rowSelection = 'multiple';
-	gridOptions.suppressRowClickSelection = true;
+	gridOptions.suppressRowClickSelection = true; // No interferences
+    // The core logic
 	gridOptions.onRowClicked = function(row)
 	{
 		if (_.isFunction(exclude) && exclude(row))
@@ -107,6 +111,7 @@ The implementation is rather simple, actually.
 			// One time init, use row's API to tell the version to use
 			gridOptions.customSelection.selectVersion(row);
 		}
+        // Keep track of last click
 		var lastSelectedRow = gridOptions.customSelection.lastSelectedRow;
 		var shiftKey = row.event.shiftKey,
 			ctrlKey = row.event.ctrlKey;
@@ -163,6 +168,7 @@ The implementation is rather simple, actually.
 ```
 
 ```
+// Make the above code to work with current (v4) or previous (v3) version of ag-Grid.
 service._buildPortableSelectApi = function(gridOptions)
 {
 	gridOptions.customSelection = {};
@@ -240,5 +246,5 @@ service._buildPortableSelectApi = function(gridOptions)
 	};
 };
 ```
-(To be continued)
+
 

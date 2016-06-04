@@ -228,3 +228,4 @@ As said, I only scratched the surface of the topic, yet I introduced lot of conc
 FP techniques proved to be useful enough that some languages (Java 8 again, JavaScript at ES6 / ES2015) evolved to ease their usage. And lot of new ones integrated them from the start.
 
 I hope this article will give you the will to use (more) these techniques, and perhaps to dig more into it.
+If you want to explore more functions via the Lodash library, you can continue the reading with my [article on Lodash](/Programming/Using-Lodash-for-fun-and-profit/).
