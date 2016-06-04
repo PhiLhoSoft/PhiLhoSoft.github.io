@@ -12,6 +12,7 @@ tags:
 - Library
 - RxJS
 date: 2015-11-10
+update: 2016-06-05
 ---
 
 # Functional Reactive Programming
@@ -39,7 +40,7 @@ This is a work in progress: this article is unfinished and will be updated.
 In his seminal article [The introduction to Reactive Programming you've been missing](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), André Staltz wrote the 'mantra': "Everything is a stream".
 It looks like a golden hammer seeing the world as nails to hit... I prefer the less slogan-like "Everything can be seen as a stream", or perhaps even more accurately, "Everything can be put in a stream".
 After all, a stream is just a sequential collection (succession) of items disposed along a time axis, ie. with a timestamp.
-It can be applied in the real world, from trains coming to a station to persons at a <guichet>. Even the only time one person went to a concert can be seen as a stream... with only one item.
+It can be applied in the real world, from trains coming to a station to persons lining up at a desk. Even the only time one person went to a concert can be seen as a stream... with only one item.
 
 So streams are a way to model "the world" from the point of view of moments in time, ordered along the time axis.
 
@@ -54,7 +55,7 @@ Let's agree on that and say that what we call FRP here is just a bastardized, si
 ### JavaScript
 
 FRP has been implemented in various languages, particularly in functional languages like Haskell where it is a good fit to their paradigms. But it can be found also in Java, Scala, C#, etc.
-It is quite popular in JavaScript, quite functional in nature, where it solves a number of hard problems: avoiding callback hell (chained asynchronous calls), easing usage of promises and timeouts, handling successions of user input, etc.
+It is quite popular in JavaScript, rather functional in nature, where it solves a number of hard problems: avoiding callback hell (chained asynchronous calls), easing usage of promises and timeouts, handling successions of user input, etc.
 Thus we saw lot of FRP libraries to be created. RxJS is among the firsts. Bacon was created in reaction to the complexity of the former, Kefir was born because Bacon is slow and memory hungry, More.js is yet another library, etc.
 The [RxJS book](http://xgrommx.github.io/rx-book/index.html) lists a number of them in its [Similar libraries](http://xgrommx.github.io/rx-book/content/resources/similar_libraries/index.html) page.
 
@@ -63,7 +64,7 @@ The principles explained here can be applied to different languages and librarie
 ### RxJS
 
 I briefly explored some of the JS libraries, but finally settled on RxJS: it is one of the most complete implementation, it is backed by a corporation instead of being an experiment from an individual, it has good docs and good tutorials.
-Another advantage: its API has been defined by the [ReactiveX](http://reactivex.io/) project, and it has been implemented in lot of languages: Java, C#, C++, Ruby, Python, Swift, and many JVM languages (often via RxJava). Plus some independently developed implementations, like Rx.PHP.
+Another advantage: its API has been defined by the [ReactiveX](http://reactivex.io/) project, and it has been implemented in lot of languages: Java, C#, C++, Ruby, Python, Swift, Rust, and many JVM languages (often via RxJava). Plus some independently developed implementations, like Rx.PHP.
 So once you know the API for a language, using it in another language is rather trivial, needing mostly minor adaptations.
 One downside of RxJS is its size: it is a large API, so there is lot to learn, and the library is quite big, which can be annoying if you want a lean application (eg. for using on mobile devices).
 That said, a large part of the API can be ignored at first, a beginner needs to know only a few functions (called _operators_ in RxJS).
@@ -72,6 +73,7 @@ The point is that a project can include only a base file, and add additional one
 Or, for experimentations and convenience, just include the `rx.all.js` file and be done.
 
 RxJS calls stream "sequences", and since the point is to observe them and to react on what they content, they call them "observable sequences". Older documents called them just "observables", a bit ambiguous, so they adopted the longer term. I might still use the "stream" term too.
+
 
 ## Creating a stream
 

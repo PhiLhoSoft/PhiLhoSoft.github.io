@@ -11,6 +11,7 @@ tags:
 - Functional programming
 - Reactive programming
 date: 2016-04-30
+update: 2016-06-05
 ---
 
 # How I use MobX 2 in an AngularJS 1 application
@@ -86,8 +87,8 @@ Instead of a direct computation from other values, the function can call a trans
 A transformer takes one (and only one) observable value as entry, and must return a new value computed from the parameter, and possibly from other observable values.
 As we use properties from observables, we invoke their getters. MobX then keeps track of these sub-observable objects.
 When a setter is invoked on one (or more) these objects, MobX knows it has to recompute the result of the transformer.
-Otherwise, since input hasn't changed, it knows output didn't change either*, so it can return the previous value, said to be memoized. This results in a much faster response, particularly if the operation iterates on large collections.
-* Obviously, the function must be deterministic (pure, as [functional programming](/Programming/Functional-programming-introduction/) aficionados say): for a given input, it always returns the same output. Don't put `random()`, `getTime()` or I/O result in there!
+Otherwise, since input hasn't changed, it knows output didn't change either†, so it can return the previous value, said to be memoized. This results in a much faster response, particularly if the operation iterates on large collections.
+† Obviously, the function must be deterministic (pure, as [functional programming](/Programming/Functional-programming-introduction/) aficionados say): for a given input, it always returns the same output. Don't put `random()`, `getTime()` or I/O result in there!
 
 The above is an over-simplified description how MobX works. The exact mechanism is described in the article [Becoming fully reactive: an in-depth explanation of MobX](https://medium.com/@mweststrate/becoming-fully-reactive-an-in-depth-explanation-of-mobservable-55995262a254). MobX has optimizations making all this working very fast...
 Beside, as the core mechanism is based on accessors, it is intrinsically static: no need to scan all the observed variables / entries / properties regularly to check if there is a change, the sole fact to get or set a value is enough to trigger the mechanism. The other advantage is synchronicity and atomicity: changes don't have to wait for a "digest" cycle, and all changes are applied at once: no inconsistent intermediary state.
@@ -153,9 +154,9 @@ Easy way out: I tell MobX not to observe the objects themselves.
         stuffList: mobx.asFlat([]), // Observe array, not objects inside it
     });
 
-Assigning later the real array to stuffList preserved the asFlat modifier.
+Assigning later the real array to `stuffList` preserved the `asFlat` modifier.
 
-Basically, if you are interested in changes in the array (add / remove items), but not the objects inside them (which might not change at all!), `asFlat` is good to use (can even improve performance / reduce memory usage, which doesn't hurt...).
+Basically, if you are interested in changes in the array (add / remove items), but not in the objects inside them (which might not change at all!), `asFlat` is good to use (can even improve performance / reduce memory usage, which doesn't hurt...).
 
 
 ## Conclusion
@@ -173,13 +174,5 @@ For complex changes, like changing several values in an array, we can also use t
 
 MobX is a mature library, used in large applications, and it proved to be very efficient.
 It is flexible: some applications use it to implement the Flux architecture, centralizing all data in one or more data stores, shared among the components; and myself used it locally, in only some controllers, to do a little part of the UI logic.
-
-
-
-
-
-
-
-
-
+In other words, it is not an "in your face, do it as I said" library that imposes its vision of the world (centralized, immutable, with flat data, and so on). It works the way you are familiar with, and it is easy to use for most users, using mutable data, invisible accessors, etc.
 

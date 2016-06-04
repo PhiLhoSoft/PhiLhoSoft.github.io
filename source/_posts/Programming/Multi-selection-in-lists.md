@@ -7,12 +7,16 @@ tags:
 - UI
 - Programming
 - Component
+- JavaScript
 date: 2016-05-14 18:08
+update: 2016-06-05
 ---
 
 # Multi-selection in lists
 
 Having to implement range selection in lists in an application at work, I did a little survey of what is done, and was surprised that while the bases are the same for all lists, the more advanced selection modes vary a lot.
+
+Note: by "list", I mean the control displaying a list of items, not some kind of collection / data structure.
 
 {% img /images/Multi-selection.png "'Multi-selection in Windows Explorer" "'Multi-selection in Windows Explorer'" %}
 
@@ -79,7 +83,7 @@ Curiously, IE behaves differently than WExp, for once: it keeps the selection un
 The implementations moving the focus then allow to select or deselect the current row with Ctrl+space. Or even just space in some cases.
 Upon doing Ctrl+Shift+UDA, only Firefox extends the selection from the current position to the new one.
 Curiously, Windows Explorer extends the selection to the new position.
-Qt just move the focus.
+Qt just moves the focus.
 
 
 ## Implementation
@@ -88,7 +92,11 @@ The implementation is rather simple, actually.
 Note I give it as it was done, with the ag-Grid API, but in the main function, I abstracted away some of it, and the remainder is easy to understand, so the logic can be adapted to another API.
 
 ```
- service.addShiftRangeSelect = function(gridOptions, handleCtrlShift, exclude)
+// gridOptions are specific to ag-Grid.
+// handleCtrlShift: if true (default), handle Ctrl+Shift+click as described above.
+// Otherwise, only reacts to Ctrl+click and Shift+click
+// exclude, if defined, is a function telling if the given row tells if the click must be handled as a selection.
+service.addShiftRangeSelect = function(gridOptions, handleCtrlShift, exclude)
 {
 	if (handleCtrlShift === undefined)
 	{
@@ -166,7 +174,7 @@ Note I give it as it was done, with the ag-Grid API, but in the main function, I
 	};
 };
 ```
-
+The compatibility layer.
 ```
 // Make the above code to work with current (v4) or previous (v3) version of ag-Grid.
 service._buildPortableSelectApi = function(gridOptions)
@@ -246,5 +254,22 @@ service._buildPortableSelectApi = function(gridOptions)
 	};
 };
 ```
-
+Here is an example of `exclude` function definition:
+```
+function excludeEditableCells(row)
+{
+    function isEditable(className)
+    {
+        return className === 'ag-grid-editable';
+    }
+    if (row.event.target.tagName === 'OPTION')
+        return true; // User clicked on an option of the drop-down in Firefox and IE: don't take this in account, to avoid deselecting rows.
+    var editableCell = _.some(row.event.target.classList, isEditable); // One of the classes is the mark of an editable cell
+    if (editableCell)
+        return true; // We don't select when clicking on an editable cell, as the click triggers the editing mode
+    // Check with parent, if clicking on span or select, etc.
+    editableCell = _.some(row.event.target.parentNode.classList, isEditable);
+    return editableCell;
+}
+```
 
