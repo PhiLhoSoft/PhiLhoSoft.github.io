@@ -110,11 +110,11 @@ ga('send', 'pageview');
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        13
+        15
         <span>posts</span>
       </div>
       <div class="article-info-block">
-        20
+        23
         <span>tags</span>
       </div>
     </div>
@@ -200,6 +200,144 @@ ga('send', 'pageview');
 
       
       <section id="main">
+      <article id="post-Programming/Functional-programming-introduction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Programming/Functional-programming-introduction/">Functional Programming: a Brief, Pragmatic Overview</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/Programming/Functional-programming-introduction/">
+      <time datetime="2015-09-19T22:00:00.000Z" itemprop="datePublished">2015-09-20</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1>Functional Programming: a Brief, Pragmatic Overview</h1>
+<p>Functional Programming (FP) is a programming paradigm, like imperative (procedural) programming or object-oriented programming (OOP).<br>
+Some people oppose these paradigms, but actually they are not exclusive of each other: we do imperative programming inside OOP’s methods, and we can mix OOP and FP: that’s even a trend in modern languages (Scala, Ceylon, …) and in older ones (JavaScript, Java 8…).</p>
+<h2 id="why-functional-programming">Why functional programming?</h2>
+<p>FP exists for years, but it was rather confined to niche languages. It started to infuse in the mainstream coding practices via the above mentioned languages or libraries like Guava (Java) or Underscore / Lodash (JavaScript).<br>
+By promoting stateless functions and immutable data, it proved to be very efficient and easy to control in concurrent programming, leading to efficient processing of big data.<br>
+It is also easy to test. Its rather declarative style is also easy to read.<br>
+And reactive functional programming (FRP) is a powerful paradigm to process asynchronously big streams of data as well as user input.</p>
+<p>Given all these qualities, why isn’t more popular?</p>
+<p>Very popular languages like C++ or Java are based on OOP, which is easy to grasp: we can relate objects to the real world. So there were a generalization of OOP thinking.<br>
+On the other hand, FP comes from lambda calculus, a “formal system in mathematical logic”. Ie. it has strong mathematical roots, thus some of its concepts can be quite abstract, and it shows when most people explain its concepts. Combined with strong typing, based on type theory, like in Haskell, we quickly end with abstract concepts with specialized jargon. Plus Haskell, one of the most popular FP languages, has a syntax not intuitive for the uninitiated.</p>
+<p>Fortunately, as said, some people extracted some core ideas from FP, and exposed them in easier to understand languages and libraries (see above). This helped in spreading these practices in mainstream programming.</p>
+        
+          <p class="article-more-link">
+            <a href="/Programming/Functional-programming-introduction/#more">Read more</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Functional-programming-introduction/" data-id="cio9142dc0039u0t1mf46taqq" class="article-share-link">Share</a>
+      
+        <a href="http://PhiLhoSoft.github.io/Programming/Functional-programming-introduction/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">Functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tutorial/">Tutorial</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-Software/Microsoft-Visual-Studio-Code-review" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Software/Microsoft-Visual-Studio-Code-review/">Microsoft Visual Studio Code review</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/Software/Microsoft-Visual-Studio-Code-review/">
+      <time datetime="2015-07-12T09:06:00.000Z" itemprop="datePublished">2015-07-12</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h1 id="microsoft-visual-studio-code-review">Microsoft Visual Studio Code review</h1>
+<p>Integrated Development Environment oriented toward the Web technologies</p>
+<p><a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+<img src="/images/VisualStudioCode_logo.png" title="VisualStudioCode logo" alt="Visual Studio Code">
+<h2 id="quick-review">Quick review</h2>
+<p>I installed Visual Studio Code (v. 0.10.3 on Windows 7 with 8 GB of memory).<br>
+I opened it, it starts reasonably fast.<br>
+It has a dark UI, which I don&#x2019;t like, but I quickly found where to change this to the default light theme. Good point than several themes are bundled by default: no need to hunt for them.</p>
+<p>Surprisingly, drag&#x2019;n&#x2019;drop of code isn&#x2019;t enabled.<br>
+Apparently, it doesn&#x2019;t even exist!<br>
+<a href="http://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/7763958-drag-n-drop-selections">http://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/7763958-drag-n-drop-selections</a></p>
+<p>Same for column (rectangular) selections!<br>
+<a href="https://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/7761618-implement-column-mode-selection-editing">https://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/7761618-implement-column-mode-selection-editing</a></p>
+<p>These are features I use extensively in all editors / IDEs I use, I feel cripled if I don&#x2019;t have them&#x2026;</p>
+<p>End of test&#x2026; See you later.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://PhiLhoSoft.github.io/Software/Microsoft-Visual-Studio-Code-review/" data-id="cio9142ar000uu0t1bizf2x9i" class="article-share-link">Share</a>
+      
+        <a href="http://PhiLhoSoft.github.io/Software/Microsoft-Visual-Studio-Code-review/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ide/">IDE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/software/">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/">Tool</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-Programming/Test-if-variable-or-property-is-defined-in-JS" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -270,7 +408,7 @@ In this case, the missing parameters (at the end of the list) are declared but h
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Programming/Test-if-variable-or-property-is-defined-in-JS/" data-id="cinz1zn3y002i0kt1vny9urj2" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Test-if-variable-or-property-is-defined-in-JS/" data-id="cio9142cm002iu0t1mh0o4c6a" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Programming/Test-if-variable-or-property-is-defined-in-JS/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -335,7 +473,7 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Software/JetBrains-WebStorm-review/" data-id="cinz1zn2g001b0kt1e6nea4qx" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Software/JetBrains-WebStorm-review/" data-id="cio9142b8001bu0t1c076wn71" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Software/JetBrains-WebStorm-review/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -394,7 +532,7 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://PhiLhoSoft.github.io/Programming/Ceylon-strong-selling-points/" data-id="cinz1zn0800000kt1yzorseli" class="article-share-link">Share</a>
+      <a data-url="http://PhiLhoSoft.github.io/Programming/Ceylon-strong-selling-points/" data-id="cio9142890000u0t1abmdzs7s" class="article-share-link">Share</a>
       
         <a href="http://PhiLhoSoft.github.io/Programming/Ceylon-strong-selling-points/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -421,6 +559,42 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
     <h3 class="widget-title">recents</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/Multi-selection-in-lists/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Multi-selection.png
+)" alt="Multi-selection in lists" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/ui/">UI</a></p>
+              <p class="item-title"><a href="/Programming/Multi-selection-in-lists/" class="title">Multi-selection in lists</a></p>
+              <p class="item-date"><time datetime="2016-05-14T16:08:00.000Z" itemprop="datePublished">2016-05-14</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/AngularJS-1-and-MobX-2/" class="thumbnail">
+  
+    <span style="background-image:url(/images/MobX_logo.png
+)" alt="How I use MobX 2 in an AngularJS 1 application" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/javascript/">JavaScript</a></p>
+              <p class="item-title"><a href="/Programming/AngularJS-1-and-MobX-2/" class="title">How I use MobX 2 in an AngularJS 1 application</a></p>
+              <p class="item-date"><time datetime="2016-04-29T22:00:00.000Z" itemprop="datePublished">2016-04-30</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -476,41 +650,6 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/Programming/RxJS-operators/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/general/">General</a></p>
-              <p class="item-title"><a href="/Programming/RxJS-operators/" class="title">RxJS distributions</a></p>
-              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/Software/Static-site-generators/" class="thumbnail">
-  
-    <span style="background-image:url(/images/Work-in-Progress.svg
-)" alt="Static Site Generators" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/tools/">Tools</a></p>
-              <p class="item-title"><a href="/Software/Static-site-generators/" class="title">Static Site Generators</a></p>
-              <p class="item-date"><time datetime="2015-11-14T23:00:00.000Z" itemprop="datePublished">2015-11-15</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -520,7 +659,7 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/development-tools/">Development tools</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/ui/">UI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/development-tools/">Development tools</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -529,7 +668,7 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
   <div class="widget-wrap">
     <h3 class="widget-title">tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceylon/">Ceylon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">Command line</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keyboard/">Keyboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/language/">Language</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceylon/">Ceylon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">Command line</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/component/">Component</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keyboard/">Keyboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/language/">Language</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive-programming/">Reactive programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui/">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -538,7 +677,7 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
   <div class="widget-wrap">
     <h3 class="widget-title">tag cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/android/" style="font-size: 10px;">Android</a> <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/ceylon/" style="font-size: 10px;">Ceylon</a> <a href="/tags/command-line/" style="font-size: 10px;">Command line</a> <a href="/tags/functional-programming/" style="font-size: 16px;">Functional programming</a> <a href="/tags/git/" style="font-size: 10px;">Git</a> <a href="/tags/ide/" style="font-size: 16px;">IDE</a> <a href="/tags/javascript/" style="font-size: 16px;">JavaScript</a> <a href="/tags/keyboard/" style="font-size: 10px;">Keyboard</a> <a href="/tags/language/" style="font-size: 10px;">Language</a> <a href="/tags/library/" style="font-size: 14px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 18px;">Programming</a> <a href="/tags/reactive/" style="font-size: 12px;">Reactive</a> <a href="/tags/rxjs/" style="font-size: 12px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 20px;">Software</a> <a href="/tags/tool/" style="font-size: 18px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 16px;">Tutorial</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
+      <a href="/tags/android/" style="font-size: 10px;">Android</a> <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/ceylon/" style="font-size: 10px;">Ceylon</a> <a href="/tags/command-line/" style="font-size: 10px;">Command line</a> <a href="/tags/component/" style="font-size: 10px;">Component</a> <a href="/tags/functional-programming/" style="font-size: 15px;">Functional programming</a> <a href="/tags/git/" style="font-size: 10px;">Git</a> <a href="/tags/ide/" style="font-size: 13.33px;">IDE</a> <a href="/tags/javascript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/keyboard/" style="font-size: 10px;">Keyboard</a> <a href="/tags/language/" style="font-size: 10px;">Language</a> <a href="/tags/library/" style="font-size: 13.33px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 20px;">Programming</a> <a href="/tags/reactive/" style="font-size: 11.67px;">Reactive</a> <a href="/tags/reactive-programming/" style="font-size: 10px;">Reactive programming</a> <a href="/tags/rxjs/" style="font-size: 11.67px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 18.33px;">Software</a> <a href="/tags/tool/" style="font-size: 16.67px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 15px;">Tutorial</a> <a href="/tags/ui/" style="font-size: 10px;">UI</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
     </div>
   </div>
 
@@ -547,7 +686,7 @@ Secondly, I tried IntelliJ IDEA some years ago, and wasn’t convinced. Perhaps 
   <div class="widget-wrap">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 

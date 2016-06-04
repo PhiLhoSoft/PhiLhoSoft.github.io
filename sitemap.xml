@@ -2,23 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://PhiLhoSoft.github.io/Programming/Multi-selection-in-lists/</loc>
+    <lastmod>2016-06-04T13:42:22.876Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://PhiLhoSoft.github.io/Programming/AngularJS-1-and-MobX-2/</loc>
+    <lastmod>2016-06-04T13:15:16.972Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://PhiLhoSoft.github.io/Programming/Functional-programming-introduction/</loc>
+    <lastmod>2016-06-03T12:45:49.792Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://PhiLhoSoft.github.io/Programming/Using-Lodash-for-fun-and-profit/</loc>
-    <lastmod>2016-05-05T18:30:10.791Z</lastmod>
+    <lastmod>2016-06-03T12:44:01.143Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://PhiLhoSoft.github.io/about/index.html</loc>
+    <lastmod>2016-05-29T12:21:26.674Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://PhiLhoSoft.github.io/Software/GitHub-Atom-review/</loc>
+    <lastmod>2016-05-17T11:15:00.000Z</lastmod>
   </url>
   
   <url>
     <loc>http://PhiLhoSoft.github.io/Programming/Ceylon-strong-selling-points/</loc>
     <lastmod>2016-04-23T12:40:00.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://PhiLhoSoft.github.io/Software/GitHub-Atom-review/</loc>
-    <lastmod>2016-03-01T11:45:00.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://PhiLhoSoft.github.io/about/index.html</loc>
-    <lastmod>2016-01-27T07:21:03.752Z</lastmod>
   </url>
   
   <url>
@@ -54,11 +69,6 @@
   <url>
     <loc>http://PhiLhoSoft.github.io/Software/Adobe-Brackets-review/</loc>
     <lastmod>2016-01-13T23:11:38.609Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://PhiLhoSoft.github.io/Programming/Functional-programming-introduction/</loc>
-    <lastmod>2016-01-13T19:09:40.461Z</lastmod>
   </url>
   
   <url>

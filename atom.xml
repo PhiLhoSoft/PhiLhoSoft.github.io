@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://PhiLhoSoft.github.io/"/>
-  <updated>2016-01-13T23:11:38.628Z</updated>
+  <updated>2016-06-04T13:42:22.876Z</updated>
   <id>http://PhiLhoSoft.github.io/</id>
   
   <author>
@@ -13,6 +13,234 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Multi-selection in lists]]></title>
+    <link href="http://PhiLhoSoft.github.io/Programming/Multi-selection-in-lists/"/>
+    <id>http://PhiLhoSoft.github.io/Programming/Multi-selection-in-lists/</id>
+    <published>2016-05-14T16:08:00.000Z</published>
+    <updated>2016-06-04T13:42:22.876Z</updated>
+    <content type="html"><![CDATA[<h1 id="multi-selection-in-lists">Multi-selection in lists</h1>
+<p>Having to implement range selection in lists in an application at work, I did a little survey of what is done, and was surprised that while the bases are the same for all lists, the more advanced selection modes vary a lot.</p>
+<img src="/images/Multi-selection.png" title="Multi-selection in Windows Explorer " alt="Multi-selection in Windows Explorer">
+<a id="more"></a>
+<p>In our AngularJS application, we often display lists of things, in the form of rows of items, spawning several columns, each column showing some specific information from the item.<br>
+For this, we use the ag-Grid component.<br>
+Sometime, we need to select several items (lines) at once.<br>
+Surprisingly, ag-Grid support, out of the box, is quite lacunar: we can select several items, one by one, with Ctrl+click.<br>
+By default, we cannot even deselect an item! We have to activate an option for that.<br>
+And we cannot do a range selection&#x2026;</p>
+<p>Fortunately, the grid has a rather rich selection API, so it is quite easy to supply the missing feature.<br>
+And in an <a href="https://github.com/ceolter/ag-grid/issues/369">issue of the ag-Grid repository</a>, somebody provided a base implementation of the range selection feature.</p>
+<p>I was a bit surprised to see the implementation was a bit lacunar and doing some things in a surprising way. So I checked how it is done in a number of popular applications, and found out the implementations differed a lot! And that implementation was actually mimicking the behavior of Qt lists.</p>
+<h2 id="a-quick-survey">A quick survey</h2>
+<p>The applications I checked are:</p>
+<ul>
+<li>The standard Windows list view component, the one I am the most familiar with. Used as SysListView32 in a number of applications, including the former Windows Explorer. This one now uses a more modern component, but still react the same.</li>
+<li>The list of mails in Thunderbird.</li>
+<li>The list of changelists in the P4V application: the Perforce visual editor, written in Qt. Not sure if it is typical of Qt in general, or if it uses an implementation specific to Perforce. Well, I found out that VLC shows its playlist in a similar component (QtWidget) and behaves the same.</li>
+<li>The HTML multi-selection <code>select</code> tag, showing a list: tested on latest Firefox, Chrome and in IE9-11, on Windows.</li>
+</ul>
+<p>Reminder about the latter: it looks like</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">select</span> <span class="attribute">name</span>=<span class="value">&quot;select&quot;</span> <span class="attribute">multiple</span> <span class="attribute">size</span>=<span class="value">10</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">&quot;v1&quot;</span>&gt;</span>Value A<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">&quot;v2&quot;</span> <span class="attribute">selected</span>&gt;</span>Value B<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">&quot;v3&quot;</span>&gt;</span>Value C<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">&quot;v12&quot;</span>&gt;</span>Value L<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>and can be tested in sites like <a href="http://jsFiddle.net">jsFiddle.net</a>.</p>
+<p>Things all lists implement the same:</p>
+<ul>
+<li>Single click: deselect all, select clicked row</li>
+<li>Ctrl+click: add clicked row to selection, if deselected; otherwise, remove it from the selection.</li>
+</ul>
+<p>Shift+click: this is where things start to diverge! It always select the range of lines between the last click and the currently clicked row. But:</p>
+<ul>
+<li>in Windows Explorer (WExp), it starts by deselecting all other rows. Idem in the multiple select implementation of all browsers and Thunderbird.</li>
+<li>in Qt (Perforce / VLC), it adds the new range to the existing selection. It was also the behavior of the implementation I found.</li>
+</ul>
+<p>Ctrl+Shift+click is not universally implemented. Actually, I did a little survey in a programmer group on Google+, and with over 80 answers (OK, that&#x2019;s not much), 20 % of them told they don&#x2019;t know how to use Ctrl+Shift+click&#x2026;<br>
+In Qt, it just works as Shift+click.<br>
+In Thunderbird, Firefox&#x2019; implementation of multiple select, and Chrome&#x2019;s one too, it selects the range too, but it is added to the current selection. Just like the previous ones&#x2026;</p>
+<p>In Windows Explorer and multiple select in IE, it does that, too. But not only. If your last click (a Ctrl+click, necessarily) deselected an item, then the Ctrl+Shift+click deselects the range, instead of selecting it.<br>
+It is powerful and flexible!</p>
+<h2 id="keyboard-behavior">Keyboard behavior</h2>
+<p>I haven&#x2019;t implemented yet, but I also checked the possibilities of selection with the keyboard: it is important for accessibility purpose, but it can be also useful in general.</p>
+<p>When the list has the focus, all implementations move the selection with up &amp; down arrows (UDA).<br>
+Likewise, all of them extends the selection from the current position with Shift+UDA.</p>
+<p>Now, if you do Ctrl+UDA, WExp, Qt, Firefox and Thunderbird moves the focus, highlighting the current row (with focus) with a small border.<br>
+Chrome just deselects all and selects the target row, ie. it ignores the Ctrl modifier.<br>
+Curiously, IE behaves differently than WExp, for once: it keeps the selection unchanged, but moves the scrollbar (if any).</p>
+<p>The implementations moving the focus then allow to select or deselect the current row with Ctrl+space. Or even just space in some cases.<br>
+Upon doing Ctrl+Shift+UDA, only Firefox extends the selection from the current position to the new one.<br>
+Curiously, Windows Explorer extends the selection to the new position.<br>
+Qt just move the focus.</p>
+<h2 id="implementation">Implementation</h2>
+<p>The implementation is rather simple, actually.<br>
+Note I give it as it was done, with the ag-Grid API, but in the main function, I abstracted away some of it, and the remainder is easy to understand, so the logic can be adapted to another API.</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"> service.addShiftRangeSelect = <span class="function"><span class="keyword">function</span><span class="params">(gridOptions, handleCtrlShift, exclude)</span></span><br><span class="line"></span>{</span><br><span class="line">    <span class="keyword">if</span> (handleCtrlShift === <span class="literal">undefined</span>)</span><br><span class="line">    {</span><br><span class="line">        handleCtrlShift = <span class="literal">true</span>; <span class="comment">// Let&apos;s make it the default! More powerful... :-)</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// One time init, depending on ag-Grid version (3 or 4)</span></span><br><span class="line">    service._buildPortableSelectApi(gridOptions);</span><br><span class="line">    <span class="comment">// Sets to options consistent with the wanted result</span></span><br><span class="line">    gridOptions.rowSelection = <span class="string">&apos;multiple&apos;</span>;</span><br><span class="line">    gridOptions.suppressRowClickSelection = <span class="literal">true</span>; <span class="comment">// No interferences</span></span><br><span class="line">    <span class="comment">// The core logic</span></span><br><span class="line">    gridOptions.onRowClicked = <span class="function"><span class="keyword">function</span><span class="params">(row)</span></span><br><span class="line">    </span>{</span><br><span class="line">        <span class="keyword">if</span> (_.isFunction(exclude) &amp;&amp; exclude(row))</span><br><span class="line">            <span class="keyword">return</span>; <span class="comment">// Don&apos;t handle this click (eg. on editable cells)</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (gridOptions.customSelection.isSelected === <span class="literal">undefined</span>)</span><br><span class="line">        {</span><br><span class="line">            <span class="comment">// One time init, use row&apos;s API to tell the version to use</span></span><br><span class="line">            gridOptions.customSelection.selectVersion(row);</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// Keep track of last click</span></span><br><span class="line">        <span class="keyword">var</span> lastSelectedRow = gridOptions.customSelection.lastSelectedRow;</span><br><span class="line">        <span class="keyword">var</span> shiftKey = row.event.shiftKey,</span><br><span class="line">            ctrlKey = row.event.ctrlKey;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// If modifier keys aren&apos;t pressed then only select the row that was clicked</span></span><br><span class="line">        <span class="keyword">if</span> (!shiftKey &amp;&amp; !ctrlKey)</span><br><span class="line">        {</span><br><span class="line">            gridOptions.customSelection.setSelected(row.node, <span class="literal">true</span>, <span class="literal">true</span>);</span><br><span class="line">            gridOptions.customSelection.select = <span class="literal">true</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// If modifier keys are used and there was a previously selected row</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (lastSelectedRow !== <span class="literal">undefined</span> || ctrlKey &amp;&amp; !shiftKey)</span><br><span class="line">        {</span><br><span class="line">            <span class="comment">// Select a block of rows</span></span><br><span class="line">            <span class="keyword">if</span> (shiftKey &amp;&amp; !ctrlKey)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (handleCtrlShift)</span><br><span class="line">                {</span><br><span class="line">                    gridOptions.api.deselectAll();</span><br><span class="line">                }</span><br><span class="line">                gridOptions.customSelection.setRangeSelected(row.rowIndex, lastSelectedRow.rowIndex, <span class="literal">true</span>);</span><br><span class="line">                gridOptions.customSelection.select = <span class="literal">true</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="comment">// Select one more row</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (ctrlKey &amp;&amp; !shiftKey)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (gridOptions.rowDeselection)</span><br><span class="line">                {</span><br><span class="line">                    <span class="keyword">var</span> select = !gridOptions.customSelection.isSelected(row.node);</span><br><span class="line">                    gridOptions.customSelection.setSelected(row.node, select);</span><br><span class="line">                    gridOptions.customSelection.select = select;</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                {</span><br><span class="line">                    gridOptions.customSelection.setSelected(row.node, <span class="literal">true</span>);</span><br><span class="line">                    gridOptions.customSelection.select = <span class="literal">true</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (handleCtrlShift)</span><br><span class="line">            {</span><br><span class="line">                gridOptions.customSelection.setRangeSelected(row.rowIndex, lastSelectedRow.rowIndex, gridOptions.customSelection.select);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// Store the recently clicked row for future use</span></span><br><span class="line">        gridOptions.customSelection.lastSelectedRow = row;</span><br><span class="line">    };</span><br><span class="line">    gridOptions.onBeforeSortChanged = <span class="function"><span class="keyword">function</span><span class="params">()</span></span><br><span class="line">    </span>{</span><br><span class="line">        <span class="comment">// Be sure to clear out the row selections on sort change since row indexes will change</span></span><br><span class="line">        gridOptions.api.deselectAll();</span><br><span class="line">        gridOptions.customSelection.lastSelectedRow = <span class="literal">undefined</span>;</span><br><span class="line">    };</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Make the above code to work with current (v4) or previous (v3) version of ag-Grid.</span></span><br><span class="line">service._buildPortableSelectApi = <span class="function"><span class="keyword">function</span>(<span class="params">gridOptions</span>)</span><br><span class="line"></span>{</span><br><span class="line">    gridOptions.customSelection = {};</span><br><span class="line"></span><br><span class="line">    gridOptions.customSelection.selectVersion = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>)</span><br><span class="line">    </span>{</span><br><span class="line">        <span class="keyword">if</span> (node.isSelected) <span class="comment">// v.4 specific</span></span><br><span class="line">        {</span><br><span class="line">            gridOptions.customSelection.isSelected = gridOptions.customSelection.forV4.isSelected;</span><br><span class="line">            gridOptions.customSelection.setSelected = gridOptions.customSelection.forV4.setSelected;</span><br><span class="line">            gridOptions.customSelection._setRangeSelected = gridOptions.customSelection.forV4._setRangeSelected;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        {</span><br><span class="line">            gridOptions.customSelection.isSelected = gridOptions.customSelection.forV3.isSelected;</span><br><span class="line">            gridOptions.customSelection.setSelected = gridOptions.customSelection.forV3.setSelected;</span><br><span class="line">            gridOptions.customSelection._setRangeSelected = gridOptions.customSelection.forV3._setRangeSelected;</span><br><span class="line">        }</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    gridOptions.customSelection.setRangeSelected = <span class="function"><span class="keyword">function</span>(<span class="params">startIndex, endIndex, selected</span>)</span><br><span class="line">    </span>{</span><br><span class="line">        <span class="comment">// Get our start and end indexes correct</span></span><br><span class="line">        <span class="keyword">if</span> (startIndex &gt; endIndex)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">var</span> si = startIndex;</span><br><span class="line">            startIndex = endIndex;</span><br><span class="line">            endIndex = si;</span><br><span class="line">        }</span><br><span class="line">        gridOptions.customSelection._setRangeSelected(startIndex, endIndex, selected);</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    gridOptions.customSelection.forV4 =</span><br><span class="line">    {</span><br><span class="line">        isSelected: <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>{ <span class="keyword">return</span> node.isSelected(); },</span><br><span class="line">        setSelected: <span class="function"><span class="keyword">function</span>(<span class="params">node, selected, clearSelection</span>)</span><br><span class="line">        </span>{</span><br><span class="line">            node.setSelected(selected, clearSelection);</span><br><span class="line">        },</span><br><span class="line">        _setRangeSelected: <span class="function"><span class="keyword">function</span>(<span class="params">startIndex, endIndex, selected</span>)</span><br><span class="line">        </span>{</span><br><span class="line">            gridOptions.api.forEachNode(<span class="function"><span class="keyword">function</span> <span class="title">__handleNode</span>(<span class="params">node</span>)</span><br><span class="line">            </span>{</span><br><span class="line">                <span class="keyword">if</span> (node.rowIndex &gt;= startIndex &amp;&amp; node.rowIndex &lt;= endIndex)</span><br><span class="line">                {</span><br><span class="line">                    gridOptions.api.selectNode(node, selected, node.rowIndex &lt; endIndex);</span><br><span class="line">                }</span><br><span class="line">            });</span><br><span class="line">        },</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    gridOptions.customSelection.forV3 =</span><br><span class="line">    {</span><br><span class="line">        isSelected: <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>{ <span class="keyword">return</span> gridOptions.api.isNodeSelected(node); },</span><br><span class="line">        setSelected: <span class="function"><span class="keyword">function</span>(<span class="params">node, selected, clearSelection</span>)</span><br><span class="line">        </span>{</span><br><span class="line">            <span class="keyword">if</span> (selected)</span><br><span class="line">            {</span><br><span class="line">                gridOptions.api.selectNode(node, !clearSelection);</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            {</span><br><span class="line">                gridOptions.api.deselectNode(node);</span><br><span class="line">            }</span><br><span class="line">        },</span><br><span class="line">        _setRangeSelected: <span class="function"><span class="keyword">function</span>(<span class="params">startIndex, endIndex, selected</span>)</span><br><span class="line">        </span>{</span><br><span class="line">            <span class="keyword">var</span> operation = (selected ? gridOptions.api.selectIndex : gridOptions.api.deselectIndex).bind(gridOptions.api);</span><br><span class="line">            <span class="comment">// (De)select all the rows between the previously clicked row and the newly clicked row</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = startIndex; i &lt;= endIndex; i++)</span><br><span class="line">            {</span><br><span class="line">                operation(i, <span class="literal">true</span>, i &lt; endIndex); <span class="comment">// multi &amp; suppressEvents: on last row, we let the event to pop up</span></span><br><span class="line">            }</span><br><span class="line">        },</span><br><span class="line">    };</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[How to do multi-selection in a list of items]]>
+    
+    </summary>
+    
+      <category term="Component" scheme="http://PhiLhoSoft.github.io/tags/component/"/>
+    
+      <category term="Programming" scheme="http://PhiLhoSoft.github.io/tags/programming/"/>
+    
+      <category term="UI" scheme="http://PhiLhoSoft.github.io/tags/ui/"/>
+    
+      <category term="Programming" scheme="http://PhiLhoSoft.github.io/categories/programming/"/>
+    
+      <category term="UI" scheme="http://PhiLhoSoft.github.io/categories/programming/ui/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[How I use MobX 2 in an AngularJS 1 application]]></title>
+    <link href="http://PhiLhoSoft.github.io/Programming/AngularJS-1-and-MobX-2/"/>
+    <id>http://PhiLhoSoft.github.io/Programming/AngularJS-1-and-MobX-2/</id>
+    <published>2016-04-29T22:00:00.000Z</published>
+    <updated>2016-06-04T13:15:16.972Z</updated>
+    <content type="html"><![CDATA[<h1 id="how-i-use-mobx-2-in-an-angularjs-1-application">How I use MobX 2 in an AngularJS 1 application</h1>
+<p>MobX is a library simplifying state management by using functional reactive principles.<br>
+It manages dependencies between values, somehow like a spreadsheet does with its cells: if the value of a cell changes, other cells depending on the first one can change too, in a cascading way.</p>
+<p>The manual of MobX can be read at <a href="https://mobxjs.github.io/mobx/refguide/">MobX, Simple, scalable state management</a>.<br>
+It is a comprehensive guide, rather dense (worth reading again after experimenting with the library&#x2026;) but clear and informative.</p>
+<p>I used it in an AngularJS 1 application, to manage state of controllers (components), so in a rather local and isolated way.<br>
+That&#x2019;s just one way of using it, which I explain below.</p>
+<img src="/images/MobX_logo.png" title="MobX logo" alt="MobX">
+<a id="more"></a>
+<h2 id="why-i-needed-something-like-mobx">Why I need(ed) something like MobX</h2>
+<p>On my second AngularJS project (the third made in the company), we have some quite complex state management: we have a main view / controller showing a graph (nodes with relations), with a toolbar, whose buttons are disabled depending on user actions (changing the graph), data loading (fetching graph data), state in the data (is graph processed on server side), etc.<br>
+We also have two dialog boxes (one calling the other) with controls and buttons, also interacting, depending on user choices, state of / in data, etc.<br>
+We have to enable / disable these controls, and also set tooltips or messages explaining why they are disabled, so that user can do proper actions.<br>
+All this led to a rather complex state management, done in a classical way, with booleans and intermediary data structures, and functions called to update dependencies between these variables.<br>
+We managed this state with a bunch of booleans (is this control disabled?) set on the fly in a ad hoc way (uh, I need this flag, let&#x2019;s create it there) on the scope (the controller instance), and by calling functions to show appropriate tooltips / messages in all places where the state changes.<br>
+Note: by &#x201C;show tooltips / messages&#x201D;, I actually mean &#x201C;change their values&#x201D;, as AngularJS&#x2019; binding is managing to display them.</p>
+<p>At the end, the code was a bit messy, with state changing everywhere, forgotten cases, having to track usage to add the missing ones, sometime inconsistent or unclear usage, etc.</p>
+<p>Then I saw a tweet mentioning MobX. I had a look at the site, and the description looked like a good fit to my problem.<br>
+A superficial look could lead to think it was made for React with an ES6 syntax, but reading on, I found they are actually framework-agnostic (React-specific stuff is separate) and totally compatible with ES5.</p>
+<h2 id="context">Context</h2>
+<p>I use the &#x201C;controller as&#x201D; pattern in this Angular application, and I assign <code>this</code> to the <code>ctrl</code> variable at the start of the controllers.<br>
+So I refer to <code>ctrl.xyz</code> for the controller variables, those visible from the related template.<br>
+I also have some variables with same lifetime than the controller, but not needing to be visible on the view. By convention, we name them <code>ctrl._xyz</code>, the underscore meaning &#x201C;private&#x201D;&#x2026;<br>
+If you don&#x2019;t use &#x201C;controller as&#x201D; pattern (but you should!), you can mentally replace <code>ctrl</code> with <code>$scope</code>.</p>
+<p>I tend to name functions that are traditionally anonymous, like iteratees of Lodash functions, callbacks defined in function calls, etc.<br>
+Ie. instead of doing <code>_.map(circles, function (c) { return TWO_PI * c.radius; ];</code> I write <code>_.map(circles, function __toPerimeter(c) { return TWO_PI * c.radius; ];</code>.<br>
+This is generally a good practice, as it shows the intent of the transformation, and these names can show up in stack traces in debuggers, etc.<br>
+It is even more important with MobX, because it keeps track of these names and this allows an easier debugging of its mechanisms.<br>
+I use a double underscore as prefix to help distinguishing these small functions from the others when my IDE (Atom) lists them.</p>
+<h2 id="my-usage-of-mobx">My usage of MobX</h2>
+<p>I have two objects on the controller, related to the view, ie. referenced in the template:</p>
+<ul>
+<li>As input, <code>ctrl.viewModel</code> contains the models of form inputs (text input, radio-buttons, check boxes, select / drop-down, etc.), referenced by <code>ng-model</code> directives. Ie. they display their current value and can be changed by the user.</li>
+<li>As output, <code>ctrl.view</code> contains the read-only view values, used in the template to display these values.</li>
+</ul>
+<p>Between them, I can have some intermediary objects, eg. <code>ctrl._model</code> for data structures, <code>ctrl._internal</code> for flags, etc.<br>
+These objects, and <code>ctrl.viewModel</code>, are observable by wrapping them in a <code>mobx.observable</code> call.<br>
+MobX transforms (recursively) each field (property) of these objects to observable values: that&#x2019;s simpler than calling <code>observable</code> on each field.<br>
+If you use a more OOP approach, as described in the docs, you might want finer control on how some fields are observable and some are not.<br>
+Here, I just use these plain objects to group together observable values.</p>
+<p>These observables can be simple values set by the code (string, number, boolean); or arrays (each value is observed), or objects (each property is observed). It is, by default, recursive: an array of objects has each field observed.<br>
+Observable values are replaced by MobX by a pair of accessors, ES5&#x2019;s getters and setters, or specialized objects, like ObservableArray, mimicking the behavior of real arrays, but observing each entry and operation (like <code>splice</code>).<br>
+If the property of an observable object is assigned a new value, MobX makes it observable too.<br>
+It doesn&#x2019;t do it for added properties, so they must be declared from the start, which is a good thing: no more variables added &#x201C;on the fly&#x201D; in the middle of the code.<br>
+If you use an object is a map (values indexed by string keys), MobX provides an observable map to get you covered.</p>
+<p>In some cases, I observe arrays to watch insertions / deletions: I don&#x2019;t change the objects it has inside, which generally doesn&#x2019;t change anyway. To improve performances (and memory consumption) and ease debugging, I use the <code>asFlat</code> modifier.</p>
+<p>The observed values can be also be functions without parameters: they are called when the field is read.<br>
+The function acts as a getter, and can compute a value from other values.<br>
+If some of these values are observables, MobX invokes their getter, which in turn can invoke other getters, etc.</p>
+<p>Instead of a direct computation from other values, the function can call a transformer, created via&#x2026; <code>mobx.createTransformer</code>.<br>
+A transformer takes one (and only one) observable value as entry, and must return a new value computed from the parameter, and possibly from other observable values.<br>
+As we use properties from observables, we invoke their getters. MobX then keeps track of these sub-observable objects.<br>
+When a setter is invoked on one (or more) these objects, MobX knows it has to recompute the result of the transformer.<br>
+Otherwise, since input hasn&#x2019;t changed, it knows output didn&#x2019;t change either*, so it can return the previous value, said to be memoized. This results in a much faster response, particularly if the operation iterates on large collections.</p>
+<ul>
+<li>Obviously, the function must be deterministic (pure, as <a href="/Programming/Functional-programming-introduction/">functional programming</a> aficionados say): for a given input, it always returns the same output. Don&#x2019;t put <code>random()</code>, <code>getTime()</code> or I/O result in there!</li>
+</ul>
+<p>The above is an over-simplified description how MobX works. The exact mechanism is described in the article <a href="https://medium.com/@mweststrate/becoming-fully-reactive-an-in-depth-explanation-of-mobservable-55995262a254">Becoming fully reactive: an in-depth explanation of MobX</a>. MobX has optimizations making all this working very fast&#x2026;<br>
+Beside, as the core mechanism is based on accessors, it is intrinsically static: no need to scan all the observed variables / entries / properties regularly to check if there is a change, the sole fact to get or set a value is enough to trigger the mechanism. The other advantage is synchronicity and atomicity: changes don&#x2019;t have to wait for a &#x201C;digest&#x201D; cycle, and all changes are applied at once: no inconsistent intermediary state.</p>
+<p>Back to my implementation: <code>ctrl.view</code> is not an observable. It is already watched / bound by Angular, and I prefer to keep it &#x201C;static&#x201D;, assigning new values if their dependencies change.<br>
+For this, I use <code>mobx.autorun</code> which is used to do side-effects when an observable value inside it changes.<br>
+My side-effects here are to assign a new value to <code>ctrl.view</code> properties&#x2026; I do that only for computation-intensive value evaluations (extracting data from collections, etc.), using transformers to memoize the results.<br>
+Actually, it corresponds to described side effects, like disabling a control, selecting an entry in a list, etc. Because it is Angular, instead of calling <code>control.setEnabled(true / false)</code> or <code>combo.select(index)</code>, we assign the values to bound variables: <code>ctrl.control.enabled = true / false</code> or <code>combo.selection = combo.model[index]</code>. But basically, that&#x2019;s the same thing.</p>
+<p>As <code>createTransformer</code> is a bit heavy-handed (needs some boilerplate code, accepts only one parameter), for lighter evaluations (no iterations) I use the ES5 getter syntax, function evaluated each time the property is read: <code>var o = { get foo() { return someValue * 2; } }; var x = o.foo; // Calls the getter and returns twice someValue</code><br>
+I formerly used <code>mobx.computed</code> for that, but I am not sure if it brings any advantage here&#x2026;</p>
+<p>In other words, I went from</p>
+<pre><code>ctrl.view =
+{
+    saveDisabled: mobx.computed(function saveDisabled()
+    {
+        return ctrl._internal.noItems || !ctrl._internal.hasCommonStuff || ctrl._internal.isStarted;
+    }),
+};
+</code></pre>
+<p>to</p>
+<pre><code>ctrl.view =
+{
+    get saveDisabled()
+    {
+        return ctrl._internal.noItems || !ctrl._internal.hasCommonStuff || ctrl._internal.isStarted;
+    },
+};
+</code></pre>
+<p>Note: transformations must be used inside a reaction like <code>@observer</code> or <code>autorun</code>. They also work if they are part of the dependency graph pulled from an <code>autorun</code>, as done above (view depending on observable objects).<br>
+Maybe the <code>computed</code> version allows such triggering, if needed.</p>
+<h2 id="potential-issues-points-to-be-aware-of">Potential issues / points to be aware of</h2>
+<h3 id="avoid-to-assign-null-to-observables">Avoid to assign null to observables</h3>
+<p>That&#x2019;s a general advice in computing: instead of using <code>null</code>, use a &#x201C;null object&#x201D;, a real &#x201C;inert&#x201D; object . Like an empty object <code>{}</code>, an empty array <code>[]</code> or similar.<br>
+MobX will throw when you assign <code>null</code> to an observable, and will tell you that you have an infinite loop in your dependencies, so these null objects are better here.</p>
+<h3 id="mobx-observable-array">MobX observable array</h3>
+<p>It is a special object mimicking JS arrays, but observing each entry and watching each operation. It is a bit annoying to examine when debugging, but that&#x2019;s a minor issue.</p>
+<p>One problem is that some libraries will choke on this &#x201C;false&#x201D; array. For example, [Lodash]/Programming/Using-Lodash-for-fun-and-profit/)&apos;s <code>_.clone</code> or <code>_.cloneDeep</code> fails to work on it.<br>
+For the former, you can do <code>observableArray.slice(0)</code> which makes a plain array copy of the array. But the objects inside are still those observed in the original array, and thus are still observable.</p>
+<p>In my case, I observed the array only to see if it is not empty, which is a bit overkill&#x2026;</p>
+<pre><code>ctrl._model = mobx.observable(
+{
+    stuffList: [],
+});
+</code></pre>
+<p>Easy way out: I tell MobX not to observe the objects themselves.</p>
+<pre><code>ctrl._model = mobx.observable(
+{
+    stuffList: mobx.asFlat([]), // Observe array, not objects inside it
+});
+</code></pre>
+<p>Assigning later the real array to stuffList preserved the asFlat modifier.</p>
+<p>Basically, if you are interested in changes in the array (add / remove items), but not the objects inside them (which might not change at all!), <code>asFlat</code> is good to use (can even improve performance / reduce memory usage, which doesn&#x2019;t hurt&#x2026;).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>It might seem strange to use MobX with AngularJS, whereas the latter can <code>$watch</code> value changes or invoke functions from the template.<br>
+MobX has two advantages here:</p>
+<ul>
+<li>It is synchronous, while AngularJS computes watches only in a digest cycle. This ensures there is no &#x201C;dirty&#x201D; state, with intermediary values, or values changed and not yet updated in the display.</li>
+<li>It can memoize results. This avoids complex collection processing on each cycle, these are done only when the collections actually change.</li>
+</ul>
+<p>This avoids explicit <code>$watch</code> (I never use them in controllers anyway), evaluation of functions in templates (like <code>ng-disabled=&quot;vm.isFooDisabled()&quot;</code>) or manual calls to <code>ctrl.updateState()</code> in the controller code, which can be forgotten or done too much.<br>
+MobX allows to describe a graph of dependencies, and to ensure it is always up to date.</p>
+<p>For complex changes, like changing several values in an array, we can also use transactions, minimizing the recalculations by batching them and computing the result at the end.</p>
+<p>MobX is a mature library, used in large applications, and it proved to be very efficient.<br>
+It is flexible: some applications use it to implement the Flux architecture, centralizing all data in one or more data stores, shared among the components; and myself used it locally, in only some controllers, to do a little part of the UI logic.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[Presenting MobX 2 in a concrete use case with AngularJS 1]]>
+    
+    </summary>
+    
+      <category term="Functional programming" scheme="http://PhiLhoSoft.github.io/tags/functional-programming/"/>
+    
+      <category term="JavaScript" scheme="http://PhiLhoSoft.github.io/tags/javascript/"/>
+    
+      <category term="Library" scheme="http://PhiLhoSoft.github.io/tags/library/"/>
+    
+      <category term="Programming" scheme="http://PhiLhoSoft.github.io/tags/programming/"/>
+    
+      <category term="Reactive programming" scheme="http://PhiLhoSoft.github.io/tags/reactive-programming/"/>
+    
+      <category term="Tutorial" scheme="http://PhiLhoSoft.github.io/tags/tutorial/"/>
+    
+      <category term="Programming" scheme="http://PhiLhoSoft.github.io/categories/programming/"/>
+    
+      <category term="JavaScript" scheme="http://PhiLhoSoft.github.io/categories/programming/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Git .gitignore rules]]></title>
@@ -499,7 +727,7 @@ more then two keys</p>
     <link href="http://PhiLhoSoft.github.io/Software/GitHub-Atom-review/"/>
     <id>http://PhiLhoSoft.github.io/Software/GitHub-Atom-review/</id>
     <published>2015-12-15T09:40:00.000Z</published>
-    <updated>2016-03-01T11:45:00.000Z</updated>
+    <updated>2016-05-17T11:15:00.000Z</updated>
     <content type="html"><![CDATA[<h1 id="github-atom-review">GitHub Atom review</h1>
 <p>&#x201C;A hackable text editor for the 21st Century&#x201D;</p>
 <p><a href="https://atom.io/">https://atom.io/</a></p>
@@ -619,7 +847,8 @@ I will still recommend it. :-)</p>
 <h2 id="installed-packages">Installed packages</h2>
 <p>Good point: once a plugin / package is installed, no need to restart Atom to get it working.<br>
 Note: list can be incomplete, and version numbers are indicative only: I won&#x2019;t update them on each package update!<br>
-You can find a more complete list (when I back up my settings with sync-settings) at <a href="https://gist.github.com/PhiLhoSoft/b61b3e3d13ebd802bb08">https://gist.github.com/PhiLhoSoft/b61b3e3d13ebd802bb08</a></p>
+You can find a more complete list (when I back up my settings with sync-settings) at <a href="https://gist.github.com/PhiLhoSoft/b61b3e3d13ebd802bb08">https://gist.github.com/PhiLhoSoft/b61b3e3d13ebd802bb08</a><br>
+I found an interesting list at the <a href="https://github.com/mehcode/awesome-atom">https://github.com/mehcode/awesome-atom</a> repository. I added some packages like <em>duplicate-line-or-selection</em> after reading it&#x2026;</p>
 <ul>
 <li>
 <p>Sublime Style Column Selection<br>
@@ -641,6 +870,13 @@ Must have if you have a non-US keyboard; eg. a French one: I can&#x2019;t type }
 1.4.112 by andischerer<br>
 <a href="https://atom.io/packages/keyboard-localization">https://atom.io/packages/keyboard-localization</a><br>
 <a href="https://github.com/andischerer/atom-keyboard-localization">https://github.com/andischerer/atom-keyboard-localization</a></p>
+</li>
+<li>
+<p>duplicate-line-or-selection<br>
+Something that worries me in Atom from the start, as I have it in SciTE: we can duplicate the current line, but not the selection. This package fixes this problem.<br>
+0.5.0 by nick<br>
+<a href="https://atom.io/packages/duplicate-line-or-selection">https://atom.io/packages/duplicate-line-or-selection</a><br>
+<a href="https://github.com/nick/duplicate-line-or-selection">https://github.com/nick/duplicate-line-or-selection</a></p>
 </li>
 <li>
 <p>tree-view-open-files<br>
@@ -814,6 +1050,13 @@ Support of the Perforce VCS (I use it at work). Has <a href="https://github.com/
 <h2 id="not-used-to-see-later">Not used, to see later</h2>
 <ul>
 <li>
+<p>project-plus<br>
+Simply awesome project management in Atom.<br>
+0.9.0 by mehcode<br>
+<a href="https://atom.io/packages/project-plus">https://atom.io/packages/project-plus</a><br>
+<a href="https://github.com/mehcode/atom-project-plus">https://github.com/mehcode/atom-project-plus</a></p>
+</li>
+<li>
 <p>string-looper<br>
 Change word case, number value and loop between keywords with the arrows of your keyboard.<br>
 0.1.2 by leny<br>
@@ -826,6 +1069,20 @@ To jump between main file and its unit test. Not used because it can&#x2019;t se
 0.5.0 by danielcooper<br>
 <a href="https://atom.io/packages/test-jumper">https://atom.io/packages/test-jumper</a><br>
 <a href="https://github.com/danielcooper/test-jumper">https://github.com/danielcooper/test-jumper</a></p>
+</li>
+<li>
+<p>git-time-machine<br>
+Allows you to travel back in time! It shows visual plot of commits to the current file over time and you can click on it on the timeplot or hover over the plot and see all of the commits for a time range.<br>
+1.3.0 by littlebee<br>
+<a href="https://atom.io/packages/git-time-machine">https://atom.io/packages/git-time-machine</a><br>
+<a href="https://github.com/littlebee/git-time-machine">https://github.com/littlebee/git-time-machine</a></p>
+</li>
+<li>
+<p>merge-conflicts<br>
+Resolve git conflicts within Atom<br>
+1.4.2 by smashwilson<br>
+<a href="https://atom.io/packages/merge-conflicts">https://atom.io/packages/merge-conflicts</a><br>
+<a href="https://github.com/smashwilson/merge-conflicts">https://github.com/smashwilson/merge-conflicts</a></p>
 </li>
 </ul>
 <h2 id="no-longer-used">No longer used</h2>
@@ -875,6 +1132,84 @@ Refactor plugin for JS (only rename variables and parameters).<br>
       <category term="Software" scheme="http://PhiLhoSoft.github.io/categories/software/"/>
     
       <category term="IDE" scheme="http://PhiLhoSoft.github.io/categories/software/ide/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Static Site Generators]]></title>
+    <link href="http://PhiLhoSoft.github.io/Software/Static-site-generators/"/>
+    <id>http://PhiLhoSoft.github.io/Software/Static-site-generators/</id>
+    <published>2015-11-14T23:00:00.000Z</published>
+    <updated>2016-01-13T23:11:38.725Z</updated>
+    <content type="html"><![CDATA[<h1 id="static-site-generator">Static site generator</h1>
+<p>So I want to write some new technical articles (like this one&#x2026;) on my latest discoveries.<br>
+My previous host keeps <a href="http://Phi.Lho.free.fr">my old site</a> but has cut my FTP access, so I cannot update or add new stuff.</p>
+<a id="more"></a>
+<aside class="article-wip">
+<img class="no-fancybox" src="/images/Work-in-Progress.svg" width="240" height="110" title="Work in Progress" alt="Work in Progress">
+This is a work in progress: this article is unfinished and will be updated.
+</aside>
+<h2 id="static">Static</h2>
+<p>I found out that GitHub Pages might be a good free host for technical content, but it won&#x2019;t allow a blog / CMS software (like WordPress) to run on it.<br>
+Of course, it has Jekyll, but I wasn&#x2019;t seduced: the syntax is so-so (for me), it is a Ruby tool (slow and I have no control over it), etc.<br>
+But it was a hint: no need for a full fledged blog software generating pages from scratch on each user request: these pages are mostly static so they can be coded once and for all, like I did in the previous century&#x2026;<br>
+The most dynamic parts are the back-office, which I can live without, and managing user comments (with spam control). For the latter, I saw most solutions just use Disqus, a cross-platform comment service relying only on JS (and the related site / cloud host), so needing no server-side script or database. And I already use it (as a commenter), so it looks like the way to go.</p>
+<p>So I need something more flexible, and / or something I could hack into my needs.</p>
+<h2 id="listings">Listings</h2>
+<p>A quick research shown, via two sites (<a href="https://www.staticgen.com/">Top Open-Source Static Site Generators - StaticGen</a> and <a href="https://staticsitegenerators.net/">Static Site Generators</a>) that there is literally a ton of static site generator softwares.<br>
+Note / strong hint for those making such software: if you don&#x2019;t have a site to show of| what your tool can do, you are doing it wrong. No need to pay for a domain name, you can host it on a free site like <a href="http://GitHub.io">GitHub.io</a> or similar.</p>
+<h2 id="hugo">Hugo</h2>
+<p>I first tried <a href="http://gohugo.io/">Hugo</a>, which I discovered earlier: it has a nice site, which is an important point for this kind of software&#x2026; And a decent doc. And native binary is a promise of speed.<br>
+But I quickly hit a limitation: the Markdown parser is quite rigid and not adapted to my needs. And since 1) I don&#x2019;t know Go, 2) I don&#x2019;t have much time for deep hacks, I want something working quickly, I looked elsewhere (it was a &#x201C;no Go&#x201D;&#x2026;).</p>
+<h2 id="other-languages">Other languages</h2>
+<p>I could use a generator written in Lua, which is a language I know and appreciate, but they seem quite confidential, used by the author and a dozen of users (guestimate&#x2026;), so I feared some issues&#x2026; (or too much work to adapt to my needs).</p>
+<p>There are also PHP generators: it feels odd to use this language for off-line generation&#x2026; I can understand they appeal to those familiar with the language.</p>
+<p>I can hack a Java-based generator, but I feared some heaviness.</p>
+<p>I finally chose to explore JavaScript-based generators (via Node.js): I know well the language, and I know there is a rich ecosystem of Web-oriented tools.</p>
+<h2 id="metalsmith">Metalsmith</h2>
+<p>Another interesting generator is <a href="http://www.metalsmith.io/">Metalsmith</a>: it has a very small core, and delegate all tasks to plugins which it orchestrates. It results in flexibility: it can also generate eBooks, etc.</p>
+<h2 id="build-tools">Build tools</h2>
+<p>But, I thought, it looked like yet another build tool, like Webpack, Brunch or Gulp, only with more specialized plugins.<br>
+I know web tools, I know how to transform Markdown to HTML, Sass to CSS, etc. I can surely leverage an existing build tool to do that, with even more flexibility. But as I haven&#x2019;t much time to spend on writing these tools (finding plugins, chaining the tasks into something sensible), I searched some kind of existing &#x201C;glue&#x201D;.</p>
+<h3 id="antwar">AntWar</h3>
+<p>I first tried <a href="http://antwarjs.github.io/">Antwar</a> which is based on Webpack and React.<br>
+It has a good site with a tutorial, and an interesting flexibility.<br>
+But I ran into some issues, like a rigid Markdown parser, so I looked elsewhere.</p>
+<h3 id="akashacms">AkashaCMS</h3>
+<p>Then I tried <a href="http://akashacms.com/">AkashaCMS</a>, still based on Webpack. The site is less sexy, but full of good information. It uses the Markdown-it parser, which is a good choice as it is very flexible.<br>
+I have to write my own template, which is not a real problem, particularly if I use x as a starting point.<br>
+But, out of the box, it uses the quite outdated EJS template system: the code is still in Google Code! The forum hadn&#x2019;t a new message in months. And the syntax is ugly and heavy, reminds of JSP / ASP, and includes JS code to do its stuff.<br>
+Plus it uses Less to generate CSS, while I prefer Sass.<br>
+Again, I can replace these parts if I want, the author explains how to change a renderer, but again I wanted something faster to use.</p>
+<p>I skip over other generators I saw, like <a href="http://moonwave99.github.io/waffel/">Waffel</a> (based on Brunch), which seems promising, or <a href="https://github.com/gatsbyjs/gatsby">Gatsby</a> also interesting, based also on React.js, but written in CoffeeScript.</p>
+<h2 id="hexo">Hexo</h2>
+<p>Finally, I came back to <a href="https://hexo.io/">Hexo</a>, which I looked at several times before&#x2026;<br>
+That&#x2019;s one of the tools with a nice site, good tutorials, and lot of support: it lists lot of plugins and themes, so it is easy to get started.</p>
+<p>Alas, lot (if not all) of these themes are written in EJS (why is it so popular?) and Less&#x2026;</p>
+<p>These were the initial choices of Hexo. Since v.3, they moved EJS and Stylus renderers to external plugins, and there are other plugins, but unless you are willing to make your own theme from scratch, you are stuck with these technologies.</p>
+<p>I chose the <a href="http://blog.zhangruipeng.me/hexo-theme-icarus/">Icarus</a> theme, responsive, clean and nice, supporting Disqus and Google Analytics out of the box.<br>
+I made some minor changes, mostly on the CSS side, to personalize it a bit.</p>
+<h3 id="remarks">Remarks</h3>
+<p>Once Hexo-cli is installed, if we do an <code>hexo</code> command in the project freshly cloned, it will complain, asking to install Hexo locally. Instead of that, you just have to do <code>npm install</code> to deploy Hexo locally and all needed plugins.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[Making of this site]]>
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://PhiLhoSoft.github.io/tags/blog/"/>
+    
+      <category term="Site generation" scheme="http://PhiLhoSoft.github.io/tags/site-generation/"/>
+    
+      <category term="Software" scheme="http://PhiLhoSoft.github.io/tags/software/"/>
+    
+      <category term="Tool" scheme="http://PhiLhoSoft.github.io/tags/tool/"/>
+    
+      <category term="Web" scheme="http://PhiLhoSoft.github.io/tags/web/"/>
+    
+      <category term="Software" scheme="http://PhiLhoSoft.github.io/categories/software/"/>
+    
+      <category term="Tools" scheme="http://PhiLhoSoft.github.io/categories/software/tools/"/>
     
   </entry>
   
@@ -2673,84 +3008,6 @@ Also some methods / classes are not in All?<br>
   </entry>
   
   <entry>
-    <title><![CDATA[Static Site Generators]]></title>
-    <link href="http://PhiLhoSoft.github.io/Software/Static-site-generators/"/>
-    <id>http://PhiLhoSoft.github.io/Software/Static-site-generators/</id>
-    <published>2015-11-14T23:00:00.000Z</published>
-    <updated>2016-01-13T23:11:38.725Z</updated>
-    <content type="html"><![CDATA[<h1 id="static-site-generator">Static site generator</h1>
-<p>So I want to write some new technical articles (like this one&#x2026;) on my latest discoveries.<br>
-My previous host keeps <a href="http://Phi.Lho.free.fr">my old site</a> but has cut my FTP access, so I cannot update or add new stuff.</p>
-<a id="more"></a>
-<aside class="article-wip">
-<img class="no-fancybox" src="/images/Work-in-Progress.svg" width="240" height="110" title="Work in Progress" alt="Work in Progress">
-This is a work in progress: this article is unfinished and will be updated.
-</aside>
-<h2 id="static">Static</h2>
-<p>I found out that GitHub Pages might be a good free host for technical content, but it won&#x2019;t allow a blog / CMS software (like WordPress) to run on it.<br>
-Of course, it has Jekyll, but I wasn&#x2019;t seduced: the syntax is so-so (for me), it is a Ruby tool (slow and I have no control over it), etc.<br>
-But it was a hint: no need for a full fledged blog software generating pages from scratch on each user request: these pages are mostly static so they can be coded once and for all, like I did in the previous century&#x2026;<br>
-The most dynamic parts are the back-office, which I can live without, and managing user comments (with spam control). For the latter, I saw most solutions just use Disqus, a cross-platform comment service relying only on JS (and the related site / cloud host), so needing no server-side script or database. And I already use it (as a commenter), so it looks like the way to go.</p>
-<p>So I need something more flexible, and / or something I could hack into my needs.</p>
-<h2 id="listings">Listings</h2>
-<p>A quick research shown, via two sites (<a href="https://www.staticgen.com/">Top Open-Source Static Site Generators - StaticGen</a> and <a href="https://staticsitegenerators.net/">Static Site Generators</a>) that there is literally a ton of static site generator softwares.<br>
-Note / strong hint for those making such software: if you don&#x2019;t have a site to show of| what your tool can do, you are doing it wrong. No need to pay for a domain name, you can host it on a free site like <a href="http://GitHub.io">GitHub.io</a> or similar.</p>
-<h2 id="hugo">Hugo</h2>
-<p>I first tried <a href="http://gohugo.io/">Hugo</a>, which I discovered earlier: it has a nice site, which is an important point for this kind of software&#x2026; And a decent doc. And native binary is a promise of speed.<br>
-But I quickly hit a limitation: the Markdown parser is quite rigid and not adapted to my needs. And since 1) I don&#x2019;t know Go, 2) I don&#x2019;t have much time for deep hacks, I want something working quickly, I looked elsewhere (it was a &#x201C;no Go&#x201D;&#x2026;).</p>
-<h2 id="other-languages">Other languages</h2>
-<p>I could use a generator written in Lua, which is a language I know and appreciate, but they seem quite confidential, used by the author and a dozen of users (guestimate&#x2026;), so I feared some issues&#x2026; (or too much work to adapt to my needs).</p>
-<p>There are also PHP generators: it feels odd to use this language for off-line generation&#x2026; I can understand they appeal to those familiar with the language.</p>
-<p>I can hack a Java-based generator, but I feared some heaviness.</p>
-<p>I finally chose to explore JavaScript-based generators (via Node.js): I know well the language, and I know there is a rich ecosystem of Web-oriented tools.</p>
-<h2 id="metalsmith">Metalsmith</h2>
-<p>Another interesting generator is <a href="http://www.metalsmith.io/">Metalsmith</a>: it has a very small core, and delegate all tasks to plugins which it orchestrates. It results in flexibility: it can also generate eBooks, etc.</p>
-<h2 id="build-tools">Build tools</h2>
-<p>But, I thought, it looked like yet another build tool, like Webpack, Brunch or Gulp, only with more specialized plugins.<br>
-I know web tools, I know how to transform Markdown to HTML, Sass to CSS, etc. I can surely leverage an existing build tool to do that, with even more flexibility. But as I haven&#x2019;t much time to spend on writing these tools (finding plugins, chaining the tasks into something sensible), I searched some kind of existing &#x201C;glue&#x201D;.</p>
-<h3 id="antwar">AntWar</h3>
-<p>I first tried <a href="http://antwarjs.github.io/">Antwar</a> which is based on Webpack and React.<br>
-It has a good site with a tutorial, and an interesting flexibility.<br>
-But I ran into some issues, like a rigid Markdown parser, so I looked elsewhere.</p>
-<h3 id="akashacms">AkashaCMS</h3>
-<p>Then I tried <a href="http://akashacms.com/">AkashaCMS</a>, still based on Webpack. The site is less sexy, but full of good information. It uses the Markdown-it parser, which is a good choice as it is very flexible.<br>
-I have to write my own template, which is not a real problem, particularly if I use x as a starting point.<br>
-But, out of the box, it uses the quite outdated EJS template system: the code is still in Google Code! The forum hadn&#x2019;t a new message in months. And the syntax is ugly and heavy, reminds of JSP / ASP, and includes JS code to do its stuff.<br>
-Plus it uses Less to generate CSS, while I prefer Sass.<br>
-Again, I can replace these parts if I want, the author explains how to change a renderer, but again I wanted something faster to use.</p>
-<p>I skip over other generators I saw, like <a href="http://moonwave99.github.io/waffel/">Waffel</a> (based on Brunch), which seems promising, or <a href="https://github.com/gatsbyjs/gatsby">Gatsby</a> also interesting, based also on React.js, but written in CoffeeScript.</p>
-<h2 id="hexo">Hexo</h2>
-<p>Finally, I came back to <a href="https://hexo.io/">Hexo</a>, which I looked at several times before&#x2026;<br>
-That&#x2019;s one of the tools with a nice site, good tutorials, and lot of support: it lists lot of plugins and themes, so it is easy to get started.</p>
-<p>Alas, lot (if not all) of these themes are written in EJS (why is it so popular?) and Less&#x2026;</p>
-<p>These were the initial choices of Hexo. Since v.3, they moved EJS and Stylus renderers to external plugins, and there are other plugins, but unless you are willing to make your own theme from scratch, you are stuck with these technologies.</p>
-<p>I chose the <a href="http://blog.zhangruipeng.me/hexo-theme-icarus/">Icarus</a> theme, responsive, clean and nice, supporting Disqus and Google Analytics out of the box.<br>
-I made some minor changes, mostly on the CSS side, to personalize it a bit.</p>
-<h3 id="remarks">Remarks</h3>
-<p>Once Hexo-cli is installed, if we do an <code>hexo</code> command in the project freshly cloned, it will complain, asking to install Hexo locally. Instead of that, you just have to do <code>npm install</code> to deploy Hexo locally and all needed plugins.</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[Making of this site]]>
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://PhiLhoSoft.github.io/tags/blog/"/>
-    
-      <category term="Site generation" scheme="http://PhiLhoSoft.github.io/tags/site-generation/"/>
-    
-      <category term="Software" scheme="http://PhiLhoSoft.github.io/tags/software/"/>
-    
-      <category term="Tool" scheme="http://PhiLhoSoft.github.io/tags/tool/"/>
-    
-      <category term="Web" scheme="http://PhiLhoSoft.github.io/tags/web/"/>
-    
-      <category term="Software" scheme="http://PhiLhoSoft.github.io/categories/software/"/>
-    
-      <category term="Tools" scheme="http://PhiLhoSoft.github.io/categories/software/tools/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Functional Reactive Programming]]></title>
     <link href="http://PhiLhoSoft.github.io/Programming/Functional-Reactive-Programming/"/>
     <id>http://PhiLhoSoft.github.io/Programming/Functional-Reactive-Programming/</id>
@@ -2836,7 +3093,7 @@ Or, for experimentations and convenience, just include the <code>rx.all.js</code
     <link href="http://PhiLhoSoft.github.io/Programming/Using-Lodash-for-fun-and-profit/"/>
     <id>http://PhiLhoSoft.github.io/Programming/Using-Lodash-for-fun-and-profit/</id>
     <published>2015-09-30T22:00:00.000Z</published>
-    <updated>2016-05-05T18:30:10.791Z</updated>
+    <updated>2016-06-03T12:44:01.143Z</updated>
     <content type="html"><![CDATA[<h1 id="using-lodash-for-fun-and-profit">Using Lodash for fun and profit</h1>
 <p>Lodash is a JavaScript utility library enabling a functional programming coding style.<br>
 Lodash has general purpose functions, for type checking, string utilities, even functions to manipulate functions.<br>
@@ -2855,7 +3112,7 @@ As said, EcmaScript 5 brought some functional features like map or filter on arr
 I once made an issue (#2052) on Underscore to point out that some information was missing at one place and had to be found elsewhere. The issue was closed without change.<br>
 In contrast, Lodash&#x2019;s doc repeats all the information needed to use a function in each entry. It might seem tiresome, but the user skips over these repetitions&#x2026; unless she really need the info! In this case, it is here. Great when jumping to a definition to refresh the memory&#x2026; or to discover it.<br>
 Moreover, I made an issue to point out some little confusion. JD Dalton quickly asked for a pull request, and merged it verbatim within hours.</p>
-<p>Note: the article is written for the v.3 of Lodash (more precisely, for v.3.10.1, the last of the v.3 series). Since then, JDD released v.4 of his library, with breaking changes, and lot of new functions.<br>
+<p>Note: the article is written for the v.3 of Lodash (more precisely, for v.3.10.1, the last of the v.3 series). Since then, JDD released v.4 of his library, with breaking changes, and lot of new functions. There is also the Lodash/fp version, with different parameter order, easying their currying for better composition.<br>
 For now, I remain at v.3, of smaller scope. I might write a new article for v.4.</p>
 <h2 id="functional-programming">Functional programming</h2>
 <p>As said, Lodash has functions acting specifically on arrays, objects (aka. associative arrays, aka. maps) and strings (and more).<br>
@@ -3016,6 +3273,13 @@ Creates an object with the same values as <code>object</code> and keys generated
 Creates an object with the same keys as <code>object</code> and values generated by running each own enumerable property of <code>object</code> through <code>iteratee</code>.</p>
 <p><code>_.findKey(object, [predicate=_.identity], [thisArg])</code><br>
 Finds the propoerty identified by the predicate, and returns its key.</p>
+<h3 id="transform">Transform</h3>
+<p><code>_.transform</code> is similar to <code>_.reduce</code>, just a bit simpler. Compare:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">_.transform([ <span class="string">&apos;a&apos;</span>, <span class="string">&apos;b&apos;</span>, <span class="string">&apos;c&apos;</span> ], <span class="function"><span class="keyword">function</span> <span class="params">(acc, value, key)</span></span><br><span class="line"></span>{</span><br><span class="line">    acc.push(key + <span class="string">&apos; -&gt; &apos;</span> + value);</span><br><span class="line">})</span><br><span class="line">_.reduce([ <span class="string">&apos;a&apos;</span>, <span class="string">&apos;b&apos;</span>, <span class="string">&apos;c&apos;</span> ], <span class="function"><span class="keyword">function</span> <span class="params">(acc, value, key)</span></span><br><span class="line"></span>{</span><br><span class="line">    acc.push(key + <span class="string">&apos; -&gt; &apos;</span> + value);</span><br><span class="line">    <span class="keyword">return</span> acc;</span><br><span class="line">}, [])</span><br></pre></td></tr></table></figure>
+<p>In both cases, we get<br>
+<code>[&quot;0 -&gt; a&quot;,&quot;1 -&gt; b&quot;,&quot;2 -&gt; c&quot;]</code></p>
+<p><code>_.reduce</code>&apos;s default value for the accumulator is the first value of the object, while <code>_.transform</code>&apos;s one is an empty array or object, depending on the type of the input. Actually uses the prototype of the object, so it really creates an object of same type.<br>
+<code>_.transform</code>&#x2019; doesn&#x2019;t need to return the accumulator. Actually, if the return value is <code>false</code>, the iteration ends there.</p>
 <h2 id="string-functions">String functions</h2>
 <h3 id="case-changing-functions">Case-changing functions</h3>
 <p>Reminder: case is a typographical style: uppercase (A) or lowercase (a).<br>
@@ -3409,7 +3673,7 @@ I will list here a number of these extensions I found useful.</p>
     <link href="http://PhiLhoSoft.github.io/Programming/Functional-programming-introduction/"/>
     <id>http://PhiLhoSoft.github.io/Programming/Functional-programming-introduction/</id>
     <published>2015-09-19T22:00:00.000Z</published>
-    <updated>2016-01-13T19:09:40.461Z</updated>
+    <updated>2016-06-03T12:45:49.792Z</updated>
     <content type="html"><![CDATA[<h1 id="functional-programming-a-brief-pragmatic-overview">Functional Programming: a Brief, Pragmatic Overview</h1>
 <p>Functional Programming (FP) is a programming paradigm, like imperative (procedural) programming or object-oriented programming (OOP).<br>
 Some people oppose these paradigms, but actually they are not exclusive of each other: we do imperative programming inside OOP&#x2019;s methods, and we can mix OOP and FP: that&#x2019;s even a trend in modern languages (Scala, Ceylon, &#x2026;) and in older ones (JavaScript, Java 8&#x2026;).</p>
@@ -3533,7 +3797,8 @@ For this kind of chaining, it is easier if all these functions take only one par
 <h2 id="conclusion">Conclusion</h2>
 <p>As said, I only scratched the surface of the topic, yet I introduced lot of concepts that are useful and practical in daily tasks of your favorite language. Although I admit in some languages like pre-8 Java, the syntax (with anonymous classes) can be a bit heavy.</p>
 <p>FP techniques proved to be useful enough that some languages (Java 8 again, JavaScript at ES6 / ES2015) evolved to ease their usage. And lot of new ones integrated them from the start.</p>
-<p>I hope this article will give you the will to use (more) these techniques, and perhaps to dig more into it.</p>
+<p>I hope this article will give you the will to use (more) these techniques, and perhaps to dig more into it.<br>
+If you want to explore more functions via the Lodash library, you can continue the reading with my <a href="/Programming/Using-Lodash-for-fun-and-profit/">article on Lodash</a>.</p>
 ]]></content>
     <summary type="html">
     <![CDATA[Tutorial about functional programming, short and practical]]>
@@ -3799,17 +4064,18 @@ I find myself loosing lot of time on this. A little pro thought: it is easy to m
 <p>Here is my take:</p>
 <ul>
 <li>Its syntax is C-like, close of Java, without exotic operators&#x2026; ;-) Likewise, interface / abstract class / classes / inheritance / generics are close of Java, remains familiar.</li>
-<li>Visibility rules are simpler than in Java.</li>
+<li>Visibility rules are simpler than in Java. It allows top-level functions (at module level).</li>
 <li>It compiles to the JVM (bytecode) and to JavaScript, with interoperability with both universes.</li>
 <li>No primitives, everything is an object, the compiler can optimize integer / float / characters / etc. to their platform equivalent.</li>
 <li>Multiline strings with interpolation.</li>
 <li>Iterables and Sequences are also first-class entities, with literals.</li>
-<li>It has a strong yet flexible typing, with union and intersection of types, and type inference. Full support of variance (co-, contra-, in-). - Mixins: interfaces can have implementations, but no context / state.</li>
-<li>An awesome feature is null safety, enforced by the compiler itself: the language doesn&#x2019;t have a concept of NPE, because the compiler forces you to test for nullity (existence of value, more precisely) if you told it your variable can be null. At work, we use FindBugs to check this in Java, but it goes with lot of ceremony and has holes&#x2026;</li>
+<li>It has a strong yet flexible typing, with union and intersection of types, and type inference. Full support of variance (co-, contra-, in-).</li>
+<li>Mixins: interfaces can have implementations, but no context / state. So they have only pure functions.</li>
+<li>An awesome feature is null safety, enforced by the compiler itself: the language doesn&#x2019;t have a concept of NullPointerException, because the compiler forces you to test for nullity (existence of value, more precisely) if you told it your variable can be null. At work, we use FindBugs to check this in Java, but it goes with lot of ceremony and has holes&#x2026;</li>
 <li>By default, values are immutable, variable identifiers must be marked as such explicitly.</li>
 <li>Functions are first-class entities, can be stored in variables and collections, passed as parameters and returned, etc.</li>
 <li>Named parameters, default values, flexible syntax allowing declarative object instantiation.</li>
-<li>Simplified accessors: we generally do direct access to (public / shared) members, we can override getters and setters without breaking the API if we need to change the implementation.</li>
+<li>Simplified accessors: we generally do direct access to (public / shared) members, we can override with getters and setters without breaking the API if we need to change the implementation.</li>
 <li>for comprehensions for generating or processing iterables.</li>
 <li>Range literal and processing.</li>
 <li>Operator overloading, with strict rules.</li>
