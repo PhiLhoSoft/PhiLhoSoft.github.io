@@ -2,13 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://PhiLhoSoft.github.io/Programming/Functional-Reactive-Programming/</loc>
+    <lastmod>2016-06-04T22:25:54.819Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://PhiLhoSoft.github.io/Programming/Multi-selection-in-lists/</loc>
-    <lastmod>2016-06-04T13:42:22.876Z</lastmod>
+    <lastmod>2016-06-04T22:18:49.173Z</lastmod>
   </url>
   
   <url>
     <loc>http://PhiLhoSoft.github.io/Programming/AngularJS-1-and-MobX-2/</loc>
-    <lastmod>2016-06-04T13:15:16.972Z</lastmod>
+    <lastmod>2016-06-04T22:17:08.564Z</lastmod>
   </url>
   
   <url>
@@ -34,11 +39,6 @@
   <url>
     <loc>http://PhiLhoSoft.github.io/Programming/Ceylon-strong-selling-points/</loc>
     <lastmod>2016-04-23T12:40:00.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://PhiLhoSoft.github.io/Programming/Functional-Reactive-Programming/</loc>
-    <lastmod>2016-01-15T09:33:46.366Z</lastmod>
   </url>
   
   <url>
