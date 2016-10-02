@@ -30,10 +30,12 @@ You can take a look at my curriculum vitæ (resume / résumé), in [French](./CV
 <img class="no-fancybox" src="/images/icon-twitterEN.svg" alt="English Twitter" width="32" height="32"/><a href="https://twitter.com/PhiLhoSoft">English Twitter (technical)</a><br>
 <img class="no-fancybox" src="/images/icon-stackoverflow.svg" alt="StackOverflow" width="32" height="32"/><a href="http://stackoverflow.com/users/15459/philho">StackOverflow</a><br>
 <img class="no-fancybox" src="/images/icon-plunker.svg" alt="Plunker" width="32" height="32"/><a href="http://plnkr.co/users/PhiLhoSoft">Plunker</a><br>
+<img class="no-fancybox" src="/images/icon-twitterFR.svg" alt="French Twitter" width="32" height="32"/><a href="https://twitter.com/Phi_Lho">French Twitter (puns, drawings, etc.)</a><br>
 <img class="no-fancybox" src="/images/icon-deviantart.svg" alt="deviantART" width="32" height="32"/><a href="http://philho.deviantart.com/">deviantART</a><br>
-<img class="no-fancybox" src="/images/icon-free.svg" alt="Free.fr" width="32" height="32"/><a href="http://Phi.Lho.free.fr/">Legacy site and blog on Free.fr</a><br>
-<img class="no-fancybox" src="/images/icon-twitterFR.svg" alt="French Twitter" width="32" height="32"/><a href="https://twitter.com/Phi_Lho">French Twitter (puns, etc.)</a><br>
+<img class="no-fancybox" src="/images/icon-tumblr.svg" alt="Tumblr" width="32" height="32"/><a href="http://phi-lho.tumblr.com/">Tumblr</a><br>
+<img class="no-fancybox" src="/images/icon-instagram.svg" alt="Instagram" width="32" height="32"/><a href="https://www.instagram.com/phi_lho/">Instagram</a><br>
 <img class="no-fancybox" src="/images/icon-goodreads.svg" alt="Goodreads" width="32" height="32"/><a href="https://www.goodreads.com/review/list/3585303-philippe-lhoste">Goodreads</a><br>
+<img class="no-fancybox" src="/images/icon-free.svg" alt="Free.fr" width="32" height="32"/><a href="http://Phi.Lho.free.fr/">Legacy site and blog on Free.fr</a><br>
 <img class="no-fancybox" src="/images/icon-rss.svg" alt="RSS" width="32" height="32"/><a href="atom.xml">RSS for this site</a><br>
 </div>
 
