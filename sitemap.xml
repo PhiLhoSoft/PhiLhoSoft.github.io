@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://PhiLhoSoft.github.io/about/index.html</loc>
+    <lastmod>2016-10-02T13:18:32.076Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://PhiLhoSoft.github.io/Programming/Functional-Reactive-Programming/</loc>
     <lastmod>2016-06-04T22:25:54.819Z</lastmod>
   </url>
@@ -24,11 +29,6 @@
   <url>
     <loc>http://PhiLhoSoft.github.io/Programming/Using-Lodash-for-fun-and-profit/</loc>
     <lastmod>2016-06-03T12:44:01.143Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://PhiLhoSoft.github.io/about/index.html</loc>
-    <lastmod>2016-05-29T12:21:26.674Z</lastmod>
   </url>
   
   <url>
