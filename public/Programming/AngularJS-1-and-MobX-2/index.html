@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>How I use MobX 2 in an AngularJS 1 application ~|~ PhiLhoSoft Technical Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Presenting MobX 2 in a concrete use case with AngularJS 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How I use MobX 2 in an AngularJS 1 application">
+<meta property="og:url" content="http://PhiLhoSoft.github.io/Programming/AngularJS-1-and-MobX-2/index.html">
+<meta property="og:site_name" content="PhiLhoSoft Technical Blog">
+<meta property="og:description" content="Presenting MobX 2 in a concrete use case with AngularJS 1">
+<meta property="og:image" content="http://PhiLhoSoft.github.io/images/MobX_logo.png">
+<meta property="og:updated_time" content="2016-06-04T22:17:08.564Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How I use MobX 2 in an AngularJS 1 application">
+<meta name="twitter:description" content="Presenting MobX 2 in a concrete use case with AngularJS 1">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-20636309-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+
+  
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/images/logo.png)"></i><span class="site-title">PhiLhoSoft Technical Blog</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://PhiLhoSoft.github.io"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+        <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://PhiLhoSoft.github.io"></form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/images/avatar.png">
+      <h2 id="name">Philippe Lhoste (aka. PhiLho, PhiLhoSoft for GitHub &amp; Twitter)</h2>
+      <h3 id="title">Senior Software Engineer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Paris, France</span>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        15
+        <span>posts</span>
+      </div>
+      <div class="article-info-block">
+        23
+        <span>tags</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td>
+			  <a href="http://github.com/PhiLhoSoft" title="github">
+				  <img src="/images/icon-github.svg" class="inline-svg" alt="github" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="https://twitter.com/PhiLhoSoft" title="twitterEN">
+				  <img src="/images/icon-twitterEN.svg" class="inline-svg" alt="twitterEN" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="http://stackoverflow.com/users/15459/philho" title="stackoverflow">
+				  <img src="/images/icon-stackoverflow.svg" class="inline-svg" alt="stackoverflow" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="http://plnkr.co/users/PhiLhoSoft" title="plunker">
+				  <img src="/images/icon-plunker.svg" class="inline-svg" alt="plunker" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="http://philho.deviantart.com/" title="deviantart">
+				  <img src="/images/icon-deviantart.svg" class="inline-svg" alt="deviantart" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="http://Phi.Lho.free.fr/" title="free">
+				  <img src="/images/icon-free.svg" class="inline-svg" alt="free" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="https://twitter.com/Phi_Lho" title="twitterFR">
+				  <img src="/images/icon-twitterFR.svg" class="inline-svg" alt="twitterFR" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="https://www.goodreads.com/review/list/3585303-philippe-lhoste" title="goodreads">
+				  <img src="/images/icon-goodreads.svg" class="inline-svg" alt="goodreads" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="/atom.xml" title="rss">
+				  <img src="/images/icon-rss.svg" class="inline-svg" alt="rss" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+    <div class="article-info profile-block bio">
+      <h2>About</h2>
+      <p>A blog where I share my technical (programming) findings, insights, experiences, tutorials, etc.</p>
+    </div>
+    
+    <div class="article-info profile-block license">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+      </a><br>
+      This work by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">PhiLho</span>
+      is licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </div>
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-Programming/AngularJS-1-and-MobX-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      How I use MobX 2 in an AngularJS 1 application
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/Programming/AngularJS-1-and-MobX-2/">
+      <time datetime="2016-04-29T22:00:00.000Z" itemprop="datePublished">2016-04-30</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/javascript/">JavaScript</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h1 id="how-i-use-mobx-2-in-an-angularjs-1-application">How I use MobX 2 in an AngularJS 1 application</h1>
+<p>MobX is a library simplifying state management by using functional reactive principles.<br>
+It manages dependencies between values, somehow like a spreadsheet does with its cells: if the value of a cell changes, other cells depending on the first one can change too, in a cascading way.</p>
+<p>The manual of MobX can be read at <a href="https://mobxjs.github.io/mobx/refguide/">MobX, Simple, scalable state management</a>.<br>
+It is a comprehensive guide, rather dense (worth reading again after experimenting with the library&#x2026;) but clear and informative.</p>
+<p>I used it in an AngularJS 1 application, to manage state of controllers (components), so in a rather local and isolated way.<br>
+That&#x2019;s just one way of using it, which I explain below.</p>
+<img src="/images/MobX_logo.png" title="MobX logo" alt="MobX">
+<a id="more"></a>
+<h2 id="why-i-needed-something-like-mobx">Why I need(ed) something like MobX</h2>
+<p>On my second AngularJS project (the third made in the company), we have some quite complex state management: we have a main view / controller showing a graph (nodes with relations), with a toolbar, whose buttons are disabled depending on user actions (changing the graph), data loading (fetching graph data), state in the data (is graph processed on server side), etc.<br>
+We also have two dialog boxes (one calling the other) with controls and buttons, also interacting, depending on user choices, state of / in data, etc.<br>
+We have to enable / disable these controls, and also set tooltips or messages explaining why they are disabled, so that user can do proper actions.<br>
+All this led to a rather complex state management, done in a classical way, with booleans and intermediary data structures, and functions called to update dependencies between these variables.<br>
+We managed this state with a bunch of booleans (is this control disabled?) set on the fly in a ad hoc way (uh, I need this flag, let&#x2019;s create it there) on the scope (the controller instance), and by calling functions to show appropriate tooltips / messages in all places where the state changes.<br>
+Note: by &#x201C;show tooltips / messages&#x201D;, I actually mean &#x201C;change their values&#x201D;, as AngularJS&#x2019; binding is managing to display them.</p>
+<p>At the end, the code was a bit messy, with state changing everywhere, forgotten cases, having to track usage to add the missing ones, sometime inconsistent or unclear usage, etc.</p>
+<p>Then I saw a tweet mentioning MobX. I had a look at the site, and the description looked like a good fit to my problem.<br>
+A superficial look could lead to think it was made for React with an ES6 syntax, but reading on, I found they are actually framework-agnostic (React-specific stuff is separate) and totally compatible with ES5.</p>
+<h2 id="context">Context</h2>
+<p>I use the &#x201C;controller as&#x201D; pattern in this Angular application, and I assign <code>this</code> to the <code>ctrl</code> variable at the start of the controllers.<br>
+So I refer to <code>ctrl.xyz</code> for the controller variables, those visible from the related template.<br>
+I also have some variables with same lifetime than the controller, but not needing to be visible on the view. By convention, we name them <code>ctrl._xyz</code>, the underscore meaning &#x201C;private&#x201D;&#x2026;<br>
+If you don&#x2019;t use &#x201C;controller as&#x201D; pattern (but you should!), you can mentally replace <code>ctrl</code> with <code>$scope</code>.</p>
+<p>I tend to name functions that are traditionally anonymous, like iteratees of Lodash functions, callbacks defined in function calls, etc.<br>
+Ie. instead of doing <code>_.map(circles, function (c) { return TWO_PI * c.radius; ];</code> I write <code>_.map(circles, function __toPerimeter(c) { return TWO_PI * c.radius; ];</code>.<br>
+This is generally a good practice, as it shows the intent of the transformation, and these names can show up in stack traces in debuggers, etc.<br>
+It is even more important with MobX, because it keeps track of these names and this allows an easier debugging of its mechanisms.<br>
+I use a double underscore as prefix to help distinguishing these small functions from the others when my IDE (Atom) lists them.</p>
+<h2 id="my-usage-of-mobx">My usage of MobX</h2>
+<p>I have two objects on the controller, related to the view, ie. referenced in the template:</p>
+<ul>
+<li>As input, <code>ctrl.viewModel</code> contains the models of form inputs (text input, radio-buttons, check boxes, select / drop-down, etc.), referenced by <code>ng-model</code> directives. Ie. they display their current value and can be changed by the user.</li>
+<li>As output, <code>ctrl.view</code> contains the read-only view values, used in the template to display these values.</li>
+</ul>
+<p>Between them, I can have some intermediary objects, eg. <code>ctrl._model</code> for data structures, <code>ctrl._internal</code> for flags, etc.<br>
+These objects, and <code>ctrl.viewModel</code>, are observable by wrapping them in a <code>mobx.observable</code> call.<br>
+MobX transforms (recursively) each field (property) of these objects to observable values: that&#x2019;s simpler than calling <code>observable</code> on each field.<br>
+If you use a more OOP approach, as described in the docs, you might want finer control on how some fields are observable and some are not.<br>
+Here, I just use these plain objects to group together observable values.</p>
+<p>These observables can be simple values set by the code (string, number, boolean); or arrays (each value is observed), or objects (each property is observed). It is, by default, recursive: an array of objects has each field observed.<br>
+Observable values are replaced by MobX by a pair of accessors, ES5&#x2019;s getters and setters, or specialized objects, like ObservableArray, mimicking the behavior of real arrays, but observing each entry and operation (like <code>splice</code>).<br>
+If the property of an observable object is assigned a new value, MobX makes it observable too.<br>
+It doesn&#x2019;t do it for added properties, so they must be declared from the start, which is a good thing: no more variables added &#x201C;on the fly&#x201D; in the middle of the code.<br>
+If you use an object is a map (values indexed by string keys), MobX provides an observable map to get you covered.</p>
+<p>In some cases, I observe arrays to watch insertions / deletions: I don&#x2019;t change the objects it has inside, which generally doesn&#x2019;t change anyway. To improve performances (and memory consumption) and ease debugging, I use the <code>asFlat</code> modifier.</p>
+<p>The observed values can be also be functions without parameters: they are called when the field is read.<br>
+The function acts as a getter, and can compute a value from other values.<br>
+If some of these values are observables, MobX invokes their getter, which in turn can invoke other getters, etc.</p>
+<p>Instead of a direct computation from other values, the function can call a transformer, created via&#x2026; <code>mobx.createTransformer</code>.<br>
+A transformer takes one (and only one) observable value as entry, and must return a new value computed from the parameter, and possibly from other observable values.<br>
+As we use properties from observables, we invoke their getters. MobX then keeps track of these sub-observable objects.<br>
+When a setter is invoked on one (or more) these objects, MobX knows it has to recompute the result of the transformer.<br>
+Otherwise, since input hasn&#x2019;t changed, it knows output didn&#x2019;t change either&#x2020;, so it can return the previous value, said to be memoized. This results in a much faster response, particularly if the operation iterates on large collections.<br>
+&#x2020; Obviously, the function must be deterministic (pure, as <a href="/Programming/Functional-programming-introduction/">functional programming</a> aficionados say): for a given input, it always returns the same output. Don&#x2019;t put <code>random()</code>, <code>getTime()</code> or I/O result in there!</p>
+<p>The above is an over-simplified description how MobX works. The exact mechanism is described in the article <a href="https://medium.com/@mweststrate/becoming-fully-reactive-an-in-depth-explanation-of-mobservable-55995262a254">Becoming fully reactive: an in-depth explanation of MobX</a>. MobX has optimizations making all this working very fast&#x2026;<br>
+Beside, as the core mechanism is based on accessors, it is intrinsically static: no need to scan all the observed variables / entries / properties regularly to check if there is a change, the sole fact to get or set a value is enough to trigger the mechanism. The other advantage is synchronicity and atomicity: changes don&#x2019;t have to wait for a &#x201C;digest&#x201D; cycle, and all changes are applied at once: no inconsistent intermediary state.</p>
+<p>Back to my implementation: <code>ctrl.view</code> is not an observable. It is already watched / bound by Angular, and I prefer to keep it &#x201C;static&#x201D;, assigning new values if their dependencies change.<br>
+For this, I use <code>mobx.autorun</code> which is used to do side-effects when an observable value inside it changes.<br>
+My side-effects here are to assign a new value to <code>ctrl.view</code> properties&#x2026; I do that only for computation-intensive value evaluations (extracting data from collections, etc.), using transformers to memoize the results.<br>
+Actually, it corresponds to described side effects, like disabling a control, selecting an entry in a list, etc. Because it is Angular, instead of calling <code>control.setEnabled(true / false)</code> or <code>combo.select(index)</code>, we assign the values to bound variables: <code>ctrl.control.enabled = true / false</code> or <code>combo.selection = combo.model[index]</code>. But basically, that&#x2019;s the same thing.</p>
+<p>As <code>createTransformer</code> is a bit heavy-handed (needs some boilerplate code, accepts only one parameter), for lighter evaluations (no iterations) I use the ES5 getter syntax, function evaluated each time the property is read: <code>var o = { get foo() { return someValue * 2; } }; var x = o.foo; // Calls the getter and returns twice someValue</code><br>
+I formerly used <code>mobx.computed</code> for that, but I am not sure if it brings any advantage here&#x2026;</p>
+<p>In other words, I went from</p>
+<pre><code>ctrl.view =
+{
+    saveDisabled: mobx.computed(function saveDisabled()
+    {
+        return ctrl._internal.noItems || !ctrl._internal.hasCommonStuff || ctrl._internal.isStarted;
+    }),
+};
+</code></pre>
+<p>to</p>
+<pre><code>ctrl.view =
+{
+    get saveDisabled()
+    {
+        return ctrl._internal.noItems || !ctrl._internal.hasCommonStuff || ctrl._internal.isStarted;
+    },
+};
+</code></pre>
+<p>Note: transformations must be used inside a reaction like <code>@observer</code> or <code>autorun</code>. They also work if they are part of the dependency graph pulled from an <code>autorun</code>, as done above (view depending on observable objects).<br>
+Maybe the <code>computed</code> version allows such triggering, if needed.</p>
+<h2 id="potential-issues-points-to-be-aware-of">Potential issues / points to be aware of</h2>
+<h3 id="avoid-to-assign-null-to-observables">Avoid to assign null to observables</h3>
+<p>That&#x2019;s a general advice in computing: instead of using <code>null</code>, use a &#x201C;null object&#x201D;, a real &#x201C;inert&#x201D; object . Like an empty object <code>{}</code>, an empty array <code>[]</code> or similar.<br>
+MobX will throw when you assign <code>null</code> to an observable, and will tell you that you have an infinite loop in your dependencies, so these null objects are better here.</p>
+<h3 id="mobx-observable-array">MobX observable array</h3>
+<p>It is a special object mimicking JS arrays, but observing each entry and watching each operation. It is a bit annoying to examine when debugging, but that&#x2019;s a minor issue.</p>
+<p>One problem is that some libraries will choke on this &#x201C;false&#x201D; array. For example, [Lodash]/Programming/Using-Lodash-for-fun-and-profit/)&apos;s <code>_.clone</code> or <code>_.cloneDeep</code> fails to work on it.<br>
+For the former, you can do <code>observableArray.slice(0)</code> which makes a plain array copy of the array. But the objects inside are still those observed in the original array, and thus are still observable.</p>
+<p>In my case, I observed the array only to see if it is not empty, which is a bit overkill&#x2026;</p>
+<pre><code>ctrl._model = mobx.observable(
+{
+    stuffList: [],
+});
+</code></pre>
+<p>Easy way out: I tell MobX not to observe the objects themselves.</p>
+<pre><code>ctrl._model = mobx.observable(
+{
+    stuffList: mobx.asFlat([]), // Observe array, not objects inside it
+});
+</code></pre>
+<p>Assigning later the real array to <code>stuffList</code> preserved the <code>asFlat</code> modifier.</p>
+<p>Basically, if you are interested in changes in the array (add / remove items), but not in the objects inside them (which might not change at all!), <code>asFlat</code> is good to use (can even improve performance / reduce memory usage, which doesn&#x2019;t hurt&#x2026;).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>It might seem strange to use MobX with AngularJS, whereas the latter can <code>$watch</code> value changes or invoke functions from the template.<br>
+MobX has two advantages here:</p>
+<ul>
+<li>It is synchronous, while AngularJS computes watches only in a digest cycle. This ensures there is no &#x201C;dirty&#x201D; state, with intermediary values, or values changed and not yet updated in the display.</li>
+<li>It can memoize results. This avoids complex collection processing on each cycle, these are done only when the collections actually change.</li>
+</ul>
+<p>This avoids explicit <code>$watch</code> (I never use them in controllers anyway), evaluation of functions in templates (like <code>ng-disabled=&quot;vm.isFooDisabled()&quot;</code>) or manual calls to <code>ctrl.updateState()</code> in the controller code, which can be forgotten or done too much.<br>
+MobX allows to describe a graph of dependencies, and to ensure it is always up to date.</p>
+<p>For complex changes, like changing several values in an array, we can also use transactions, minimizing the recalculations by batching them and computing the result at the end.</p>
+<p>MobX is a mature library, used in large applications, and it proved to be very efficient.<br>
+It is flexible: some applications use it to implement the Flux architecture, centralizing all data in one or more data stores, shared among the components; and myself used it locally, in only some controllers, to do a little part of the UI logic.<br>
+In other words, it is not an &#x201C;in your face, do it as I said&#x201D; library that imposes its vision of the world (centralized, immutable, with flat data, and so on). It works the way you are familiar with, and it is easy to use for most users, using mutable data, invisible accessors, etc.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://PhiLhoSoft.github.io/Programming/AngularJS-1-and-MobX-2/" data-id="citsqa21p0000v0tx6go0u6q5" class="article-share-link">Share</a>
+      
+        <a href="http://PhiLhoSoft.github.io/Programming/AngularJS-1-and-MobX-2/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/functional-programming/">Functional programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/library/">Library</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactive-programming/">Reactive programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tutorial/">Tutorial</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Programming/Multi-selection-in-lists/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Multi-selection in lists
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Software/Git-gitignore-rules/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Git .gitignore rules</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recents</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/Multi-selection-in-lists/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Multi-selection.png
+)" alt="Multi-selection in lists" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/ui/">UI</a></p>
+              <p class="item-title"><a href="/Programming/Multi-selection-in-lists/" class="title">Multi-selection in lists</a></p>
+              <p class="item-date"><time datetime="2016-05-14T16:08:00.000Z" itemprop="datePublished">2016-05-14</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/AngularJS-1-and-MobX-2/" class="thumbnail">
+  
+    <span style="background-image:url(/images/MobX_logo.png
+)" alt="How I use MobX 2 in an AngularJS 1 application" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/javascript/">JavaScript</a></p>
+              <p class="item-title"><a href="/Programming/AngularJS-1-and-MobX-2/" class="title">How I use MobX 2 in an AngularJS 1 application</a></p>
+              <p class="item-date"><time datetime="2016-04-29T22:00:00.000Z" itemprop="datePublished">2016-04-30</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/Git-gitignore-rules/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Git_logo.png
+)" alt="Git .gitignore rules" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/development-tools/">Development tools</a></p>
+              <p class="item-title"><a href="/Software/Git-gitignore-rules/" class="title">Git .gitignore rules</a></p>
+              <p class="item-date"><time datetime="2016-01-08T10:34:00.000Z" itemprop="datePublished">2016-01-08</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/MessagEase-Android-keyboard-review/" class="thumbnail">
+  
+    <span style="background-image:url(/images/MessagEase_Keyboard.png
+)" alt="MessagEase (Android keyboard) review" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/android/">Android</a></p>
+              <p class="item-title"><a href="/Software/MessagEase-Android-keyboard-review/" class="title">MessagEase (Android keyboard) review</a></p>
+              <p class="item-date"><time datetime="2015-12-17T09:56:00.000Z" itemprop="datePublished">2015-12-17</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/GitHub-Atom-review/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Atom_logo.png
+)" alt="GitHub Atom review" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
+              <p class="item-title"><a href="/Software/GitHub-Atom-review/" class="title">GitHub Atom review</a></p>
+              <p class="item-date"><time datetime="2015-12-15T09:40:00.000Z" itemprop="datePublished">2015-12-15</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/ui/">UI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/development-tools/">Development tools</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceylon/">Ceylon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">Command line</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/component/">Component</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keyboard/">Keyboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/language/">Language</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive-programming/">Reactive programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui/">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tag cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 10px;">Android</a> <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/ceylon/" style="font-size: 10px;">Ceylon</a> <a href="/tags/command-line/" style="font-size: 10px;">Command line</a> <a href="/tags/component/" style="font-size: 10px;">Component</a> <a href="/tags/functional-programming/" style="font-size: 15px;">Functional programming</a> <a href="/tags/git/" style="font-size: 10px;">Git</a> <a href="/tags/ide/" style="font-size: 13.33px;">IDE</a> <a href="/tags/javascript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/keyboard/" style="font-size: 10px;">Keyboard</a> <a href="/tags/language/" style="font-size: 10px;">Language</a> <a href="/tags/library/" style="font-size: 13.33px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 20px;">Programming</a> <a href="/tags/reactive/" style="font-size: 11.67px;">Reactive</a> <a href="/tags/reactive-programming/" style="font-size: 10px;">Reactive programming</a> <a href="/tags/rxjs/" style="font-size: 11.67px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 18.33px;">Software</a> <a href="/tags/tool/" style="font-size: 16.67px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 15px;">Tutorial</a> <a href="/tags/ui/" style="font-size: 10px;">UI</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 - 2016 Philippe Lhoste (aka. PhiLho, PhiLhoSoft for GitHub &amp; Twitter)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script>
+  var disqus_shortname = 'philhosoft';
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

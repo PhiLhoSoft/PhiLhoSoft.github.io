@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Adobe Brackets review ~|~ PhiLhoSoft Technical Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="a review of the Brackets IDE for the Web, at version 1.5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Adobe Brackets review">
+<meta property="og:url" content="http://PhiLhoSoft.github.io/Software/Adobe-Brackets-review/index.html">
+<meta property="og:site_name" content="PhiLhoSoft Technical Blog">
+<meta property="og:description" content="a review of the Brackets IDE for the Web, at version 1.5">
+<meta property="og:image" content="http://PhiLhoSoft.github.io/images/Brackets_logo.png">
+<meta property="og:updated_time" content="2016-01-13T23:11:38.609Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Adobe Brackets review">
+<meta name="twitter:description" content="a review of the Brackets IDE for the Web, at version 1.5">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-20636309-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+
+  
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/images/logo.png)"></i><span class="site-title">PhiLhoSoft Technical Blog</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://PhiLhoSoft.github.io"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+        <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://PhiLhoSoft.github.io"></form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/images/avatar.png">
+      <h2 id="name">Philippe Lhoste (aka. PhiLho, PhiLhoSoft for GitHub &amp; Twitter)</h2>
+      <h3 id="title">Senior Software Engineer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Paris, France</span>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        15
+        <span>posts</span>
+      </div>
+      <div class="article-info-block">
+        23
+        <span>tags</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td>
+			  <a href="http://github.com/PhiLhoSoft" title="github">
+				  <img src="/images/icon-github.svg" class="inline-svg" alt="github" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="https://twitter.com/PhiLhoSoft" title="twitterEN">
+				  <img src="/images/icon-twitterEN.svg" class="inline-svg" alt="twitterEN" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="http://stackoverflow.com/users/15459/philho" title="stackoverflow">
+				  <img src="/images/icon-stackoverflow.svg" class="inline-svg" alt="stackoverflow" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="http://plnkr.co/users/PhiLhoSoft" title="plunker">
+				  <img src="/images/icon-plunker.svg" class="inline-svg" alt="plunker" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="http://philho.deviantart.com/" title="deviantart">
+				  <img src="/images/icon-deviantart.svg" class="inline-svg" alt="deviantart" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="http://Phi.Lho.free.fr/" title="free">
+				  <img src="/images/icon-free.svg" class="inline-svg" alt="free" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="https://twitter.com/Phi_Lho" title="twitterFR">
+				  <img src="/images/icon-twitterFR.svg" class="inline-svg" alt="twitterFR" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="https://www.goodreads.com/review/list/3585303-philippe-lhoste" title="goodreads">
+				  <img src="/images/icon-goodreads.svg" class="inline-svg" alt="goodreads" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+          <td>
+			  <a href="/atom.xml" title="rss">
+				  <img src="/images/icon-rss.svg" class="inline-svg" alt="rss" width="32" height="32"/>
+		  		</a>
+		  </td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+    <div class="article-info profile-block bio">
+      <h2>About</h2>
+      <p>A blog where I share my technical (programming) findings, insights, experiences, tutorials, etc.</p>
+    </div>
+    
+    <div class="article-info profile-block license">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+      </a><br>
+      This work by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">PhiLho</span>
+      is licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </div>
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-Software/Adobe-Brackets-review" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Adobe Brackets review
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/Software/Adobe-Brackets-review/">
+      <time datetime="2015-09-25T11:24:00.000Z" itemprop="datePublished">2015-09-25</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h1 id="adobe-brackets-ide-for-the-web">Adobe Brackets - IDE for the Web</h1>
+<p>Integrated Development Environment oriented toward the Web technologies</p>
+<p><a href="http://brackets.io/">http://brackets.io/</a></p>
+<img src="/images/Brackets_logo.png" title="Brackets logo" alt="Brackets">
+<h2 id="quick-review">Quick review</h2>
+<p>I installed Brackets (v. 1.2 on Windows 7 with 8 GB of memory; currently at v.1.4), it went out quite smoothly, just asking for the directory where to install it.<br>
+I opened it, it starts very fast.<br>
+It has a dark UI but a light editing area. Not fan of dark theme, but I will try and keep it to see if it is effective to have a contrast between the UI and the editing area.<br>
+Default syntax coloring theme looks OK so far. It can be changed with theme plugins.<br>
+Actually, the UI theme cannot be changed easily, it needs a plugin to be able to modify it.<br>
+There is no drag&#x2019;n&#x2019;drop of text by default, which is why I rejected this editor on my first try (before 1.0), because I use this operation a lot; but it has been introduced in this version, and the <a href="http://blog.brackets.io/2015/03/02/brackets-1-2-now-available/">blog post about this release</a> shows how to activate it.<br>
+The editor is a bit primitive out of the box. You have to install several extensions to get things done efficiently&#x2026; That&#x2019;s OK because this keeps the application streamlined: no need to install CoffeeScript or Less extensions if you code only in JavaScript and use Sass&#x2026;<br>
+There are not much settings either: you have to edit Json files to customize things. A bit less intuitive, but I am OK with that, as that&#x2019;s the way I customize ScITE, my favorite (general purpose) source code editor. And not having complex dialogs to set every option also keeps the application light.</p>
+<p>After a few weeks of using Brackets, I appreciate it a lot: it is much less memory hungry than WebStorm or Eclipse, it is flexible and easy to use.<br>
+I recommend it.</p>
+<a id="more"></a>
+<p>Still, I regret some base editor features are missing and must be fixed with extensions. Among them:</p>
+<ul>
+<li>Jump to matching brace (bracket / parenthesis);</li>
+<li>Gutter selection of lines;</li>
+<li>Recall previous searches / replacements;</li>
+<li>Autofill of search field with text under caret (text has to be selected);</li>
+<li>Show whitespace / end of lines / indentation guides / right margin;</li>
+<li>Selection to upper / lower case; and some more.</li>
+</ul>
+<p>Some of these features has been addressed by adding extensions, but I feel these should be native.<br>
+I will list here a number of these extensions I found useful.</p>
+<p>I give the links to the GitHub projects, but the best way to install these extensions is to go to the Extension Manager in Brackets, to type (paste) the name of the extension and to install it from there. The manager also checks for updated and allows to install them easily.</p>
+<h2 id="installed-extensions">Installed extensions</h2>
+<h3 id="general-improvement">General improvement</h3>
+<ul>
+<li>
+<p><strong>File Tree Exclude</strong></p>
+<ul>
+<li>Jon Wolfe (<a href="https://github.com/JonathanWolfe/">https://github.com/JonathanWolfe/</a>) - 0.6.3</li>
+<li>Excludes folders (eg. containing generated stuff) from the file tree (less noise), find in files and quick open.</li>
+<li><a href="https://github.com/JonathanWolfe/file-tree-exclude">https://github.com/JonathanWolfe/file-tree-exclude</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Brackets Outline List</strong></p>
+<ul>
+<li>Jan Pilzer (<a href="https://github.com/Hirse">https://github.com/Hirse</a>) - 0.7.0</li>
+<li>Display a list of the functions or definitions in the currently opened document.</li>
+<li><a href="https://github.com/Hirse/brackets-outline-list">https://github.com/Hirse/brackets-outline-list</a></li>
+</ul>
+</li>
+<li>
+<p><strong>White Space Sanitizer</strong></p>
+<ul>
+<li>Miguel Castillo (<a href="https://github.com/MiguelCastillo">https://github.com/MiguelCastillo</a>) - 1.2.1</li>
+<li>Help keep white spaces and tabs consistent. Also trims trailing whitespaces and ensures newline at end of file.</li>
+<li><a href="https://github.com/MiguelCastillo/Brackets-wsSanitizer">https://github.com/MiguelCastillo/Brackets-wsSanitizer</a></li>
+<li>See also <a href="https://github.com/adobe/brackets/wiki/How-to-Use-Brackets#preferences">https://github.com/adobe/brackets/wiki/How-to-Use-Brackets#preferences</a> to set up tab preferences per language</li>
+</ul>
+</li>
+<li>
+<p><strong>Show Whitespace</strong></p>
+<ul>
+<li>Dennis Kehrig (<a href="https://github.com/DennisKehrig">https://github.com/DennisKehrig</a>) - 2.0.1</li>
+<li>Show indentation. Useful with the previous one&#x2026;</li>
+<li><a href="https://github.com/DennisKehrig/brackets-show-whitespace">https://github.com/DennisKehrig/brackets-show-whitespace</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Select Lines</strong></p>
+<ul>
+<li>Travis Almand (<a href="https://github.com/talmand">https://github.com/talmand</a>) - 1.3.0</li>
+<li>Select lines by clicking / dragging in the gutter.</li>
+<li><a href="https://github.com/talmand/Brackets-Select-Lines">https://github.com/talmand/Brackets-Select-Lines</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Display Shortcuts</strong></p>
+<ul>
+<li>Randy Edmunds (<a href="https://github.com/redmunds">https://github.com/redmunds</a>) - 1.3.5</li>
+<li>Display current keyboard shortcuts in a bottom panel that can be sorted and filtered.</li>
+<li><a href="https://github.com/redmunds/brackets-display-shortcuts">https://github.com/redmunds/brackets-display-shortcuts</a></li>
+<li>See also <a href="https://github.com/adobe/brackets/wiki/User-Key-Bindings">https://github.com/adobe/brackets/wiki/User-Key-Bindings</a> and <a href="https://github.com/adobe/brackets/blob/master/src/command/Commands.js">https://github.com/adobe/brackets/blob/master/src/command/Commands.js</a> to define (or change) your shortcuts.</li>
+</ul>
+</li>
+<li>
+<p><strong>Go to Matching Bracket</strong></p>
+<ul>
+<li>David Waterston (<a href="https://github.com/davidwaterston">https://github.com/davidwaterston</a>) - 2.1.0</li>
+<li>Instantly locate and place the cursor on the matching bracket to the one under the cursor.</li>
+<li>Shortcut: Ctrl+Alt+Right Arrow</li>
+<li><a href="https://github.com/davidwaterston/goto-matching-bracket">https://github.com/davidwaterston/goto-matching-bracket</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Rename JavaScript Identifier</strong></p>
+<ul>
+<li>Asger Feldthaus (<a href="https://github.com/asgerf">https://github.com/asgerf</a>) - 0.2.9</li>
+<li>Intelligent renaming of JS variables.</li>
+<li>Shortcut: Ctrl+R</li>
+<li><a href="https://github.com/asgerf/bracket-rename">https://github.com/asgerf/bracket-rename</a></li>
+</ul>
+</li>
+<li>
+<p><strong>BracketstoIX</strong></p>
+<ul>
+<li>ApptoIX Limited (<a href="https://github.com/apptoix">https://github.com/apptoix</a>) - 3.2.0</li>
+<li>Swiss knife toolset&#x2026; Useful: to upper or to lower case, single to double quote and back, RGB to hex colors and back, etc.</li>
+<li>Shortcuts: use the Command Mapper to define them as you want. Use Display Shortcuts to see what is available or overridable.</li>
+<li><a href="https://github.com/apptoix/bracketstoix">https://github.com/apptoix/bracketstoix</a> - <a href="http://www.apptoix.com/fr/bracketstoix.html">http://www.apptoix.com/fr/bracketstoix.html</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="support-of-auto-completion-hinting-linting">Support of auto-completion, hinting &amp; linting</h3>
+<ul>
+<li>
+<p><strong>Interactive Linter</strong></p>
+<ul>
+<li>Miguel Castillo (<a href="https://github.com/MiguelCastillo">https://github.com/MiguelCastillo</a>) - 1.0.5</li>
+<li>Brings realtime JSHint/JSLint/CoffeeLint reports into Brackets as you work on your code, in form of margin indicators.</li>
+<li><a href="https://github.com/MiguelCastillo/Brackets-InteractiveLinter">https://github.com/MiguelCastillo/Brackets-InteractiveLinter</a></li>
+</ul>
+</li>
+<li>
+<p><strong>SCSS Lint</strong></p>
+<ul>
+<li>chimo (<a href="https://github.com/chimo">https://github.com/chimo</a>) -  0.2.0</li>
+<li>SCSS lint support.</li>
+<li><a href="https://github.com/chimo/brackets-scss-lint">https://github.com/chimo/brackets-scss-lint</a></li>
+</ul>
+</li>
+<li>
+<p><strong>SASSHints</strong></p>
+<ul>
+<li>Konstantin Kobs (<a href="https://github.com/konstantinkobs">https://github.com/konstantinkobs</a>) - 1.1.0</li>
+<li>Auto-completion for SASS/SCSS variables.</li>
+<li><a href="https://github.com/konstantinkobs/brackets-SASShints">https://github.com/konstantinkobs/brackets-SASShints</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Emmet</strong></p>
+<ul>
+<li>Sergey Chikuyonok (<a href="https://github.com/sergeche">https://github.com/sergeche</a>) - 1.2.2</li>
+<li>Facilitates typing of HTML: div&gt;(header&gt;ul&gt;li*2&gt;a)+footer&gt;p + Tab key procures a div with a header and a footer, the former with a list inside.</li>
+<li><a href="https://github.com/emmetio/brackets-emmet">https://github.com/emmetio/brackets-emmet</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Brackets Snippets</strong></p>
+<ul>
+<li>Edward Chu (<a href="https://github.com/chuyik">https://github.com/chuyik</a>) - 1.8.1</li>
+<li>Imitate Sublime Text&#x2019;s behavior of snippets: insert snippets of code by typing an abbreviation and a shortcut key.</li>
+<li><a href="https://github.com/chuyik/brackets-snippets">https://github.com/chuyik/brackets-snippets</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Ternific</strong></p>
+<ul>
+<li>Miguel Castillo (<a href="https://github.com/MiguelCastillo">https://github.com/MiguelCastillo</a>) - 0.8.0</li>
+<li>JavaScript hinting and refactoring powered by Tern.</li>
+<li><a href="https://github.com/MiguelCastillo/Brackets-Ternific">https://github.com/MiguelCastillo/Brackets-Ternific</a></li>
+</ul>
+</li>
+<li>
+<p><strong>QuickDocsJS</strong></p>
+<ul>
+<li>Ole Kr&#xF6;ger (<a href="https://github.com/Wikunia">https://github.com/Wikunia</a>) - 1.6.7</li>
+<li>Inline short documentation for JavaScript functions, including a summary,syntax and parameters.</li>
+<li>Shortcut: Ctrl+K</li>
+<li><a href="https://github.com/Wikunia/brackets-QuickDocsJS">https://github.com/Wikunia/brackets-QuickDocsJS</a></li>
+</ul>
+</li>
+<li>
+<p><strong>FuncDocr</strong></p>
+<ul>
+<li>Ole Kr&#xF6;ger (<a href="https://github.com/Wikunia">https://github.com/Wikunia</a>) - 0.8.26</li>
+<li>Generates JS/PHPDoc annotations for your functions.</li>
+<li>Shortcut: Ctrl+Alt+D</li>
+<li><a href="https://github.com/Wikunia/brackets-FuncDocr">https://github.com/Wikunia/brackets-FuncDocr</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="removed-because-interactive-linter-supports-them-anyway">Removed because Interactive Linter supports them anyway</h4>
+<ul>
+<li>
+<p><strong>JSHint</strong></p>
+<ul>
+<li>Enable JSHint support, which can (should) supercedes JSLint. The latter is a bit too strict about &#x201C;rules&#x201D;. The former is very flexible.</li>
+<li><a href="https://github.com/cfjedimaster/brackets-jshint">https://github.com/cfjedimaster/brackets-jshint</a></li>
+</ul>
+</li>
+<li>
+<p><strong>JSCS</strong></p>
+<ul>
+<li>JSCS <a href="http://jscs.info/">http://jscs.info/</a> support: JSHint supports some code style rules, but they are deprecated in favor of JSCS.</li>
+<li><a href="https://github.com/globexdesigns/brackets-jscs">https://github.com/globexdesigns/brackets-jscs</a></li>
+</ul>
+</li>
+<li>
+<p><strong>CSSLint</strong></p>
+<ul>
+<li><a href="https://github.com/cfjedimaster/brackets-csslint">https://github.com/cfjedimaster/brackets-csslint</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="other-tools">Other tools</h3>
+<ul>
+<li>
+<p><strong>Brackets SASS</strong></p>
+<ul>
+<li>Jason San Jose (<a href="https://github.com/jasonsanjose">https://github.com/jasonsanjose</a>) - 2.0.3-132</li>
+<li>Enable Live Preview and compile SASS files.</li>
+<li><a href="https://github.com/jasonsanjose/brackets-sass">https://github.com/jasonsanjose/brackets-sass</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Markdown Preview</strong></p>
+<ul>
+<li>Glenn Ruehle (<a href="http://github.com/gruehle">http://github.com/gruehle</a>) - 1.0.10</li>
+<li>As the name implies&#x2026;</li>
+<li><a href="https://github.com/gruehle/MarkdownPreview">https://github.com/gruehle/MarkdownPreview</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Spell-check</strong></p>
+<ul>
+<li>Jochen Hagentr&#xF6;m (<a href="https://github.com/couzteau">https://github.com/couzteau</a>) - 0.5.8</li>
+<li>As the name implies&#x2026; Not real time.</li>
+<li><a href="https://github.com/couzteau/SpellCheck">https://github.com/couzteau/SpellCheck</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Perforce</strong></p>
+<ul>
+<li>Joshua Galvin (<a href="https://github.com/JoshGalvin">https://github.com/JoshGalvin</a>) - 1.0.1</li>
+<li>Enables Perforce source control integration (no GUI, just check out / add / delete files when dirty).</li>
+<li><a href="https://github.com/JoshGalvin/brackets-perforce">https://github.com/JoshGalvin/brackets-perforce</a></li>
+</ul>
+</li>
+<li>
+<p><strong>SVG Preview</strong></p>
+<ul>
+<li>Peter Flynn (<a href="https://github.com/peterflynn">https://github.com/peterflynn</a>) - 1.3.0</li>
+<li>Live preview SVG files inline as you edit them</li>
+<li><a href="https://github.com/peterflynn/svg-preview">https://github.com/peterflynn/svg-preview</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="extensions-that-might-be-installed-someday">Extensions that might be installed someday</h3>
+<ul>
+<li>
+<p><strong>Beautify</strong></p>
+<ul>
+<li>Format JavaScript, HTML, and CSS files</li>
+<li><a href="https://github.com/drewhamlett/brackets-beautify">https://github.com/drewhamlett/brackets-beautify</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Git</strong></p>
+<ul>
+<li><a href="https://github.com/zaggino/brackets-git">https://github.com/zaggino/brackets-git</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="removed">Removed</h4>
+<ul>
+<li><strong>Various Improvements</strong>
+<ul>
+<li>Add more information in the status bar, lowercase and uppercase converter, super clipboard, button close all folders in file tree, files search.</li>
+<li><a href="https://github.com/Dammmien/brackets-various-improvements">https://github.com/Dammmien/brackets-various-improvements</a></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://PhiLhoSoft.github.io/Software/Adobe-Brackets-review/" data-id="citsqa25u0023v0tx9jz05dtq" class="article-share-link">Share</a>
+      
+        <a href="http://PhiLhoSoft.github.io/Software/Adobe-Brackets-review/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ide/">IDE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/software/">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/">Tool</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Programming/Using-Lodash-for-fun-and-profit/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Using Lodash for fun and profit
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Programming/Functional-programming-introduction/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Functional Programming: a Brief, Pragmatic Overview</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recents</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/Multi-selection-in-lists/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Multi-selection.png
+)" alt="Multi-selection in lists" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/ui/">UI</a></p>
+              <p class="item-title"><a href="/Programming/Multi-selection-in-lists/" class="title">Multi-selection in lists</a></p>
+              <p class="item-date"><time datetime="2016-05-14T16:08:00.000Z" itemprop="datePublished">2016-05-14</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Programming/AngularJS-1-and-MobX-2/" class="thumbnail">
+  
+    <span style="background-image:url(/images/MobX_logo.png
+)" alt="How I use MobX 2 in an AngularJS 1 application" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/programming/javascript/">JavaScript</a></p>
+              <p class="item-title"><a href="/Programming/AngularJS-1-and-MobX-2/" class="title">How I use MobX 2 in an AngularJS 1 application</a></p>
+              <p class="item-date"><time datetime="2016-04-29T22:00:00.000Z" itemprop="datePublished">2016-04-30</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/Git-gitignore-rules/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Git_logo.png
+)" alt="Git .gitignore rules" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/development-tools/">Development tools</a></p>
+              <p class="item-title"><a href="/Software/Git-gitignore-rules/" class="title">Git .gitignore rules</a></p>
+              <p class="item-date"><time datetime="2016-01-08T10:34:00.000Z" itemprop="datePublished">2016-01-08</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/MessagEase-Android-keyboard-review/" class="thumbnail">
+  
+    <span style="background-image:url(/images/MessagEase_Keyboard.png
+)" alt="MessagEase (Android keyboard) review" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/android/">Android</a></p>
+              <p class="item-title"><a href="/Software/MessagEase-Android-keyboard-review/" class="title">MessagEase (Android keyboard) review</a></p>
+              <p class="item-date"><time datetime="2015-12-17T09:56:00.000Z" itemprop="datePublished">2015-12-17</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/Software/GitHub-Atom-review/" class="thumbnail">
+  
+    <span style="background-image:url(/images/Atom_logo.png
+)" alt="GitHub Atom review" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/software/">Software</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/software/ide/">IDE</a></p>
+              <p class="item-title"><a href="/Software/GitHub-Atom-review/" class="title">GitHub Atom review</a></p>
+              <p class="item-date"><time datetime="2015-12-15T09:40:00.000Z" itemprop="datePublished">2015-12-15</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/ceylon/">Ceylon</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/general/">General</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/javascript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/ui/">UI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/">Software</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/software/android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/development-tools/">Development tools</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/ide/">IDE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/software/tools/">Tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceylon/">Ceylon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">Command line</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/component/">Component</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functional-programming/">Functional programming</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">IDE</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">JavaScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keyboard/">Keyboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/language/">Language</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/library/">Library</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/">Lodash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">Programming</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive/">Reactive</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactive-programming/">Reactive programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rxjs/">RxJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/site-generation/">Site generation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">Software</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">Tool</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/">Tutorial</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui/">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">Web</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tag cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 10px;">Android</a> <a href="/tags/blog/" style="font-size: 10px;">Blog</a> <a href="/tags/ceylon/" style="font-size: 10px;">Ceylon</a> <a href="/tags/command-line/" style="font-size: 10px;">Command line</a> <a href="/tags/component/" style="font-size: 10px;">Component</a> <a href="/tags/functional-programming/" style="font-size: 15px;">Functional programming</a> <a href="/tags/git/" style="font-size: 10px;">Git</a> <a href="/tags/ide/" style="font-size: 13.33px;">IDE</a> <a href="/tags/javascript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/keyboard/" style="font-size: 10px;">Keyboard</a> <a href="/tags/language/" style="font-size: 10px;">Language</a> <a href="/tags/library/" style="font-size: 13.33px;">Library</a> <a href="/tags/lodash/" style="font-size: 10px;">Lodash</a> <a href="/tags/programming/" style="font-size: 20px;">Programming</a> <a href="/tags/reactive/" style="font-size: 11.67px;">Reactive</a> <a href="/tags/reactive-programming/" style="font-size: 10px;">Reactive programming</a> <a href="/tags/rxjs/" style="font-size: 11.67px;">RxJS</a> <a href="/tags/site-generation/" style="font-size: 10px;">Site generation</a> <a href="/tags/software/" style="font-size: 18.33px;">Software</a> <a href="/tags/tool/" style="font-size: 16.67px;">Tool</a> <a href="/tags/tutorial/" style="font-size: 15px;">Tutorial</a> <a href="/tags/ui/" style="font-size: 10px;">UI</a> <a href="/tags/web/" style="font-size: 10px;">Web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 - 2016 Philippe Lhoste (aka. PhiLho, PhiLhoSoft for GitHub &amp; Twitter)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script>
+  var disqus_shortname = 'philhosoft';
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
