@@ -6,7 +6,7 @@ body
 	font-size: 18px;
 }
 
-a:hover
+nav a:hover, footer a:hover, .links .content a:hover
 {
 	background-color: #E0E0F0;
 }
@@ -59,7 +59,7 @@ header .header .logo
 {
 	width: 48px;
 	height: 48px;
-	background: center / contain no-repeat url(assets/images/KM48.png);
+	background: center / contain no-repeat url(/playground/assets/images/KM48.png);
 	margin: 16px;
 }
 
@@ -152,7 +152,7 @@ main
 {
 	padding: 8px;
 	width: 200px;
-    text-align: center;
+	text-align: center;
 	background-color: #F0F4FF;
 }
 
@@ -175,8 +175,8 @@ main
 	height: 96px;
 	margin: 16px 13px;
 	font-size: 48px;
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 	justify-content: center;
 	background-color: #F0F0FF;
 }
@@ -189,28 +189,30 @@ main
 .notes .content
 {
 	min-height: 64px;
-    padding: 16px;
+	padding: 16px;
 }
 
 .links
 {
 	flex-direction: column;
+	padding-bottom: 16px;
+	padding-top: 16px;
 }
 .links .content
 {
-	height: 32px;
+	height: 48px;
 	padding: 16px;
-	margin-bottom: 16px;
 	display: flex;
 	justify-content: space-between;
+	background-color: #F0F4FF;
 }
 
 footer
 {
 	background-color: #E0E0F0;
-    position: fixed;
-    bottom: 0;
-    text-align: center;
-    width: 100%;
-    padding: 16px;
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+	padding: 16px;
 }
