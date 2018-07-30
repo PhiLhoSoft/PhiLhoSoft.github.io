@@ -108,6 +108,7 @@ main
 	justify-content: center;
 	align-items: center;
 	background-color: #F4F0FF;
+	padding-top: 20px;
 }
 
 .readings
@@ -129,7 +130,7 @@ main
 
 .readings .title
 {
-	flex: 0.1;
+	flex: 0.12;
 	height: 100%;
 }
 
@@ -173,30 +174,35 @@ main
 {
 	width: 96px;
 	height: 96px;
-	margin: 16px 13px;
+	margin: 16px 13px 0 13px;
 	font-size: 48px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background-color: #F0F0FF;
 }
-
-.notes
+.component.radical
 {
-	flex-direction: column;
+	background-color: #F4F0FF;
 }
 
-.notes .content
+
+.notes, .mnemonic, .links
+{
+	flex-direction: column;
+	padding-top: 16px;
+}
+
+.notes .content, .mnemonic .content
 {
 	min-height: 64px;
 	padding: 16px;
+	background-color: #F0F4FF;
 }
 
 .links
 {
-	flex-direction: column;
 	padding-bottom: 16px;
-	padding-top: 16px;
 }
 .links .content
 {
