@@ -223,3 +223,34 @@ footer
 	width: 100%;
 	padding: 16px;
 }
+
+/* TODO The Material Design Lite (MDL) Breakpoints */
+
+@media (max-width: 1024px)
+{
+
+}
+@media (max-width: 839px)
+{
+
+}
+@media (max-width: 480px)
+{
+
+}
+
+.row.content
+{
+	flex-direction: column;
+}
+.row.content h2
+{
+	font-weight: bold;
+	font-size: 1.2em;
+    margin: 8px 0 16px 0;
+}
+.row.content a:hover
+{
+	text-decoration: underline;
+	color: darkblue;
+}
