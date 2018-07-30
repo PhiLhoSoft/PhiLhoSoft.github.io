@@ -6,9 +6,13 @@ body
 	font-size: 18px;
 }
 
-nav a:hover, footer a:hover, .links .content a:hover
+nav a:hover, .links .content a:hover
 {
 	background-color: #E0E0F0;
+}
+footer a:hover
+{
+	background-color: #F0F0FF;
 }
 
 header
@@ -59,7 +63,7 @@ header .header .logo
 {
 	width: 48px;
 	height: 48px;
-	background: center / contain no-repeat url(/playground/assets/images/KM48.png);
+	background: center / contain no-repeat url(/playground/assets/images/KM48tr.png);
 	margin: 16px;
 }
 
