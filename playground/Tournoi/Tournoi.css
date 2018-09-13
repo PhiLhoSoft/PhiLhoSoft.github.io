@@ -1,0 +1,15 @@
+body
+{
+	display: flex;
+	flex-direction: column;
+}
+
+#ParticipantList
+{
+	max-width: 500px;
+}
+
+#Actions
+{
+	margin: 16px 0;
+}
